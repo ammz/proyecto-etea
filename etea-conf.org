@@ -15,7 +15,7 @@
 
 #+begin_SRC latex
   \documentclass[%
-  11pt,
+  9pt,
   a4paper,
   % openany,
   % draft
