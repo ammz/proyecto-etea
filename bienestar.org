@@ -1,0 +1,1520 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+#+begin_SRC latex
+  \loadgeometry{centrada}
+  \pagestyle{basico}
+#+end_SRC
+
+#+RESULTS:
+#+begin_export latex
+\loadgeometry{centrada}
+\pagestyle{basico}
+#+end_export
+
+* Bienestar
+** Intro                                                            :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-04
+:END:
+
+{{{inicol(2)}}}
+El Estado del Bienestar se considera un instrumento fundamental para que el crecimiento y desarrollo económico de los países llegue de una manera más equitativa a la ciudadanía, garantizando una mayor redistribución de la riqueza, una mejora en las condiciones socioeconómicas y de salud de la población y, por tanto, una mayor cohesión social.
+
+Por otro lado, el Estado del Bienestar no debe ser considerado solo como un factor inclusivo, sino que además desarrolla sectores y actividades económicas que potencialmente son creadoras de empleo, lo que contribuye a una mayor actividad económica teniendo un efecto positivo en el PIB de los países. Resulta una evidencia empírica que las sociedades que cuentan con Estados del Bienestar fuertes y consolidados tienen mejores resultados en términos de empleo, crecimiento económico, productividad y competitividad, garantizando un desarrollo más equilibrado y aprovechando el potencial económico del país.
+
+Desde los inicios de la reconstrucción europea, tras la Segunda Guerra Mundial, se ha apostado por el desarrollo del Estado del Bienestar configurándose como una seña de identidad de la Unión Europea, pese a que en muchas ocasiones se hayan abierto debates sobre si estos sistemas se encuentran en crisis o no. Lo cierto, es que éstos suponen una importante red social sobre todo en épocas de recesión, como se está poniendo de manifiesto actualmente con los efectos económicos y sociales derivados de la pandemia de la COVID-19.
+
+Los principales pilares de este Estado del Bienestar son, por un lado, aquellos grandes factores que definen la calidad de la vida de las ciudadanas y ciudadanos, como el empleo, la protección social, la asistencia sanitaria y la vivienda y, por otro, la educación, entendiéndola como la adquisición de habilidades y competencias no solo en la enseñanza obligatoria, sino a lo largo de la vida, con el fin de alcanzar mayores cotas de productividad y de renta per cápita a largo plazo.
+
+De una forma sintética, los objetivos de la política económica de la Administración andaluza en este campo deberían combatir la pobreza estructural y reducir los niveles de desigualdad y el riesgo de exclusión social, con especial atención a las políticas de salud, atención a la dependencia y vivienda, así como reforzando las funciones de los servicios públicos de empleo y formación, bajo el enfoque del aprendizaje permanente.
+
+Para conseguir que el crecimiento y desarrollo económico alcance a todas las capas sociales y se garantice una mayor cohesión social, los Gobiernos tienen el deber de actuar sobre otros ámbitos como, por ejemplo, en el mercado laboral, ya que el acceso al empleo y la mejora de las condiciones laborales constituyen factores que favorecen el bienestar.
+
+En este sentido, la OCDE en su informe “Hacia el crecimiento en 2021: dando forma a una recuperación vibrante” destaca que la pandemia ha puesto de manifiesto las vulnerabilidades que caracterizan a la economía española desde hace tiempo: un mercado laboral dominado por el desempleo, habilidades insuficientes del capital humano, una enorme disparidad entre regiones y una gran proporción de personas trabajadoras con contratos temporales. Por lo que resulta necesario apostar por políticas de empleo que incidan en el establecimiento de un empleo de calidad, que permita vivir dignamente a las personas trabajadoras, y paralelamente desarrollar medidas de carácter inclusivo dirigidas a conseguir una mayor integración social de los colectivos más desfavorecidos.
+
+Desde el punto de vista del Estado del Bienestar, las condiciones de vida de las andaluzas y los andaluces han mejorado en las últimas décadas, entre otros factores, gracias a la mejora de los servicios públicos y a la extensión de las prestaciones sociales. No obstante, aún persisten muchas carencias para una parte de la población, resultando el nivel de desigualdad de la renta un indicador muy revelador de la dificultad de corregir estos desequilibrios y de la necesidad de contar con políticas públicas, que garanticen los derechos sociales de todas las ciudadanas y ciudadanos y que no dejen a nadie atrás.
+
+Esta convicción del Gobierno andaluz es coincidente con los principios del Pilar Europeo de Derechos Sociales, que contemplan la obligación de seguir reforzando la igualdad de oportunidades y facilitar el acceso al mercado de trabajo, con acciones en materia de educación, formación y aprendizaje permanente; igualdad; y apoyo activo para el empleo. Al mismo tiempo, las autoridades europeas inciden en garantizar unas condiciones de trabajo justas en todo el territorio de la UE, a través de un empleo estable (pero adaptable); salarios mínimos adecuados; información sobre las condiciones de trabajo y protección en caso de despido; diálogo social y participación de las personas trabajadoras; y un entorno de trabajo saludable y seguro.
+
+Adicionalmente, el Pilar Europeo de Derechos Sociales hace hincapié en la política de protección e inclusión social, en un sentido amplio, que comprende acciones para atender y apoyar a la infancia; una protección social adecuada para las personas trabajadoras; garantizar unas prestaciones de renta mínima; el derecho a recibir una pensión y/o recursos que garanticen una vida digna en la vejez; una asistencia sanitaria asequible y de calidad; la inclusión de las personas con discapacidad; el derecho a una asistencia y cuidados de larga duración; así como a una vivienda o acceso habitacional para las personas sin hogar; sin olvidar el derecho a servicios esenciales (agua, energía, saneamiento, transporte, servicios y comunicaciones digitales, entre otras) en los que debe prestarse apoyo a las personas con dificultades para acceder a tales servicios.
+
+Todos estos principios están recogidos, aunque con distinta ordenación, en los ODS de la Agenda 2030, así como en los distintos bloques y prioridades del presente documento, en la medida en que se traten ámbitos en los que esta Administración Autonómica tenga competencias.
+
+En definitiva, el Gobierno andaluz establece como una de sus prioridades alcanzar mayores cotas de bienestar en la ciudadanía, con el objetivo de conseguir la cohesión social y reducir las desigualdades existentes, en línea con lo establecido en la Agenda 2030 para el Desarrollo Sostenible y con el Pilar Europeo de Derechos Sociales.
+{{{fincol}}}
+
+** Prioridades                                                      :ignore:
+
+@@latex:\pagestyle{prioridad}@@
+
+*** Mejorar el acceso al empleo y las condiciones laborales
+**** Intro 0401                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0401
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Elevado nivel de desempleo
+2. Empleabilidad
+3. Servicio Público de Empleo
+4. Condiciones laborales, seguridad y salud
+{{{finlineas}}}
+{{{ods(1 5 8)}}}
+Los nuevos desafíos de la sociedad actual, entre los que destacan factores como la globalización, las nuevas tecnologías, los cambios demográficos, como el despoblamiento de las zonas rurales, y la protección del medio ambiente, tienen un evidente impacto en las relaciones laborales y en el empleo. Estos generan un mercado de trabajo más dinámico y cambiante, con formas más diversas de trabajo y con profesiones emergentes. En este contexto, el principal reto que debe asumir la administración regional es mejorar las políticas que favorezcan el empleo con una mayor eficacia, ya que son el instrumento principal para alcanzar un crecimiento económico sostenible y fortalecer la cohesión social.
+
+Estas políticas activas de empleo, tendentes tanto al aumento de la ocupación como a la reducción de la tasa de desempleo, especialmente de los colectivos más afectados, deben complementarse con medidas que mejoren la empleabilidad de las personas, en especial las más vulnerables, fomentando el desarrollo de habilidades sociales y un aprendizaje permanente, con programas de formación eficaces constantemente evaluados, el desarrollo de una carrera profesional y un reconocimiento positivo de la formación profesional no reglada así como de la experiencia laboral acumulada. Entre estas medidas, diferentes y complementarias a las políticas activas de empleo, cabe promocionar otras de innovación social que contribuyan a ampliar la empleabilidad de las personas en edad de trabajar y a reforzar la población activa andaluza.
+
+Todo ello debe ir encaminado a conseguir una mejora de la calidad del empleo, tanto del puesto de trabajo en particular, como del mercado laboral en general, incluyendo actuaciones sobre la calidad intrínseca del trabajo, la salud y la seguridad, la igualdad entre hombres y mujeres, la integración en el acceso al mercado de trabajo, el diálogo social, especialmente con los agentes económicos y sociales más representativos y la participación.
+
+Por último, las instituciones y servicios de empleo deben reorientar sus funciones para hacer más eficiente la intermediación entre la oferta y la demanda dentro del mercado laboral.
+
+**** Objetivos                                                    :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Facilitar el acceso al empleo mejorando la calidad del mismo y las condiciones laborales.
+{{{fintcb}}}
+
+**** Elevado nivel de desempleo
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0401-01
+:END:
+
+El fuerte desequilibrio entre la oferta y la demanda de trabajo en Andalucía ha generado, según la Encuesta de Población Activa (EPA) del INE, un elevado nivel de desempleo (866.200 parados en 2020), con una *tasa de desempleo* del 22,3%, casi siete puntos más que la media del conjunto nacional (15,5%) y más del triple de la media europea (7,2%). El alto desempleo en Andalucía constituye una de las características históricas del mercado laboral. El esfuerzo, por tanto, para reducir la tasa de desempleo hasta un nivel aceptable debe ser muy significativo, incorporando cambios estructurales en la composición y funcionamiento del tejido productivo en la región.
+
+Además, este desempleo deriva de una serie de problemas de carácter estructural en el mercado laboral de Andalucía: elevado desempleo juvenil y de la mujer, alta temporalidad en el empleo, desempleo de larga duración y bajos niveles de formación.
+
+Así, Andalucía registra una de las *tasas más alta de desempleo juvenil* de todo el Estado, alcanzando el 49,5% de la población andaluza menor de 25 años en 2020, superando en casi 12 puntos la media estatal (38,3%).
+
+Por sexo, la *tasa de paro femenina* se sitúa en el 26,5% en 2020, muy superior al 18,8% de la tasa de paro masculina (17,4% y 13,9% a nivel nacional, respectivamente).
+
+Por su parte, y a pesar de haberse reducido sensiblemente la *tasa de temporalidad* en el empleo en Andalucía en los últimos años, desde su punto máximo alcanzado en 2006 (47%), aún se mantiene muy elevada (32,2% en 2020), superando en más de 8 puntos porcentuales a la media española (24,1% del total). Esta temporalidad se explica por la existencia de sectores de actividad de alta estacionalidad, como la agricultura, la construcción, la hostelería y el comercio, que suponen el 40,4% del empleo total en 2020, superior al 33,6% que se registra a nivel nacional.
+
+La *duración del desempleo* es también un problema en Andalucía ya que, en 2020, casi un 40% del total de las personas desempleadas (39,8%) llevaban en esa situación más de un año y un 26,8% llevaban más de dos años. Los porcentajes son algo más elevados que la media española (38,1% y 24,0%, respectivamente). Y, por sexo, la duración del desempleo también afecta más a las mujeres, estando desempleadas más de un año un 42,9% de las mujeres en paro, 6,7 puntos más que los hombres.
+
+En relación a los *bajos de niveles de formación*, que se tratan en otros apartados con más detalle, señalar que, con carácter general, para su reducción será necesaria una formación profesional educativa y una formación profesional para el empleo en permanente evolución y adaptándose a las verdaderas necesidades formativas de los diversos sectores emergentes.
+
+
+:fig-0401A1:
+:F:  INE. Encuesta de Población Activa (EPA) y Eurostat.:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de la tasa de desempleo sobre la población activa. And-Esp-UE.
+[[./graficos/0401A1.pdf]]
+:END:
+
+:fig-0401A2:
+:F:  INE. Encuesta de Población Activa (EPA).:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Tasa de desempleo de personas menores de 25 años. Año 2020
+[[./graficos/0401A2.pdf]]
+:END:
+
+
+:fig-0401A3:
+:F:  INE. Encuesta de Población Activa (EPA).:F:
+:U: Porcentaje de asalariados con contrato temporal sobre el total de asalariados.:U:
+:N::N:
+:E::E:
+#+CAPTION: Tasa de temporalidad en el empleo. Año 2020
+[[./graficos/0401A3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Implementar nuevas políticas activas para crear y mantener el empleo, sujetas a estricta evaluación independiente y criterios de selección que faciliten el aumento de empleabilidad de las personas trabajadoras andaluzas.
+
+2. Diseñar actuaciones específicas de fomento de empleo para los colectivos más desfavorecidos: jóvenes, mujeres, parados de larga duración y colectivos con circunstancias especiales (población gitana, migrantes y personas sin hogar). Así como, para los grupos que permanecen fuera del mercado de trabajo, tales como las personas que realizan labores en el hogar o sin remunerar, trabajos sociales o actividades benéficas, o aquellas que reciben pensiones no contributivas.
+
+3. Fomentar acciones formativas más eficaces, diseñadas teniendo en cuenta las verdaderas necesidades formativas sectoriales y geográficas que favorezcan la empleabilidad, especialmente dirigidas a parados de larga duración y a jóvenes, para apoyar la movilidad laboral voluntaria entre sectores y regiones.
+
+4. Fomentar el empleo indefinido, en coordinación con la Administración Central, con actuaciones que reconsideren, mediante evaluación, los periodos de prácticas, el aprendizaje, los programas de segunda oportunidad y la reformulación de los actuales sistemas de ayudas al empleo.
+
+5. Promover actuaciones de recolocación o transiciones a empleos que prevengan la pérdida de empleo.
+
+6. Establecer medidas que permitan la creación y la consolidación tanto del trabajo autónomo como de las empresas de economía social.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Director de Ordenación de las políticas de Empleo y Relaciones Laborales en Andalucía.
+- Plan de impulso y modernización de la economía social andaluza 2021-2025.
+- Programa de estímulo a la creación y consolidación del trabajo autónomo en Andalucía.
+
+**** Empleabilidad
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0401-02
+:END:
+
+La relación de la *formación educativa* con el desempleo es evidente, puesto que la tasa de paro de la población entre 25 y 64 años con menor nivel educativo (hasta la secundaria obligatoria) en Andalucía es más del doble (27,2%) que la de perfiles con educación superior (11,7%), por encima de las medias nacionales (18,9% vs. 8,1%) y europeas (12,5% vs. 4,0%).
+
+Además, en 2019, casi la mitad de la población activa andaluza (47,8%) cuenta solo con estudios primarios (primera etapa de educación secundaria o menos), frente al 38,7% y 17,4%, en España y Unión Europea, respectivamente. En este sentido, cabe destacar el positivo papel que pueden desempeñar las escuelas de segunda oportunidad, vinculada al aprendizaje de oficios y con titulaciones reconocida por la administración.
+
+Por su parte, *la formación de todas las personas durante toda su vida laboral es clave* para mejorar la empleabilidad, en un mercado laboral que debe dar respuesta a las nuevas necesidades provenientes de un proceso de cambio tecnológico, digital y productivo. En 2019, en España el 10,6 % de la población de 25 a 64 años participó en alguna actividad de formación, siendo la participación de las mujeres superior a la de los hombres en dos puntos, 11,7 % y 9,5 % respectivamente. Los mayores porcentajes de participación se producen en Comunidad Foral de Navarra y País Vasco (ambas 13,0 %), mientras que en Andalucía solo se alcanza el 9,6%. En 2019, en la Unión Europea, el 11,3 % de la población entre 25 y 64 años ha participado en actividades de formación, no alcanzándose todavía el porcentaje del 15% propuesto como objetivo para 2020, en la Estrategia Europa 2020.
+
+Adicionalmente, hay actividades para las que las empresas no son capaces de encontrar personal disponible con conocimientos y habilidades específicas. Los datos disponibles por encuestas (2016, 2018) reflejan que alrededor del 40% de las compañías en Andalucía manifiestan no cubrir todas las competencias requeridas, número algo menor que la media española situada en un 42,3%. Por ello, las empresas demandan una mejor formación tanto en competencias curriculares como en las transversales, las denominadas /“soft skills”/.
+
+Se observa una baja capitalización de la *experiencia laboral* en Andalucía, así como la existencia de aprendizajes no formales, es decir, de competencias profesionales adquiridas fuera de los sistemas formales de aprendizaje y cuya cualificación no puede ser reconocida.
+
+Asimismo, resulta también un problema la existencia de un sistema de cualificaciones profesionales excesivamente rígido, que no se ajusta a las actuales características de los procesos de producción.
+
+
+:fig-0401B1:
+:F:  Explotación de las variables educativas de la Encuesta de Población Activa (INE) y Eurostat.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Tasa de paro por nivel de formación. 2019 (% población 25-64 años)
+[[./graficos/0401B1.pdf]]
+:END:
+
+:fig-0401B2:
+:F:  Sistema Estatal de Indicadores de la Educación 2020. Ministerio de Educación y Formación Profesional.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Porcentaje de población 25 a 64 años que participa en una acción de educación o formación permanente por CCAA. 2019
+[[./graficos/0401B2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Diseñar políticas de formación para el empleo adaptadas a las demandas del mercado laboral andaluz.
+
+2. Implantar actuaciones de información, asesoramiento y posterior evaluación de las competencias profesionales adquiridas por las personas a efectos de que les sea reconocida la competencia profesional adecuada a sus aptitudes, dando lugar a la correspondiente acreditación.
+
+3. Establecer actuaciones de formación dirigidas a personas ocupadas basadas en un proceso de formación continua compatible con el desempeño profesional.
+
+4. Diseñar un mapa o catálogo adaptable de cursos (FP para el empleo) que posibiliten la adquisición, por parte de las personas trabajadoras, de competencias vinculadas a especialidades formativas en áreas prioritarias, sean técnicas o transversales, para atajar los desequilibrios entre la oferta formativa y la demanda laboral.
+
+5. Estudiar la conveniencia de establecer un programa piloto de cheque formación para personas desempleadas.
+
+6. Establecer programas piloto de transición a la vida laboral en la etapa final educativa del alumnado con necesidades especificas educativas.
+
+7. Reforzar la creación de materiales digitales para facilitar el acceso a la educación y mejora del nivel educativo para personas adultas en el nuevo contexto de educación a distancia y teletrabajo.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Director de Ordenación de las políticas de Empleo y Relaciones Laborales en Andalucía.
+
+**** Servicio público de empleo
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0401-03
+:END:
+
+Un eje de actuación prioritario para facilitar el acceso al empleo tiene que ver con la mejora de las instituciones y servicios de empleo, que deben reorientar sus funciones a evaluar y anticipar las necesidades del mercado de trabajo para facilitar el encuentro entre las capacidades de las personas y las necesidades de empleo.
+
+En este terreno, el *Servicio Andaluz de Empleo (SAE), con una limitada capacidad y eficacia*, muestra un desempeño mejorable. El SAE participa en el 2,7% del total de contrataciones realizadas en Andalucía, que es una cifra muy pequeña, a pesar de encontrarse por encima de la media nacional. Esta cifra se reduce aún más al observar que, en su enorme mayoría, estas contrataciones son de carácter público (96% del total), lo que denota una alta desconexión del mismo respecto del sector privado. Además, las empresas andaluzas recurren al SAE para cubrir preferentemente vacantes de escasa cualificación. Por el lado de la oferta, más de la mitad de las personas desempleadas andaluzas no considera el SAE como instrumento útil para buscar y encontrar un puesto de trabajo y no acuden a su red de oficinas para acabar con su situación de desempleo.
+
+Por ello, es necesario cambiar el modelo de gestión del SAE a partir de una visión integral y analítica del proceso de encuadramiento, orientación e intermediación, con una colaboración más estrecha y efectiva entre los servicios de empleo y los servicios sociales, utilizando la formación como una de sus principales bazas.
+
+
+:fig-0401C1:
+:F: Servicio Estatal Público de Empleo.:F:
+:U: En % sobre el total.:U:
+:N: Ceuta no se ha incluido porque es una excepción (45,9%).:N:
+:E::E:
+#+CAPTION: Colocaciones con oferta sobre el total de colocaciones por CC.AA. Diciembre 2020
+[[./graficos/0401C1.pdf]]
+:END:
+
+:fig-0401C2:
+:F: IECA. Explotación de la Encuesta de Población Activa del INE.:F:
+:U::U:
+:N: Los porcentajes no tienen que sumar cien al ser preguntas independientes.:N:
+:E::E:
+#+CAPTION: Método de búsqueda de empleo según demandantes de empleo en Andalucía. Año 2020
+[[./graficos/0401C2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Diseñar una cartera de servicios del SAE más amplia y de mejor calidad para la ciudadanía y las empresas.
+
+2. Incorporar técnicas de acceso y manejo de información útil y pertinente, que permitan el perfilado de las posibilidades de las personas (oferta) y las necesidades de las empresas (demanda).
+
+3. Potenciar la orientación personalizada dentro del SAE de las personas desempleadas en función de su experiencia y cualificación.
+
+4. Mayor participación en el proceso de intermediación para la cobertura de los empleos vacantes de manera óptima y en el menor tiempo posible.
+
+5. Anticipar las necesidades del tejido productivo mediante la modelización, tanto a corto, medio, como largo plazo, con métodos predictivos, de la información disponible sobre las personas desempleadas y las variables estadísticas que caracterizan tanto el mercado de trabajo como las demandas generadas por las necesidades de las empresas.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Director de Ordenación de las políticas de Empleo y Relaciones Laborales en Andalucía.
+**** Condiciones laborales, seguridad y salud
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0401-04
+:END:
+
+Resulta también prioritario mejorar las condiciones laborales y la calidad del empleo, especialmente las relacionadas con la *seguridad y salud* de las personas trabajadoras, con el objetivo de reducir los accidentes laborales y las enfermedades profesionales.
+
+Respecto a la protección de la seguridad de las personas trabajadoras y a su salud en el ámbito laboral, el principal objetivo es la reducción de la siniestralidad laboral.
+
+La evolución de los *accidentes en jornada de trabajo* con resultado de baja laboral en Andalucía muestra un crecimiento sostenido en el período 2012–2019, alcanzándose los 96.234 accidentes en 2019, el 17,1% del total de los accidentes a nivel nacional. No obstante, si se relaciona la siniestralidad laboral con el número de personas trabajadoras en cada ejercicio, se observa un máximo en el año 2017 tanto para personas asalariadas como en ocupaciones por cuenta propia, y un decremento de dicha tasa en los años 2018 y 2019.
+
+Del total de los accidentes producidos en 2019 en Andalucía, el 86,4% se produjeron en el lugar de trabajo y el 13,6% /in itinere/, de los cuales el 0,1% fueron accidentes mortales. Por género, la distribución de la siniestralidad, disponible desde 2012, recoge valores del índice de incidencia para mujeres del orden de la mitad que en el caso de los hombres. Las mejoras de las condiciones laborales reducirán el coste derivado de los accidentes laborales y de las enfermedades profesionales, contribuyendo al incremento de la productividad de las empresas, al crecimiento económico, a la generación de empleo y a la mejora de la calidad de vida de las personas trabajadoras.
+
+Para ello resulta indispensable potenciar la *prevención de riesgos laborales*, que debe dirigirse tanto a evitar en lo posible todos los riesgos que supongan la posibilidad de sufrir accidentes y la aparición de enfermedades a corto, medio y largo plazo, como a promover una cultura preventiva real y efectiva.
+
+El *diálogo social y la negociación colectiva* son los instrumentos fundamentales para mejorar las condiciones laborales, ya que reportan beneficios sobre la calidad del empleo, la mejora de las condiciones de trabajo, la mediación y el arbitraje, la igualdad de las personas trabajadoras y la conciliación de la vida personal, familiar y laboral.
+
+
+:fig-0401D1:
+:F: Ministerio de Trabajo y Economía Social.:F:
+:U:   Nº de accidentes durante la jornada (no incluye los desplazamientos “in itinere”).:U:
+:N::N:
+:E::E:
+#+CAPTION: Accidentes de trabajo con resultado de baja laboral en Andalucía
+[[./graficos/0401D1.pdf]]
+:END:
+
+:fig-0401D2:
+:F: Ministerio de Trabajo y Economía Social.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Accidentes de trabajo con baja, en jornada e in itinere, según gravedad, por Comunidad Autónoma, 2019
+[[./graficos/0401D2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Apoyar a las empresas en la gestión de la prevención de riesgos laborales, prestando un adecuado tratamiento a las pequeñas y medianas empresas y al colectivo de personas trabajadoras autónomas.
+
+2. Potenciar los programas participativos y la colaboración entre agentes e instituciones para la mejora de las condiciones de seguridad y salud laboral.
+
+3. Mejorar la eficacia de las instituciones dedicadas a la prevención de riesgos laborales, en el marco del diálogo social.
+
+4. Revisar y reforzar la estructura organizativa de los servicios de prevención de riesgos laborales en la Administración Andaluza.
+
+5. Fomentar la investigación y su posterior transferencia en materia de prevención de riesgos laborales, favoreciendo la implicación de las empresas en las mismas.
+
+6. Diseñar y poner en marcha actuaciones que inciden en la reducción de la siniestralidad y la mejora de las condiciones de seguridad y salud en el trabajo.
+
+7. Fomentar la cultura preventiva en la sociedad andaluza, y especialmente en los centros de trabajo.
+
+8. Promocionar hábitos de vida saludables tanto en el entorno laboral como en los ámbitos educativo y familiar, incluyendo el desarrollo de planes y programas educativos y deportivos dirigidos a atender las necesidades e intereses de la población.
+
+9. Ampliar y mejorar el diálogo social y la negociación colectiva que contribuyan a alcanzar unas condiciones laborales adecuadas, la prevención y el diseño de fórmulas que promocionen el empleo de calidad, la igualdad, la integración sociolaboral, la conciliación, el teletrabajo y otros derechos.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Director de Ordenación de las políticas de Empleo y Relaciones Laborales en Andalucía.
+- Estrategia Andaluza de Seguridad y Salud en el Trabajo 2017-2022.
+- II Encuesta Andaluza de Condiciones de Trabajo (EACT).
+*** Reforzar la calidad del sistema educativo
+**** Intro 0402                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0402
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Fracaso y abandono escolar temprano
+2. Nivel educativo
+3. Formación profesional
+4. Profesorado y otros recursos humanos
+{{{finlineas}}}
+{{{ods(4 5 10)}}}
+La educación desempeña un papel esencial como instrumento para lograr mejores niveles de bienestar en la sociedad andaluza. Los resultados educativos y la formación, entendida como la adquisición de habilidades y competencias, son fundamentales para afrontar los retos y oportunidades de un sistema productivo que debe adaptarse a un mundo complejo y cambiante.
+
+En Andalucía, al igual que en España, y a pesar de que los indicadores en materia de educación han tenido una evolución favorable, no se han alcanzado las metas recomendadas por la Estrategia Europa 2020.
+
+El abandono escolar temprano se ha convertido en un problema educativo y social de primer orden debido a la cada vez mayor demanda de cualificación por parte del tejido productivo y por la relación entre la salida prematura del sistema educativo y la exclusión social.
+
+En Andalucía, aunque en los últimos años se han reducido considerablemente las tasas de abandono escolar temprano aún es muy significativa la brecha existente con respecto al promedio nacional y europeo.
+
+También, los resultados de la evaluación del nivel educativo del alumnado andaluz arrojan puntuaciones que son inferiores a la media española y a la de los países de nuestro entorno (Informe PISA, 2018). Estos resultados ponen de manifiesto una importante proporción de alumnado rezagado que acaba teniendo mayores dificultades para el acceso a otros estudios postobligatorios y/o superiores, así como para la transición a la vida laboral.
+
+En la mayor parte de Europa, los modelos de cualificación se asientan sobre la formación intermedia, mientras que en España y Andalucía se basan en un sistema de cualificaciones bajas y superiores, siendo la población con formación intermedia la que tiene una menor representación. Por ello, es prioritario un desarrollo y actualización del sistema de formación profesional que lo haga más atractivo y con un sistema de incentivos claros que prime y premie la empleabilidad final que consiga el alumnado.
+
+Por último, en Andalucía el gasto en educación sigue siendo bajo, siendo prioritario continuar con los esfuerzos para dotar de mejores y mayores recursos humanos y materiales a nuestro sistema educativo.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Garantizar una educación inclusiva, equitativa y de calidad.
+{{{fintcb}}}
+
+**** Fracaso y abandono escolar temprano
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0402-01
+:END:
+
+El *fracaso escolar* hace referencia al colectivo de personas que no han logrado completar con éxito las distintas etapas de enseñanza obligatoria, a las personas que, una vez superada la enseñanza obligatoria, no consiguen alcanzar ningún otro título que les permita formarse en cuanto a una profesión concreta y a las personas que en la edad adulta sufren consecuencias sociales y laborales por no haber logrado una correcta preparación académica.
+
+En Andalucía, el *abandono escolar temprano*[fn:34] es un problema especialmente acusado, ya que aunque ha visto descender su tasa de abandono a lo largo de los últimos años, ésta ha sido sistemáticamente superior a la media nacional y europea. Por otra parte, un análisis desagregado por sexos permite comprobar que el porcentaje de abandono escolar es claramente más elevado entre los hombres que entre las mujeres (en 2019, 21,4% y 13%, respectivamente a nivel nacional, y 26,1% y 16,9% en Andalucía). El fenómeno del abandono escolar temprano no solo refleja un fallo en el sistema educativo, sino que implica que, en el caso de Andalucía, casi un quinto de la población joven llegará a la vida adulta sin las necesarias oportunidades, lo que implica efectos muy negativos en términos de inserción en el mercado de laboral.
+
+De hecho, según datos de la Consejería de Educación y Deporte, del total de matrículas en cursos terminales que dan acceso al título de Graduado en Educación Secundaria Obligatoria el 18% en 2019/20 y 15,6% en 2020/21 corresponden a personas matriculadas en Nivel II de ESO para personas adultas. Esto indica que casi un 20% del alumnado son personas que intentan volver al sistema educativo para finalizar su formación básica obligatoria.
+
+Además, del total de titulaciones en ESO obtenidas en nuestra comunidad el 13,1% en 2019/20 y el 11,8% en 2020/21 son obtenidas gracias a la segunda oportunidad que ofrecen las enseñanzas para personas adultas.
+
+
+:fig-0402A1:
+:F:  Instituto de Estadística y Cartografía de Andalucía (Encuesta de Población Activa en Andalucía) y Eurostat.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de las tasas de abandono escolar temprano. Ratio de Andalucía-España-UE.
+[[./graficos/0402A1.pdf]]
+:END:
+
+:fig-0402A2:
+:F:  Instituto de Estadística y Cartografía de Andalucía (Encuesta de Población Activa en Andalucía).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Tasa de abandono escolar temprano por CCAA y sexo. Año 2019.
+[[./graficos/0402A2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Impulsar la efectividad del Plan para la Reducción del Abandono Educativo Temprano y del Plan PROA (Programas de Refuerzo, Orientación y Apoyo), así como estudiar su aplicación a las enseñanzas postobligatorias y a colectivos con necesidades específicas.
+
+2. Desarrollar Programas de Tránsito entre etapas, con personal que tutorice al alumnado con objeto de evitar el abandono o el fracaso escolar.
+
+3. Proporcionar formación al profesorado y dotar a los equipos de orientación de los medios suficientes para la detección e identificación temprana de las necesidades educativas del alumnado, que permita adoptar las medidas más adecuadas (programas innovadores de refuerzo educativo, nuevas actividades extraescolares: programación, robótica y proyectos STEAM) para garantizar su éxito escolar.
+
+4. Introducir enfoques metodológicos y pedagógicos centrados en el alumnado, en el enfoque competencial en el nuevo currículo y que sean colaborativos, activos y participativos a través del diseño universal de aprendizaje.
+
+5. Valorar la conveniencia de establecer un programa de mentoría social donde se contemplen actuaciones que consoliden y continúen avanzando en el desarrollo personal y profesional del alumnado con dificultades socioeconómicas.
+
+6. Implementar proyectos y programas educativos innovadores en los centros docentes que prevengan el acoso escolar, el ciberbullying y que promuevan un clima escolar de convivencia positiva que generen actitudes y valores de empatía, respeto y de tolerancia cero ante la violencia.
+
+7. Fomentar la participación de los padres, madres y de la comunidad educativa en su totalidad, estableciendo relaciones de cooperación y solidaridad.
+
+8. Potenciar la introducción y el desarrollo de Programas para la Innovación Educativa, que incentiven el uso de metodologías activas y participativas (gamificación, alfabetización mediatica y audiovisual), con un rol más activo del alumnado en el proceso de enseñanza-aprendizaje, potenciando las Bibliotecas Escolares.
+
+9. Creación de Aulas taller dirigidas a reducir el abandono escolar temprano y la inserción laboral.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Estratégico de Evaluación Educativa (2020-2022).
+
+**** Nivel educativo
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0402-02
+:END:
+
+Los resultados del Programa para la Evaluación Internacional de los Alumnos (PISA), centrados en el aprendizaje y en las competencias, reflejan importantes diferencias en los niveles alcanzados por el alumnado andaluz con respecto a la media nacional y a la de los países de la OCDE.
+
+Así, el último informe publicado (2018) arrojaba *puntuaciones inferiores a la media de la UE y de la OCDE en las principales materias*: matemáticas (467,4 en el ámbito regional, frente a la puntuación media de la UE, 493,8); en comprensión lectora (465,8 en Andalucía, frente al promedio europeo de 489,2), así como en Ciencias (470,9 en Andalucía, también por debajo de los 490,4 de la media en la UE). Diferenciando por género, en la /Competencia Matemática/, tanto en la OCDE, como en España y Andalucía, los alumnos obtienen mejores resultados que las alumnas. Andalucía, junto a Madrid, Castilla y León, Baleares, Cantabria y La Rioja son las regiones españolas en las que las diferencias entre chicos y chicas son estadísticamente significativas, al igual que sucede en la OCDE. En la /Competencia Científica/, y aunque los resultados de los alumnos siguen siendo superiores a los de las alumnas, tanto en España como en Andalucía, las diferencias no son estadísticamente significativas.
+
+Además, la *tasa de alumnado repetidor en la educación obligatoria en Andalucía en 2018 es del 33,3%, superior a la media nacional (28,7%) y de la OCDE (11,4%)*. Un alumno o alumna que repite no suele obtener resultados positivos en los años posteriores y está en riesgo de abandono escolar temprano, además de sufrir una pérdida de posibilidades de empleo de calidad y sin descartar el riesgo de exclusión social.
+
+Preocupa también la *elevada proporción de jóvenes entre 18 y 24 años que están situación de desempleo y que ni estudian ni reciben formación (20,7% en 2018)* en Andalucía, una proporción superior a la media española (16,1%) y a la de la UE (13,7%).
+
+La demanda de una educación de calidad puede implicar unos costes elevados por alumno. En 2018 el gasto medio por alumno en España en centros públicos era de 5.968 euros, lo que supone un 23,2% del PIB por habitante, siendo el gasto en Andalucía de 5.210 euros, lo que representa un 27,3% del PIB por habitante regional.
+
+
+:fig-0402B1:
+:F:  Informe PISA, 2018. Ministerio de Educación y Formación Profesional.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Resultados de PISA: Puntuaciones medias en lectura, ciencias y matemáticas
+[[./graficos/0402B1.pdf]]
+:END:
+
+:fig-0402B2:
+:F:  INE (Encuesta de Población Activa) y Eurostat.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Población joven que ni estudia ni trabaja. And-Esp-UE (% de población de 18 a 24 años)
+[[./graficos/0402B2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Mantener la cobertura del sistema de becas dirigido a apoyar al alumnado perteneciente a familias con rentas modestas para que termine la enseñanza obligatoria y estudiar su ampliación a la postobligatoria.
+
+2. Apoyar los servicios de tutorización individualizada en los centros educativos para que realicen actuaciones de refuerzo, fuera del horario escolar.
+
+3. Revisar los programas educativos, incorporando la formación en competencias digitales y la programación informática, así como la metodología docente, en colaboración con los departamentos universitarios más competitivos, buscando introducir en nuestra región buenas prácticas educativas que hayan tenido éxito en otros territorios de similar nivel de renta.
+
+4. Fortalecer los Programas de Excelencia Educativa: Bachillerato Internacional, Bachibac, así valorar la puesta en marcha unidades integradas de música y danza con la ESO.
+
+5. Incrementar el peso de las herramientas de educación digital, dentro de los programas de Innovación Educativa, con bibliotecas de clase, uso de videojuegos educativos y actividades de refuerzo y seguimiento.
+
+6. Mejorar la dotación de infraestructuras y equipamientos en todos los centros educativos, incluidos los centros de Educación Permanente (CEPER) y sus secciones, de personas adultas, así como los servicios de orientación profesional, tutorización individualizada y refuerzo.
+
+7. Fomentar el papel del alumnado como eje protagonista del proceso de enseñanza-aprendizaje, con mayor participación en los planes del centro educativo y en los Programas para la Innovación Educativa.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Estratégico de Evaluación Educativa (2020-2022).
+- II Plan estratégico de igualdad de género en educación (vigente hasta 2021). En elaboración el III para el periodo 2022-2027.
+- Plan Estratégico de Innovación Educativa 2021-2027.
+
+**** Formación profesional
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0402-03
+:END:
+
+Las innovaciones tecnológicas, la progresiva automatización de los procesos productivos, la transición ecológica, los nuevos tipos de gestión y organización empresarial, el surgimiento de nuevos campos profesionales, la reestructuración del mercado de trabajo, la creación de nuevos nichos de empleo verde y la necesidad de acceso al empleo de calidad han hecho que los sectores productivos y de servicios vengan demandando cambios profundos en la Formación Profesional, las enseñanzas profesionales de artes plásticas y diseño, así como las enseñanzas artísticas superiores. Dichos cambios deben dar respuesta a la necesidad de potenciar el capital humano y su empleabilidad mediante la mejora de sus capacidades y competencias profesionales.
+
+En la mayoría de los países europeos, entre ellos Alemania, Francia, Austria o Reino Unido, la mayor parte de la población tiene un nivel intermedio de cualificación. Sin embargo, como se ha comentado, España y Andalucía constituyen excepciones a este modelo, teniendo un esquema de formación de la población polarizado, con una combinación de cualificaciones bajas y superiores. En concreto, en 2019, en España el 38,7% de la población entre 25 y 64 años ha completado como máximo hasta la enseñanza secundaria obligatoria (ESO), porcentaje que se eleva hasta el 47,8% en el caso de Andalucía. La población de dicha edad con estudios superiores supone el 38,6% del total en España, peso superior a la media europea (31,6%), que es similar al nivel en Andalucía (31,2%). Mientras, en el estrato de población con formación intermedia, es decir, bachillerato y formación profesional de grado medio, se concentra por debajo de la cuarta parte. Concretamente, un 22,7% en España y un 21,0% en Andalucía, es decir, ratios muy inferiores a la media de la UE (46,8 %).
+
+:fig-0402C1:
+:F:  Eurostat y Ministerio de Educación y Formación Profesional.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Distribución de la población (25-64 años) según nivel de formación. 2019
+[[./graficos/0402C1.pdf]]
+:END:
+
+Analizando las tasas brutas de titulación por comunidad autónoma (relación entre el alumnado que termina y el total de la población de la “edad teórica” de comienzo del último curso de esa enseñanza), se observa que, en Grado Medio, las más altas corresponden a Galicia (27,6 %) y Cantabria (27,3 %) y, en Grado Superior, a País Vasco (45,0 %), seguida de Cantabria (37,1 %), siendo las tasas en Andalucía del 21,3% y 26,5%, respectivamente. Por su parte en la FP Básica las tasas más altas corresponden a La Rioja (9,1 %) y País Vasco (7,6 %), siendo la andaluza del 3,8%.
+
+Especialmente importante es la Formación Profesional Dual, programa de formación en régimen de alternancia con el empleo que ofrece, mediante un contrato para la formación y el aprendizaje, la posibilidad de obtener uno o varios certificados de profesionalidad a la vez que se desarrolla una actividad laboral retribuida relacionada con la formación impartida. Con este programa se pretende tanto reducir el desempleo juvenil como atender la demanda de mano de obra cualificada.
+
+Los estudios prospectivos del Centro Europeo para el Desarrollo de la Formación Profesional (CEDEFOP) apuntan a una creciente demanda de cualificaciones de nivel intermedio y superior, al menos hasta el año 2025, y una disminución en la demanda de personas trabajadoras con bajo nivel educativo.
+
+La administración andaluza debe tratar de mejorar la correspondencia entre la formación profesional media y las necesidades del mercado de trabajo mediante una mayor participación del sector empresarial y los agentes sociales más representativos en la revisión del marco de titulaciones.
+
+Además, en coordinación con el Gobierno central, y con el resto de Comunidades Autónomas, así como con los interlocutores sociales y otras partes interesadas, se debe ir avanzando en el desarrollo y actualización del sistema de formación profesional dual (así como de los títulos de enseñanzas profesionales de artes plásticas y diseño) en Andalucía, cumpliendo con los estándares clave de la formación profesional dual señalados por la OCDE.
+
+:fig-0402C2:
+:F:  Sistema Estatal de Indicadores de la Educación 2020. Ministerio de Educación y Formación Profesional.:F:
+:U::U:
+:N: La tasa bruta de titulación en una enseñanza se define como la relación entre el alumnado que termina, independientemente de su edad, y el total de la población de la “edad teórica” de comienzo del último curso de esa enseñanza.:N:
+:E::E:
+#+CAPTION: Tasa bruta de titulación en Ciclos Formativos, por comunidad autónoma. Curso 2017-18
+[[./graficos/0402C2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Potenciar y prestigiar la formación profesional con una oferta de adquisición de competencias clave, como la digitalización, más acorde a las necesidades del sector empresarial y apoyando también el acceso a pasarelas que permitan acceder a más opciones académicas en la enseñanza secundaria superior y la educación terciaria.
+
+2. Analizar y mejorar el programa de Formación Profesional Dual con la implicación de administraciones, sectores productivos, representantes sindicales y otros interlocutores sociales.
+
+3. Establecer sistemas de detección proactiva de las necesidades formativas de los sectores productivos y de servicios.
+
+4. Apoyar la creación de una Red de Centros Integrados de Formación Profesional que permita la especialización en diversas áreas de conocimiento.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Estratégico de Evaluación Educativa (2020-2022).
+- Plan Estratégico de Formación profesional del sistema educativo 2019-2022. Estado.
+- II Plan estratégico de igualdad de género en educación (vigente hasta 2021). En elaboración el III para el periodo 2022-2027.
+- Plan Estratégico de Innovación Educativa 2021-2027.
+
+**** Profesorado y otros recursos humanos
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0402-05
+:END:
+
+La evidencia muestra que la *calidad docente*, unida a la estabilidad de las plantillas, mejora los resultados del alumnado y consigue un impacto duradero a lo largo de su vida. Sin embargo, los informes de la OCDE sobre esta materia señalan que los docentes españoles, respecto a la media de los países que la conforman, aunque tienen salarios superiores, han participado menos en programas de inducción a la docencia[fn:13]; reciben menos /feedback/ estructurado sobre su labor como docentes; muy pocos (menos del 5%) tiene un mentor asignado; han participado en menos actividades formativas o de desarrollo profesional y pasan menos tiempo planificando sus clases y más tiempo gestionando sus aulas.
+
+Asimismo, en nuestro país, las cuestiones relacionadas con la carrera profesional docente han sido menos desarrolladas, pese a que la evidencia científica muestra que la calidad docente y la colaboración y el aprendizaje entre docentes conforman la combinación de factores que más impacto tienen sobre el aprendizaje. Según los resultados de la encuesta  TALIS 2018 (/Teaching and Learning International Survey/) realizada por la OCDE a docentes, España tiene dos retos fundamentales en cuanto a la profesión docente: fortalecer los procesos de inserción a la docencia (ligados a un componente práctico, o clínico, del desarrollo profesional) y mejorar la colaboración docente. A ello deberíamos unir un sistema eficaz de incentivos más estimulantes que ligue claramente las recompensas en función de los resultados de la docencia, una vez descontadas las características socioeconómicas del alumnado.
+
+La profesión docente está claramente feminizada en la mayoría de los países analizados, especialmente en Educación Primaria. Esto mismo ocurre en España, aunque el grado de feminización se reduce en la enseñanza secundaria. No obstante, existe un claro desequilibrio en la representación de mujeres en los puestos de dirección, tanto en primaria como en secundaria.
+
+Los recursos humanos y materiales que se destinan a la educación son un indicativo de la importancia que se le otorga a ésta. Entre los indicadores de estos recursos, se puede considerar fundamental el *volumen de gasto público en educación*. En el año 2018, un 10,1% del gasto público total en España era destinado a educación. En cuanto a la naturaleza económica de ese gasto en 2018, el de personal representa el 67,2%, si se incluye el cálculo de las cotizaciones sociales imputadas.
+
+Entre los recursos humanos del sistema educativo, el personal dedicado al alumnado con necesidades especiales desempeña un papel relevante para prevenir el fracaso escolar y dotar de calidad al sistema educativo. La realidad actual en Andalucía refleja que las plantillas de este colectivo, en centros y servicios educativos, son insuficientes. Además, los sistemas de selección son poco ágiles, con procedimientos muy burocratizados y con falta de autogestión.
+
+La demanda de una educación de calidad requiere de unos recursos económicos elevados por alumno. Así, en 2017 el gasto medio por alumno en España en centros públicos fue de 5.779 euros, siendo el gasto en Andalucía de 5.077 euros.
+
+:fig-0402D1:
+:F:  Sistema Estatal de Indicadores de la Educación 2020. Ministerio de Educación y Formación Profesional.:F:
+:U: Euros.:U:
+:N::N:
+:E::E:
+#+CAPTION: Gasto público por alumno en centros públicos. Enseñanza no universitaria. Año 2017
+[[./graficos/0402D1.pdf]]
+:END:
+
+:fig-0402D2:
+:F:  Sistema Estatal de Indicadores de la Educación 2020. Ministerio de Educación y Formación Profesional.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Número medio de alumnos por profesor en equivalente a tiempo completo en centros de enseñanza de Régimen General no universitarias por CCAA. Curso 2017-18.
+[[./graficos/0402D2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Diseñar un Plan de formación permanente y reciclaje bienal para profesores, con cursos cortos (al estilo de la formación ejecutiva) y valorar la posibilidad de optar, mediante un programa de selección competitivo, a estancias sabáticas al finalizar cada sexenio, que permitan a los profesores visitar y dar docencia en institutos de excelencia o participar en programas avanzados de duración más larga que los cursos cortos, con un énfasis combinado tanto para incrementar sus conocimientos como sus competencias.
+
+2. Impulsar la formación del profesorado en el uso de recursos digitales en el aula.
+
+3. Promover acciones formativas para fomentar la investigación y la práctica reflexiva entre el profesorado.
+
+4. Promover el desarrollo de la carrera profesional docente y la movilidad del profesorado, acercando también las retribuciones a la productividad del mismo.
+
+5. Promover la estabilidad de las plantillas docentes de los centros educativos como factor decisivo para el desarrollo de proyectos educativos estables.
+
+6. Crear un sistema de reconocimiento y estímulos al profesorado, basado en criterios objetivos y cuantificables.
+
+7. Analizar los procesos de selección docente, incluyendo la selección y formación de los asesores y asesoras de los Centros del Profesorado (CEP).
+
+8. Aumentar la capacitación de los directores de los centros escolares, convirtiéndolos en verdaderos líderes de un proyecto educativo que favorezca el desarrollo de su entorno.
+
+9. Evaluar la función docente y directiva. Esta última, tanto en los procesos de selección como en su evaluación continua y a la finalización de los mandatos.
+
+10. Establecer una red de centros y profesorado para el seguimiento, desarrollo y evaluación de los programas de innovación educativa, al tiempo que sirva para compartir experiencias, buenas prácticas docentes y propuestas de la administración.
+
+11. Estudiar las necesidades del PAS y del personal de atención educativa complementaria, así como revisar y agilizar la gestión de su sistema de selección.
+
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- III Plan Andaluz de Formación del Profesorado, aprobado por Orden de 31 de julio de 2014, con carácter plurianual.
+- Plan Estratégico de Evaluación Educativa (2020-2022).
+- II Plan estratégico de igualdad de género en educación (vigente hasta 2021). En elaboración el III para el periodo 2022-2027.
+- Plan Estratégico de Innovación Educativa 2021-2027.
+*** Fortalecer el sistema de protección social y la inclusión
+**** Intro 0403                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0403
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Riesgo de pobreza o exclusión social
+2. Protección social e inclusión
+3. Dependencia y mayores
+{{{finlineas}}}
+{{{ods(1 2 3 5 8 10)}}}
+Las sociedades avanzadas, tal y como reconoce la Comisión Europea, deben contar con las herramientas apropiadas de inclusión social y de innovación social, que presten asistencia y ayuda a las personas, familias y comunidades, que eviten su segregación, que faciliten la integración de las personas en la sociedad y que garanticen unas condiciones de vida dignas e independientes.
+
+En Andalucía, el sistema público de protección social está compuesto por un conjunto específico de normas e instituciones que determinan el suministro de servicios y prestaciones sociales y su financiación. Esta protección comprende el gasto en enfermedad y atención sanitaria, invalidez, vejez, familia/hijos, supervivencia, desempleo, vivienda y exclusión social.
+
+Dado que muchas de estas funciones se tratan en otras prioridades de esta Estrategia, este apartado se centra en las que completarían un buen sistema de protección social y de inclusión. En este sentido, cabe recordar que la ONU aprobó en 2015 la Agenda 2030 sobre el Desarrollo Sostenible, incluyéndose en ella como primer objetivo la lucha contra la pobreza y fijando como prioritaria la reducción del número de personas en riesgo de pobreza o exclusión social.
+
+Es por ello que, la protección social y la reducción de la exclusión se convierten en objetivos para alcanzar la cohesión social y corregir los niveles de desigualdad a través de unos servicios sociales adecuados, accesibles y financieramente sostenibles.
+
+Asimismo, en materia de integración, la administración debe establecer los mecanismos que permitan acceder a todas las personas inmigrantes o a las minorías, especialmente a las más vulnerables, a los distintos Sistemas de Protección Social, especialmente a los de salud, vivienda, educación, justicia y empleo, así como a otros servicios públicos.
+
+Además, el envejecimiento de la población está haciendo que sea necesario promover el bienestar de las personas mayores en Andalucía y proporcionarles una atención basada en la prevención, la sostenibilidad, y el cuidado integral y continuado, de manera que puedan disfrutar plenamente de sus derechos.
+
+En definitiva, la administración pública debe garantizar el derecho de todas las personas a la protección social, la promoción social y la prevención en los términos recogidos en el Estatuto de Autonomía para Andalucía, promoviendo la adecuada cobertura de las necesidades individuales y sociales básicas de las personas con el fin de mejorar su bienestar.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Extender el Sistema de Protección Social a todas las personas vulnerables, actuando especialmente en materia de salud, vivienda, educación y empleo.
+{{{fintcb}}}
+
+**** Riesgo de pobreza o exclusión social
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0403-01
+:END:
+
+La magnitud de la desigualdad y el riesgo de exclusión social en Andalucía se ven reflejados con claridad en los últimos datos de la Encuesta de Condiciones de Vida (ECV) del INE. *La tasa de riesgo de pobreza o exclusión social* (indicador AROPE /“At Risk Of Poverty and/or Exclusion”[fn:35]/) en Andalucía muestra en la comparativa con España y la UE que, a pesar de la reducción de la pobreza andaluza, el nivel de población bajo estos umbrales de pobreza y marginalidad *se mantiene por encima de los niveles anteriores a la crisis de 2008-2013*. En concreto, la proporción de personas en riesgo de pobreza, que constituye una medida de pobreza relativa, era en Andalucía del 27,8% en 2019. Esta proporción resulta preocupante, aunque se haya reducido respecto al nivel de 2014 (cuando alcanzó el máximo del 33,7%). Por su parte, en España este porcentaje es del 25,3%, por encima de la media de la UE (20,9%). Las mayores diferencias entre hombres y mujeres se encuentran en el grupo de personas con 65 años o más, que es además el grupo con más alta tasa de pobreza, la cual afecta al 31,8% de mujeres mayores, frente al 26,7% de los hombres.
+
+:fig-0403A1:
+:F:  Eurostat, INE  e IECA (Encuesta de Condiciones de Vida).:F:
+:U::U:
+:N: Andalucía: calculado según umbral de pobreza andaluz. Datos 2008 a 2012 con base 2004. Datos 2013 a 2019 con base 2013.\par España: Indicador AROPE \par UE-27: Desde 2014, con datos de 2020.:N:
+:E::E:
+#+CAPTION: Tasa de riesgo de pobreza o exclusión social. Andalucía-España-UE
+[[./graficos/0403A1.pdf]]
+:END:
+
+Asimismo, se observa que el *porcentaje de hogares que ha declarado llegar “con mucha dificultad” o “con dificultad” a final de mes* es superior en Andalucía que en el conjunto del país. Se trata de una diferencia superior a seis puntos, concretamente el 27,4% de los hogares tienen dificultades para llegar a fin de mes frente al 21,0% de la media española.
+
+La proporción de hogares que tiene dificultades para llegar a final de mes está estrechamente relacionada con otro concepto utilizado para aproximar las personas en riesgo de pobreza y exclusión, la carencia material severa. Este se define como la proporción de la población que vive en hogares que carecen al menos de cuatro conceptos de los nueve siguientes: no se puede permitir ir de vacaciones al menos una semana al año; no puede permitirse una comida de carne o pescado al menos cada dos días; no puede permitirse mantener la vivienda con una temperatura adecuada; no tiene capacidad para afrontar gastos imprevistos (de 650 euros) --en materia de salud, por ejemplo--; ha tenido retrasos en el pago de gastos relacionados con la vivienda principal (hipoteca o alquiler, recibos de gas o gastos de comunidad, entre otros) o en compras a plazos en los últimos 12 meses; no puede permitirse disponer de un automóvil / teléfono / televisor / lavadora.
+
+Sin duda, el incremento de la proporción de hogares en situación de vulnerabilidad y riesgo de pobreza o exclusión social requiere de una mayor dotación de servicios sociales públicos y de prestación sanitaria. En este sentido, cabe recordar que la prestación de atención a estas personas puede repercutir en el gasto sanitario por el desarrollo de una mayor morbimortalidad, así como sobre el consumo de recursos hospitalarios de la red de hospitales del SSPA, ya que un número significativo de pacientes en situación de exclusión social, tras el alta clínica, siguen ocupando una cama de hospitales por otros motivos ligados a su vulnerabilidad social o económica.
+
+:fig-0403A2:
+:F: INE (Encuesta de Condiciones de Vida).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Porcentaje de hogares con dificultades para llegar a fin de mes. Andalucía-España
+[[./graficos/0403A2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Desarrollar políticas activas de inclusión, promoviendo especialmente la no discriminación en el acceso al mercado de trabajo.
+
+2. Desarrollar políticas económicas que hagan posible una distribución de la renta más justa, como los sistemas de ingresos mínimos de inserción social o favorecer el incremento de la renta neta disponible de los hogares, especialmente de aquellos con menores, evitando la persistencia de círculos viciosos de exclusión.
+
+3. Intervenir en zonas desfavorecidas (ZD), con elevados niveles de pobreza y desigualdad, ampliando los servicios asistenciales en las mismas, teniendo en cuenta que las personas en estas zonas no tienen acceso a servicios de tramitación electrónica.
+
+4. Fomentar medidas que contribuyan a la erradicación de la infravivienda y del chabolismo temporal o permanente y su no reproducción a largo plazo, favoreciendo el alquiler social.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Protección social e inclusión
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0403-04
+:END:
+
+Tal y como recoge la Ley de Servicios Sociales de Andalucía, el gobierno regional debe prestar un conjunto de servicios, recursos y prestaciones con objeto de garantizar el derecho de todas las personas a la protección social, en los términos recogidos en las leyes, considerando la prevención, atención o cobertura de las necesidades individuales y sociales básicas de las personas en su entorno, con el fin de alcanzar o mejorar su bienestar. Estos servicios, que son un pilar básico del estado de bienestar (junto con la salud, la educación y las pensiones), están dirigidos a alcanzar el pleno desarrollo de los derechos de las personas en la sociedad y a promocionar la cohesión social y la solidaridad.
+
+Este mapa de recursos y servicios comprende ámbitos tan importantes de prestaciones como los de dependencia, reconocimiento de la discapacidad, distintos tipos de ayudas, como la ayuda a domicilio de servicios sociales comunitarios no vinculados a la dependencia, situaciones de urgencia o emergencia social, alojamiento alternativo, entre otros. Además, dichos recursos se ofrecerán en coordinación con los servicios educativos, sanitarios, de empleo o de vivienda, entre otros. Por su relevancia, nos centramos en esta línea de actuación en la protección social y en la lucha contra la exclusión.
+
+La integración social también comprende las acciones que posibilitan a las personas inmigrantes o a las minorías, especialmente a las más vulnerables, a participar del nivel mínimo de bienestar social. Además, se deben garantizar los derechos, la igualdad de trato y la no discriminación.
+
+Según la Estrategia Regional Andaluza para la Cohesión e Inclusión Social (ERACIS), en Andalucía existe un extenso mapa de *zonas desfavorecidas* tanto de ámbito urbano como rural. En éstas se concentra población muy vulnerable, donde se acentúan las desigualdades y se generan procesos de exclusión social e incluso institucional.
+
+Las Zonas Desfavorecidas en Andalucía concentran casi el 25% de la vivienda en edificios en estado ruinoso, malo o deficiente de la región y en ellas residen casi el 17,4% de la población sin estudios o analfabeta y solo el 6,4% de la población universitaria. Otros indicadores que caracterizan a estas zonas son el porcentaje de población inmigrante y el de personas perceptoras del Ingreso Mínimo de Solidaridad. En ambos casos, en las Zonas Desfavorecidas se registra más del 20% del total regional.
+
+:fig-0403D1:
+:F:  Estrategia Regional Andaluza para la Cohesión e Inclusión Social (ERACIS). Consejería de Igualdad, Políticas Sociales y Conciliación. Publicado en 2018.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Participación de las Zonas Desfavorecidas en el total de Andalucía de cada indicador (%)
+[[./graficos/0403D1.pdf]]
+:END:
+
+Por otro lado, distintas fuentes de información estadística (atendiendo a la Encuesta de Condiciones de Vida del INE, así como a las metodologías de Eurostat y Naciones Unidas) sobre las personas que viven en hogares con carencias materiales severas y están bajo el umbral de riesgo de pobreza, muestran que *las mujeres sufren esta situación en mayor proporción que los hombres* en Andalucía y que este diferencial también se observa en España y la UE, incluso después de que las personas reciban transferencias sociales.
+
+En las primeras etapas de la vida se pueden acumular desigualdades sociales que repercuten en la morbilidad, mortalidad y el bienestar en la edad madura y la vejez. En Andalucía, según un estudio de Save the Children, a finales de 2021 la *pobreza infantil* alcanzará el 22,1%. Esta pobreza repercute en las tasas de abandono escolar, de desempleo y de baja emancipación que requieren de medidas específicas que actúen en los primeros estadios de la vida, evitando la exclusión social.
+
+El porcentaje de *población que tiene alguna discapacidad* es superior en Andalucía que en España. Además, no todos ellos tienen el reconocimiento del grado de discapacidad, necesario para recibir las ayudas existentes. A 31 de diciembre de 2020 había en Andalucía 570.506 personas con discapacidad reconocida con grado igual o superior al 33%, el 6,7% de la población andaluza en 2020, existiendo una ligera mayoría de hombres (17.760 más).
+
+:fig-0403D2:
+:F:  Sistema Integrado de Servicios Sociales. Consejería de Igualdad, Políticas Sociales y Conciliación.:F:
+:U::U:
+:N: 31 de diciembre de 2020.:N:
+:E::E:
+#+CAPTION: Número de personas reconocidas por los centros de Valoración y Orientación de Andalucía con un grado de discapacidad igual o superior al 33%
+[[./graficos/0403D2.pdf]]
+:END:
+
+Se necesitan actuaciones para prevenir las causas y para promover la autonomía personal (al menos la mitad de las personas con discapacidad en Andalucía tienen dificultades de movilidad en las vías públicas), la participación social, la calidad de vida y la no discriminación de este colectivo.
+
+El panorama de las *drogodependencias y adicciones* es una realidad que evoluciona, surgen nuevas sustancias y conductas adictivas y cambian tanto los patrones de consumo como el perfil de las personas consumidoras. Por todo ello, los problemas derivados del uso de sustancias y las demandas y necesidades planteadas son también aspectos dinámicos a los que es preciso adaptar las respuestas ofrecidas desde las instituciones y administraciones competentes.
+
+Los servicios sociales andaluces han pasado de ser un modelo asistencial a estar basado en el *reconocimiento y garantía de derechos*, que abarca desde la protección a las víctimas de violencia de género, a los menores y adolescentes, a los colectivos LGTBI hasta a las personas inmigrantes, entre otras.
+
+Por otra parte, se necesita seguir avanzando para garantizar el derecho universal de todas las personas a las prestaciones y servicios sociales.
+
+Para ello, es fundamental alcanzar una *cobertura total y una adecuación* de las prestaciones sociales actualmente limitadas. En este sentido, desde los sistemas de protección social se establecen mecanismos, como las pensiones no contributivas y asistenciales, que resguarden y proporcionen seguridad, con el objetivo de garantizar unos ingresos mínimos que permitan a las personas con rentas más bajas mejorar su poder adquisitivo.
+
+A fecha 1 de julio de 2020, el total de *pensiones contributivas* del sistema de Seguridad Social en Andalucía era de 1.581.630, con una pensión media de 905,79 €/mes. Según el régimen, las más numerosas eran las pensiones de jubilación (903.560), seguida de las pensiones de viudedad (391.329) y las pensiones de incapacidad permanente (206.203). La pensión media de jubilación en Andalucía superaba el umbral de los mil euros, 1.048,99 €/mes, frente a los 1.162,97 €/mes de la media Estatal.
+
+Respecto a las *pensiones no contributivas*, en Andalucía hay 100.462 personas beneficiarias. La mayoría corresponden a la modalidad de jubilación con 55.070 personas beneficiarias, de las cuales el 78,9% corresponden a mujeres, seguida de las pensiones de invalidez que ascienden a 45.392.
+
+:fig-0403C1:
+:F:  Dirección General de Personas Mayores y Pensiones no contributivas. Consejería de Igualdad, Políticas Sociales y Conciliación.:F:
+:U::U:
+:N: (1) Prestaciones Sociales para Personas con Discapacidad (PSPD), antes denominado Ley de Integración Social de Minusválidos (LISMI) \par (2) Fondo de Asistencia Social.:N:
+:E::E:
+#+CAPTION: Personas que reciben Prestaciones sociales en Andalucía por sexo. 2019
+[[./graficos/0403C1.pdf]]
+:END:
+
+Son importantes también las *prestaciones por desempleo*, siendo Andalucía la región con mayor número de beneficiarios (733.460 en 2020), lo que representa el 24,7% del total nacional. Por sexo, en nuestra región el 53,2% de los beneficiarios son mujeres. Distinguiendo por tipo, las prestaciones por desempleo más numerosas son las contributivas (329.620) y los subsidios por desempleo (207.534).
+
+:fig-0403C2:
+:F: Servicio Público de Empleo Estatal (SEPE).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Beneficiarios de Prestaciones por Desempleo por CCAA. Media 2020.
+[[./graficos/0403C2.pdf]]
+:END:
+
+Por su parte, el ingreso mínimo vital, que es una *prestación que garantiza un nivel mínimo de renta* a quienes se encuentren en situación de vulnerabilidad económica, se ha puesto en marcha en septiembre de 2020 y se espera que llegue a 850.000 hogares en riesgo de pobreza a nivel nacional. Esta prestación de ámbito estatal se complementa con la Renta Mínima de Inserción Social de Andalucía (RMISA) de las que se concidieron 35.711 en 2020.
+
+Para que sean efectivas todas las prestaciones sociales se deben reducir los obstáculos para acceder a las mismas y simplificar todos los trámites administrativos.
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Impulsar el desarrollo de la Ley de Servicios Sociales de Andalucía.
+
+2. Realizar programas de integración social en las zonas más desfavorecidas, a través de herramientas que faciliten el entendimiento y la convivencia pacífica.
+
+3. Mejorar la inserción de las personas en situación o riesgo de exclusión social a través de la activación de itinerarios integrados y personalizados de inserción, con un enfoque integral y comunitario que facilite a las personas residentes en zonas desfavorecidas el acceso a los sistemas de protección social.
+
+4. Desarrollar políticas así como reforzar programas y actuaciones que fomenten la integración educativa, social, laboral y económica de los inmigrantes y aquellas que fomenten su desarrollo personal, profesional y social.
+
+5. Articular programas para la erradicación de la pobreza femenina, atendiendo a circunstancias de mayor riesgo de exclusión.
+
+6. Desarrollar medidas de lucha contra la discriminación de los colectivos más desfavorecidos, especialmente en el acceso a la educación, al mercado de trabajo, a la justicia y a los servicios sociales y sanitarios.
+
+7. Desarrollar plenamente lo dispuesto en la Ley de Infancia y Adolescencia de Andalucía, para garantizar una protección a la infancia y adolescencia, prestando especial atención a las situaciones de riesgo y a las personas menores en situación de mayor vulnerabilidad.
+
+8. Establecer programas para paliar los efectos de la pobreza y la violencia sobre la infancia.
+
+9. Impulsar el emprendimiento juvenil, la mejora de las posibilidades de autoempleo y el fomento del cooperativismo entre la juventud.
+
+10. Mejorar la calidad de los servicios y prestaciones a las personas con discapacidad.
+
+11. Potenciar la coordinación interna de la Red para la Atención a las Drogodependencias y Adicciones, la coordinación interinstitucional y con las entidades sociales que trabajan en el ámbito de las drogas y adicciones.
+
+12. Impulsar el Observatorio Andaluz sobre Drogas y Adicciones, para concienciar y gestionar el conocimiento en materia de drogas y adicciones.
+
+13. Fomentar la Red de Comunidades de Aprendizaje (CdA) y difundir las buenas prácticas inclusivas en los centros educativos, es decir, actuaciones educativas de éxito de las comunidades de aprendizaje y proyectos de aprendizaje-servicio (ApS).
+
+14. Fomentar el desarrollo de programas, como los Programas educativos para el fomento de la Cultura Emprendedora y los proyectos de innovación social y educativa, especialmente centrados en enseñanzas artísticas, comunicación y emprendimiento, que tengan un impacto contrastado en las personas (jóvenes o adultas) en riesgo de exclusión.
+
+15. Realizar campañas de divulgación y formación en el sector empresarial sobre las inversiones en factores ESG (/Enviromental, Social and Governance/) en la industria.
+
+16. Adaptar el sistema de protección social a los cambios sociales y a las nuevas tendencias del mercado de trabajo, garantizando el reconocimiento de los derechos de todas las personas.
+
+17. Desarrollar planes de inclusión sociolaboral para personas perceptoras de renta mínima de inserción social, coordinadamente entre los servicios de empleo y los servicios sociales.
+
+18. Mejorar la tramitación electrónica de todas las prestaciones sociales y simplificar todas sus gestiones, aumentando la coordinación e interoperabilidad con el sistema de atención sanitaria.
+
+19. Desarrollar planes para informar, resolver los conflictos que se produzcan, y controlar el mercado en defensa de los derechos las personas consumidoras y usuarias.
+
+20. Adaptar y actualizar el sistema de protección y apoyo a las familias a las nuevas realidades familiares, incluyendo la perspectiva de familias en las políticas de protección social.
+
+21. Complementar con ayudas específicas la situación de riesgo de pobreza y exclusión social de las personas mayores de 65 años, con especial atención a las mujeres dentro de este colectivo de personas.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+**** Dependencia y mayores
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0403-02
+:END:
+
+A partir de datos de la Encuesta sobre Discapacidad, Autonomía personal y situaciones de Dependencia (EDAD 2008), sobre los algo más de ocho millones de personas en Andalucía, 725.390 presentaban alguna discapacidad (o limitación, si son menores de 6 años), lo que suponía el 9,1% de la población.
+
+Estas discapacidades o limitaciones van acompañadas de dependencia para 424.921 personas (415.667 de 6 y más años y 9.254 menores de esa edad), de manera que puede estimarse la población andaluza en situación de dependencia en el 5,3%. Dicho de otra forma, seis de cada diez personas con discapacidad son dependientes (58,6%).
+
+:fig-0403B0:
+:F:  Estudio “Discapacidad y dependencia en Andalucía” IECA. 2012.:F:
+:U::U:
+:N: Datos referidos a 2008.:N:
+:E::E:
+#+CAPTION: Significación de las personas en situación de dependencia respecto al total de población con discapacidad y su distribución por edad en Andalucía
+[[./graficos/0403B0.pdf]]
+:END:
+
+Con la información estadística disponible, puede aproximarse que un 63% de las personas en situación de dependencia en Andalucía son mayores de 65 años. Cabe esperar que, acorde con la tendencia hacia el envejecimiento de la pirámide demográfica, esta proporción haya aumentado en los últimos años y continúe haciéndolo según los escenarios de proyecciones de población a medio plazo, lo que supone que al menos dos de cada tres personas dependientes sean mayores de 65 años. De este modo, aunque las circunstancias de dependencia y vejez son independientes, conviene tener presente que el colectivo de personas mayores puede verse especialmente afectado por condiciones de dependencia.
+
+En cualquier caso, los servicios públicos deben proveer, de modo directo o indirecto, las atenciones y cuidados que requieren estas personas, de acuerdo con su grado de discapacidad y, en su caso, dependencia, para garantizar su calidad de vida, sin olvidar la situación de las personas cuidadoras.
+
+El envejecimiento demográfico constituye una realidad objetiva desde hace décadas en Andalucía. Así, según datos del INE de julio de 2020, había 1.470.813 personas mayores de 65 años, lo que supone el 17,4% de la población andaluza.
+
+Ello requiere, tomar una serie de medidas tanto preventivas como de atención activa sobre las personas mayores en situación de dependencia y de protección de aquellas que presentan una mayor vulnerabilidad, con especial atención a la soledad no deseada. Este segmento poblacional se ha visto gravemente azotado por la COVID-19, especialmente en los ocupantes de las residencias.
+
+Por ello, se deben promover y facilitar el ejercicio físico, una alimentación equilibrada, un menor consumo de alcohol y tabaco y unas relaciones sociales positivas.
+
+Las medidas preventivas que eviten o retrasen el deterioro físico y mental de las personas conforme van llegando a edades más avanzadas, además de mejorar su calidad de vida, repercutirán en la propia sostenibilidad del Sistema de Atención. Normalmente recae sobre el sistema sanitario la asistencia a la cronicidad y a la soledad (por falta de cuidadores/as), lo que implica un esfuerzo adicional de la atención primaria a domicilio.
+
+En este sentido, cabe destacar que la vulnerabilidad de las personas mayores aumenta cuando tienen una situación económica precaria.
+
+Además, existe un elevado porcentaje de personas, no siempre mayores, que aún no tiene reconocida ni su situación de dependencia ni recibe la prestación económica correspondiente, generando un impacto social y económico a las familias, especialmente a las mujeres que asumen su cuidado.
+
+Con datos de julio de 2020, en Andalucía se registraban 289.523 solicitudes de reconocimiento de la situación de dependencia de personas de 65 y más años, de las cuales corresponden el 70,8% a mujeres y el resto a hombres. De ellas, 249.308 tienen reconocida la situación de dependencia, es decir, el 17% de las personas andaluzas mayores de 65 años, de las cuales el 72% son mujeres.
+
+Si se tienen en cuenta todos los grados de dependencia, a 31 de diciembre de 2020 en Andalucía *hay un 19,8% de personas pendientes de recibir prestación en relación al número de personas beneficiarias con derecho a la misma*, por encima de la media nacional (17,1%).
+
+La Encuesta Continua de Hogares (INE) muestra datos sobre los hogares formados por una sola persona en Andalucía: para el “Grupo de 65 años o más” hay 318.500 hogares unipersonales, siendo el 74,3% de ellos hogares con mujeres que viven solas. Además, según un estudio realizado por la Universidad Pablo de Olavide, *la soledad no deseada es un problema que afecta al 47% de la población andaluza de 55 y más años, estando un 15% en riesgo de aislamiento social*. Estos porcentajes se han incrementado durante el confinamiento.
+
+Hay una necesidad de profundizar en el análisis del maltrato (tanto en el ámbito familiar como institucional) hacia las personas mayores y darle mayor visibilización social, ya que existe un déficit en la detección de dicho maltrato, que afecta especialmente a las mujeres.
+
+El Servicio de Asistencia a las Víctimas de Andalucía (SAVA) abre anualmente alrededor de 6.500 expedientes de víctimas de delitos, de las cuales en el 85% aproximadamente de los casos, la víctima es una mujer. Del total de víctimas, cada año entre 200 y 220 tienen más de 64 años (253 personas mayores de 64 años atendidas en 2018). Otro dato importante son las 2.257 llamadas en el Teléfono de Atención a las Personas Mayores atendidas en 2018, de las cuales el 48,2% son para denunciar situaciones de riesgo de maltrato o abandono.
+
+:fig-0403B1:
+:F:  Sistema de Información del Sistema para la Autonomía y Atención a la Dependencia. Consejería de Igualdad, Políticas Sociales y Conciliación.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Personas reconocidas en situación de dependencia y prestación reconocida en Andalucía (julio 2020)
+[[./graficos/0403B1.pdf]]
+:END:
+
+:fig-0403B2:
+:F:   IMSERSO.:F:
+:U::U:
+:N: Porcentaje de personas pendientes de recibir prestación en relación al número total de personas beneficiarias con derecho a prestación.:N:
+:E::E:
+#+CAPTION: Porcentaje de personas pendientes de recibir prestación del Sistema de Autonomía y Atención a la Dependencia a 31 de diciembre de 2020
+[[./graficos/0403B2.pdf]]
+:END:
+
+:fig-0403B3:
+:F:  Encuesta Continua de Hogares (INE).:F:
+:U::U:
+:N: Miles de hogares.:N:
+:E::E:
+#+CAPTION: Número de hogares unipersonales de 65 años o más. 2019
+[[./graficos/0403B3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Desarrollar actividades dirigidas a promocionar la salud y prevenir la aparición de la enfermedad y el deterioro funcional, mediante la práctica de actividades físico-deportivas y la adopción de hábitos de alimentación y de vida saludable.
+
+2. Potenciar los servicios de teleasistencia, de ayuda a domicilio, de prevención de situaciones de dependencia y de promoción de la autonomía personal, mejorando la coordinación socio-sanitaria.
+
+3. Mejorar la gestión de la dependencia, simplificando trámites, reduciendo el número de solicitudes pendientes de valoración y agilizando la tramitación de las prestaciones económicas, así como revisando y actualizando los precios públicos.
+
+4. Promover acciones de formación, sensibilización y difusión a la ciudadanía sobre los recursos para la promoción de la autonomía y prevención de la dependencia.
+
+5. Fomentar la participación social de las personas dependientes y mayores en la toma de decisiones de los distintos ámbitos sociales y políticos.
+
+6. Establecer mecanismos y criterios para la detección, intervención, seguimiento y protección sobre la soledad no deseada y el aislamiento social.
+
+7. Apoyar una mejora del sistema de protección, que redunde positivamente en las condiciones laborales y retributivas de las personas trabajadoras y aumente la calidad de los servicios especializados, tales como los centros de participación activa, centros de día para mayores, viviendas tuteladas y residencias, entre otros.
+
+8. Analizar la red de residencias de mayores, públicas y privadas, para configurar un nuevo modelo que permita superar las secuelas físicas y emocionales resultado de la pandemia, con una revisión exhaustiva de las condiciones materiales, funcionales y de personal.
+
+9. Incrementar la oferta de plazas residenciales para personas mayores en Andalucía, tras una análisis y evaluación de los sistemas de gestión en este sector.
+
+10. Invertir en las infraestructuras de la red de centros de personas mayores y en la seguridad del uso de los equipamientos, estableciendo planes para la mejora de calidad de los servicios que prestan estos centros.
+
+11. Implementar campañas de sensibilización sobre las personas mayores transmitiendo una imagen positiva de este colectivo e informando sobre sus derechos fundamentales.
+
+12. Crear los dispositivos e instrumentos necesarios para prevenir el maltrato hacia las personas mayores.
+
+13. Consolidar el cupo de viviendas accesibles en las promociones de vivienda protegida y ayudas para la adecuación funcional básica de las viviendas de las personas mayores y aquellas otras con discapacidad.
+
+14. Promover campañas para divulgar y ampliar la oferta de empleo para Personas con Discapacidad o Personas en Situación de Discapacidad.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Reforzar la asistencia sanitaria
+**** Intro 0404                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0404
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Infraestructuras, equipamiento y personal
+2. Política de Prevención
+3. Accesibilidad a prestaciones sanitarias de calidad
+{{{finlineas}}}
+{{{ods(3 5 9 10)}}}
+En materia de sanidad, la política regional sigue manteniendo entre sus objetivos el garantizar una vida sana y el promover el bienestar de todas las ciudadanas y ciudadanos, reduciendo las desigualdades y facilitando que las personas vivan más años y con más calidad y autonomía.
+
+No obstante, la pandemia de la COVID-19 ha provocado un shock sin precedentes en todo el mundo, y ha afectado especialmente a las políticas sanitarias. Las consecuencias son todavía inciertas, porque dependen de la evolución de la pandemia y del final de las medidas extraordinarias para atajar el virus, pero han puesto de manifiesto las carencias existentes en el sistema sanitario andaluz.
+
+Las medidas tomadas hasta el momento, con presupuesto extraordinario tanto regional como nacional y europeo, han ido dirigidas a solventar de forma urgente los principales problemas surgidos en materia de personal, infraestructuras, equipamientos o dotación de material sanitario y, en determinados casos, deben servir de base para planificar las actuaciones a desarrollar en ejercicios futuros.
+
+En cualquier caso, al margen de las actuaciones derivadas de la pandemia, la detección precoz y la prevención en materia sanitaria deben adquirir cada vez más relevancia, siendo un reto deseable para las administraciones públicas realizar intervenciones de promoción, prevención y protección, lo que redundaría en una mejor salud de la población y una mayor sostenibilidad del sistema, en su conjunto.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Garantizar la sostenibilidad y la calidad del sistema sanitario público andaluz.
+{{{fintcb}}}
+
+**** Infraestructuras, equipamiento y personal
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0404-01
+:END:
+
+El Sistema Sanitario Público de Andalucía (SSPA) da cobertura integral a ocho millones y medio de habitantes y estaba constituido en 2019, antes de la pandemia, por 50 hospitales y 1.516 centros de atención primaria, repartidos en 33 distritos sanitarios. Cuenta con 15.277 camas de hospitalización instaladas, 529 quirófanos y más de 100.000 profesionales que dan la mejor atención posible a nuestra ciudadanía y responden al objetivo central del SSPA.
+
+Esta *dotación* ha resultado ser *insuficiente en un período de demanda excepcional durante la pandemia*, agudizando algunos déficits preexistentes. De hecho, la gestión de la pandemia ha producido un impacto muy significativo en el Sistema Sanitario Público de Andalucía (SSPA), consecuencia de la priorización en la atención de la demanda relacionada con pacientes afectados por el virus COVID-19, la patología urgente o no demorable, las actividades y programas esenciales (como los programas de vacunación, el seguimiento y control del embarazo), y en determinadas patologías de atención preferente (como la oncológica), resultando un aumento en la demora de atención de otros problemas de salud.
+
+Adicionalmente, la situación generada por la pandemia ha puesto de manifiesto las *limitaciones de plantilla de profesionales* del SSPA, al no contar con una proporción de profesionales disponibles en activo para cubrir ausencias o adaptaciones de puestos laborales, así como las carencias en la dotación de recursos materiales y equipamientos (determinados fármacos y material sanitario) para poder dar respuesta ante eventos inesperados que precisen la intervención del SSPA.
+
+Se deben seguir reforzando, por tanto, las infraestructuras, los equipamientos, el material y el personal para ofrecer servicios sanitarios accesibles de forma más flexible y adaptable según las condiciones de la demanda a toda la población. Igualmente, se debe apoyar una política que garantice una mayor independencia y autosuficiencia en el suministro futuro de insumos sanitarios.
+
+Se ha podido observar que en 2020 en *atención primaria* (primer nivel de acceso ordinario de la población al Sistema Sanitario) se ha producido un *colapso tanto a nivel físico como a nivel telemático*.
+
+Respecto a la *atención hospitalaria* o especializada, los problemas detectados han sido la *falta de camas, de material sanitario y de personal*. Una vez superada la pandemia, es de esperar cierto ajuste de la oferta hospitalaria a su demanda normal.
+
+Todo ello requiere de una planificación que actualice, adecúe y amplíe las infraestructuras y los equipamientos existentes, que tenga una dotación de material suficiente y se refuerce la plantilla de profesionales del Sistema Sanitario Público Andaluz.
+
+Este exceso de demanda de servicios sanitarios debido a la crisis del coronavirus ha *paralizado en parte al resto de la actividad asistencial*,  posponiendo intervenciones, consultas y pruebas diagnósticas y haciendo que aumenten las *listas de espera sanitaria*.
+
+
+:fig-0404A1:
+:F: Sistema de Información de Atención Especializada (SIAE). Consejería de Salud y Familias.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Hospitales según dependencia funcional por provincia. 2019
+[[./graficos/0404A1.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Realizar inversiones en infraestructuras hospitalarias, equipamientos y material sanitario y de personal, estableciendo prioridades, según el análisis de déficits detectados.
+
+2. Reforzar la atención primaria y la atención integrada, mediante inversiones en sus infraestructuras y en sanidad electrónica.
+
+3. Realizar una planificación de las inversiones sanitarias adecuada a las necesidades asistenciales de la población andaluza, teniendo en cuenta sus factores demográficos, patrones epidemiológicos y perfiles socio-económicos.
+
+4. Completar la compatibilidad e interoperabilidad del historial clínico digital para su acceso en todo el territorio nacional y europeo.
+
+5. Favorecer la digitalización del sector sanitario y la telemedicina, teniendo en consideración los colectivos con limitaciones de acceso y uso de las tecnologías digitales.
+
+6. Adaptar la oferta de hospitales de alta resolución o centros de alta resolución especializada a las necesidades asistenciales de la población andaluza.
+
+7. Adecuar las plantillas de personal a las necesidades asistenciales de la población andaluza, mejorando sus condiciones laborales.
+
+8. Elaborar un Plan de choque para reducir las listas de espera.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan de Infraestructuras Sanitarias de Andalucía 2020-2030.
+- Plan de choque para reducir las listas de espera.
+
+**** Política de Prevención
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0404-02
+:END:
+
+El cambio en el perfil sociodemográfico, epidemiológico y cultural de la población en los últimos años está generando un aumento de la fragilidad y la dependencia, que precisa frecuentemente y de manera simultánea de atención sanitaria y social y no siempre la respuesta de los sistemas públicos se adecua a las necesidades de la ciudadanía.
+
+Además, resulta cada vez más importante la *detección precoz y la prevención*, para evitar que la población enferme o que lo haga de manera irreversible, a través de medidas de promoción y protección.
+
+Los servicios sanitarios que serán necesarios en un futuro próximo están determinados por el envejecimiento de la población, la cronicidad de las patologías y la irrupción tecnológica.
+
+Respecto al envejecimiento, en Andalucía la esperanza de vida al nacer (EV) era de 82,1 años en 2017 (83,3 años a nivel nacional), ambas superiores a la media de la Unión Europea (80,9 años). Por sexo, las mujeres tienen mayor EV que los hombres, siendo de 84,4 años en mujeres y de 79,2 años en hombres (86,0 años y 80,4 años en España, respectivamente).
+
+Este aumento de la esperanza de vida ha incrementado el número de años en que las personas mayores viven en situación de dependencia, especialmente las mujeres. Ello se debe a que el incremento de la EV no implica necesariamente que todos los años de vida en los que se incrementa este indicador sean años en los que se disfrute de un buen estado de salud, ya que los individuos pueden sufrir enfermedades y problemas de salud que les ocasionen una pérdida de calidad de vida sin que afecte a su longevidad.
+
+Resulta, por tanto, importante considerar el grado de buena salud de los años de vida que se ganan, ya que cuanto mayor sea el número de años ganados en salud, menor será la necesidad de recursos asistenciales y mayor la calidad de vida. En Andalucía, en 2017 la *esperanza de vida en buena salud (EVBS)* era de 59,4 años (60,9 años en España).
+
+El crecimiento continuo de las *enfermedades crónicas* genera un elevado coste de la asistencia sanitaria y un aumento de las personas con discapacidad y dependencia asociadas a ellas, que además se dan con mayor frecuencia en las personas mayores. Según datos del Servicio Andaluz de Salud, alrededor del 58% de la población andaluza tiene al menos una enfermedad crónica y el 34% tienen tres o más enfermedades crónicas. Además, entre el 40-45% de todas las altas hospitalarias se dan en personas mayores, las cuales presentan estancias más largas y causan más de la mitad de todas las estancias hospitalarias.
+
+La *tasa de población con discapacidad* en Andalucía según la “Encuesta sobre discapacidades, autonomía personal y situaciones de dependencia 2008”, era de 95,8 por cada 1.000 habitantes, superior a la media española (89,7), y siendo la de las mujeres la más elevada (116,7 y 106,3, respectivamente). Por su parte, la Esperanza de Vida libre de discapacidad (EVLD), según el INE, se situaba en Andalucía en 11,94 años para los mayores de 65 años (13,36 años en España) reduciéndose hasta los 3,51 años para los mayores de 80.
+
+Las instituciones sociales y políticas deben atender las necesidades del colectivo de personas con discapacidad y para ello se hace indispensable conocer de forma precisa sus circunstancias: cuántos son, qué limitaciones tienen y con qué severidad o si disponen de ayudas y cuidados, entre otros ejemplos.
+
+Para poder prevenir las enfermedades es importante tener en cuenta, entre otros, los factores medioambientales, el nivel de renta y de estudios, el sedentarismo y la actividad física regular, la obesidad, el tabaquismo, el consumo abusivo de alcohol o padecer algún tipo de adicción, entre las más destacadas a las nuevas tecnologías o al juego.
+
+En la actualidad, la *obesidad* es uno de los principales problemas de salud pública, adquiriendo en Andalucía una especial relevancia, ya que 3 de cada 10 menores tiene exceso de peso, cerca del 40% de las gestantes tienen problemas de peso en el embarazo y la mitad de la población adulta tiene sobrepeso u obesidad.
+
+La prevención del *tabaquismo* y del consumo abusivo de alcohol es la actuación de salud pública más importante que se puede realizar para la prevención del cáncer, de enfermedades respiratorias y cardiovasculares.
+
+También las adicciones sin sustancia, con un aumento de la incidencia a raíz de la crisis de la COVID-19, producen mermas económicas y desestructuración de los núcleos familiares afectados, lo que incide en la calidad de vida y en la salud de los afectados por la frecuente asociación a un estilo de vida sedentario, al consumo de alcohol u otras sustancias.
+
+Las enfermedades de etiología infecciosa son la tercera causa de muerte prematura en el mundo Según la Organización Mundial de la Salud. En nuestro medio encontramos *enfermedades infecciones emergentes y reemergentes* así como un optimismo generalizado en torno a la lucha contra las enfermedades infecciosas, con una falsa creencia de seguridad y victoria. La globalización y las corrientes migratorias juegan un gran papel en su propagación, como recientemente se ha puesto de manifiesto con el coronavirus SARS-CoV-2. Este panorama genera nuevas necesidades como son el aumento de las inversiones en investigación y en sistemas de detección precoz, en el aumento de coberturas del calendario vacunal y en la potenciación de las redes de notificación de nuevos casos a nivel mundial.
+
+Por otra parte, el *cáncer* es uno de los principales problemas de salud pública, la incidencia estimada de esta enfermedad para el año 2019 en Andalucía fue de 45.521 casos (26.310 hombres y 19.211 mujeres) y la mortalidad de 17.954 defunciones (11.151 hombres y 6.803 mujeres). La mortalidad por cáncer representa el 25% de la mortalidad global, siendo en Andalucía la primera causa de muerte en varones y la segunda en mujeres.
+
+Un alto porcentaje de los casos de cáncer es evitable, siendo posible reducir y controlar la enfermedad aplicando estrategias basadas en la evidencia científica, así como mediante la promoción de entornos de vida saludables y de estilos de vida protectores (promoción de salud), el control de los factores de riesgo y el diagnóstico precoz.
+
+Las *enfermedades no transmisibles o crónicas* causan, según la Organización Mundial de la Salud, el fallecimiento de 41 millones de personas cada año, lo que equivale al 71% de las muertes que se producen en el mundo. Esta situación adquiere una especial relevancia si consideramos que los factores determinantes que las provocan pueden ser evitables, que las estrategias de promoción de la salud cuentan con evidencias para frenar y, a largo plazo, revertir estas condiciones. De hecho, el fomento de estilos de vida saludables conduce a ganancias de salud a un coste mucho más bajo que el tratamiento médico de cualquiera de los grupos de riesgo y de las enfermedades asociadas.
+
+Los programas de cribado son una importante acción preventiva, que consiste en una serie de actividades orientadas a la detección, diagnóstico y tratamiento precoz de los casos detectados, siempre antes de que se manifiesten los síntomas de la enfermedad para reducir la morbimortalidad. Además de los programas de cribado de cáncer (de mama, de cérvix y colorrectal) existen otros cribados, como el cribado prenatal que se hace a las embarazadas, el cribado neonatal de enfermedades endocrinometabólicas y de hipoacusia.
+
+Para todo ello *es imprescindible la generación del conocimiento y la implantación de tecnologías* como elementos clave para la mejora de la salud de la población, impulsando la prevención de las enfermedades y la promoción y protección de la salud bajo criterios de innovación.
+
+
+:fig-0404B1:
+:F: Indicadores de Salud 2020. Ministerio de Sanidad.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Esperanza de vida (EV) y Esperanza de Vida en Buena Salud (EVBS) al nacer, según CCAA. 2007 y 2017.
+[[./graficos/0404B1.pdf]]
+:END:
+
+:fig-0404B2:
+:F: Encuesta de Discapacidad, Autonomía Personal y Situaciones de Dependencia 2008. INE.:F:
+:U: Tasa por 1.000 habitantes.:U:
+:N::N:
+:E::E:
+#+CAPTION: Tasa de población con discapacidad por sexo. Andalucía-España. 2008.
+[[./graficos/0404B2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Desarrollar programas de salud que permitan un aumento de la esperanza de vida de mayor calidad.
+
+2. Promover la autonomía en personas mayores y personas con discapacidad.
+
+3. Desarrollar actuaciones preventivas para disminuir las enfermedades transmisibles.
+
+4. Implementar estrategias y planes de salud pública dirigidos a evitar problemas de salud prevalentes en la población andaluza (obesidad, tabaquismo, consumo excesivo de alcohol y adicciones sin sustancias, envejecimiento, Alzheimer y otras demencias, enfermedades crónicas no transmisibles, entre otros).
+
+5. Extender planes y programas de actividad físico-deportiva para poblaciones con necesidades específicas: personas con discapacidad, obesidad, personas con diferentes enfermedades, entre otras.
+
+6. Promover hábitos y entornos de vida saludable relacionados, preferentemente, con la alimentación, la actividad física, el sueño, el bienestar emocional, la sexualidad y el uso de las tecnologías de la información y la comunicación, estableciendo además estrategias y sinergias continuas y estables con el sistema educativo, por ejemplo, ampliado la dedicación horaria de la materia Educación Física y otros programas intersectoriales (Forma Joven).
+
+7. Impulsar la dotación de equipos multidisciplinares en los centros de atención primaria compuestos por especialistas en materia deportiva, nutrición y psicología en coordinación con el personal sanitario ya disponible.
+
+8. Realizar inversiones en tecnologías sanitarias y de acompañamiento de las personas mayores.
+
+9. Mejorar la coordinación sociosanitaria mediante el desarrollo de la Estrategia de Atención Sociosanitaria, que tiene como finalidad garantizar a colectivos especialmente vulnerables de la sociedad la atención, los cuidados y la prestación de servicios de naturaleza sanitaria y social, de forma simultánea y sinérgica, para prestar una atención de calidad y centrada en la persona.
+
+10. Implantar y consolidar un modelo de calidad que parta de evidencias científicas a través de una evaluación continua que abarque tanto la promoción de la salud como la prevención de las adicciones en los grupos y poblaciones más vulnerables. Es necesario incardinar básicamente este modelo en los planes locales de salud a través de las corporaciones locales y la iniciativa social.
+
+11. Desarrollar las acciones de la Estrategia de cáncer en Andalucía (2021-2023), recogidas en la línea estratégica referida a los aspectos de promoción, prevención y diagnóstico precoz.
+
+12. Actualizar las enfermedades a cribar dentro del programa de cribado neonatal de enfermedades endocrinometabólicas, en base a la evidencia científica, así como modificar el programa de cribado de hipoacusia neonatal, asegurando la realización del cribado y su registro por parte de los centros privados.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+- Estrategia de Promoción de una Vida Saludable en Andalucía.
+- Estrategia de Salud de la Infancia y Adolescencia en Andalucía 2021-2025.
+- Estrategia de Investigación e Innovación en Salud en Andalucía 2020-2023.
+***** Indicadores                                              :noexport:
+
+- Tasa de población con discapacidad según tipo (Encuesta sobre Discapacidades, Autonomía personal y situaciones de Dependencia 2008. INE)
+- Esperanza de vida en buena salud (Encuesta sobre Discapacidades, Autonomía personal y situaciones de Dependencia 2008. INE)
+- Años de vida ajustados por discapacidad (AVAD).
+
+**** Accesibilidad a prestaciones sanitarias de calidad
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0404-03
+:END:
+
+La planificación de los servicios y recursos sanitarios deben garantizar la equidad para el conjunto del territorio de Andalucía, con la mejora de unos servicios de salud cercanos, de calidad y orientados a las necesidades requeridas por la ciudadanía.
+
+La magnitud, la diversidad y la frecuencia de los problemas de salud son factores que contribuyen al establecimiento de prioridades.
+
+Cada vez es mayor el conocimiento que indica la existencia de *desigualdades en materia de salud*, determinadas éstas por factores como el género, la edad o el territorio en el que se vive. En este último ámbito, resulta necesario potenciar la estrategia de la Red Local de Acción en Salud (RELAS) con los ayuntamientos y diputaciones para hacer más extensivo y práctico el trabajo local en salud.
+
+El sistema sanitario debe ser un mecanismo de integración social que reduzca estas desigualdades.
+
+Aunque no se han encontrado patrones de desigualdad en el uso de servicios de hospitalización, urgencias, consumo de medicamentos, se observa un mayor acceso a los servicios preventivos, como salud bucodental, revisiones ginecológicas o pruebas de cribado del cáncer entre las personas con nivel educativo más alto y menor dificultad económica. Igualmente, estos servicios básicos como la consulta médica de Atención Primaria son proporcionalmente más utilizados los servicios por las personas de menor nivel educativo. Estos hallazgos reflejan la relación entre el *nivel educativo* y/o clase social y la mejor salud y calidad de vida.
+
+El proceso de envejecimiento afecta a las zonas con mayor *índice de ruralidad* por lo que quienes más ayuda pueden necesitar viven más lejos de los flujos de recursos sociales que existen para hacer frente a la *dependencia*. Esto requerirá la habilitación de dispositivos de protección social móviles y contingentes que permitan asegurar unos mínimos niveles de apoyo a la dependencia rural, garantizando la accesibilidad de los servicios.
+
+Asimismo, determinados colectivos en circunstancias de *vulnerabilidad social* (por ejemplo, migrantes en situación administrativa irregular) pueden sufrir dificultades de acceso a los servicios de salud y requieren de actuaciones de acompañamiento, mediación y capacitación para el uso del sistema público sanitario en Andalucía.
+
+Además, las *nuevas estructuras familiares*, con núcleos cada vez más pequeños, redes de parentesco más reducidas y la integración de la mujer en el mercado laboral implican también un importante cambio en la red de apoyo familiar.
+
+Finalmente, se debe potenciar la *investigación y la innovación en salud* e incorporar el uso de las nuevas tecnologías para la atención sanitaria de la ciudadanía.
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Desarrollar una estrategia de servicio de monitorización y gestión remota de salud para pacientes, apoyado en sensorización en el hogar y asistencia domiciliaria, para garantizar la equidad de los servicios públicos asistenciales.
+
+2. Implantar las teleconsultas de atención primaria y hospitalaria en toda la geografía andaluza.
+
+3. Favorecer la extensión de la prestación de la salud bucodental en Andalucía a aquellos grupos poblacionales con menor nivel de renta.
+
+4. Utilizar las nuevas tecnologías para la atención clínica de la ciudadanía y los pacientes en particular (por ejemplo, con el desarrollo de la salud móvil "/mHealth/" y la telemedicina, incluyendo la atención que se realiza desde los centros especializados de atención a las adicciones).
+
+5. Desarrollar el Plan de Humanización del Sistema Sanitario Público de Andalucía.
+
+6. Incrementar la accesibilidad del Sistema Sanitario Público de Andalucía a personas afectadas por enfermedades raras, personas con diversidad funcional.
+
+7. Reforzar el carácter sociosanitario de la atención a las adicciones, mejorando las actuaciones conjuntas de los sistemas de salud y de servicios sociales, a fín de ofrecer una atención integral e integrada de calidad a las personas que lo necesitan.
+
+8. Favorecer el desarrollo de capital humano para realizar una investigación competitiva de calidad en materia sanitario-asistencial, con un fuerte componente de transferencia del conocimiento a la sociedad, desarrollando una carrera o itinerario atractivo a la que puedan acceder investigadores emergentes e investigadores consolidados.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Apoyar las viviendas sociales
+**** Intro 0405                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0405
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Acceso universal a la vivienda.
+2. Rehabilitación y adecuación de viviendas.
+{{{finlineas}}}
+{{{ods(3 5 9 10 11)}}}
+Los poderes públicos deben incorporar acciones y medidas para hacer real y efectivo el derecho constitucional a una vivienda digna y adecuada.
+
+Del mismo modo, todas las actuaciones en materia de viviendas sociales deben estar alineadas tanto con la Estrategia de Objetivos de Desarrollo Sostenibles 2020-2030, que establece en su objetivo 11 la urgente necesidad de abordar ciudades más humanas, como con los principios de la Agenda Urbana de Andalucía 2020-2030, que se centra en tres principios básicos: mejor regulación, mejor gestión de los recursos y mayor conocimiento.
+
+En este contexto, se desarrolla el Plan Vive en Andalucía, de vivienda, rehabilitación y regeneración urbana de Andalucía 2020-2030, en el que se garantiza el derecho a una vivienda y se facilita el acceso a colectivos necesitados (jóvenes, mayores de 65 años y colectivos vulnerables) a una vivienda a precio asequible, en condiciones de igualdad y mediante la concesión de ayudas.
+
+Además, todas las viviendas deben cumplir un mínimo de condiciones de habitabilidad, accesibilidad y de mejoras en materia de eficiencia energética.
+
+Por todo ello, resulta necesario profundizar en dos grandes líneas de actuación: el acceso universal a la vivienda y la rehabilitación y adecuación de las viviendas ya existentes.
+
+**** Objetivos                                                    :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Metas)}}}
+Asegurar el acceso de la ciudadanía a una vivienda digna.
+
+\bigskip
+
+Rehabilitar el parque residencial existente en Andalucía.
+{{{fintcb}}}
+
+**** Acceso universal a la vivienda
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0405-01
+:END:
+
+Los niveles salariales, las condiciones laborales y los requisitos para acceder al crédito hipotecario han hecho que exista un considerable volumen de población que encuentra serias *dificultades para acceder a una vivienda*, especialmente en un contexto en el que se ha producido un ascenso de los precios de venta y, sobre todo, del alquiler.
+
+Los colectivos más afectados son las personas jóvenes, aquellas en riesgo de exclusión social, las personas mayores o con discapacidad, las mujeres embarazadas sin recursos, las víctimas de violencia de género, las familias numerosas, las que se encuentren en riesgo de desahucio y los jóvenes extutelados por la Junta de Andalucía.
+
+*La vivienda protegida de nueva construcción se ha situado en mínimos históricos* en la segunda mitad de 2018, descendiendo aún más en 2019, no terminándose ninguna vivienda protegida en Andalucía en 2020. Sin embargo, se han construido 17.226 viviendas libres en 2020, la cifra más alta en la última década.
+
+Además, según la Estadística Registral Inmobiliaria, en el cuarto trimestre de 2019 se ha registrado un total de 24.030 operaciones de compraventa de vivienda en Andalucía, correspondiendo 4.632 a viviendas de nueva construcción. Dado el proceso descendente registrado en la construcción de vivienda protegida, éstas suponen solo el 1,5% del total de compraventas realizadas en Andalucía en ese año. De seguir esta tendencia, el peso de la vivienda nueva crecerá en el contexto inmobiliario, potenciado por la demanda exterior de la región, lo que previsiblemente suponga una presión al alza en los precios de la vivienda libre, permaneciendo prácticamente sin cambios el precio de la vivienda protegida. El incremento de los precios de la vivienda en venta y en alquiler, unido a la reactivación del mercado de la vivienda libre, hace aún más necesaria la promoción de viviendas protegidas, tanto en venta como en alquiler, a un precio asequible para las familias con menos recursos y para los jóvenes y, en general, a quienes accedan a su primera vivienda.  En Andalucía el precio de la vivienda protegida, en el promedio del año 2019, es solo un 16,3% menos que el de la libre, frente al 31,4% observado a nivel nacional.
+
+Según los datos de la Encuesta Continua de Hogares del Boletín Especial Alquiler residencial 2019, del Observatorio de Vivienda y Suelo, el porcentaje de *hogares residentes en viviendas en régimen de alquiler en el año 2018 en Andalucía representaba un 20,4%* del total de las viviendas, lo que supone un aumento respecto al del año 2011, donde el porcentaje era del 17,1. Además, se registra un crecimiento de los precios del alquiler sobre todo en el centro de las ciudades, motivado, entre otros, por el auge de la vivienda turística. El aumento a nivel nacional se sitúa en torno al 9,3% en 2018. En Andalucía, los mayores incrementos se han producido en las provincias de Sevilla (9,2%), Granada (8,5%), Córdoba (6,5%) y Málaga (4,3%).
+
+Especial dificultad para el acceso a una vivienda lo tienen las personas que han perdido aquella en la que residían debido a un procedimiento de ejecución hipotecaria o por falta de pago de las rentas de alquiler. Los procesos de ejecución hipotecaria reflejan una evolución decreciente, representando en el tercer trimestre de 2019 un 25% menos que en el mismo período de 2018 (26% menos a nivel nacional). No obstante, los afectados por *desahucio* por impago del alquiler aumentan en 2018 un 8,1% respecto al año anterior (1,16% en el tercer trimestre de 2019), situaciones que se verán agravadas por la crisis económica generada por la COVID-19.
+
+
+:fig-0405A1:
+:F: Instituto de Estadística y Cartografía. Anuario Estadístico de Andalucía.:F:
+:U::U:
+:N: Año 2020.:N:
+:E::E:
+#+CAPTION: Viviendas de nueva construcción iniciadas y terminadas según régimen por provincia. Andalucía
+[[./graficos/0405A1.pdf]]
+:END:
+
+:fig-0405A2:
+:F:  Consejería de Fomento, Infraestructuras y Ordenación del Territorio - Ministerio de Transportes, Movilidad y Agenda Urbana.:F:
+:U::U:
+:N: En las viviendas protegidas terminadas se contabilizan las calificaciones definitivas.:N:
+:E::E:
+#+CAPTION: Evolución de viviendas de nueva construcción terminadas según régimen en Andalucía
+[[./graficos/0405A2.pdf]]
+:END:
+
+:fig-0405A3:
+:F: INE. Encuesta de Condiciones de Vida.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de los hogares en régimen de alquiler y cesión (% hogares).
+[[./graficos/0405A3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Seguir apoyando la oferta del parque público de viviendas protegidas, tanto en alquiler como en venta.
+
+2. Desarrollar actuaciones de promoción de suelo residencial para la construcción de viviendas protegidas.
+
+3. Crear un Sistema de Información de Vivienda de Andalucía que permita identificar aquellos territorios con déficit en la oferta de vivienda en relación con la demanda real o previsible.
+
+4. Establecer un precio máximo de las viviendas protegidas en función de las circunstancias de cada municipio andaluz, que tenga en cuenta el poder adquisitivo de los futuros adquirentes o inquilinos y la viabilidad de las promociones.
+
+5. Elaborar un programa de ayudas al alquiler estable, que tenga en consideración las zonas con tensiones en los precios residenciales a fin de garantizar el acceso a una vivienda asequible, en coordinación con la normativa estatal en esta materia y acorde a los recursos disponibles.
+
+6. Valorar el establecimiento de programas de ayudas a jóvenes para la adquisición de viviendas protegidas o libres.
+
+7. Desplegar programas de intervención social con fórmulas innovadoras que primen el acceso a una vivienda estable.
+
+8. Estudiar el establecimiento de líneas de ayudas para personas objeto de desahucio de su vivienda habitual.
+
+9. Fomentar la actividad de las entidades sin ánimo de lucro y del Tercer Sector que destinen viviendas para personas objeto de desahucio de su vivienda habitual.
+
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan VIVE en Andalucía, de Vivienda, Rehabilitación y Regeneración Urbana de Andalucía 2020-2030.
+- I Estrategia de Atención a las Personas sin hogar en Andalucía.
+- Agenda urbana de Andalucía 2030.
+- Estrategia Regional Andaluza para la Cohesión e Inclusión Social. Intervención en Zonas desfavorecidas (ERACIS 2019-2022).
+
+***** Indicadores                                              :noexport:
+
+- Construcción de viviendas públicas.
+- Porcentaje de hogares residentes en viviendas en régimen de alquiler.
+- Número de desahucios.
+
+**** Rehabilitación y adecuación de viviendas
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0405-02
+:END:
+
+Andalucía cuenta con un amplio Parque Público de Viviendas, titularidad de la Junta de Andalucía y gestionado por la Agencia de Vivienda y Rehabilitación de Andalucía (AVRA), muy heterogéneo, con una gran dispersión geográfica y destinado a cubrir las necesidades de habitabilidad a precio asequible de la población andaluza con menores recursos económicos.
+
+Actualmente está compuesto por 74.956 viviendas (49.211 en régimen de arrendamiento y 25.745 en compraventa) y aloja a más de 300.000 personas en más de 500 municipios del territorio andaluz, según datos de la Consejería de Fomento, Infraestructuras y Ordenación del Territorio.
+
+A pesar del notable esfuerzo realizado en su conservación, mantenimiento, rehabilitación y mejora de su eficiencia energética, gran parte de este parque presenta un envejecimiento o deterioro de sus elementos constructivos que requieren incrementar el esfuerzo en su mantenimiento, rehabilitación o sustitución. Además, hay una parte reducida del parque que no dispone de una serie de instalaciones básicas que aseguren su habitabilidad, y que deben ser implementadas. Por otro lado, este parque precisa adaptaciones para actualizar sus prestaciones a las demandas actuales reconocidas de una habitabilidad estándar, accesibilidad y una calidad de vida social y ambientalmente aceptable.
+
+Es por ello que la necesidad de intervención en el parque se estima alta, tanto en conservación o rehabilitación, como en mejora o actualización, y requiere un mantenimiento continuado.
+
+Según el último Censo de Población y Viviendas de 2011, la mitad de las viviendas principales, consideradas primeras viviendas, de Andalucía se construyeron antes de 1980, por lo que nos encontramos en nuestro territorio con un *parque residencial envejecido*.
+
+Sobre dichas viviendas públicas deben realizarse las actuaciones necesarias para la rehabilitación de aquellas que tengan deficiencias en sus condiciones básicas, actuando también para mejorar la accesibilidad y para fomentar la eficiencia energética.
+
+Según datos extraídos del informe “La Accesibilidad de Viviendas en España”, de marzo de 2018, realizado por la Fundación Mutua de Propietarios, el 69% de los edificios de viviendas de tipología residencial colectiva de Andalucía no son accesibles desde la calle al portal del inmueble y el 57% no tienen puerta de entrada accesible. No disponen de ascensor el 26% de los edificios residenciales colectivos y el 32% de los que sí lo tienen no son accesibles desde el portal al ascensor. Por ello, se deben seguir realizando actuaciones con el objetivo de alcanzar la *accesibilidad universal*, especialmente considerando el progresivo envejecimiento de la población.
+
+En aras de la sostenibilidad de las ciudades, se debe fomentar el uso de las energías renovables, el ahorro y la *eficiencia energética* de las edificaciones.
+
+Además, y teniendo en cuenta los objetivos planteados en la Agenda Urbana de Andalucía, se deben desarrollar programas que incidan en la *rehabilitación de áreas especialmente degradadas y edificios obsoletos*, impulsando ciudades más sostenibles y humanas. En el mapa que ha elaborado la ERACIS, se localizan en Andalucía 123 zonas que precisan de especial intervención y que son identificadas como zonas desfavorecidas seleccionadas, en las que se debe intervenir de forma prioritaria por parte del Plan Vive.
+
+Se denomina *infravivienda* a aquella edificación existente en la que concurran graves deficiencias en sus condiciones de funcionalidad, seguridad y habitabilidad, respecto a los requisitos mínimos exigibles, o en las que las unidades familiares residentes tengan condiciones socio-económicas desfavorables. En este caso, el objetivo debe ser minimizar el número de infraviviendas.
+
+
+:fig-0405B1:
+:F: INE. Encuesta de Condiciones de Vida.:F:
+:U: % de hogares.:U:
+:N::N:
+:E::E:
+#+CAPTION: Hogares que sufren determinados problemas en la vivienda y su entorno por comunidades autónomas. Año 2019
+[[./graficos/0405B1.pdf]]
+:END:
+
+:fig-0405B2:
+:F:  Instituto de Estadística y Cartografía de Andalucía.:F:
+:U::U:
+:N: Datos  de 2009 y 2010 calculados con el Censo de 2001. Datos a partir de 2011 calculados con el Censo de 2011.:N:
+:E::E:
+#+CAPTION: Actuaciones protegidas sobre la vivienda en ciudades mayores de 10.000 habitantes en Andalucía, 2002-2018
+[[./graficos/0405B2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Mejorar la conservación y el mantenimiento de los edificios de viviendas públicas.
+
+2. Mejorar la accesibilidad de las viviendas del Parque Público Residencial de la Comunidad Autónoma de Andalucía.
+
+3. Establecer programas de ayudas de mejora de la eficiencia energética de las viviendas y la generación de energía de origen renovable para autoconsumo, aprovechando, entre otros recursos, los fondos europeos del Next Generation.
+
+4. Fomentar actuaciones de rehabilitación en las viviendas privadas (adecuación funcional básica), con criterios de eficiencia energética y priorizando el uso de materiales reciclados.
+
+5. Rehabilitar viviendas y realizar actuaciones de renovación urbana en el marco de una intervención integral en zonas desfavorecidas.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan VIVE en Andalucía, de Vivienda, Rehabilitación y Regeneración Urbana de Andalucía 2020-2030.
+- Agenda urbana de Andalucía 2030.
+- Estrategia Regional Andaluza para la Cohesión e Inclusión Social. Intervención en Zonas desfavorecidas (ERACIS 2019-2022).
+***** Indicadores                                              :noexport:
+
+- Edificios residenciales sin ascensor.
+- Ayudas a la rehabilitación de viviendas.
+
+
+* Footnotes
+
+[fn:35] Este indicador mide la suma de personas que están: en riesgo de pobreza, con carencia material severa o viven en hogares con baja intensidad en el trabajo.
+
+[fn:34] Porcentaje de la población de 18 a 24 años que no ha completado el nivel de Educación Secundaria 2ª Etapa y no sigue ningún tipo de educación-formación.
+
+[fn:13] El periodo de inducción a la docencia lo forman aquellos meses en los que el profesor pasa de ser estudiante a ser capaz de desempeñar su labor de forma autónoma, y normalmente, debería de llevarse a cabo con la supervisión de un profesional experimentado.
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

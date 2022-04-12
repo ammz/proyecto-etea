@@ -1,0 +1,40 @@
+# -*- mode: org; -*-
+
+#+OPTIONS: author:nil
+#+OPTIONS: title:nil
+#+OPTIONS: date:nil
+#+OPTIONS: toc:nil
+# #+OPTIONS: num:nil
+#+LANGUAGE: es
+#+OPTIONS: ':t
+#+OPTIONS: H:5
+
+# Macros
+
+#+MACRO: input (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "@@latex:\\input{@@" $1 ".tex" "@@latex:}@@") $1))
+
+#+MACRO: include (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "@@latex:\\include{@@" $1 ".tex" "@@latex:}@@") $1))
+
+
+#+MACRO: inicol (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "xxxbeginmulticols" $1) nil))
+#+MACRO: fincol (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "xxxendmulticols" $1 "\n\\cleardoublepage\\restoregeometry") nil))
+
+#+MACRO: inicio (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "\\begin{" $1 "}") nil))
+#+MACRO: fin (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "\\end{" $1 "}") nil))
+
+#+MACRO: nofinactuaciones (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "\\end{tcolorbox}\n\\restoregeometry") nil))
+
+#+MACRO: finactuaciones (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "\\end{tcolorbox}\n") nil))
+
+#+MACRO: initcb (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "#+BEGIN_EXPORT latex\n\n\\bigskip\\bigskip\n\\begin{alfeizar}{" $1 "}") nil))
+#+MACRO: fintcb (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "\\end{alfeizar}\n#+END_EXPORT\n") nil))
+
+#+MACRO: nota (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "@@latex:\\hspace{0pt}\\marginpar[\\raggedleft\\sffamily\\scriptsize\\bfseries\\textcolor{azulao}{@@" $1 "@@latex:}]{\\raggedright\\sffamily\\scriptsize\\bfseries\\textcolor{azulao}{@@" $1 "@@latex:}}@@") nil))
+
+#+MACRO: ods1 (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "#+BEGIN_EXPORT latex\n\\tikz[overlay, remember picture] \\node[anchor=south east] at (current page text area.south east){\n\\begin{tcolorbox}[halign=right,colframe=green!80!black,fonttitle=\\sffamily\\fods,title=ODS relacionados,colback=white,boxrule=0.4pt,enhanced,drop small lifted shadow=black]\n" (mapconcat (lambda (x) (format "\\includegraphics[height=45pt]{./graficos/ods/ods%s.png}" x)) (split-string $1 " ") " ") "\n\\end{tcolorbox}};\n#+END_EXPORT\n") nil))
+
+#+MACRO: inilineas (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "@@latex:\\addtolength{\\marginparwidth}{.7cm}\n\\hspace*{0pt}\\marginpar{\\sffamily\\scriptsize\\bfseries\\textcolor{morado}\n{\\centerline{Líneas de actuación}\\smallskip\\hrule\\hfill}\n\\begin{flushleft}@@") nil))
+
+#+MACRO: finlineas (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "@@latex:\\end{flushleft}\\bigskip\\bigskip\\bigskip\\bigskip\n@@") nil))
+
+#+MACRO: ods (eval (if (org-export-derived-backend-p org-export-current-backend 'latex) (concat "@@latex:\\textcolor{verdoso}{\\centerline{ODS relacionados}\\smallskip\\hrule}\\begin{tcolorbox}[empty]@@" (mapconcat (lambda (x) (format "\\includegraphics[height=45pt]{./graficos/ods/ods%s.png}" x)) (split-string $1 " ") " ") "@@latex:\\end{tcolorbox}}\n\\addtolength{\\marginparwidth}{-.7cm}@@") nil))

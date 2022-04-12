@@ -1,0 +1,223 @@
+
+#+TITLE: Estrategia para la Transformación Económica de Andalucía
+#+AUTHOR: DGAPPE
+#+DATE: {{{fecha}}}
+#+LANGUAGE: es
+#+MACRO: fecha (eval (format-time-string "%d-%m-%Y"))
+#+LATEX_HEADER_EXTRA: \includeonly{competitividad,sostenibilidad,conectividad,bienestar,territorio,gobernanza}
+
+
+* Frontmmatter                                                       :ignore:
+#+begin_export latex
+\frontmatter
+\newgeometry{%
+  textwidth=15cm,
+  textheight=25cm,
+  hcentering,
+  marginparsep=0cm,
+  marginparwidth=2cm,
+  top=2.5cm,
+  headsep=0.9cm,
+  headheight=24pt}
+\savegeometry{centradaplus}
+
+\newgeometry{%
+  textwidth=13.1cm,
+  textheight=25cm,
+  hcentering,
+  marginparsep=0cm,
+  marginparwidth=0cm,
+  top=2.5cm,
+  headsep=0.9cm,
+  headheight=.6cm}
+\savegeometry{centrada}
+#+end_export
+
+#+begin_export latex
+  \estilopagesec[intro]
+  \pagestyle{basico}
+#+end_export
+
+** Páginas iniciales (portada, cortesía y créditos)                 :ignore:
+#+begin_export latex
+
+\includepdf[pages={-}]{graficos/portada.pdf}
+
+% \thispagestyle{empty}
+% \null
+
+\cleardoublepage\thispagestyle{empty}
+\vspace*{0.2cm}
+
+{\centering\fontsize{19pt}{22.8pt}\selectfont\scshape
+  estrategia\par
+  {\fontsize{14pt}{22.8pt}\selectfont para la} \par
+  \medskip
+  TRANSFORMACIÓN ECONÓMICA de ANDALUCÍA\par
+  \medskip
+  \medskip
+  {\fontsize{15pt}{22.8pt}\selectfont Horizonte 2027}\par
+
+  \vspace{30pt}
+  \vfill
+  \includegraphics[width=2.5cm]{./graficos/logojunta.jpg}\par
+}
+
+\cleardoublepage\thispagestyle{empty}
+\vspace*{0.2cm}
+
+{\centering\fontsize{19pt}{22.8pt}\selectfont\scshape
+  estrategia\par
+  {\fontsize{14pt}{22.8pt}\selectfont para la} \par
+  \medskip
+  TRANSFORMACIÓN ECONÓMICA de ANDALUCÍA\par
+  \medskip
+  \medskip
+  {\fontsize{15pt}{22.8pt}\selectfont Horizonte 2027}\par
+
+  \vspace{30pt}
+  \vfill
+
+  {\normalsize\selectfont\scshape
+    Dirección General de Análisis, Planificación y Política Económica \par
+    Secretaría General de Economía\par
+    Consejería de Transformación Económica, Industria, Conocimiento y Universidades\par
+  }
+  \medskip
+  \medskip
+  \includegraphics[width=2.5cm]{./graficos/logojunta.jpg}\par
+}
+
+#+end_export
+
+** Tabla de contenido                                               :ignore:
+
+@@latex:{\normalsize@@
+#+TOC: headlines 3
+@@latex:}@@
+
+
+* Mainmatter                                                         :ignore:
+
+#+begin_export latex
+  \mainmatter
+  \restoregeometry
+  \pagestyle{main}
+#+end_export
+
+** Introducción
+
+{{{input(introduccion)}}}
+
+@@latex:\cleardoublepage\thispagestyle{empty}@@
+
+#+begin_export latex
+\includepdf{graficos/esquema-metodologia.pdf}
+#+end_export
+
+@@latex:\cleardoublepage\thispagestyle{empty}@@
+
+** Diagnóstico de situación de la economía andaluza
+
+{{{input(diagnostico)}}}
+
+@@latex:\cleardoublepage\thispagestyle{empty}@@
+
+** DAFO
+
+{{{input(dafo)}}}
+
+#+begin_export latex
+\includepdf[pages={-}]{graficos/DAFO.pdf}
+#+end_export
+
+@@latex:\cleardoublepage\thispagestyle{empty}@@
+
+** Bloques temáticos: prioridades y líneas de actuación
+
+@@latex:\cleardoublepage\thispagestyle{empty}@@
+
+#+begin_export latex
+\includepdf[pages={-},angle=180]{graficos/etea-esquema-ampliado.pdf}
+#+end_export
+
+@@latex:\cleardoublepage\thispagestyle{empty}@@
+
+#+begin_SRC latex
+  \estilopagesec[propositiva]
+  \renewcommand{\subsectionmark}[1]{\markboth{\thesubsection. #1}{}}
+  \renewcommand{\subsubsectionmark}[1]{\markright{\thesubsubsection. #1}}
+#+end_SRC
+
+{{{include(competitividad)}}}
+{{{include(sostenibilidad)}}}
+{{{include(conectividad)}}}
+{{{include(bienestar)}}}
+{{{include(territorio)}}}
+{{{include(gobernanza)}}}
+
+#+begin_SRC latex
+  \estilopagesec[post]
+  \pagestyle{main}
+#+end_SRC
+
+** Coherencia respecto a las prioridades estratégicas de la Unión Europea y España
+
+{{{input(coherencia)}}}
+
+** Escenario macroeconómico y financiero
+
+{{{input(escenarios)}}}
+
+** Objetivos
+
+{{{input(objetivos)}}}
+
+#+begin_export latex
+\includepdf[pages={-}]{graficos/objetivos.pdf}
+#+end_export
+
+** Sistema de Indicadores de Seguimiento para la evaluación
+
+{{{input(indicadores)}}}
+
+#+begin_export latex
+\includepdf[pages={-},angle=90]{graficos/indicadores.pdf}
+#+end_export
+
+* Anexos                                                             :ignore:
+
+#+begin_export latex
+\begin{appendix}
+#+end_export
+
+** Anexo I: Planes
+
+{{{input(planes)}}}
+
+#+begin_export latex
+\includepdf[pages={-},angle=90]{graficos/planes-prioridades.pdf}
+#+end_export
+
+#+begin_export latex
+\end{appendix}
+#+end_export
+
+
+
+* Configuración                                                    :noexport:
+
+#+LATEX_CLASS: etea-empty
+
+#+NAME: etea-header
+#+begin_src latex :exports none :eval never export
+  \input{~/Sync/proyectos/etea/tex/etea-conf.tex}
+#+end_src
+
+
+#+begin_src latex :noweb yes :results raw
+  ,#+LaTeX_HEADER: <<etea-header>>
+#+end_src
+
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"

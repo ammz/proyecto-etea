@@ -1,0 +1,1672 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* export to odt                                                      :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+#+begin_SRC latex
+  \loadgeometry{centrada}
+  \pagestyle{basico}
+#+end_SRC
+
+#+RESULTS:
+#+begin_export latex
+\loadgeometry{centrada}
+\pagestyle{basico}
+#+end_export
+
+* Competitividad
+
+** Intro                                                            :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-competitividad
+:UNNUMBERED: t
+:END:
+
+{{{inicol(2)}}}
+Tanto el capital humano, como el correcto funcionamiento de las instituciones y el poder crear nuevas formas de capital tecnológico y productivo --es decir, innovar-- definen la capacidad de adaptación a los futuros patrones de crecimiento, con los que alcanzar mayores cotas de competitividad y desarrollo sostenible en una economía.
+
+La evolución económica reciente, incluyendo la Gran Recesión y el proceso de recuperación posterior, ha puesto de manifiesto la permanencia de problemas fundamentales y estructurales que no se solucionan únicamente con herramientas de política habituales, como las monetarias o fiscales. En el caso de Andalucía, la falta de convergencia real con respecto al conjunto de la UEM y de España ha evidenciado que nuestro modelo productivo resulta inadecuado y escasamente sostenible a largo plazo, estando caracterizado por un mercado laboral con altas tasas de paro, excesiva dependencia del sector servicios y una baja productividad. En este sentido, se debe reforzar y diversificar el patrón de crecimiento, apoyándolo en pilares complementarios tanto a los utilizados en el periodo de expansión previo a la crisis financiera, basados, en gran medida, en el crecimiento de la construcción con un elevado endeudamiento, como a los posteriores a la misma, muy dependendientes de las actividades turísticas.
+
+En este sentido, alcanzar mayores cotas de competitividad es el único medio para que un espacio económico sostenible adquiera fortaleza, resistencia y resiliencia y, en definitiva, mayores niveles de renta y bienestar para la ciudadanía andaluza. Según el Foro Económico Mundial, la competitividad se define como “el conjunto de instituciones, políticas y factores que determinan el nivel de productividad de un país”.
+
+En este contexto, la economía andaluza --como la española-- tiene retos importantes que afrontar a fin de incrementar su competitividad y capacidad de innovación. Entre estos, se pueden destacar la mejora de la dotación de capital humano, de capital tecnológico y de la calidad institucional. Todo ello, junto a la necesidad de un Pacto por la Educación, que redefina nuestro sistema de formación, orientándolo hacia la creatividad, especialmente la digital, y el emprendimiento y mitigando la excesiva tasa de abandono escolar, entre las más elevadas de la UE. Además, resulta imprescindible una apuesta decidida por entrar en la nueva revolución industrial: la Tecnológica y la del Conocimiento, que engloba aspectos capitales como la Agenda Digital, las Tecnologías de la Información y la Comunicación (TIC), la Investigación y Desarrollo (I+D) y la Innovación, junto a la acumulación de activos intangibles como fuentes de aumento de la productividad.
+
+Los poderes públicos, siguiendo los objetivos que vienen inspirando la política regional de Europa, deben favorecer la innovación, dado que se ha convertido en un eje central de la transformación económica y social. Al mismo tiempo, la historia reciente ha demostrado la mayor resiliencia (capacidad para resistir crisis y adaptarse a largo plazo) de los territorios innovadores.
+
+En definitiva, resulta fundamental lograr mayores dosis de competitividad en la economía regional a través de la transformación de su tejido productivo gracias a la innovación y la asimilación de las nuevas tecnologías por parte de las empresas, especialmente de las pymes, reforzando el emprendimiento, las nuevas industrias 5.0, la modernización de los sectores tradicionales y la especialización inteligente, así como adecuar el sistema educativo, a la par que se camina hacia una administración más transparente y eficiente, contribuyendo todo ello a obtener mayores ganancias en productividad.
+{{{fincol}}}
+
+** Prioridades                                                      :ignore:
+
+@@latex:\pagestyle{prioridad}@@
+
+*** Fomentar la I+D+i y la transferencia de conocimiento
+**** Intro 0101                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0101
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. [[*Inversión en I+D][Inversión en I+D]]
+2. [[*I+D y transferencia del conocimiento][I+D y transferencia del conocimiento]]
+3. [[*Innovación empresarial][Innovación empresarial]]
+{{{finlineas}}}
+{{{ods(8 9 11 12)}}}
+Sin duda, la ciencia y la innovación constituyen pilares básicos en los que se apoya el crecimiento económico a largo plazo de una región o país. Es por ello que fomentar la investigación, así como la capacidad para acumular conocimiento y aplicar los progresos tecnológicos a la producción debe ser una misión de los responsables económicos y, por lo tanto, una política pública de primer orden. Ahora más que nunca, la transformación pendiente por nuestra sociedad para hacerla más sostenible, digital y competitiva requiere de un compromiso decidido por aumentar la actividad en investigación, desarrollo e innovación, haciendo del conocimiento un eje fundamental del desarrollo social y económico de nuestra Comunidad Autónoma.
+
+Andalucía se sitúa en una posición desaventajada, atendiendo a la inversión en investigación y desarrollo (I+D) del conjunto de la economía, siendo especialmente débil el gasto del sector empresarial. Por su parte, aunque el apoyo público a la I+D tiene un peso destacado, tanto la investigación competitiva como la transferencia de conocimiento al tejido productivo y a la sociedad presentan un claro margen de mejora.
+
+Al mismo tiempo, las empresas andaluzas acreditan unos niveles de innovación muy bajos y esta tendencia no se ha corregido en los últimos años.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: t
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Converger hacia los niveles medios de inversión en I+D+i de la Zona Euro.
+{{{fintcb}}}
+
+**** Inversión en I+D
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0101-01
+:END:
+***** Texto                                                      :ignore:
+{{{nota(Bajo peso de la I+D en Andalucía)}}} *El peso de la investigación y la tecnología en Andalucía resulta inferior a la media nacional*. Prueba de esta menor dimensión es que la inversión en I+D regional representa solo el 9,9 % del total nacional, mientras en términos de PIB y población, Andalucía supone el 13,3 % y el 17,9 % del total de España, en 2019, último año con información disponible del INE e IECA.
+
+Así, el gasto en I+D supone el 0,93 % del PIB regional, muy por debajo del 1,25 % nacional y del 2,2 % de la UE-27 en 2019, resultando aún inalcanzable el 2 % fijado como objetivo para España en la Estrategia Europa 2020. De hecho, se ha producido un retroceso respecto a 2010 (1,2 % entonces) en Andalucía, ya que la inversión dedicada a adquirir conocimiento por el conjunto de los sectores económicos en la región aún no ha recuperado el nivel alcanzado en 2010 (entonces era de 1.726,7 millones de euros, frente a los 1.538,4 millones de euros en 2019), a diferencia de lo observado en el agregado nacional, que lo recuperó en 2018.
+
+{{{nota(Evolución negativa de la inversión en I+D en los últimos)}}}En consecuencia, *la brecha negativa para Andalucía se ha acrecentado en la última década*, evidenciando que la reactivación de la actividad productiva no ha ido en paralelo a la recuperación de la I+D en el espacio regional. De este comportamiento puede inferirse una posible debilidad endógena, o *menor capacidad de resiliencia de las actividades de I+D* en Andalucía, ya que han mostrado una alta sensibilidad en el contexto de contracción económica de la pasada crisis, pero también un diferencial retraso a la hora de reanimarse, lo que provoca un incremento en la brecha regional.
+
+:fig-0101A1:
+:F: Eurostat e INE.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución del gasto en I+D (% PIB) Andalucía, España y UE
+[[./graficos/0101A1.pdf]]
+:END:
+
+La falta de continuidad en la inversión en I+D, así como una rígida política de incentivos, tiene consecuencias negativas, afectando tanto al desarrollo de los proyectos como a las *condiciones laborales del personal investigador*, provocando una inestabilidad en el empleo, así como un menor éxito en los resultados de los proyectos científicos y tecnológicos. Esto puede conducir a la búsqueda de opciones profesionales más atractivas en otras regiones o países, así como una menor atracción de talento hacia la carrera investigadora.
+
+A este contexto poco favorable para realizar actividades científicas e inversión hay que sumar las rigideces y retrasos que se derivan del exceso de burocracia que suele conllevar el acceso a la financiación en I+D y la justificación del gasto.
+
+Esta situación es preocupante, ya que la evidencia empírica muestra que existe una relación directa y estadísticamente significativa entre el esfuerzo tecnológico-investigador de una economía y su nivel de riqueza por habitante, siendo los países y regiones que en mayor medida apuestan por ello, los que presentan mayores niveles de PIB por habitante.
+
+:fig-0101A2:
+:F: Instituto de Estadística y Cartografía de Andalucía (IECA).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución del Gasto I+D y del PIB Nominal en Andalucía
+[[./graficos/0101A2.pdf]]
+:END:
+
+:fig-0101A3:
+:F: Instituto Nacional de Estadística (INE).:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Peso en gasto en I+D público sobre PIB por regiones (2019)
+[[./graficos/0101A3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Fortalecer los recursos destinados a la inversión en I+D, tanto pública como privada, facilitando la financiación del sector empresarial en esta materia.
+
+2. Mejorar las condiciones laborales de los investigadores jóvenes, especialmente la estabilidad de los contratos, y promover las condiciones para incrementar su capacidad de liderazgo futuro.
+
+3. Propiciar la captación de talento investigador tanto nacional como internacional.
+
+4. Simplificar los trámites administrativos para el óptimo desarrollo de la actividad investigadora.
+
+5. Identificar como proyectos de interés estratégicos aquellas propuestas empresariales de base tecnológica que por sus características puedan ejercer un liderazgo regional e impulsar el crecimiento de la competitividad en Andalucía.
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+| Consejería | Plan / Estrategia                                                                                      |
+|------------+--------------------------------------------------------------------------------------------------------|
+| CTEICU     | Estrategia de I+D+I de Andalucía 2021-2027 (EIDIA 2021-2027)                                           |
+| CTEICU     | Estrategia de especialización inteligente para la sostenibilidad de Andalucía 2021-2027, S4 Andalucía  |
+| CTEICU     | Plan Estadístico y Cartográfico (IECA)                                                                 |
+| CTEICU     | Estrategia Aeroespacial de Andalucía 2021-2027                                                         |
+| CTEICU     | Estrategia de Compra Pública de Innovación para Andalucía                                              |
+| CSF        | Estrategia de Investigación e Innovación en Salud en Andalucía 2020-2023                               |
+
+**** I+D y transferencia del conocimiento
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0101-02
+:END:
+***** Texto                                                      :ignore:
+{{{nota(Desigual distribución del gasto público y privado en I+D)}}} Otro rasgo destacable se refiere a la desequilibrada distribución del gasto en I+D entre los sectores institucionales, por la *menor implicación o participación del sector empresarial* en su grado de ejecución sobre el gasto total en I+D y en su financiación.
+
+Este es un elemento diferencial respecto al entorno europeo. Así, en Andalucía, el sector público realizó en 2019 casi las dos terceras partes (63,5 %) del gasto en I+D, correspondiendo el 36,5 % al sector empresarial. Mientras, en la UE, al contrario, algo más de dos terceras partes del gasto en I+D lo realiza el sector privado (66,9 %) y tan solo la tercera parte restante el sector público.
+
+Dentro de la inversión en I+D en el sector público destacan las universidades con un 44,1 % frente al 19,4 % de la Administración Pública, mientras que en Europa los porcentajes son del 21,6 % y 11,5 %, respectivamente, según datos del INE y Eurostat.
+
+:fig-0101B1:
+:F: Instituto Nacional de Estadística (INE).:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Distribución del gasto en I+D sobre PIB: sector público vs. sector privado (2019)
+[[./graficos/0101B1.pdf]]
+:END:
+
+La escasa implicación y participación en el gasto en I+D de las empresas andaluzas puede explicarse por las peculiaridades de la especialización productiva de la economía andaluza, la reducida dimensión empresarial, marcada por la limitada presencia de grandes empresas o de pymes tecnológicas y la escasa interlocución ciencia-empresa.
+
+A la baja inversión en I+D del sector privado hay que unir la falta de sinergias entre las empresas, los centros e institutos de investigación, las universidades y los centros tecnológicos. Esta falta de colaboración *afecta negativamente a la transferencia del conocimiento*, ya que los resultados de la investigación a menudo no son de interés prioritario para las empresas.
+
+:fig-0101B2:
+:F: Instituto de Estadística y Cartografía de Andalucía (IECA).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Trayectoria de la I+D en Andalucía por sectores (Gasto en % PIB)
+[[./graficos/0101B2.pdf]]
+:END:
+
+:fig-0101B3:
+:F: Dirección General de Investigación y Transferencia del Conocimiento - Sistema de Información Científica de Andalucía.:F:
+:U: En %.:U:
+:N: Datos de 2019.:N:
+:E::E:
+#+CAPTION: Grupos de I+D por áreas científico-técnicas del Plan Andaluz de Investigación, Desarrollo e Innovación (PAIDI)
+[[./graficos/0101B3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Favorecer una mayor cultura de colaboración entre las empresas y los centros de investigación en materia de I+D, compartiendo infraestructuras, recursos financieros y personal.
+
+2. Establecer incentivos fiscales y financieros que apoyen la I+D empresarial, evaluando su retorno social.
+
+3. Financiar proyectos de investigación que atiendan los problemas que se detecten como más acuciantes para la sociedad.
+
+4. Apoyar la colaboración entre las universidades, centros e institutos de investigación y las empresas para orientar las líneas de investigación a las necesidades del sistema productivo, impulsando la transferencia de conocimiento.
+
+5. Potenciar la colaboración entre los agentes del Sistema Andaluz del Conocimiento, las empresas y otras entidades para acceder a líneas de financiación de la UE de proyectos de I+D+i.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+| Consejería | Plan / Estrategia                                                                                      |
+|------------+--------------------------------------------------------------------------------------------------------|
+| CTEICU     | Estrategia de I+D+I de Andalucía 2021-2027 (EIDIA 2021-2027)                                           |
+| CTEICU     | Estrategia de especialización inteligente para la sostenibilidad de Andalucía 2021-2027, S4 Andalucía  |
+| CTEICU     | Plan Estadístico y Cartográfico (IECA)                                                                 |
+| CTEICU     | Estrategia Aeroespacial de Andalucía 2021-2027                                                         |
+| CTEICU     | Estrategia de Compra Pública de Innovación para Andalucía                                              |
+| CSF        | Estrategia de Investigación e Innovación en Salud en Andalucía 2020-2023                               |
+**** Innovación empresarial
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0101-03
+:END:
+***** Texto                                                      :ignore:
+Las actividades innovadoras comprenden aquellas asociadas a la inversión en activos intangibles, es decir, Tecnologías de la Información y de las Comunicaciones (TIC), la Investigación y el Desarrollo (I+D), el diseño, la creatividad, la imagen y la marca, la organización y la formación específica del capital humano. Dado que en realidad la innovación depende y se relaciona estrechamente con una serie de conceptos diversos, la Comisión Europea calcula para las regiones y países de la UE un indicador sintético[fn:6] que compendia los distintos componentes del estado de la innovación y permite establecer comparaciones. Siguiendo esta metodología, Andalucía se encontraría en el nivel de Región Innovadora «Moderado negativo», lo que podría decirse en un 3º grupo sobre cuatro.
+
+:fig-0101C1:
+:F: Regional Innovation Scoreboard, Comisión Europea.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Posición relativa de Andalucía en los principales componentes del Indicador sintético de Innovación (UE) en 2021
+[[./graficos/0101C1.pdf]]
+:END:
+
+La región adolece de *“ecosistemas de innovación”*, es decir, un hábitat donde se sumen esfuerzos, perspectivas y las potencialidades de las distintas entidades para ir más allá de los límites individuales de cada una mediante la colaboración, transformando el conocimiento en innovación.
+
+Ello incluye las relaciones entre recursos materiales (tales como fondos, equipos e infraestructuras), entidades institucionales (tales como instituciones de educación superior y servicios de apoyo, empresas, parques tecnológicos, entidades de capital riesgo, e intermediarios financieros) y decisores políticos locales, regionales o nacionales y entidades de financiación.
+
+Desde una perspectiva temporal, el gasto en innovación empresarial sufre una tendencia descendente a partir de 2014, a diferencia de lo que se observa en otros países de referencia.
+
+Un indicador que refleja esta cooperación escasa entre agentes es el número de patentes, resultado de la transferencia de la I+D+i al sistema productivo a través de la protección de la propiedad intelectual. España, con 36 patentes anuales por cada millón de habitantes, presenta una ratio muy alejada de las economías europeas, siendo esta ratio un tercio del correspondiente a la UE, la mitad que Italia y tan solo el 25% que Francia o el 16% que Alemania. Una situación que se agrava en el caso de Andalucía, con una ratio de 24,9 patentes por cada millón de habitantes.
+
+Adicionalmente, se debe destacar el papel que viene desarrollando la Administración de la Junta de Andalucía en el fomento de la innovación empresarial mediante la Compra Pública de Innovación, como actuación administrativa de fomento de la innovación orientada a potenciar el desarrollo de nuevos mercados innovadores desde el lado de la demanda, a través del instrumento de la contratación pública. De hecho las licitaciones públicas representan entorno al 20% del PIB, lo que evidencia el potencial de transformación de este instrumento.
+
+El fomento de la I+D+i y su correspondiente transferencia de conocimiento a servicios, aplicaciones o productos concretos abarca cualquier ámbito de actividad económica, y debido a la amplía dispersión de esfuerzos en esta materia, también resulta conveniente destacar y promover algunas tecnologías innovadoras donde se considera que nuestra región presenta fortalezas y por tanto, mayor oportunidad de crear ecosistemas que puedan competir a nivel internacional, si concentramos esfuerzos en torno a las mismas.
+
+En este sentido, la economía digital concentra la parte de los sectores económicos y sociales basada en distintos “componentes digitales”, entre los que se encuentran multitud de tecnologías innovadoras que propician en gran medida los cambios necesarios para adaptar las sociedades actuales a los niveles propios de las economías más desarrolladas. Entre dichas tecnologías innovadoras destacan la Inteligencia Artificial (IA) y las plataformas abiertas que favorecen el desarrollo de soluciones inteligentes en distintos ámbitos (por ejemplo, FIWARE), 5G/6G, robótica, procesamiento cuántico, blockchain, realidad virtual, gemelos digitales, edge computing, entre otras.
+
+
+:fig-0101C2:
+:F: European Innovation Scoreboard, Comisión Europea.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Nivel de innovación de Andalucía en comparación con otras CCAA (en relación a UE en 2011)
+[[./graficos/0101C2.pdf]]
+:END:
+
+:fig-0101C3:
+:F: Instituto de Estadística y Cartografía de Andalucía (IECA) y Eurostat.:F:
+:U: En % de cifra de negocios.:U:
+:N::N:
+:E::E:
+#+CAPTION:  Gasto Empresarial en Innovación (sin I+D)
+[[./graficos/0101C3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Analizar y, si fuera posible, mejorar el entorno regulatorio que favorezca la confianza de las empresas, apoyando así la innovación desde el punto de vista de la oferta.
+
+2. Potenciar la Compra Pública de Innovación y la Compra Pública pre-comercial, para contribuir a la innovación empresarial.
+
+3. Seleccionar y potenciar los ecosistemas de innovación, atendiendo a criterios científico-técnicos, socioeconómicos, la generación de valor añadido, de internacionalización y de integración territorial sostenible.
+
+4. Potenciar y consolidar el ecosistema de Inteligencia Artificial en Andalucía, en cuyo eje vertebrador se situará el /European Digital Innovation Hub “AIR-Andalusia”/.
+
+5. Generar un ecosistema de datos, con especial foco en la apertura de datos del sector público y su puesta en valor.
+
+6. Consolidar la iniciativa FIWARE Andalucía para que permita a las personas emprendedoras y a las empresas andaluzas desarrollar e incorporar soluciones inteligentes en distintos ámbitos (como las /Smart cities/, la Industria 5.0 o el /Smart Agrifood/) siguiendo las mejores prácticas y estándares europeos.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+| Consejería | Plan / Estrategia                                                                                      |
+|------------+--------------------------------------------------------------------------------------------------------|
+| CTEICU     | Estrategia de I+D+I de Andalucía 2021-2027 (EIDIA 2021-2027)                                           |
+| CTEICU     | Estrategia de especialización inteligente para la sostenibilidad de Andalucía 2021-2027, S4 Andalucía  |
+| CTEICU     | Plan Estadístico y Cartográfico (IECA)                                                                 |
+| CTEICU     | Estrategia Aeroespacial de Andalucía 2021-2027                                                         |
+| CTEICU     | Estrategia de Compra Pública de Innovación para Andalucía                                              |
+| CSF        | Estrategia de Investigación e Innovación en Salud en Andalucía 2020-2023                               |
+
+*** Impulsar la digitalización de la sociedad y de la economía
+**** Intro 0102                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0102
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Digitalización de las empresas
+2. Digitalización de la Administración Pública
+3. Desarrollo de las empresas tecnológicas
+4. Capacitación digital de la ciudadanía
+{{{finlineas}}}
+{{{ods(8 9 11 12)}}}
+Andalucía requiere de la digitalización de su economía y sociedad porque se trata de un factor disruptivo, que acelerará la transformación del modelo de negocio de las actividades económicas y que está desencadenando una nueva revolución industrial. Esta transformación pasa por incorporar el tejido productivo a la economía digital a través de la utilización de las llamadas tecnologías habilitadoras digitales (THD), tales como: el Internet de las cosas (IoT), el 5G, la Inteligencia Artificial, la realidad virtual y aumentada, los gemelos digitales, el big data, la computación difusa y en la nube, el blockchain, la supercomputación, el procesamiento del lenguaje natural, la robótica, los sistemas autónomos, la ciberseguridad, entre otras; pero también necesita el fomento de la especialización de las empresas andaluzas en el desarrollo y comercialización de dichas tecnologías.
+
+El Banco Mundial, el /World Economic Forum/ (WEF) y diversos trabajos de investigación han mostrado que la digitalización favorece un mayor crecimiento económico y de la productividad, generando nuevas oportunidades para las empresas y la creación de empleo, a la vez que también se considera como un factor importante de cohesión territorial y anclaje de la población en el medio rural, por lo que puede ser una de las palancas más eficaces para la salida de la crisis y mejorar el posicionamiento competitivo de Andalucía.
+
+Si bien la digitalización es un elemento transversal para la transformación económica, con efectos positivos sobre el conjunto de sectores y ramas de actividad, esta repercusión debería ser especialmente aprovechada por sectores con una mayor significación o potencial en la estructura regional, como el turismo, el comercio, el agroalimentario o el sanitario, entre otros. No obstante, se deben minimizar los efectos negativos derivados de la brecha digital, procurando no dejar a nadie atrás.
+
+Para impulsar una verdadera digitalización de nuestra sociedad, en general, y de la economía, en particular, se requiere llevar a cabo actuaciones tanto en las empresas como en la Administración Pública y en la relación de estas dos, también con la ciudadanía.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Incorporar las nuevas tecnologías digitales en las actividades productivas, en los servicios que presta la Administración Pública y en la ciudadanía, evitando sus consecuencias negativas con una transición digital ordenada.
+{{{fintcb}}}
+
+**** Digitalización de las empresas
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0102-01
+:END:
+***** Texto                                                      :ignore:
+La transformación digital es conocida como el “proceso de adopción de tecnologías digitales y capacidades necesarias para la creación de un nuevo y robusto modelo de negocio digital”[fn:23]. Se trata, por tanto, de un proceso de evolución, cambios y tendencias (tecnológicas o no) con un impacto generalizado en todo el contexto que rodea al mundo empresarial.
+
+*Las características de las empresas en Andalucía (por su tamaño y distribución territorial) dificulta el grado de integración de las tecnologías digitales en el tejido empresarial.* Así, solo el 18% de las empresas andaluzas (de más de 10 personas empleadas) operan en el mercado digital, es decir, como mínimo disponen de servicio de realización de pedidos o reservas online en su página web, una proporción significativamente más baja a la del promedio de la UE (27%) y a países como Países Bajos (38%), Dinamarca (37%) o Irlanda (35%).
+
+:fig-0102A1:
+:F: Instituto Nacional de Estadística e Instituto de Estadística y Cartografía de Andalucía (Encuesta sobre el Uso de las Tecnologías de la Información y las Comunicaciones y del Comercio Electrónico en las Empresas) y Eurostat.:F:
+:U: Porcentaje sobre el total de empresas con conexión a Internet y página web.:U:
+:N: Se trata de empresas con más de 10 asalariados que disponen del servicio de realización de pedidos o reservas online en su página web.:N:
+:E::E:
+#+CAPTION: Empresas de más de 10 asalariados incorporadas al mercado digital
+[[./graficos/0102A1.pdf]]
+:END:
+
+Asimismo, un destacable número de las empresas de ese tamaño, el 29%, ni siquiera tiene página web, una proporción que ha mostrado una evolución positiva en los últimos años, aunque aún muy alejada a la de países europeos como Dinamarca, donde este porcentaje es solo del 6%.
+
+De acuerdo a estos indicadores y a otras dimensiones basadas en el Índice de la Sociedad y Economía Digital definido por la Comisión Europea (DESI, Digital Economy and Society Index), el grado de madurez digital de las empresas andaluzas es relativamente bajo, especialmente en el caso de las empresas más pequeñas (menos de 10 personas empleadas). Así se refleja en la dimensión de “integración de la tecnología digital” del DESI que mide el grado de digitalización de las empresas y su incorporación al comercio electrónico. Este índice muestra una posición ligeramente más atrasada de Andalucía respecto al conjunto de España, así como respecto a Europa.
+
+Atendiendo a los distintos componentes o ejes del grado de digitalización de las empresas, existe un amplio margen de mejora en la implantación del Big Data, el uso del Cloud, así como en la incorporación de personal especializado en TIC, siendo además los resultados de estos indicadores para Andalucía inferiores a los del promedio de las empresas en España. Los resultados son algo menos negativos en lo que se refiere al comercio electrónico y al uso de sistemas y herramientas de seguridad.
+
+No obstante, la pandemia ha puesto de manifiesto la necesidad de expandir nuevas vías de comercialización y negocio y la necesidad de derribar las barreras existentes que impiden un desarrollo más amplio y accesible de este mercado único y transfronterizo, permitiendo el desarrollo e internalización de plataformas andaluzas. De hecho, la existencia de trabas ligadas a la falta de una línea estratégica a seguir por parte de las empresas, así como el rechazo a implantar cambios por desinformación (a veces por la brecha generacional) sobre las ventajas de la digitalización son un lastre en el proceso de adopción de los cambios necesarios.
+
+:fig-0102A2:
+:F: Instituto Nacional de Estadística e Instituto de Estadística y Cartografía de Andalucía (Encuesta sobre el Uso de las Tecnologías de la Información y las Comunicaciones y del Comercio Electrónico en las Empresas) y Eurostat.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Empresas de 10 o más asalariados con sitio o página web (% sobre el total)
+[[./graficos/0102A2.pdf]]
+:END:
+
+:fig-0102A3:
+:F: Encuesta de uso de TIC y Comercio Electrónico (CE) en las empresas 2019-2020, INE.:F:
+:U: En %.:U:
+:N: Datos al primer trimestre 2020.:N:
+:E::E:
+#+CAPTION: Características de las empresas TIC con 10 o más personas empleadas
+[[./graficos/0102A3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Facilitar e favorecer la transformación digital de las pymes.
+
+2. Realizar campañas de divulgación y asesoramiento para sensibilizar y concienciar a las empresas acerca de las oportunidades y beneficios que implica el proceso de transformación digital de sus negocios.
+
+3. Realizar cursos de formación a las empresas para aprovechar las ventajas de la transformación digital y las tecnologías emergentes, el acceso a otros mercados (de proveedores y clientes finales) y dar a conocer los riesgos y las buenas prácticas en materia de seguridad digital.
+
+4. Impulsar la adopción de tecnologías disruptivas de apoyo al negocio y a los procesos que los sustentan. Estas acciones estarían dirigidas a potenciar la inclusión de diferentes tecnologías para la mejora de los distintos eslabones de la cadena de valor de las empresas, así como fomentar el uso de los datos para explotar y optimizar el valor de los mismos haciendo uso de diferentes tecnologías.
+
+5. Fomentar la colaboración e intercambio de experiencias en materia de transformación digital entre los distintos agentes del ecosistema empresarial, para fortalecer la relación entre la oferta y la demanda, conectando las empresas tecnológicas andaluzas con el resto de sectores productivos.
+
+6. Estimular la creación de soluciones innovadoras por parte de pymes del sector TIC que atiendan problemáticas reales de empresas en sectores estratégicos, a través del lanzamiento de retos tecnológicos sectoriales, a fin de favorecer la adopción de tecnologías disruptivas.
+
+7. Impulsar el desarrollo del Observatorio Andaluz de la Economía Digital.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Andalucía Compromiso Digital 
+
+**** Digitalización de la Administración Pública
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0102-02
+:END:
+***** Texto                                                      :ignore:
+Las herramientas digitales contribuyen a la modernización de las administraciones públicas porque facilitan procedimientos de gestión eficaces, centrados en la persona usuaria, mejoran la calidad de los servicios a través de interacciones flexibles y personalizadas, aumentando la eficiencia del sector público y la satisfacción de las usuarias y usuarios.
+
+Al mismo tiempo, los servicios públicos digitales implican una reducción de las cargas administrativas para las empresas y la ciudadanía, al hacer que sus interacciones con las AA.PP. sean más rápidas y convenientes, así como menos costosas (menor tiempo de espera y desplazamientos o menor necesidad de intermediarios). Adicionalmente, esta digitalización puede contribuir a resolver, al menos parcialmente, muchos de los atascos e ineficiencias en servicios especialmente afectados por retrasos y falta de conectividad, como es el caso de la Administración de Justicia.
+
+La transformación que conlleva la digitalización supone un cambio hacia la sociedad digital y requiere de la capacitación del capital humano, tanto en las empresas como en la Administración. Es por ello que se necesita de las habilidades del personal dedicado a las tecnologías TIC para aprovechar las posibilidades de la sociedad digital.
+
+En los últimos años se había venido observando una oferta creciente de servicios básicos (de salud, empleo, educativos o justicia, entre otros) a través de plataformas telemáticas. No obstante, tras la pandemia se ha evidenciado un notable salto en el uso de estas herramientas digitales, poniendo de manifiesto la relevancia de la formación tanto de las personas profesionales como de las personas usuarias. A modo de ejemplo, cabe citar el desarrollo de la telemedicina y el papel de la conectividad de los centros de atención primaria con sus centros de gestión de referencia.
+
+Según los resultados del Índice de Economía y Sociedad Digitales 2020[fn:30], España ocupa una posición avanzada dentro de la UE en la interacción de la ciudadanía y las empresas con los servicios públicos online disponibles.
+
+No obstante, todavía son muchos los *servicios y trámites que no están disponibles /online/*. Por ello, se debe aprovechar el proceso de digitalización de cualquier trámite burocrático o mecanismo de intervención para evaluar la propia idoneidad del mismo y, en todo caso, acometer su simplificación.
+
+Andalucía obtiene resultados muy similares a los del promedio nacional, si bien algo por debajo en los principales aspectos considerados por las Encuestas sobre el uso de las TIC. Así, el porcentaje de personas que habían contactado o interactuado con las administraciones o servicios públicos a través de Internet en los 12 meses anteriores en 2020 habría ascendido al 58,6%, frente al 62,9% en el promedio de España, en ese mismo año.
+
+En el caso de las empresas, esta proporción ascendería hasta el 94% de las que cuentan con 10 o más personas empleadas. Entre los motivos más frecuentes de esta interacción de las empresas con las AAPP cabe mencionar la obtención de información, conseguir impresos y formularios y, en menor proporción, devolver los impresos cumplimentados y presentar declaraciones de impuestos.
+
+La participación de distintas administraciones en la tramitación de determinados servicios públicos provoca *duplicidades en los requisitos exigidos*, que serían subsanables con una interconexión digital homogénea entre todas las administraciones. Ello permitiría compartir y reutilizar la información de las personas y empresas, con pleno cumplimiento de las normas de protección de datos, logrando el “principio de una sola vez”, subyacente en el Plan de Acción de Administración Electrónica, y al que contribuirá la reciente creación de la Agencia Digital de Andalucía. Además, esta digitalización de la Administración contribuiría a la mejora de la calidad institucional regional que, según el Índice Europeo de Calidad de Gobierno (EQI), sitúa a Andalucía en el puesto 154 de 202 regiones estudiadas.
+
+Por último, se constata una evolución creciente del número de incidentes que afectan a las Administraciones Públicas, incluyendo multitud de amenazas que frecuentemente pasan desapercibidas.
+
+:fig-0102B1:
+:F: Encuesta sobre Equipamiento y Uso de Tecnologías de Información y Comunicación en los hogares 2020, INE.:F:
+:U:  % de población de 16 a 74 años.:U:
+:N::N:
+:E::E:
+#+CAPTION: Contacto o interacción con las administraciones o servicios públicos a través de internet, por motivos particulares, en los últimos 12 meses
+[[./graficos/0102B1.pdf]]
+:END:
+
+:fig-0102B2:
+:F: Encuesta de uso de TIC y Comercio Electrónico (CE) en las empresas 2019-2020. Las TIC en las empresas con 10 o más empleados (2020), INE.:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Motivos de las empresas para interaccionar con la administración pública
+[[./graficos/0102B2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Intensificar el diseño y la puesta a disposición en la red de una oferta más amplia de servicios y trámites administrativos propios de la Administración de la Junta de Andalucía (en materia educativa, sanitaria, empleo, justicia o servicios sociales, atención a empresas y a las personas emprendedoras, entre otras materias).
+
+2. Definir una hoja de ruta que contemple la inversión en activos intangibles para la transformación digital de los servicios públicos y de la Administración regional, así como planificar las necesidades de personal especializado en programación y, más concretamente, en tecnologías emergentes, como la Inteligencia Artificial, que faciliten la digitalización y robotización de muchas tareas en los procedimientos de las Administraciones públicas.
+
+3. Establecer los protocolos necesarios entre distintos ámbitos de la Administración regional y con otras, como las locales y central, y lograr un consenso para desarrollar la misma infraestructura interoperable y digital por defecto.
+
+4. Reforzar la capacidad de prevención, detección y respuestas a incidentes que pongan en riesgo la seguridad de los sistemas de información de las AAPP, y potenciar la adopción de buenas prácticas en materia de ciberseguridad dentro de la Administración regional.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+
+- Plan Andalucía Smart 2020
+- Plan Estratégico de Formación Profesional del Sistema Educativo 2019-2022
+- Andalucía Compromiso Digital
+- Programa WomanDigital para la igualdad de género en el sector TIC
+**** Desarrollo de las empresas tecnológicas
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0102-03
+:END:
+***** Texto                                                      :ignore:
+En los próximos años, la sociedad andaluza se enfrenta a un desafío ineludible: la adopción de la transformación digital como un elemento fundamental del desarrollo económico que, apoyándose en el conocimiento y la innovación, tenga como resultado un fortalecimiento general de la competitividad de nuestro tejido empresarial, de forma que sea capaz de generar productos y servicios novedosos y diferenciados y, por tanto, de alto valor añadido.
+
+Las probabilidades de éxito serán mayores si contamos con un entorno habilitante sólido, que favorezca el proceso de consolidación de la Economía Digital en nuestra región. Estos pilares habilitadores son de diversa naturaleza y entre los mismos se encuentra el disponer de un sector tecnológico andaluz consolidado, que pueda actuar como catalizador fundamental del cambio que debe abordarse. Por este motivo, la puesta en marcha de políticas específicas para el fortalecimiento del sector, así como de aquellos otros elementos palanca básicos para la digitalización regional, permitirá a Andalucía partir desde la mejor posición posible de cara a abordar con garantías los desafíos de los próximos años.
+
+Todos los sectores productivos se verán afectados y beneficiados por la progresiva digitalización de la economía, pero, sin duda, no es posible apalancar actuaciones de mejora de la competitividad de una región sin entender a las empresas tecnológicas como elemento estratégico y de alto valor añadido. Hoy en día, las tecnologías están asociadas a prácticamente todos los procesos de innovación y al aumento de la productividad, estimando la Comisión Europea que contribuye en un 20% al crecimiento de la productividad general de la economía de la Unión Europea, por lo que el desarrollo de la economía a través de las tecnologías debe ser una prioridad para el crecimiento inteligente, sostenible e integrador de nuestra región. Pero es que además, el sector de las Tecnologías de la Información y la Comunicación constituye un sector especialmente relevante en Andalucía en términos de PIB, con un enorme potencial de crecimiento y donde todos los agentes empresariales de la cadena de valor del sector están presentes en nuestra Comunidad. De acuerdo con la información facilitada por el ONTSI, en su “Informe anual del sector TIC y de los Contenidos en España”, se contabilizan en Andalucía 3.313 empresas, que emplean a cerca de 30.000 personas.
+
+Un sector tecnológico potente y, en general, un sector productivo andaluz competitivo, necesita de profesionales capacitados. La falta de personal con capacitación tecnológica en las empresas hace que los necesarios procesos para incrementar la productividad, sobre todo en las pymes, sean lentos y difíciles, lo que provoca bajas tasas de innovación. En España, sólo el 19% de las personas profesionales tecnológicas tienen las competencias necesarias para el desempeño de su profesión, mientras que existen personas desarrolladoras profesionales con una gran experiencia que no han completado un grado e incluso que apenas han superado la educación secundaria. La demanda de profesionales cualificados en el sector tecnológico crece un 3% cada año, una demanda extraordinaria que es imposible de cubrir con el número de graduados que cada año se forman en las universidades españolas. Por otro lado, prácticamente todas las ocupaciones profesionales ya requieren alguna competencia tecnológica y el número de puestos de trabajo que requieren habilidades tecnológicas aumentará en 16 millones para el año 2020. A esta escasez de talento formado hay que sumar que los perfiles profesionales tecnológicos se redefinen a un ritmo mucho más rápido del que es capaz de adaptarse el sistema educativo. Se concluye pues que, aumentar la disponibilidad de personas profesionales técnicas cualificadas es indispensable para implantar las soluciones tecnológicas que permiten aumentar la productividad de las empresas y constituye un incentivo para la localización territorial de las inversiones en este sector.
+
+En cualquier sector de actividad, la innovación, tanto tecnológica como no tecnológica, y la especialización se consideran elementos claves para conseguir ventajas competitivas y valores diferenciales que permitan a las empresas mejorar su posicionamiento en los mercados globales, caracterizados por su dinamismo y alta competitividad. En este sentido, y en lo que se refiere a las empresas tecnológicas andaluzas, las empresas son conscientes, en términos generales, de la importancia que tiene seguir apostando cada vez más por desarrollar actividades de innovación, en particular en el ámbito de aquellas tecnologías emergentes que ofrecen nuevas oportunidades de negocio.
+
+Impulsar el fortalecimiento del sector tecnológico andaluz pasa por apoyar su especialización en aquellas tecnologías disruptivas, tanto existentes como futuras, llamadas a tener un gran impacto en nuestra sociedad (conocidas como tecnologías habilitadoras digitales), y entre las que se encontrarían las siguientes: Big Data, Ciberseguridad, Inteligencia Artificial, Internet de las Cosas, Redes 5G, Robótica,… todo ello para tratar de configurar un ecosistema empresarial y de startups que puedan focalizarse en estas áreas de especialización. En esta misma línea, y al igual que se ha venido realizando con otros sectores estratégicos, como puede ser el aeronáutico, resulta indispensable identificar y potenciar determinadas industrias en pleno crecimiento como puede ser la industria de la ciberseguridad, u otras que empiezan a tener un carácter emergente, como el sector de los videojuegos.
+
+La competitividad exterior es una variable cada vez más importante para el crecimiento económico a largo plazo de nuestro tejido empresarial; de esta forma, nuestras compañías deben seguir apostando por fortalecer su posicionamiento en los mercados globales como factor clave para lograr tasas de crecimiento positivas, tanto en términos de creación de empleo como de riqueza.
+
+De esta forma, dentro de esta línea de actuación, se considera necesario el desarrollo de programas y mecanismos de cara a favorecer la expansión de la actividad de las empresas tecnológicas andaluzas más allá de nuestras fronteras; tratando además de incrementar la conciencia de las mismas en relación al hecho de que la apertura de sus mercados tradicionales de actuación debe convertirse en un componente central de su estrategia empresarial si se pretende obtener un crecimiento estable de la cifra de negocios en un mercado cada vez más competitivo y abierto.
+
+Una de las características del sector tecnológico andaluz es su atomizada estructura empresarial, caracterizada por un elevado número de empresas de tamaño reducido, entre las que no existe una cultura de colaboración suficientemente extendida, factores ambos que dificultan el desarrollo de productos y soluciones de cierta envergadura y su traslación al conjunto de la sociedad. Considerando lo anterior, y en este contexto actual, uno de los objetivos que se plantean es la puesta en marcha de los mecanismos de vertebración y de colaboración sectorial más adecuados para aprovechar dichas oportunidades.
+
+Entre otras cuestiones, se debe estimular a las empresas andaluzas para que colaboren con otras, así como con otros agentes (administración pública, asociaciones empresariales, colegios profesionales, o centros y parques tecnológicos), de forma que adquieran una dimensión que les permita afrontar el diseño y desarrollo de productos y servicios innovadores, que redunden en la mejora competitiva de las mismas; contribuyendo así a superar las debilidades inherentes a la propia estructura del sector
+
+:fig-0102C1:
+:F: II Diagnóstico de la situación de la mujer en el sector TIC andaluz.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Representación de la mujer en el sector TIC
+[[./graficos/0102C0.pdf]]
+:END:
+
+Finalmente, tal y como se recoge en el II Diagnóstico de la situación de la mujer en el sector TIC andaluz, la participación de las mujeres en las empresas tecnológicas, y en particular en el sector TIC, es muy baja en comparación con su presencia en otros sectores, lo que resta competitividad al sector y capacidad de crecimiento en el futuro. Por esta razón son importantes políticas que contribuyan al crecimiento de la presencia de la mujer en el sector.
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Reforzar el conjunto de actuaciones dirigidas a la mejora de las capacidades y competencias de los y las profesionales del sector tecnológico andaluz, así como a facilitar el desarrollo de los y las futuras profesionales que está demandando la Economía Digital.
+
+2. Fomentar el desarrollo de una oferta tecnológica andaluza en tecnologías digitales habilitadoras, Big Data, Ciberseguridad, Inteligencia Artificial, Internet de las Cosas, Redes 5G, Robótica, entre otras, a través de la innovación y la especialización tecnológica.
+
+3. Favorecer la difusión de soluciones digitales de éxito desarrolladas por el sector tecnológico andaluz dirigidas a empresas (pymes) y personal profesional.
+
+4. Impulsar el desarrollo de acciones dirigidas a apoyar la presencia de las empresas tecnológicas andaluzas en los mercados internacionales.
+
+5. Favorecer la creación y maduración de estructuras colaborativas (Digital Innovation Hubs o clústeres empresariales, entre otras) como elementos facilitadores de la transformación digital del tejido productivo desde una perspectiva sectorial.
+
+6. Impulsar la presencia de la mujer en el sector tecnológico andaluz.
+
+{{{finactuaciones}}}
+
+**** Capacitación digital de la ciudadanía
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0102-04
+:END:
+***** Texto                                                      :ignore:
+El proceso de transformación digital implica una voluntariedad en la aplicación tecnológica a cualquiera de los ámbitos de una organización, y también como individuos, por lo que se necesita de una implicación y conformidad de las personas, es decir, requiere de cambios en actitudes, aptitudes, comportamientos, capacidades, conocimientos y competencias.
+
+España se encuentra ligeramente por debajo de la media de la UE en los indicadores de capital humano (del Índice de la Economía y la Sociedad Digitales 2020), aunque haya avanzado en los últimos años. Por su parte, la posición de Andalucía no es mejor que la correspondiente al conjunto nacional en este indicador que se calcula como media ponderada de las subdimensiones: Habilidades básicas y de uso y Habilidades avanzadas y desarrollo.
+
+Así, tanto *Andalucía como España se encuentran por debajo de los parámetros europeos en los niveles de competencias digitales básicas*. Igualmente la proporción de especialistas en TIC en el empleo total también se sitúa por debajo, siendo más acusado en el porcentaje de mujeres especializadas en TIC. También faltan centros de formación de excelencia en programación y nuevas tecnológicas.
+
+La capacitación ciudadana en tareas TIC, como “crear presentaciones o documentos que integren texto, imágenes, tablas o gráficos” es más reducida en Andalucía que en España (42,9%, frente al 45,8% respectivamente). También es menor en “el uso de hojas de cálculo en general”, con el 37,4% en Andalucía frente al 43,2% nacional, y por supuesto, resulta mucho más baja “la utilización de un lenguaje de programación” (4,7% frente al 7,5%).
+
+:fig-0102C1:
+:F:   Encuesta sobre Equipamiento y Uso de Tecnologías de Información y Comunicación en los hogares 2020, INE.:F:
+:U: % de población usuaria de Internet de 16 a 74 años.:U:
+:N::N:
+:E::E:
+#+CAPTION: Capacitación ciudadana en tareas relacionadas con la informática
+[[./graficos/0102C1.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Promover la colaboración público-privada para la capacitación en competencias digitales avanzadas, para formar a los que deben ser profesionales de y para la economía digital. Estas iniciativas deberían centrarse en perfiles mixtos, buscando que cualquier profesional o persona trabajadora de cualquier sector adquiera las capacidades digitales específicas que son necesarias en su sector.
+
+2. Establecer procedimientos de certificación en competencias digitales, favoreciendo un mejor posicionamiento en el mercado laboral de las personas que acrediten las habilidades/competencias suficientes, de acuerdo con el marco de competencias digitales definido por la Unión Europea (DIGCOMP).
+
+3. Realizar programas de formación en competencias digitales básicas para el conjunto de la ciudadanía, especialmente orientada a las personas rezagadas digitales.
+
+4. Extender la cultura de confianza y seguridad digital mediante programas de sensibilización, asistencia y formación, tanto en el sistema educativo como a lo largo de la vida.
+
+5. Diseñar una nueva estrategia de capacitación digital en Andalucía, en línea con la del Ministerio de Asuntos Económicos y Transformación Digital.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Andalucía Compromiso Digital
+
+*** Favorecer el emprendimiento y el fortalecimiento empresarial
+**** Intro 0103                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0103
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Empresas, autónomos y economía social
+2. Emprendimiento tecnológico
+3. Sistemas de apoyo para contribuir a un ecosistema emprendedor
+{{{finlineas}}}
+{{{ods(8 9 11 12)}}}
+Existe una evidencia empírica rotunda de que la capacidad empresarial -en sentido amplio- de una economía es un elemento clave para el crecimiento económico y el empleo, incidiendo positivamente en la mejora de la competitividad.
+
+Los poderes públicos deben favorecer el crecimiento del tejido empresarial productivo y un entorno competitivo en el que incide positivamente un clima permanente de emprendimiento e innovación. Este contexto también permitiría afrontar con mayor fortaleza situaciones adversas, como la crisis derivada de la actual pandemia.
+
+El potencial emprendedor o la iniciativa emprendedora para iniciar un negocio de Andalucía es similar a la media española, aunque algo inferior a la media europea a causa de aspectos importantes, como la baja percepción de oportunidades, el elevado miedo al fracaso o la falta de una verdadera cultura emprendedora.
+
+Pero el principal problema diferencial de Andalucía reside en que nuestra base empresarial está formada mayoritariamente por microempresas de reducida dimensión y escasa capacidad para afrontar contratiempos y, que, en significativa proporción, carecen de ambición por crecer. Estos rasgos resultan relevantes porque esta menor dimensión, por lo general, influye negativamente en la productividad, la capacidad financiera, la inversión en tecnología y la innovación.
+
+Por todo ello, entendemos que constituye un reto para Andalucía el lograr mayores niveles de emprendimiento, la consolidación y ampliación del tamaño de las empresas, así como el fortalecimiento de nuestro tejido empresarial tecnológico.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Fortalecer la demografía empresarial de Andalucía, generando un ecosistema que permita un incremento neto en el número de empresas, con mayor tamaño y con una mayor proporción de startups tecnológicas e innovadoras.
+{{{fintcb}}}
+
+**** Empresas, autónomos y economía social
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0103-01
+:END:
+***** Texto                                                      :ignore:
+El tejido empresarial de Andalucía es menos compacto o tupido que el del conjunto de España. Dicho de otro modo, *el número de empresas en relación a la población resulta más reducida en Andalucía* que en los promedios nacional y europeo. Esta ratio de densidad empresarial descendió como consecuencia de la desaparición de empresas de la anterior crisis y de hecho aún no ha alcanzado el nivel existente en 2008, ni en Andalucía (62,7 empresas por cada 1.000 habitantes en 2020, frente a 63,7 en 2008), ni en España (71,7 empresas por cada 1.000 hab., frente a 74,1 en 2008). En Comunidades como Madrid, Cataluña o Baleares este cociente supera las 80 empresas por cada 1.000 habitantes.
+
+Igualmente, la limitada presencia de grandes empresas da como resultado que el efecto arrastre beneficioso de las mismas quede restringido, con una menor creación de nuevas pymes y autónomos en su hinterland.
+
+:fig-0103A1:
+:F: Directorio Central de Empresas, INE.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución del número de empresas por tamaños (And-Esp)
+[[./graficos/0103A1.pdf]]
+:END:
+
+Otra de las razones que limitan la creación de nuevas empresas es la complejidad burocrática asociada a la constitución, tal como se ha puesto de manifiesto en informes recientes, entre otros, del WEF, Doing Business, OCDE o el Consejo General de Economistas de España.
+
+Además del menor número de empresas en términos relativos, otro problema estructural es la sobreabundancia de microempresas en Andalucía, en comparación con otros países de nuestro entorno. En concreto, en Alemania las empresas de 10 o más personas empleadas representan el 12,9% del total (en Dinamarca e Irlanda, el 11% y 8%, respectivamente), mientras en España esta proporción es solo del 4,2%, con cifras de Demografía armonizada de empresas (de Eurostat, para el año 2018).
+
+Asimismo, en Andalucía casi una de cada tres empresas nacientes no tiene expectativas de escalabilidad y de generar ningún empleo a cinco años vista, según el Global Entrepreneurship Monitor, Andalucía 2020.
+
+Por otra parte, conviene tener presente que la proporción de empresas que no tienen ningún asalariado (sin empleo, salvo el empresario autónomo) resulta muy elevada, si bien ligeramente por debajo del promedio español. Así, en Andalucía el número de empresas sin asalariados ascendía a 290.099, en 2020, un 54,6% del total, registrándose un crecimiento acumulado desde 2014 del 18,2%. En España esta proporción es del 56,2%.
+
+La relevancia del autoempleo en Andalucía también se constata en las cifras de afiliación a la Seguridad Social, ya que el número de personas trabajadoras en alta laboral en este régimen de autónomos ha registrado un crecimiento más positivo y diferencial respecto al resto de regímenes de cotización y además más significativa en Andalucía que en el promedio de España. El colectivo de autónomos es un indicador de referencia porque además de contribuir a la creación de empleo (disminución del paro), esta vía de emprendimiento constituye, en general, una oportunidad para la creación de valor y, en muchos casos, para el autoaprendizaje profesional.
+
+Por último, cabe incluir el papel de las distintas fórmulas de empresas de economía social, principalmente cooperativas y sociedades laborales. Al cierre de 2019, según datos del Ministerio de Trabajo y Economía Social, en España se contabilizaban un total de 26.795 empresas de este tipo, de las que 5.633 empresas estaban radicadas en Andalucía, es decir, algo más del 20%.
+
+No obstante, atendiendo a la importancia relativa de este tipo de empresas de Economía Social en otras regiones españolas (País Vasco, Navarra, por ejemplo) resulta evidente la necesidad de dimensionar el papel de éstas, reconociendo su contribución al desarrollo equilibrado y a la vertebración territorial.
+
+Tanto el empleo autónomo como estas fórmulas de economía social pueden favorecer la creación de empleo en colectivos como mujeres y jóvenes o en áreas desfavorecidas del interior, mitigando el fenómeno de la despoblación de las zonas rurales y contribuyendo al entorno socioeconómico en el que desarrollan su actividad.
+
+
+:fig-0103A2:
+:F: Directorio Central de Empresas y EPA, INE.:F:
+:U::U:
+:N: Demografía empresarial, como el cociente del número de empresas/1.000 personas de pob.>16 años.:N:
+:E::E:
+#+CAPTION: Densidad empresarial
+[[./graficos/0103A2.pdf]]
+:END:
+
+:fig-0103A3:
+:F: Ministerio de Inclusión, Seguridad Social y Migraciones.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Trayectoria de las personas trabajadoras autónomas en Andalucía, 2008-2020
+[[./graficos/0103A3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Simplificar trámites para la creación de empresas, en línea con las propuestas del Plan de Mejora de la Regulación Económica en Andalucía, contribuyendo a la ampliación del tejido empresarial y a que emerjan actividades procedentes de la economía sumergida.
+
+2. Fomentar la colaboración empresarial, para alcanzar un mayor tamaño, mediante la fusión o integración de varias empresas, así como otras fórmulas de cooperación y asociacionismo empresarial.
+
+3. Fomentar el autoempleo femenino, joven y de parados de larga duración en áreas rurales u otras zonas desfavorecidas contribuyendo a la cohesión territorial dentro de la región.
+
+4. Establecer ayudas para la cesión/transición al nuevo titular del negocio, facilitando el relevo generacional en determinados sectores de actividad en los que la proporción de autónomos es especialmente destacada.
+
+5. Homogenizar la legislación/regulación de las empresas de economía social con respecto al resto de España, que facilite fórmulas de integración y mayor dimensión, así como de internacionalización.
+
+6. Facilitar fórmulas de financiación, capitalización y garantías bancarias para las pymes.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan General de Emprendimiento de Andalucía
+- Ley 3/2018, de 8 de mayo, Andaluza de Fomento del Emprendimiento
+- Plan de Impulso y Modernización de la Economía Social Andaluza 2021-2025
+- Estrategia de especialización inteligente para la sostenibilidad de Andalucía 2021-2027, S4 Andalucía
+
+**** Emprendimiento tecnológico
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0103-02
+:END:
+***** Texto                                                      :ignore:
+Dentro del emprendimiento, en general, presenta una significación especial el conjunto de iniciativas con una marcada vocación tecnológica e innovadora. En este apartado se encontrarían incluidas las pymes tecnológicas, el emprendimiento de alta capacidad científica o técnica y, por supuesto, las startups. Precisamente, estas últimas se caracterizan por un modelo de negocio repetible y escalable, con elevado contenido en TIC e impacto en el mercado, lo que explica las expectativas de un rápido crecimiento de su actividad.
+
+El punto de partida para focalizar la situación de Andalucía en este tipo de emprendimiento especializado es el análisis de la *dinámica emprendedora*, según la metodología del /Global Entrepreneurship Monitor/ (GEM). Este concepto, que permite hacer un seguimiento en el tiempo y comparaciones entre países y regiones, se basa en tres pasos: el primero, la intención o el potencial de emprender y la concepción de un proyecto empresarial; el segundo, el nacimiento de la empresa; y por último su posterior consolidación o, en caso de no prosperar, su cierre.
+
+Los resultados de los informes GEM para Andalucía revelan que, en los últimos años, el potencial emprendedor, así como la actividad emprendedora, medida por la /Total Entrepreneurial Activity/ (TEA) no presenta diferencias significativas con respecto al promedio nacional, ya que la tendencia ha sido positiva desde la salida de la anterior crisis, aunque con altibajos. No obstante, en 2019, dicha TEA se sitúa en Andalucía (5,8%) algo por debajo de España (6,1%) y de otras regiones como Cataluña (8,3%), Castilla y León o la Comunidad de Madrid (con TAE cercanas al 8%), y países de nuestro entorno, como Portugal (entorno al 10% en el promedio de los últimos siete años).
+
+:fig-0103B1:
+:F: Global Entrepreneurship Monitor, informe 2019-2020.:F:
+:U: En % de las empresas que permanecen tras 42 meses (3,5 años). Tasas en promedio para los tres últimos años.:U:
+:N::N:
+:E::E:
+#+CAPTION: Dinámica emprendedora en Andalucía vs. España: iniciativas consolidadas y TEA 2019 para Andalucía y su entorno.
+[[./graficos/0103B1.pdf]]
+:END:
+
+En cualquier caso, resulta relevante subrayar que la situación de Andalucía en el “emprendimiento consolidado” (es decir, iniciativas que han prolongado su actividad durante 42 meses y están al corriente en el pago de sueldos y salarios) viene siendo menos positiva que en el promedio nacional, en el balance de los últimos años, aunque en 2019 esta ratio haya experimentado un favorable repunte.
+
+De este modo, puede inferirse que el grado de supervivencia de las iniciativas emprendidas, por distintas razones (entre ellas, probablemente la calidad y la maduración de los proyectos) es baja en Andalucía. Este reducido nivel de consolidación, así como el menor tamaño del equipo emprendedor y el bajo nivel tecnológico de los proyectos estaría en el origen de la debilidad estructural de nuestro de tejido empresarial. De aquí la importancia de aumentar el número de empresas con mayor potencial de éxito y de multiplicar su dimensión, rasgos que caracterizan a las startups.
+
+No obstante, el nacimiento de este tipo de empresas tecnológicas de rápido crecimiento tiende a concentrarse en determinadas ciudades, como Madrid y Barcelona, a tenor de los datos de la Asociación Española de Startups y del Observatorio Bankinter, que muestran esta desequilibrada localización que no contribuiría a resolver el problema de debilidad del tejido empresarial regional, a pesar de que Sevilla y Málaga aparezcan en el ranking de ciudades españolas con mayor número de startups y de inversores.
+
+:fig-0103B2:
+:F: Observatorio Bankinter de Startups.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Principales ciudades españolas por número de startups
+[[./graficos/0103B2.pdf]]
+:END:
+
+Las razones de esta debilidad empresarial y de que no nazcan más startups en determinadas regiones se suele relacionar con las características institucionales del entorno y la capacidad de éste para generar ecosistemas de emprendimiento e innovación que generen oportunidades, recursos y también de las capacidades directivas, empresariales y financieras que encajen con las especificidades de estas iniciativas. También hay que considerar las propias economías de aglomeración de este sector que facilitan la ubicación de nuevas /startups/ de forma natural en las ubicaciones de mayor abundancia de las mismas, lo que dificulta su desarrollo en territorios como Andalucía.
+
+Las cualidades de estas startups pueden aproximarse, a través de unos “indicadores tempranos” o adelantados que suelen estar correlacionados con la capacidad de ser escalables[fn:10], como su tamaño inicial, es decir, el número de promotores; las expectativas posteriores de crecimiento de dichos promotores; la formación de equipos de personas con conocimientos y experiencias diversas que se complementen; su carácter innovador procedente de tecnologías novedosas que suelen ser resultado de las transferencias de investigación y de promotores con educación universitaria, frecuentemente con titulaciones STEM (/Science, Technology, Engineering and Mathematics/), y una marcada orientación a mercados globales o internacionales.
+
+*Andalucía presenta peores calificaciones que la media española y europea en estos indicadores asociados a un “alto potencial” de las startups*, ya que la gran mayoría de las iniciativas son microempresas, con una capacidad muy limitada de creación de empleo a corto y medio plazo. En conceto, el 44,2% de las mismas solo generan el puesto de trabajo de su propio promotor. Asimismo, la proporción de personas emprendedoras con perspectivas de crear empleo en los cinco próximos años se encuentra a la cola de los países europeos.
+
+Adicionalmente, el número medio de miembros en el equipo emprendedor para el caso de empresas nacientes o de nueva creación también resulta más bajo en Andalucía y en España (1,52 y 1,54, respectivamente) que en la mayoría de los países europeos (Luxemburgo con 2,64; Alemania con 2,14; Portugal con 1,86; Italia con 1,79; entre otros), de acuerdo con los resultados del
+Observatorio GEM.
+
+:fig-0103B3:
+:F: Informe GEM Andalucía, 2019-2020.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Número medio de miembros en el equipo emprendedor en empresas nuevas y nacientes
+[[./graficos/0103B3.pdf]]
+:END:
+
+Por su parte, el *grado de innovación tecnológica utilizado por las iniciativas emprendedoras es bastante reducido en Andalucía*, ya que solo el 1,7% de los que emprenden consideran que utilizan tecnologías altamente novedosas frente al dato de España que se eleva al 4%. En sentido contrario, resulta desalentador que más del 90% reconozcan utilizar tecnologías muy tradicionales, con bajo nivel de innovación.
+
+Por último, considerando la orientación exportadora que se presupone a las startups, los resultados para Andalucía muestran una posición bastante rezagada dentro del contexto europeo. Así, en el *porcentaje de emprendedores que exporta más del 25% de sus ventas se sitúa en Andalucía en el 5,4%*, (7,1% en España) alejado de países como Luxemburgo (32,6%), Irlanda (24,2%), Portugal (20,5%) o Alemania (18,5%).
+
+En definitiva, la proporción de startups en Andalucía resulta reducida y las iniciativas emprendedoras con rasgos potenciales para ser calificadas de startups muestran signos algo más débiles que los promedios nacional y europeo.
+
+Para dar respuesta a esta situación, el Plan General de Emprendimiento, 2021-2027 contempla el desarrollo del “Programa de Fomento del emprendimiento tecnológico y a la generación de nuevas Empresas de Base Tecnológicas (EBT)”.
+
+:fig-0103B4:
+:F: Informe GEM Andalucía, 2019-2020.:F:
+:U::U:
+:N: % sobre total.:N:
+:E::E:
+#+CAPTION: Nivel tecnológico utilizado en las iniciativas emprendedoras: comparativa Andalucía vs. España
+[[./graficos/0103B4.pdf]]
+:END:
+
+:fig-0103B5:
+:F: Informe GEM Andalucía, 2019-2020.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Emprendedores que exportan más del 25% de sus ventas (% sobre el total de emprendedores)
+[[./graficos/0103B5.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Definir el itinerario del emprendimiento tecnológico y su catálogo de servicios de apoyo a EBTs en sus diferentes etapas, siguiendo los principios de eficiencia y equilibrio territorial.
+
+2. Determinar las líneas de ayudas, actuaciones y demás medidas destinadas a la plena implementación del itinerario tecnológico y su catálogo de servicios.
+
+3. Diseñar, desarrollar y evaluar un piloto para el testeo del itinerario tecnológico de apoyo a EBTs, previo a su definitivo despliegue.
+
+4. Definir los criterios de homologación/certificación de los agentes y servicios del Sistema Andaluz para Emprender dirigidos a EBTs; en concreto: servicios de incubación, servicios de aceleración, servicios de escalado, y otros servicios complementarios.
+
+5. Definir e implantar un modelo de colaboración público-privada para habilitar la conexión de EBTs con el tejido industrial para la cocreación de soluciones tecnológicas, impulsar el desarrollo de negocio de las EBTs y la adopción de innovación y tecnología en el tejido empresarial.
+
+6. Establecer el marco de colaboración con las Universidades Andaluzas para el apoyo al impulso y creación de spin-off y startups.
+
+7. Definir e implantar un modelo de colaboración entre el Sistema Andaluz para Emprender y las redes de business angels, los fondos de capital-riesgo, la banca y otros agentes financiadores, para facilitar la detección de oportunidades (/deal-flow/) y las operaciones de inversión y financiación en EBTs.
+
+8. Definir e implantar medidas para promover la internacionalización de EBTs andaluzas, su expansión en otros mercados y su financiación en mercados internacionales.
+
+9. Diseñar e implantar un programa específico de apoyo a la creación de EBTs lideradas por mujeres para contrarrestar la brecha de género existente en este tipo de compañías.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan General de Emprendimiento de Andalucía
+- Ley 3/2018, de 8 de mayo, Andaluza de Fomento del Emprendimiento
+- Plan de Impulso y Modernización de la Economía Social Andaluza 2021-2025
+- Estrategia de especialización inteligente para la sostenibilidad de Andalucía 2021-2027, S4 Andalucía
+**** Sistemas de apoyo para contribuir a un ecosistema emprendedor
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0103-03
+:END:
+***** Texto                                                      :ignore:
+Entre los principales motivos que explican la menor consolidación de iniciativas emprendedoras y el menor número startups en determinadas regiones se señalan las *características institucionales del entorno y la capacidad de éste para generar ecosistemas* de emprendimiento e innovación que generen oportunidades, recursos, sin olvidar las capacidades directivas y empresariales que encajen con las especificidades de estas iniciativas.
+
+Otra circunstancia que puede determinar el éxito de las iniciativas y proyectos empresariales es un *sistema de ayudas bien estructurado y útil*, que se adapte a las necesidades de las usuarias y usuarios, en este caso las personas emprendedoras de distinto perfil y sector.
+
+En el caso de Andalucía, y en opinión de los expertos, tanto del Panel de expertos del GEM Andalucía como del Plan General de Emprendimiento de la Administración de la Junta de Andalucía, el nivel de los factores determinantes antes descritos no es óptimo y, por tanto, susceptibles de mejorar.
+
+En particular, se señala que existe una baja especialización en los servicios y recursos ofrecidos para el apoyo al emprendimiento, es decir, el catálogo de servicios resulta demasiado genérico, sin atender o diferenciar la motivación (ya sea de necesidad o de oportunidad), el tipo de negocio (tecnológico o no tecnológico), el sector de actividad (frecuentemente servicios no escalables) ni la experiencia previa de la persona emprendedora.
+
+Además, se apunta que el amplio y disperso número de agentes que participan en el sistema de emprendimiento en Andalucía (administraciones públicas, universidades y centros tecnológicos, cámaras de comercio, escuelas de negocio, entidades financieras y otras entidades del tercer sector) a menudo se solapan y/o están mal coordinadas, ofreciendo un extenso catálogo de servicios de apoyo al emprendimiento, en general, desde la perspectiva de sus objetivos específicos como institución y de su tipo de público destinatario, mientras existen áreas desatendidas. A veces, con sobreoferta de servicios generalistas, pero pocos específicos o muy enfocados en determinados sectores, lo que dificulta a la persona emprendedora el acceso a un asesoramiento y ayudas más especializados.
+
+:fig-0103C1:
+:F: Informe GEM Andalucía, 2019-2020.:F:
+:U::U:
+:N: Puntuación promedio para cada aspecto. De 1 a 5.:N:
+:E::E:
+#+CAPTION: Valoración media de las condiciones del entorno para emprender en Andalucía
+[[./graficos/0103C1.pdf]]
+:END:
+
+Al mismo tiempo, el marco normativo (de contratación, impositivo o fiscal) presenta claras rigideces, lo que dificulta o lastra el fomento del emprendimiento. Conviene recordar que los marcos regulatorios y, principalmente, las capacidades empresariales y tecnológicas que rodean a las iniciativas empresariales condicionan no solo su nacimiento sino también su posterior crecimiento y consolidación.
+
+La existencia de ecosistemas de emprendimiento e innovación ligados al conocimiento y la investigación se convierte en un claro factor endógeno de crecimiento, que explica el porqué algunos territorios concentran iniciativas empresariales más exitosas, generando un círculo virtuoso que propicia un contexto favorable al nacimiento de nuevas startups.
+
+El marco teórico de esos ecosistemas de emprendimiento e innovación propone que estas zonas productivas, unidas al territorio (a ciudades, áreas metropolitanas, comarcas o regiones), se sustenten en una serie de pilares que permiten la interacción entre los actores y la creación de valor económico.
+
+Según los informes antes señalados, Andalucía debe concentrar sus esfuerzos en mejorar los siguientes aspectos:  la orientación en emprendimiento en la educación primaria y secundaria; las políticas del gobierno y las rigideces burocráticas; el grado de acceso y el apoyo financiero global.  Estas mejoras contribuirán al fortalecimiento del tejido empresarial en Andalucía.
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Reorganizar el sistema de apoyo al emprendimiento y, por tanto, el catálogo de los recursos y servicios ofrecidos por las oficinas públicas para este fin. Ello supone adaptar los actuales Centros Andaluces de Emprendimiento (CADE) a los nuevos modelos de empresa y negocio.
+
+2. Identificar y redefinir el mapa de agentes, sus roles y los servicios a prestar por el Sistema Andaluz para Emprender diferenciando el emprendimiento tecnológico del no tecnológico, así como diseñar un marco de gobernanza de dicho sistema andaluz para emprender que implemente medidas de coordinación entre los diferentes agentes implicados.
+
+3. Rediseñar los itinerarios de apoyo al emprendimiento autónomo, a las empresas de economía social y a colectivos específicos (emprendimiento femenino, rural o juvenil) así como sus correspondientes catálogos de servicios en las distintas etapas: creación, consolidación, expansión e internacionalización. Todo ello de forma orientada a la digitalización de los negocios.
+
+4. Fomentar la atracción y retención de talento como palanca para el desarrollo y generación de empresas andaluzas.
+
+5. Definir y poner en marcha convocatorias e iniciativas de innovación abierta, en colaboración público-privada, como canal de cooperación entre Administración, empresas y personas emprendedoras.
+
+6. Racionalizar el marco de apoyo de financiación dirigido al emprendimiento para la optimización de su impacto, bien directamente o mediante la colaboración del sector privado, a través de fórmulas de capital riesgo y otras, simplificando los trámites administrativos para implementar cada servicio de apoyo a la persona emprendedora, en cada uno de sus itinerarios y tipos de emprendimiento.
+
+7. Promocionar el desarrollo de programas y actividades destinados al desarrollo de competencias emprendedoras (en la triple dimensión: personal, social y productiva) entre el alumnado de primaria y secundaria y formación profesional. Se tomará en consideración el marco ENTRECOMP de competencias emprendedoras.
+
+8. Definir e integrar la formación en competencias básicas de emprendimiento en la formación universitaria orientadas a la puesta en marcha y/o consolidación de iniciativas emprendedoras del alumnado egresado. Asimismo promover la creación de empresas innovadoras de alto potencial en el ámbito de la Red Andaluza del Conocimiento y la transferencia de conocimiento e innovación generado en las Universidades al mercado a través de la creación de EBTs.
+
+9. Definir una imagen de marca de Andalucía como Región Emprendedora.
+
+10. Fomentar la realización por parte de las Universidades de actuaciones que den como resultado la puesta en marcha y/o consolidación de iniciativas emprendedoras del alumnado egresado.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Apoyar la internacionalización y la competitividad exterior
+**** Intro 0104                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0104
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Tejido empresarial exportador
+2. La atracción de inversiones directas
+3. Sistemas de apoyo a la internacionalización de la economía andaluza
+{{{finlineas}}}
+{{{ods(8 9 11 12)}}}
+El sector exterior se ha convertido en un pilar fundamental para el crecimiento económico de Andalucía, y no solo porque contribuya a aumentar la producción regional para satisfacer la demanda externa, sino porque a través de la reasignación más eficiente de los factores productivos, aumenta la productividad y la competitividad económica. De hecho, no solo las exportaciones son un elemento clave del crecimiento económico, sino que las importaciones también lo son cuando implican la incorporación de capital productivo, nuevos modos de producción y organización (innovación), tecnologías, y conocimientos más avanzados, convirtiéndose en un mecanismo de transferencia de tecnología hacia nuestro territorio que, a su vez, puede estimular el desarrollo endógeno, así como la localización de nuevos procesos productivos.
+
+De modo similar, el flujo de entradas y salidas de capital extranjero, del que Andalucía es receptora neta también genera efectos positivos para la economía, ya que las entradas de capital extranjero suponen inversiones generadoras de actividad y empleo en la región, y las salidas (inversiones autóctonas en el extranjero) constituyen un elemento de éxito y de competitividad de las empresas andaluzas, contribuyendo a dinamizar las exportaciones de bienes y servicios.
+
+En los últimos años, ambos elementos han mostrado una evolución positiva en Andalucía, en especial, en el ámbito de los flujos comerciales, pero se requiere acelerar esta tendencia para que nuestra Comunidad Autónoma alcance cotas más elevadas de internacionalización, gracias a una mayor apertura del comercio internacional y a la mejora de la captación de la inversión exterior. El interés en apoyar el posicionamiento en el mercado foráneo está justificado por la estrecha interrelación que presenta con la innovación, la productividad y la competitividad.
+
+Además de aprovechar estas sinergias positivas, Andalucía debe estar atenta a fenómenos recientes que la salida de la crisis del coronavirus y el contexto bélico en Ucrania podrían intensificar, como el neoproteccionismo y los riesgos asociados a una desglobalización, revalorizándose elementos como la cercanía al cliente frente a la dependencia de proveedores lejanos, e incluso la protección y nacionalización de sectores clave para una economía.
+
+Las líneas de actuación que se desarrollan a continuación están recogidas de forma transversal en los objetivos generales de la Estrategia de Internacionalización de la Economía Andaluza 2021-2027: Desarrollo y consolidación del tejido empresarial andaluz; Creación de empleo estable, de calidad y sostenible; Fortalecimiento del posicionamiento global de Andalucía por el aumento de sus exportaciones y atracción de inversiones extranjeras.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Mejorar el posicionamiento internacional de Andalucía, incrementando las exportaciones y la captación de inversiones extranjeras.
+{{{fintcb}}}
+
+**** Tejido empresarial exportador
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0104-01
+:END:
+***** Texto                                                      :ignore:
+El comercio exterior de Andalucía ha mostrado una notable expansión en los últimos años, de modo que se ha convertido en un motor para la recuperación de la economía regional después de la Gran Recesión. En este sentido, y sin considerar la contracción sufrida por parte de las transacciones comerciales globales en 2020, a causa de la pandemia, y el ligero descenso observado en 2019, las exportaciones andaluzas han crecido por encima del conjunto nacional y del agregado de las economías de nuestro entorno.
+
+No obstante, *las exportaciones de bienes de Andalucía al extranjero mantienen un peso relativo sobre el PIB (17,7 % en 2020) inferior a la media española (23,3 % en 2020) y notablemente más bajo que el correspondiente al promedio europeo (35,9 %)*. En el mismo sentido, el grado de apertura de la economía regional (33,5 % en 2020) se sitúa por debajo de los ámbitos geográficos de referencia.
+
+Por otra parte, la base de empresas andaluzas que exportan con regularidad ha experimentado una positiva evolución en el balance de los últimos años, en 2020 ascendieron hasta las 5.776 empresas, lo que supone un aumento en 1.427 respecto a 2014. Este perfil ascendente es más significativo que el observado en España, si bien atendiendo al número total de empresas andaluzas que realizaron alguna venta al exterior (22.294, en 2020), el incremento observado en los últimos años resultó ser más notable en España que en Andalucía.
+
+En cualquier caso, conviene recordar que muchas empresas se inician en la actividad exportadora y no continúan, por lo que el valor de lo exportado por un buen número de ellas es poco significativo. De hecho, solo 551 empresas exportan más de 5 millones de euros anuales en Andalucía y el 10 % de las empresas exportadoras concentran el 90,6 % del valor de las exportaciones regionales (datos de 2020). En España también existe una gran concentración, pero ésta resulta un poco mayor en la región.
+
+De este modo, existe una *excesiva concentración de las exportaciones en un reducido subconjunto de empresas regionales*, y en número de empresas que exportan con regularidad Andalucía ocupa la cuarta posición (por detrás de Madrid, Cataluña y C. Valenciana). De hecho, las 100 primeras empresas exportadoras regulares acaparaban el 63 % del valor de las exportaciones (en 2015 ese porcentaje era del 62 %), con un marcado peso en determinados sectores entre los que destacan los siguientes: agroalimentario, productos minerales, energéticos y del sector aeronáutico, así como en el destino a pocos mercados (europeos y americanos).
+
+En definitiva, el tejido empresarial exportador debe fortalecerse, mejorando su integración en las cadenas de valor globales, ya que actualmente está formado por un buen número de empresas locales y pequeñas (pymes) con baja colaboración entre ellas y otras empresas de un mayor tamaño, pero sin una visibilidad o proyección adecuadas, entre las que escasean las tractoras con capacidad de liderazgo a nivel internacional.
+
+Por todo ello, *sería deseable aumentar la base de empresas exportadoras regulares (y acortar la brecha con la de exportadoras totales), así como que hubiera una menor dispersión* en el valor medio exportado por empresa, con una mayor diversificación en los mercados de destinos y en los sectores que son objeto de venta en estos mercados.
+
+Los resultados del diagnóstico realizado por Extenda, a través del Programa Activa Internacional, en el contexto provocado por la pandemia, han confirmado estas deficiencias en nuestro sector exportador, identificando otros problemas, pre-existentes y latentes, que se han visto agravados con la crisis generada por la COVID-19. Así, se destaca las dificultades en la adaptación de sus organizaciones a los nuevos canales de venta y las nuevas tecnologías, reconociendo modelos de trabajo mejorables en coordinación y cooperación institucional. También se detectan carencias en materia de formación específica en internacionalización y lenguas extranjeras.
+
+Otro tipo de deficiencias están relacionadas con las características estructurales e institucionales en Andalucía, con pocas experiencias en cooperación público-privada y reducida representación andaluza en foros y grupos de trabajo especializados en el sector exterior. Al mismo tiempo, existe una limitada presencia de clústeres dada la limitada cultura de cooperación empresarial y la baja implantación de un ecosistema de startups, con avances moderados en materia de innovación y digitalización. Estas carencias justifican la necesidad de abordar, de forma específica, el sistema de apoyo a la internacionalización.
+
+:fig-0104A1:
+:F: Datacomex, Ministerio de Industria, Comercio y Turismo.:F:
+:U::U:
+:N: \includegraphics[width=12pt]{graficos/circulo.pdf}% que representa el valor de las exportaciones sobre el total del PIB (Datos para 2020).:N:
+:E::E:
+#+CAPTION: Trayectoria de las exportaciones de bienes de Andalucía en el contexto nacional y de la Zona Euro (Base 2005 = 100)
+[[./graficos/0104A1.pdf]]
+:END:
+
+:fig-0104A2:
+:F: “Perfil de los exportadores españoles”, ICEX.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Perfil de las empresas exportadoras en 2020
+[[./graficos/0104A2.pdf]]
+:END:
+
+:fig-0104A3:
+:F: “Perfil de los exportadores españoles”, ICEX.:F:
+:U::U:
+:N: Se trata de exportadoras regulares, es decir, empresas que han exportado en los 4 últimos años consecutivos.:N:
+:E::E:
+#+CAPTION: Evolución del número de empresas exportadoras regulares en Andalucía y España (Base 100 en 2010)
+[[./graficos/0104A3.pdf]]
+:END:
+
+:fig-0104A4:
+:F: “Perfil de los exportadores españoles”, ICEX.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución del número de empresas exportadoras: Totales y regulares Comparativa Andalucía y España
+[[./graficos/0104A4.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Detectar el potencial exportador en el territorio, identificando empresas con potencial exportador, sus necesidades (por ejemplo, formativas en servicios logísticos) e informando de los servicios que los organismos públicos pueden brindarles.
+
+2. Establecer un sistema de información sectorial centrado en implementar herramientas  que faciliten la detección de problemas y necesidades, junto con el establecimiento de canales de intercambio de información.
+
+3. Situar la internacionalización en el plano del conocimiento de las empresas y la población andaluza, para generar un efecto arrastre e incrementar la base exportadora, situando al sector exterior y sus oportunidades en el conocimiento de la población andaluza, en general, y en el debate público y de redes sociales profesionales, en particular.
+
+4. Ofrecer oportunidades de negocio en mercados internacionales, a través de la Red Exterior de Extenda que proporciona la posibilidad de un mayor conocimiento de los mercados en los que está presente.
+
+5. Impulsar la actividad de promoción con enfoque de mercado mediante la elaboración de una programación anual.
+
+6. Proyectar Andalucía y sus sectores productivos en la Comunidad Internacional, especialmente en aquellos sectores que han demostrado mayor competitividad.
+
+7. Estimular la presencia internacional permanente en el exterior para contribuir al establecimiento de nuevas alianzas, colaboraciones y posicionarse con una mayor fuerza en los diferentes mercados, al tiempo que se aprovechan las sinergias que ofrece la cooperación al desarrollo desde Andalucía.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+**** La atracción de inversiones directas
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0104-02
+:END:
+***** Texto                                                      :ignore:
+Otra forma de medir el grado de internacionalización de una economía se basa en la medición del flujo de inversiones con el exterior, reconociendo el papel que la llegada de inversiones foráneas ha desempeñado en la modernización y crecimiento de la economía andaluza en las últimas décadas.
+
+La eliminación de barreras a la inversión directa extranjera, las escasas restricciones impuestas al capital extranjero, la posibilidad de contratación de talento foráneo en puestos clave y diversas facilidades para las operativas hacen, a priori, a Andalucía un destino preferente dentro de las economías de la OCDE, sin olvidar otros elementos en los que existe un amplio margen de mejora (por ejemplo, en el ámbito de la regulación económica).
+
+Atendiendo al Registro de Inversiones Extranjeras del Ministerio de Industria, Comercio y Turismo, en 2020, la inversión extranjera bruta total recibida en Andalucía ascendió hasta los 720,4 millones de euros, cerca del doble que en 2018 (460 millones de euros). Este incremento se produjo en un contexto de caída a nivel nacional (-55,3 %), y en menor medida a nivel mundial, en el que los flujos de inversión extranjera se redujeron un - 35 %, según las estimaciones de la UNCTAD.
+
+Sin tener en cuenta las realizadas por las Entidades de Tenencia de Valores Extranjeros (ETVE), la inversión productiva en Andalucía se situó en 2020 en los 720,3 millones de euros, casi el doble de la media anual en la serie histórica (422,9 millones de euros de inversión productiva en el periodo 1993-2020), y un 56,5 % superior a la realizada en el 2018. Descontando el “efecto sede social” de la Comunidad de Madrid, Andalucía ocuparía una posición relevante dentro del conjunto nacional (junto a Cataluña y País Vasco), *aunque todavía debe consolidarse como destino preferente*.
+
+El sector servicios de Andalucía concentra cerca del 80 % de la inversión directa del extranjero, en especial las ramas “Comercio al por menor, excepto vehículos de motor”, “Almacenaje y actividades anexas al transporte”, “Programación y consultoría”, “Actividades inmobiliarias” y “Servicios financieros”. Considerando la procedencia de la inversión total foránea, Andalucía es receptora de inversiones que tiene su origen en países europeos (Francia, Suiza, Italia, Reino Unido o Alemania) seguidos de América (Ecuador).
+
+Un interés especial tiene el seguimiento realizado a través del Barómetro del Clima de Negocios[fn:31] durante los dos últimos años, que sondea el interés del inversor extranjero en Andalucía, de acuerdo con la valoración de 120 empresas españolas de capital extranjero que operan en la Comunidad Autónoma. De este análisis se concluye que las áreas mejor valoradas por las empresas son las Infraestructuras, seguida de la Calidad de Vida, el Capital Humano y el Tamaño del Mercado. Dichas áreas presentan una elevada coincidencia con los aspectos considerados más importantes para los inversores: el Capital Humano y el Tamaño de Mercado, seguido por el Mercado Laboral y las Infraestructuras. Por el contrario, lo que menor importancia tiene, en opinión de los inversores, es la Financiación.
+
+En el lado negativo, cabe destacar que entre los *aspectos menos valorados y en los que habría que incidir, se señala el Entorno Regulatorio, la Innovación y los Costes*. De este modo, los ámbitos que presentan mayores desequilibrios entre la valoración que reciben y la importancia que tienen para los inversores extranjeros son los de Mercado Laboral, Entorno Regulatorio, los Costes y el Capital Humano. Por otro lado, las áreas de Infraestructuras y Calidad de Vida obtienen una puntuación en valoración igual o similar a la importancia, cumpliéndose en términos generales las expectativas de los inversores.
+
+En cuanto a los principales aspectos que *limitan la inversión de las empresas se señalan el marco fiscal de los negocios, el exceso de cargas administrativas y la escasa flexibilidad del mercado laboral, así como un contexto inapropiado de I+D+i.*
+
+:fig-0104B1:
+:F: Barómetro del Clima de Negocio (2020).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Importancia y valoración del entorno de negocio para la inversión en Andalucía por áreas
+[[./graficos/0104B1.pdf]]
+:END:
+
+:fig-0104B2:
+:F: Barómetro del Clima de Negocio (2020).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Razones de las empresas para instalarse en Andalucía
+[[./graficos/0104B2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Estimular el clima inversor y la coordinación regional, mejorando el entorno regulatorio y eliminando trabas administrativas para favorecer los elementos clave en la decisión de la inversión exterior, con especial atención a la captación de grandes proyectos empresariales de interés estratégico.
+
+2. Realizar campañas específicas de atracción de inversiones en sectores estratégicos para la economía andaluza, tales como las Energías Renovables, Aeronáutico, Biotecnología, TIC, Agroalimentario y Logística y otros que se identifiquen en la Estrategia de Especialización Inteligente para la Sostenibilidad (S4).
+
+3. Promover a la región Andalucía como destino de la inversión extranjera e identificación de inversores, desarrollando un plan de comunicación y marketing con una imagen y contenidos actualizados de utilidad, pudiendo colaborar en la financiación a la asistencia y organización de eventos de carácter internacional (ferias, congresos, seminarios, jornadas, encuentros /Business-to-Business/ (B2B) o patrocinios) para presentar la oferta andaluza ante potenciales inversores.
+
+4. Contribuir a la mejora de la inversión extranjera directa en Andalucía, desde una corresponsabilidad de los distintos agentes implicados (públicos y privados) en las funciones de captación, acompañamiento y seguimiento hasta su consolidación.
+
+5. Facilitar la captación de capital extranjero para empresas andaluzas como forma de financiación, que permita por un lado, aumentar el tamaño de la empresa y por otro, facilitar su internacionalización en el país origen de la inversión.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Sistemas de apoyo a la internacionalización de la economía andaluza
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0104-03
+:END:
+***** Texto                                                      :ignore:
+El grado de interrelación entre la competitividad empresarial y la posición exterior de los espacios económicos, en los que se inserta dicha actividad empresarial, demandan un enfoque coordinado e integrado en los servicios de apoyo a las empresas andaluzas en las tareas comerciales en mercados foráneos y en la atracción de inversiones. En este sentido, la nueva Agencia Pública Empresarial para la Transformación y el Desarrollo Económico de Andalucía, “Andalucía TRADE”, desempeñará un papel fundamental para articular las diversas actuaciones que incidan en el objetivo de lograr una mayor competitividad de la economía regional.
+
+El sistema andaluz para la internacionalización de la economía regional ha contado en los últimos años con distintas herramientas que han tenido una influencia positiva en los avances logrados, pero sigue siendo insuficiente para corregir la *brecha existente* en la significación del sector exterior con respecto a las regiones españolas y europeas más competitivas.
+
+Algunas de las debilidades más evidentes son el desconocimiento de Andalucía y sus oportunidades en la comunidad internacional, la *escasa proyección de la marca Andalucía* y de los atractivos económicos de la región y la insuficiente presencia andaluza en redes sociales profesionales.
+
+Al mismo tiempo, se detectan unos procedimientos de actuación muy descoordinados y faltos de unos protocolos claros entre las distintas entidades e instituciones (diversos departamentos de la Administración de la Junta de Andalucía, Ayuntamientos y Diputaciones, Cámaras de Comercio, Instituto de Comercio Exterior, entre otros), lo cual genera confusión y complejidad a los agentes inversores y exportadores.
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Prestar servicios a medida y de acompañamiento para la internacionalización (financiación, legislación, servicios avanzados, entre otros).
+
+2. Informar a las empresas sobre qué instrumentos puede proporcionarles la Administración para complementar información relevante referente a mercados, sectores, trámites de exportación, estadísticas o clientes potenciales entre otras cuestiones de interés.
+
+3. Apoyar la formación en elementos clave de internacionalización al personal directivo y gerentes de empresas a través de cursos de formación especializados (por ejemplo, en materia logística).
+
+4. Asesorar en estrategia digital, facilitando el acceso a nuevos canales de comercialización y distribución, especialmente a las principales plataformas digitales internacionales, tanto B2B (/Business-to-Business/) como B2C (/Business-to-Consumer/), como vehículo para acceder de forma directa e inmediata a los mercados globales, incluyendo el desarrollo y apoyo de plataformas autóctonas con logística tanto nacional como internacional.
+
+5. Proveer de informes de inteligencia de mercado.
+
+6. Reforzar la coordinación e interrelación entre las acciones para el emprendimiento y la internacionalización, en especial en materia de investigación, innovación y de conocimiento, para mejorar el ecosistema empresarial de Andalucía, incluyendo la implementación de un sistema de evaluación conjunta.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Contribuir a la transición verde y digital
+**** Intro 0105                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0105
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Productividad y competitividad
+2. Digitalización y descarbonización
+3. Nuevas políticas y modelo de gobernanza
+{{{finlineas}}}
+{{{ods(7 9 8 11 12)}}}
+El nuevo horizonte de competitividad que aspira alcanzar Andalucía implica cambios en la forma de producir y en la calidad de lo producido, y al mismo tiempo exige una diversificación de los esfuerzos empresariales hacia nuevas actividades y productos. De este modo, la industria, por su importancia en la innovación y la exportación, desempeña un papel de primer orden en esta transformación, o al menos una adaptación del modelo productivo a un mundo cambiante con nuevas necesidades. En este proceso, se debe aspirar a que el sector industrial recobre parte del peso perdido en el PIB regional y, al mismo tiempo, que se convierta en un catalizador para la transición digital y la neutralidad climática de nuestra economía.
+
+En este sentido, al igual que en otros momentos de la historia, el sector industrial ha liderado cambios sociales y económicos (conocidos como revoluciones industriales), esta doble transición, ecológica y digital, de la que la industria debe ser abanderada, modificará todos los aspectos de nuestra economía y sociedad, ya que precisará de nuevas funciones de producción, es decir, otras combinaciones de capital físico y humano, lo que implicará buenas dosis de innovación y nuevas tecnologías. De este modo, se crearán nuevos productos, servicios, mercados y modelos de negocio. A su vez, se generarán nuevos tipos de empleo, todavía inexistentes, que exigirán, muy posiblemente, unas capacidades de las que aún carece nuestra fuerza laboral. Y, por último, conllevará el paso de la producción lineal a la economía circular.
+
+Además, la consolidación de tendencias industriales cada vez más definidas, como la robotización, el /reshoring/ y /nearshoring/ (acercamiento de la producción) y los compromisos oficiales de descarbonización de la economía, como la multiplicación de la generación de energía renovables, supondrá una reordenación, a nivel internacional, de las ventajas competitivas que, con la planificación adecuada, puede favorecer a nuestra región, lo que permitiría diversificar nuestro tejido productivo.
+
+Por su parte, también el sector agrario se enfrenta al reto de la incorporación de tecnologías y la digitalización de los procesos y productos, en cada una de las fases de la cadena de valor agroalimentaria, siendo una cuestión crucial para incrementar la competitividad y la sostenibilidad de un sector muy relevante de la economía andaluza, en línea con los retos establecidos en el Pacto Verde Europeo y el Acuerdo de París.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Metas)}}}
+Facilitar la transición al nuevo entorno de digitalización, sostenibilidad y descarbonización.
+
+\bigskip
+
+Mejorar la productividad y competitividad de los sectores productivos, a través del fortalecimiento y crecimiento de las cadenas de valor de bienes y servicios.
+{{{fintcb}}}
+
+**** Productividad y competitividad
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0105-01
+:END:
+***** Texto                                                      :ignore:
+En general, el sector industrial en Andalucía mantiene unos rasgos estructurales más débiles que los del conjunto de España y que los correspondientes a los principales países de referencia europeos. Así, atendiendo a la significación del PIB industrial dentro del conjunto de la producción agregada (poco más del 10% frente al 14% de España y el 20% de Europa), al peso relativo del VAB de la industria andaluza dentro del total español o la demografía empresarial en este sector de actividad, en comparación con el nacional y de la UE, se evidencia esta situación de *menor relevancia del sector secundario* en el cuadro macroeconómico regional.
+
+Por otro lado, el sector industrial en Andalucía se caracteriza por un *menor peso de la actividad manufacturera*, mientras que las actividades no manufactureras (energía, agua, saneamiento, gestión de residuos, descontaminación, entre otras) presentan un mayor peso relativo dentro de la industria, superior al del promedio de España (34,9% frente al 23,8%, respectivamente, en 2019).
+
+:fig-0105A1:
+:F: Contabilidad Nacional de España (INE) y Contabilidad Regional Anual de Andalucía (IECA).:F:
+:U: En % sobre VAB total.:U:
+:N::N:
+:E::E:
+#+CAPTION: Peso del VAB del sector industrial
+[[./graficos/0105A1.pdf]]
+:END:
+
+Especialmente revelador resultan las *menores cotas de productividad* del sector en comparación con la media española y europea, ya que Eurostat estima la productividad laboral en el sector en 46,4 euros por hora trabajada en España, frente a los 54,9 euros de la Zona Euro, mientras la de Andalucía se situaría en torno al 93% de la española.
+
+Adicionalmente, los *productos industriales exportados por Andalucía no incorporan un elevado componente tecnológico*, representando las exportaciones manufactureras de alta y media-alta tecnología sobre el total una proporción significativamente inferior a la del conjunto de España (23,2% frente al 47,8%) y esta brecha apenas ha cambiado en los últimos años. Los escasos avances observados en este campo no son ajenos al bajo nivel de ejecución de las políticas de I+D.
+
+Este indicador, que podríamos considerar un referente de la competitividad del sector, aproxima una *posición poco aventajada de la industria regional en el mercado global*. No obstante, desde 2013, la evolución de algunos de estos indicadores ha sido positiva, como el número de empresas industriales que son exportadoras regulares, la intensidad innovadora o la generación de empleo en el sector, que ha mostrado un favorable comportamiento desde la salida de la crisis, si bien no parece haber conllevado una reducción de la tasa de temporalidad. Tampoco ha mostrado una trayectoria favorable la proporción de empresas industriales que desarrollan soluciones de digitalización.
+
+Además, no cabe olvidar las nuevas orientaciones de la política industrial europea, ligadas a revertir la deslocalización de las cadenas de valor, la pérdida de soberanía tecnológica, el éxodo de talento o los riesgos de desabastecimiento de materias primas y componentes industriales, dado que constituyen otros problemas estructurales que sufre tanto la industria regional como la española, y que en el contexto generado por la pandemia y la guerra en Ucrania se han puesto de manifiesto con mayor claridad.
+
+Igualmente, el sector primario también viene incorporando el uso de tecnología dentro de su proceso productivo y de gestión, no solo por el uso de internet para tener una presencia comercial y generar negocio, sino también porque cada vez más está visualizando el uso de la robótica, la sensórica, la inteligencia artificial, el IoT, el blockchain, el machine learning, entre otras, dentro de las cadenas de producción. Esto va acompañado de una digitalización de los datos para una mejor y más ágil toma de decisiones.
+
+Sin embargo, el ritmo de adopción aún es bajo, por lo que se necesitan herramientas que puedan dar soporte y asesoramiento sobre las distintas soluciones que hay en el mercado, así como desarrollar las tecnologías necesarias para las necesidades que aún no están cubiertas por las soluciones existentes.
+
+La cooperación entre empresas y el liderazgo de algunas de ellas es también crucial para generar un movimiento demostrativo para las empresas más pequeñas o rezagadas. Este fortalecimiento empresarial junto con la adopción de los cambios tecnológicos contribuirá a alcanzar mayores cotas de productividad y que la producción andaluza sea más competitiva en los mercados exteriores.
+
+
+:fig-0105A2:
+:F: Instituto de Estadística y Cartografía de Andalucía e Instituto Nacional de Estadística.:F:
+:U: En %, salvo indicación en contrario.:U:
+:N:  * Dato para 2018.:N:
+:E::E:
+#+CAPTION: Indicadores Básicos del sector industrial en Andalucía
+[[./graficos/0105A2.pdf]]
+:END:
+
+:fig-0105A3:
+:F:  Instituto de Estadística y Cartografía de Andalucía con datos de Datacomex (Ministerio de Industria, Comercio y Turismo).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Exportaciones manufactureras de alta y media-alta tecnología (% total exportaciones)
+[[./graficos/0105A3.pdf]]
+:END:
+
+***** Actuaciones
+
+1. Reformular las políticas de apoyo a la I+D destinadas a la industria y energía en Andalucía, en coordinación con las del conjunto de España y con el propio sector, con el objetivo de que la producción industrial andaluza incorpore mayores componentes tecnológicos.
+
+2. Identificar y diseñar nuevos cursos y grados de ciclos formativos orientados a determinadas ramas de la actividad productiva más intensiva en tecnología, con la implicación de los agentes empresariales del sector (formación para el empleo y ciclos de FP), con el consiguiente efecto positivo sobre la productividad del sector.
+
+3. Favorecer la creación de grupos de investigación mixtos entre las universidades, centros tecnológicos y empresas del sector manufacturero y energético para atender retos y oportunidades del sector industrial y de otras ramas emergentes. En particular, fortalecer la relación Universidad-Empresa.
+
+4. Establecer programas de asistencia y seguimiento específico a las empresas industriales y agroalimentarias en materia de exportación y de internacionalización, desde los inicios (encontrando el perfil del “partner” ideal y encontrar al agente, distribuidor o socio accionista, en destino) hasta la consolidación de estas estrategias de expansión comercial.
+
+5. Rediseñar el papel de los parques científicos y tecnológicos andaluces en el ámbito industrial, como instrumentos de dinamización y fortalecimiento del ecosistema innovador andaluz, de modo que lleven a cabo proyectos de inversión orientados a la absorción de nuevas tecnologías por parte de las empresas.
+
+6. Avanzar en el desarrollo de las actividades industriales que se definan en la S4, como instrumento de planificación, ejecución, desarrollo y evaluación de las actuaciones públicas en materia de investigación, innovación, transición industrial y cambio climático.
+
+7. Fortalecer y completar las cadenas de valor de bienes y servicios industriales, para que se conviertan en cadenas de valor circulares sólidas y autosuficientes,  buscando el mayor aprovechamiento de los recursos naturales y de conocimiento andaluces, y el desarrollo de los mercados de bienes y servicios.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Digitalización y descarbonización
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0105-02
+:END:
+***** Texto                                                      :ignore:
+Los sectores productivos se enfrentan a dos grandes retos estructurales. Por una parte, la digitalización, es decir, la aplicación de las llamadas tecnologías 5.0 en toda la cadena de valor del sector, y por otra, la transición ecológica.
+
+La digitalización supone un cambio en el modelo de gestión de las empresas y altera los agentes y las dinámicas competitivas actuales, convirtiéndose en un catalizador de la transformación del sector y en un factor de competitividad decisivo.
+
+El *grado de digitalización de la industria andaluza resulta todavía bastante reducido*, de acuerdo con los resultados de la evaluación intermedia de la Estrategia Industrial de Andalucía 2020 (EIA) que estima que solo el 7% de las empresas industriales en nuestra región están plenamente incorporadas al mercado digital (el 24% en la UE en 2018). Además, la proporción de empresas andaluzas (de todos los sectores) de más de 10 asalariados incorporadas al mercado digital sigue siendo más reducido en Andalucía y en España (19% en ambos casos en 2019) que en el promedio de la UE (26%).
+
+No obstante, las medidas puestas en marcha en dicha Estrategia han logrado que casi la mitad de las empresas industriales hayan acometido algún proceso de transformación tecnológica, como la implementación de ERP (Enterprise Resource Planning), soluciones de comercio electrónico y aplicaciones para gestionar la información de clientes CRM (Customer Relationchips Management).
+
+Por su parte, el sector primario también necesita incorporar la digitalización a todos sus  procesos, tanto productivos como de gestión, dado que constituye el principal elemento transversal para su modernización, lo que requiere de una mejora en las infraestructuras digitales y de transporte que permitan una mayor conectividad en el territorio.
+
+Todas estas transformaciones requieren de nuevos perfiles de profesionales, con una formación especializada en muchos casos.
+
+:fig-0105B1:
+:F: Agencia Andaluza de la Energía.:F:
+:U: ktep y % sobre el total sectores (eje derecho).:U:
+:N::N:
+:E::E:
+#+CAPTION: Consumo de energía final por el sector industrial
+[[./graficos/0105B1.pdf]]
+:END:
+
+Por otra parte, la industria se enfrenta al reto de la transición ecológica, que no solo responde a los compromisos internacionales asumidos (Acuerdo de París de 2015) sino que representa un cambio en los fundamentos económicos y sociales, ya que la obligación de limitar las emisiones y la sensibilización de los consumidores condiciona las políticas sectoriales e implica cambios en los patrones de consumo. Para la producción industrial, estas exigencias supondrán un periodo de esfuerzo y adaptación, ya que el sector sigue siendo un responsable importante del volumen de *emisiones de gases de efecto invernadero* (de acuerdo con el volumen de emisiones de CO_{2}), *generador de residuos* y, además hace un *uso bastante intensivo de la energía* (31,3% del consumo final de energía en Andalucía en 2019), aunque se hayan dado pasos positivos, pero modestos en los últimos años.
+
+Asimismo, las actividades agrarias también son una importante fuente de emisiones de GEI, debido tanto a su extensión territorial como a la relevancia de su producción. Y, aunque el sector cuenta con una importante producción ecológica a nivel nacional, debe aumentar los esfuerzos para atender a los objetivos establecidos en la nueva Política Agraria Común (PAC) y el Pacto Verde Europeo.
+
+:fig-0105B2:
+:F: Elaboración propia a partir de información del Ministerio para la Transición Ecológica y el Reto Demográfico, y del Instituto Nacional de Estadística.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de las emisiones de CO_{2} equivalentes por sector de actividad, 1990-2018
+[[./graficos/0105B2.pdf]]
+:END:
+
+:fig-0105B3:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Red de Información Ambiental de Andalucía, REDIAM.:F:
+:U:  Toneladas.:U:
+:N:   (*) En el apartado “Otros” se incluyen los residuos procedentes de los grupos de actividad: Papel, cartón e imprenta, Servicios domésticos y Textiles; Cueros; Madera y Muebles e Industrias diversas.:N:
+:E::E:
+#+CAPTION: Producción declarada de residuos peligrosos por grupo de actividad
+[[./graficos/0105B3.pdf]]
+:END:
+
+***** Actuaciones
+
+1. Apoyar proyectos que faciliten la digitalización de los sectores productivos, predominantemente pymes, bien a través de programas directos o mediante el fomento de las funciones que pueden desempeñar los servicios avanzados intensivos en conocimientos, tales como las ingenierías, consultorías o servicios digitales especializados, que permitirán a la industria mejorar su capacidad de absorción de la tecnología, aprovechando las prioridades de la política industrial europea y de la PAC (con disponibilidad de fondos y recursos extraordinarios).
+
+2. Realizar cursos de formación en competencias digitales, especialmente dirigidos a aquellas personas con capacidad de transformación en la empresa, que contribuyan a la creación de una cultura y talentos digitales. En este punto, puede desempeñar un papel destacado el apoyo a los conocidos como “Digital Innovation Hubs”, u otras fórmulas de cooperación dentro de la revisión de la política de clústeres industriales.
+
+3. Apoyar la realización en los sectores productivos de proyectos que mejoren la eficiencia energética y el uso de energías renovables, incluyendo la cogeneración de alta eficiencia, de forma que se optimice su diseño, se garantice el autoconsumo y se aporte cierta flexibilidad para su compatibilidad con el sistema eléctrico.
+
+4. Crear “redes cerradas de distribución” con el fin de contemplar la realidad de la industria interrelacionada entre sí en determinados polígonos.
+
+5. Proporcionar información al sector industrial acerca de la disponibilidad de suelo para el establecimiento de actividades manufactureras o relacionadas con el sector de la energía, así como de las características y servicios de dichas localizaciones, a través de una plataforma “visor” de contenidos actualizada.
+
+6. Impulsar la eficiencia energética en la industria y el desarrollo de tecnologías y de innovaciones en cada subsector industrial, atendiendo al marco estratégico establecido en el Plan de acción CRECE Industria para una nueva política industrial en Andalucía y a las “Directrices Generales de la Nueva Política Industrial Española 2030”.
+
+7. Incrementar el peso de la contratación pública ecológica y la compra pública innovadora, poniendo de manifiesto el papel ejemplarizante de la Administración.
+
+8. Difundir la cultura de la sostenibilidad, implicando a empresas y a agentes del sistema educativo, mediante su inserción en currículos formativos o el reconocimiento de las mejores prácticas.
+
+9. Defender y perfeccionar la unidad de mercado y simplificar los trámites burocráticos y administrativos, especialmente en el sector industrial y agroalimentario.
+
+10. Fomentar la colaboración intersectorial para impulsar la ecoinnovación, el liderazgo de algunas de ellas para generar un movimiento demostrativo para las empresas más pequeñas o rezagadas.
+
+11. Desarrollar, de forma combinada, incentivos económicos y disposiciones normativas para profundizar en ámbitos como la internalización de los costes medioambientales, y la implantación de la economía circular y la I+D+i orientada al desarrollo e implantación de productos y procesos productivos más sostenibles.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Nuevas políticas y modelo de gobernanza
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0105-03
+:END:
+***** Texto                                                      :ignore:
+Un apartado específico entre los retos del sector industrial se merece el dedicado a los problemas institucionales en la aplicación de las políticas del sector, que han dificultado el poder alcanzar los objetivos de la Estrategia Industrial de Andalucía 2020 (EIA), tales como la limitada prioridad de éstas en la agenda pública, cierto grado de “conformismo” con el declive del sector, la ausencia de un impulso presupuestario estable y la falta de liderazgo en ámbitos nacionales e internacionales.
+
+La evaluación intermedia de la EIA 2020 revela que *el modelo de gobernanza ha sido complejo*, con numerosos órganos y niveles de intervención, lo que ha dificultado la interacción entre diferentes niveles jerárquicos para la toma de decisiones, y ha impedido el adecuado seguimiento de la estrategia, con poca continuidad en la participación y baja implicación de los directivos. Todos estos factores han conformado un contexto poco proclive a incorporar las oportunidades que se hubiesen detectado (Proceso de Descubrimiento Emprendedor, PDE).
+
+Aunque se considera positiva la experiencia en materia de cooperación entre agentes clave y las aportaciones para la simplificación de procesos o las nuevas vías de comunicación directa de los agentes del sector con las distintas administraciones,  los avances han sido limitados y no se ha logrado incrementar significativamente el *capital relacional del ecosistema emprendedor*.
+
+Los expertos que están colaborando en el diseño de la “nueva política industrial para Andalucía” señalan que las *acciones de política industrial han sido discontinuas, fragmentadas y no han contado con un sistema estable de gestión*. Adicionalmente, se ha adolecido de un nivel adecuado de coordinación y participación con el Gobierno de España en materia industrial.
+
+***** Actuaciones
+
+1. Redefinir la gobernanza de la política industrial en sentido amplio, formulándose propuestas para su mejora, a través de mecanismos de coordinación y de participación de los distintos agentes del ecosistema industrial (las empresas, las universidades, los centros de investigación y los centros tecnológicos, y las Administraciones Públicas).
+
+2. Impulsar la creación de un órgano permanente de coordinación estratégica, que asesore al Gobierno, supervisando y coordinando las actuaciones públicas y privadas, que cuente con la participación de los agentes económicos y sociales más representativos, para asegurar el impulso y sostenibilidad de las transformaciones.
+
+3. Establecer prioridades y “misiones” concretas en un calendario establecido con distintos horizontes temporales: Plan de acción CRECE Industria 2021-2022, y los planes de fomento industrial en los horizontes 2025 y 2030, con la participación de los agentes económicos y sociales más representativos.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Incrementar la capacitación del capital humano
+**** Intro 0106                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0106
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. La dotación de capital humano.
+2. Formación y aprendizaje a lo largo de la vida para el empleo y el emprendimiento.
+3. El papel del sistema universitario público: titulaciones y contribución a la investigación y la innovación.
+{{{finlineas}}}
+{{{ods(4 5 8 10)}}}
+El capital humano constituye un elemento clave para dar consistencia al modelo de competitividad económica, ligado a la innovación y a la transformación digital que debe lograr Andalucía.
+
+La dotación de talento o de capital humano, es decir, la mezcla de aptitudes y habilidades innatas de las personas, así como la cualificación y el aprendizaje que se adquieren en la educación, en la formación profesional para el empleo, en la recualificación y la experiencia laboral han sido consideradas por la teoría económica como la principal fuente de crecimiento económico a largo plazo.
+
+Es por ello que constituye una responsabilidad de los poderes públicos proveer de un “sistema de adquisición de competencias o capacidades” para la población a lo largo de las distintas etapas de la vida, porque resulta fundamental para el progreso económico y, además, para el desarrollo y el bienestar de las personas.
+
+Esta relevancia explica que importantes iniciativas de la UE, como el pilar europeo de derechos sociales y la nueva agenda de capacidades, establezcan la mejora de los sistemas de aprendizaje, conocimiento y adquisición de habilidades como una prioridad clave para el futuro de la sociedad europea.
+
+En la actualidad, en el contexto de disrupción ligado a la transición digital y a otros importantes cambios tecnológicos y sociales, generar talento -así como retenerlo, atraerlo y retornar el que se marchó- se ha convertido en un factor crucial para la competitividad y el desarrollo futuro de Andalucía, especialmente considerando que nuestra posición de partida no resulta óptima, consecuencia del desequilibrado nivel de formación de la población activa y de los fallos en la educación obligatoria y en el sistema universitario.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Alcanzar mayores niveles de capacitación, necesarios para mejorar la competitividad de la economía andaluza.
+{{{fintcb}}}
+
+**** La dotación de capital humano
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+La situación del capital humano, entendiendo por éste la “dotación de habilidades y capacidades que residen en las personas para un uso productivo” puede aproximarse a través de indicadores complejos que miden el conjunto de conocimientos adquiridos por los individuos, así como su capacidad para adquirir y aplicar en el futuro nuevos conocimientos, es decir, se tienen en cuenta datos sobre la formación académica (nivel educativo) y también otros que miden su potencial laboral.
+
+En este sentido, el *Índice de Capital Humano* que calcula el Banco Mundial clasifica a España en un lugar poco aventajado respecto a otros países de nuestro entorno. En este ranking, que encabezan países como Singapur, Hong Kong, Japón, Corea del Sur y Canadá, la mayor parte de los europeos, Finlandia, Suecia, Irlanda, Países Bajos, Reino Unido y Estonia, así como Portugal, Francia, Bélgica, o Polonia, entre otros, están por delante de España, infiriéndose por su metodología que el valor de este índice (que no se calcula por regiones) sería más bajo en Andalucía que en el promedio nacional.
+
+:fig-0106A1:
+:F: Índice de capital humano, Sept. 2020. Banco Mundial.:F:
+:U::U:
+:N: valor de 0 a 1.:N:
+:E::E:
+#+CAPTION: Índice de capital humano. Ranking por países
+[[./graficos/0106A1.pdf]]
+:END:
+
+:fig-0106A2:
+:F:   IVIE, “El capital humano en España”. Base de datos (último año 2013).:F:
+:U::U:
+:N: En personas trabajadoras equivalente: hombre menor de 20 años sin estudios o con primarios incompletos.:N:
+:E::E:
+#+CAPTION: Valor per capita del capital humano de la población activa por CC.AA. españolas
+[[./graficos/0106A2.pdf]]
+:END:
+
+Otras aproximaciones a la medición de capital humano para las regiones españolas --como la realizada por el Instituto Valenciano de Investigaciones Económicas (IVIE) en colaboración con la Fundación Bancaja--, también consideran que el valor de este factor no depende solo de la educación reglada recibida por las personas, sino también de la formación no reglada, que permite la cualificación o recualificación de las personas trabajadoras, así como del aprendizaje adquirido a lo largo de la vida laboral, es decir, del acumulado a través de la experiencia. Los resultados de esta medición aproximan que el valor del capital humano per capita de la población activa en Andalucía resulta inferior al de España y al de la mayoría de las CC.AA. españolas, estando también por debajo el valor de este índice para la población en edad de trabajar y para la población ocupada.
+
+Adicionalmente, puede inferirse que la fuerza laboral en Andalucía no presenta un índice de habilidades o competencias elevado, atendiendo a la clasificación del /European Skills Index/[fn:4] (ESI) que calcula el Centro Europeo para el Desarrollo de la Formación Profesional (Cedefop) por países, y que *en 2020 sitúa a España como el antepenúltimo país europeo (solo por delante de Italia y Grecia) con un sistema de competencias adecuado para su población activa*.
+
+Esta posición poco competitiva es consecuencia de la falta de coincidencia entre una fuerza de trabajo potencial adecuadamente cualificada (oferta de trabajo) con las necesidades requeridas por las empresas (demanda de trabajo). La primera se explica por el desarrollo de habilidades (educación, formación y aprendizaje permanente), así como por la activación o participación de las personas trabajadoras en el mercado de trabajo. Mientras, la demanda viene determinada por la naturaleza y escala de la actividad económica, su estructura productiva y la estrategia empresarial. Dado el desequilibrio que se observa en la interacción entre la oferta y la demanda de habilidades en Andalucía puede decirse que *el grado de adecuación de las competencias (ESI) resulta bastante bajo e inferior incluso al promedio español.*
+
+:fig-0106A3:
+:F:   Índice europeo de competencias (2020), Cedefop.:F:
+:U::U:
+:N: valor del índice entre 0 y 100.:N:
+:E::E:
+#+CAPTION: Índice europeo de competencias. Comparativa por países
+[[./graficos/0106A3.pdf]]
+:END:
+
+Esta inadecuación se percibe en la diferente distribución de la población adulta, atendiendo al nivel de formación, en comparación con la mayoría de los países de nuestro entorno. Así, Andalucía concentra una elevada proporción de personas en edad de trabajar (de 25 a 64 años) con un nivel de estudios bajo --igual o inferior a la enseñanza obligatoria--, mientras la proporción de personas con un nivel intermedio, como la formación secundaria de segunda etapa, resulta significativamente más reducida, especialmente en comparación con la UE (21% frente al 46,8%, respectivamente). Por el contrario, las diferencias en el porcentaje de población con estudios superiores no son relevantes.
+
+El *desequilibrio entre la oferta y la demanda de trabajo en Andalucía resulta mucho más destacado que en el resto de países de nuestro entorno*, y que, respecto de la media nacional, con niveles de paro mucho más elevados para todos los niveles de formación, llegando a ser más del triple que en el promedio de la UE para la población con estudios superiores (16,2% en Andalucía frente al 4,6% europeo). De este modo, se evidencia que esta falta de equilibrio en la región es un rasgo estructural, característico de Andalucía, que afecta a todos los grupos de los distintos niveles formativos, aunque los segmentos de población más formados tiendan a sufrir menores tasas de paro.
+
+Por otra parte, el Informe sobre “el futuro del empleo 2020” del Foro Económico Mundial (WEF) prevé que el cambio tecnológico desplazará la demanda de una variedad de habilidades en el mercado laboral, y se impulsará un nuevo conjunto de habilidades básicas como el pensamiento analítico, la creatividad y el pensamiento crítico, así como habilidades en el uso y diseño de tecnologías (“habilidades digitales”). La falta de competencias digitales adecuadas no solo obstaculiza la difusión de las TIC, sino que también agrava el riesgo de pérdida de puestos de trabajo relacionados con la automatización. Se estima que, en el promedio de la OCDE, al menos el 14% de los empleos tienen “alto riesgo” de automatización y el 32% tienen “riesgo significativo” de automatizarse. Estos riesgos asociados a la *pérdida de empleos (tradicionales) se estiman más elevados en el caso de España donde se hace más necesario adquirir nuevas capacidades que permitan acceder a las personas trabajadoras a nuevos empleos.*
+
+Adicionalmente, en el contexto generado por la pandemia, el Cedefop señala que la digitalización y la tendencia al teletrabajo están impulsando la demanda de las empresas de personas con habilidades relacionadas con las TIC, no solo en profesiones directamente relacionadas con estas tecnologías de la información, también en otras que antes no estaban digitalizadas.
+
+***** Actuaciones
+
+1. Liderar un “Pacto Andaluz por las Capacidades”, que defina los pasos a seguir para cerrar la brecha que separa Andalucía de las economías de referencia en la dotación de capital humano y el bajo nivel en el índice de competencias de nuestra región. Ello requiere de una máxima coordinación entre los distintos agentes: Ministerio de Educación y Formación Profesional, Administración de la Junta de Andalucía, comunidad educativa y formativa (pública y privada), organizaciones de investigación, interlocutores sociales, cámaras de comercio, y sector empresarial, con el objetivo de fijar prioridades y realizar esfuerzos consensuados.
+
+2. Establecer una “oficina única” que sirva para la interlocución del Pacto Andaluz con las iniciativas de cooperación de la UE ya existentes y que se beneficiará de un presupuesto reforzado. Dicha oficina diseñará planes de cooperación sectorial de acuerdo a una identificación de un inventario de necesidades en competencias y de “oficios clave”; definiendo perfiles profesionales y programas de formación. En este sentido, uno de los principales cometidos de esta oficina y del Pacto será proporcionar información sobre las necesidades en materia de capacidades (con ayuda del análisis de datos e inteligencia artificial, tal y como ha comenzado a hacerlo con un proyecto piloto Cedefop).
+
+3. Conectar esta oficina con las iniciativas de la UE, a través de propuestas como la “Alianza Europea para la Formación de Aprendices”[fn:5], que pretende solicitar compromisos de las Administraciones Públicas, las empresas, los interlocutores sociales, las organizaciones sin ánimo de lucro y los proveedores de educación y formación para los nuevos programas de formación, de contratación o de reciclaje profesional para mejorar las capacidades digitales, con la finalidad de preparar la adaptación del empleo a la disrupción digital y tecnológica.
+
+4. Continuar y profundizar la línea de colaboración abierta de buscar partners de excelencia internacional (como, por ejemplo, el reciente acuerdo con Microsoft y Google para que nuestro alumnado acceda a sus herramientas y plataformas de elearning), a fin de mejorar nuestro sistema educativo y de formación permanente, especialmente en competencias digitales.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+
+**** Formación y aprendizaje a lo largo de la vida para el empleo y el emprendimiento
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+Una de las razones que explican este bajo nivel de competencias y, por tanto, el menor valor del capital humano en Andalucía es el reducido peso de la orientación profesional en la educación secundaria, así como el escaso carácter permanente de la formación o aprendizaje, con bajo acceso a cursos de actualización, reciclaje, adquisición de nuevos conocimientos y capacidades, en términos de un proceso continuo a lo largo de la vida laboral. Al mismo tiempo, otro aspecto que incide negativamente en la transición desde el ámbito formativo al mercado de trabajo es la dificultad para adquirir en la enseñanza reglada capacidades en materia de emprendimiento, ni siquiera en la educación superior o terciaria.
+
+Respecto al primer motivo, conviene recordar que numerosos trabajos e informes internacionales han incidido en el desequilibrio existente entre la formación secundaria de carácter general (bachillerato) y la que tiene una orientación profesional, denominada en España, Formación Profesional o ciclos formativos. Este tipo de formación consta de programas que atraen a una amplia gama de estudiantes, incluidos aquellos que buscan habilidades técnicas para ingresar en el mercado laboral, adultos que desean aumentar su empleabilidad mediante el desarrollo adicional de sus capacidades y estudiantes que quieren tener ambas opciones (buscar trabajo y acceder a una educación superior más adelante). La formación profesional (básica) también puede ser una opción atractiva para los estudiantes que tienen dificultades académicas y corren el riesgo de abandonar la educación. Los resultados de la Encuesta de Transición Educativa-Formativa e Inserción Laboral (ETEFIL) del INE muestran que la tasa de empleabilidad de los titulados en FP (de grado superior) es notablemente elevada (80% en 2019).
+
+En resumen, *la proporción de personas con estudios de formación profesional (FP) es en España y Andalucía notablemente más baja* que en los países de nuestro entorno.
+
+Aunque en los últimos años esta tendencia se ha suavizado, lo cierto es que la proporción de matriculados en estudio de FP de grado superior sigue siendo bastante inferior al promedio europeo (36% en España frente al 47% de la UE-23[fn:32]), llegando a superar el 70% en países como Finlandia. Además, atendiendo a las tasas de acceso a formación profesional por comunidad autónoma se constata la menor relevancia de este tipo de enseñanzas en Andalucía que en el promedio de España, especialmente en el grado superior, donde la región que lidera este tipo de enseñanza es el País Vasco (54,3% frente al 34,6% de Andalucía para el curso 2018/2019).
+
+:fig-0106B1:
+:F: OCDE.:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Población de 25 a 34 años con Formación Profesional sobre la población con estudios postsecundarios no universitarios, 2019
+[[./graficos/0106B1.pdf]]
+:END:
+
+La OCDE sostiene que los sistemas de FP pueden impulsar el desarrollo económico y ayudar a los países a seguir siendo competitivos en el mundo globalizado adaptándose a las necesidades cambiantes de habilidades, a través de una fuerza laboral con distintas capacidades comerciales, técnicas y profesionales. En este sentido, la evidencia muestra que los países con programas de aprendizaje y formación profesional bien establecidos han sido más efectivos para contener el desempleo juvenil y proporcionar las habilidades que necesita el mercado laboral. Entre los rasgos clave que distinguen los sistemas de FP de alta calidad pueden señalarse dos. El primero, la cooperación con las empresas, es decir, los programas de formación que combinan la escuela y el trabajo en una empresa (FP dual), por lo que las alumnas y alumnos tienen un aprendizaje teórico y práctico. El segundo, una oferta de formación por distintas familias profesionales flexible y orientada a las necesidades productivas del entorno, desde la FP básica, hasta el grado superior, pasando por el nivel medio.
+
+*La situación de España y Andalucía no es óptima en ninguno de estos dos factores de calidad de la formación profesional*. De acuerdo con una comparativa internacional de países de la OCDE sobre los sistemas combinados de FP de secundaria superior basados en la escuela y en la práctica del trabajo, *la proporción de estudiantes que cursan sus estudios de formación profesional bajo esta fórmula dual es significativamente más baja* en España que en los países de nuestro entorno. En concreto, solo el 3%[fn:3]  de los estudiantes estaban matriculados en este tipo de formación profesional combinada (escuela-centro de trabajo, donde la duración del componente de trabajo representa al menos el 35% de la duración total del programa, en 2018). Este porcentaje es muy superior en el promedio de la UE (38% del alumnado) y en particular en países como Alemania, Dinamarca, Países Bajos, Irlanda y Suiza, donde supera el 89%.
+
+Atendiendo a las ramas profesionales más comunes en los países de la OCDE para la educación secundaria superior puede comprobarse que la proporción de titulados resulta más reducida en España, especialmente las ligadas a la ingeniería, la manufactura y la construcción. Solo en el ámbito de la salud y bienestar, así como en las TIC el porcentaje de titulados supera a los promedios de la UE y la OCDE. Estas diferencias podrían estar explicadas por el diferencial coste de los programas de estudios, que a menudo requieren de valiosos equipos, formadores/profesores especializados (mejor retribuidos) o de una infraestructura sofisticada para capacitar a los estudiantes.
+
+En España, entre las familias profesionales con un peso más significativo en el volumen de alumnado matriculado en la FP Dual de Grado Superior destacan la Fabricación Mecánica (11,1%) y la Instalación y Mantenimiento (12,1%), mientras que en Grado Medio corresponden a Comercio y Marketing (6,4%), Instalación y Mantenimiento (5,7%) y Fabricación Mecánica (5,7%). De este modo, se puede inferir que la *adecuación de la oferta de estudios con orientación profesional y el grado de implementación de los programas combinados escuela-empresa, es decir, de la FP Dual, no son óptimos en Andalucía.*
+
+:fig-0106B2:
+:F: Education at a Glance 2020, OCDE.:F:
+:U: En % sobre el total de educación superior.:U:
+:N::N:
+:E::E:
+#+CAPTION: Estudiantes matriculados en Formación Profesional de grado superior
+[[./graficos/0106B2.pdf]]
+:END:
+
+:fig-0106B3:
+:F:  Ministerio de Educación y Formación Profesional.:F:
+:U::U:
+:N:  Matrícula presencial.:N:
+:E::E:
+#+CAPTION: Tasa bruta de escolarización en FP Curso 2018-2019 (%)
+[[./graficos/0106B3.pdf]]
+:END:
+
+Otro de los déficits del sistema de adquisición de capacidades y competencias en Andalucía está asociado a las *carencias en la oferta de formación permanente*, lo que dificulta la correcta transición entre la vida educativa y la laboral y viceversa, impidiendo el reciclaje y la actualización de conocimientos y habilidades y su aplicación a las distintas circunstancias laborales a lo largo de la vida.
+
+La relevancia que la /formación permanente/[fn:2] tiene para la dotación del capital humano explica que se incluyera como uno de los indicadores de seguimiento de la Estrategia Europa 2020. Sin embargo, la evolución no ha sido la esperada, especialmente en Andalucía. Con datos hasta 2019, la tasa de formación permanente se sitúa por debajo de la media de la UE (9,6% en la región andaluza, frente al 10,6% y al 13% del promedio de la UE), con notables diferencias entre países, siendo muy elevado este tipo de oferta formativa a lo largo de la vida en los países escandinavos, donde llega a superar el 30% y también en Suiza, Países Bajos y Francia.
+
+:fig-0106B4:
+:F: Education at a Glance, OCDE.:F:
+:U: En %.:U:
+:N:  Las cifras entre paréntesis se refieren a la duración promedio del componente basado en el trabajo como porcentaje de duración total del programa para los programas combinados de la escuela y el trabajo.:N:
+:E::E:
+#+CAPTION: Distribución de estudiantes de secundaria superior de FP en programas combinados escuela-empresa
+[[./graficos/0106B4.pdf]]
+:END:
+
+Por último, cabe incluir en este apartado las *carencias en términos de Formación para el Emprendimiento* y, en consecuencia, la debilidad de la cultura emprendedora como lastre para alcanzar mayor fortaleza empresarial y competitividad económica. La ausencia en los programas curriculares en estas materias, desde la educación primaria, la secundaria y la superior, ha sido puesta de manifiesto por numerosos expertos (GEM 2019), existiendo en este ámbito un amplio margen de mejora en el caso de Andalucía.
+
+:fig-0106B5:
+:F: Ministerio de Educación y Formación Profesional.:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Alumnos matriculados en FP dual respecto al total matriculado en FP de grado superior (Curso 2018-2019)
+[[./graficos/0106B5.pdf]]
+:END:
+
+En concreto, la escasa atención que se le dedica en la educación obligatoria al espíritu emprendedor y a la creación de empresas, así como a aportar unos conocimientos suficientes y adecuados acerca de los principios de una economía de mercado, es una de las causas de la escasez de vocaciones emprendedoras entre la población adulta, y por las que las iniciativas emprendedoras surgen más por necesidad que por oportunidad. El trabajo autónomo en estas ocasiones queda como la única alternativa laboral. De hecho, según un análisis de la “Fundación Europea para la mejora de las condiciones de vida y de trabajo” (Eurofound), éste sería el caso de más de la cuarta parte de los autónomos españoles.
+
+En el ámbito de los sistemas de formación profesional y de las enseñanzas universitarias, la valoración tampoco resulta muy positiva. Esta percepción está relacionada con el desigual desarrollo del concepto /Universidad Emprendedora/ en Andalucía, a partir de los informes e investigaciones del Observatorio internacional de Emprendimiento Universitario GUESSS (Global University Entrepreneurial Spirit Student's Survey, en sus siglas en inglés).
+
+Los resultados del informe GEM España señalan la baja inversión en programas y agentes formadores de calidad en estos ámbitos, que serían complementarios a la educación tradicional, por su importancia de fomentar la cultura emprendedora en Andalucía para atraer a los más jóvenes y que adquieran competencias empresariales y en materia de negocios. En opinión de los expertos encuestados, el apoyo de la educación primaria y secundaria a la cultura emprendedora en Andalucía no llega al “aprobado” (2,2 sobre 5 puntos). En el caso de la educación superior o universitaria, la puntuación resulta menos negativa, si bien la percepción sobre el grado de contribución a la cultura emprendedora en Andalucía resulta inferior a la media española (2,9 puntos frente a 3,3 de España, sobre 5 puntos).
+
+
+:fig-0106B6:
+:F: Education at a Glance, OCDE.:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Proporción de graduados y graduadas profesionales de secundaria superior, por campo de estudio seleccionado, 2018
+[[./graficos/0106B6.pdf]]
+:END:
+
+:fig-0106B7:
+:F: Eurostat y Ministerio de Educación y Formación Profesional.:F:
+:U::U:
+:N:  % sobre el total.:N:
+:E::E:
+#+CAPTION: Formación permanente: Población de 25 a 64 años que participa en educación-formación
+[[./graficos/0106B7.pdf]]
+:END:
+
+***** Actuaciones
+
+1. Fomentar y facilitar el acceso y la transición desde distintos itinerarios educativos a la Formación Profesional, especialmente a la de Grado Superior, a la vez que se promueve un mayor reconocimiento y valoración social de estas titulaciones.
+
+2. Fomentar la mejor dotación de recursos que contribuyan a la calidad general de los programas de FP, en especial la dual, mediante la actualización de los planes de estudio, la puesta a disposición de equipamientos y un refuerzo del profesorado.
+
+3. Realizar campañas de comunicación para hacer más atractiva la FP para las empresas, que se verían acompañadas de conferencias sectoriales (por ramas de actividad) para el diseño de los sistemas de aprendizaje dual, a efectos de estimar la oferta de plazas y las familias profesionales más adecuadas a las necesidades del tejido productivo regional.
+
+4. Actualizar el catálogo de cursos para la formación permanente adaptado tanto a las necesidades formativas detectadas del mercado laboral como a las inquietudes de las ciudadanas y ciudadanos, e incentivar la participación de los agentes económicos y sociales más representativos.
+
+5. Aplicar un nuevo sistema integral de formación para el emprendimiento, con renovados programas educativos en esta materia y también en competencias financieras, dirigido especialmente a la enseñanza secundaria y la FP. También ofrecer cursos específicos en el ámbito de la formación profesional para el empleo dirigidos a adquirir competencias y habilidades relacionadas con la vocación empresarial.
+
+6. Avanzar hacia un nuevo modelo de acreditaciones profesionales, que en línea con la formación profesional reglada (FP y FP Dual) ofrezca unas titulaciones más adecuadas a la realidad productiva regional y cuente con la participación de los agentes económicos y sociales más representativos.
+
+7. Impulsar y mantener en continua revisión el Mapa de Necesidades Formativas en el ámbito de la formación profesional para el empleo desde la Mesa de la Gobernanza del Sistema de Formación Profesional para el Empleo en el ámbito laboral en Andalucía.
+
+8. Aumentar la eficiencia de los recursos públicos destinados a la mejora de la formación del profesorado, como principal canal de activación del interés por el emprendimiento.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+
+**** El papel del sistema universitario público: titulaciones y contribución a la investigación y la innovación
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+El papel de la universidad en la aportación al capital humano resulta incuestionable, siendo este factor determinante para alcanzar mayores cotas de competitividad. Esta relevancia explica que uno de los objetivos de la Estrategia Europa 2020, para lograr una economía más inteligente, fuese que al menos un 40% de la *población de entre 30 y 34 años hubiese terminado la educación superior*. El conjunto de la UE habría alcanzado este objetivo en 2020 (40,9% la UE 27) y también España, incluso con mayor holgura (44,8%), mientras *Andalucía se encontraría aún por debajo (37,7%) de la cota prevista*, según datos del IECA y Eurostat.
+
+No obstante, el porcentaje de población joven con formación universitaria en Andalucía no difiere de los niveles promedios en el conjunto de la OCDE y en países como Alemania (35,5%) o Portugal (36,2%). Atendiendo al alumnado matriculado, en los últimos años se ha observado una mayor preferencia de la población joven por la formación universitaria, posiblemente porque la misma proporciona una ventaja comparativa en la búsqueda de empleo y, a medio y largo plazo, en la obtención de rentas superiores a las de las personas empleadas con niveles formativos inferiores.
+
+Por otro lado, el análisis de la distribución territorial de las universidades, realizado por la Conferencia de Rectores de las Universidades Españolas, CRUE, en su informe “La Universidad Española en Cifras, 2017/2018” muestra un buen nivel de acceso por proximidad a la oferta universitaria tanto en Andalucía como en España, lo que garantiza a los jóvenes el acceso a la educación superior. A este respecto cabe señalar, que en los últimos 30 años, más de 845.000 titulados universitarios se han ido incorporando a la población activa andaluza permitiendo aumentar considerablemente la capacidad competitiva del tejido productivo andaluz. No obstante, se hace más necesario que nunca continuar por la senda de mejora de la contribución de la universidad a la competitividad de la economía, para lo cual se requiere un diseño eficaz de la oferta de las enseñanzas universitarias y un impulso decidido a la investigación y la transferencia del conocimiento.
+
+El sistema universitario andaluz ofrece múltiples opciones formativas que permiten a los estudiantes bien acceder al mundo laboral bien continuar su formación en niveles de máster o doctorado en condiciones similares a los estudiantes de los países de nuestro entorno más próximo. Al mismo tiempo, es importante que, al igual que en los países del Espacio Europeo de Educación Superior, la ordenación de las enseñanzas favorezca la adecuación de la oferta formativa de las universidades a las necesidades que demanda la sociedad a través del mercado de trabajo.
+
+La distribución de la oferta de grados en las universidades públicas andaluzas muestra un cierto desequilibrio, ya que existe una elevada concentración en titulaciones de ciencias sociales y jurídicas en detrimento de las científicas y técnicas. Así, de modo generalizado, la demanda de estudios por el alumnado de las universidades andaluzas y la oferta de titulaciones de grado han mantenido caminos parcialmente divergentes en el periodo 2008 a 2017. Más relevante aún, no siempre las demandas de los estudiantes coinciden con las necesidades del mercado laboral. Estos desajustes repercuten negativamente en todo el sistema universitario: 1) generan ansiedad en el alumnado y aumento de la tasa de abandono, ii) desincentivan al profesorado; iii) producen ineficacia en la gestion y, en consecuencia, un aumento de los costes y iv) merman la competitividad del mercado laboral.
+
+La incorporación de alumnas y alumnos a las enseñanzas que integran el ámbito académico STEM en los últimos años, salvo las enseñanzas de Ciencias y Matemáticas, no ofrece una respuesta positiva a la demanda creciente que tienen la sociedad y la economía, a priori, de personas profesionales con estas cualificaciones académicas.
+
+En general, el análisis conjunto de las cifras de egresados respecto a la de matriculados por tipo de enseñanza a lo largo del tiempo presenta un perfil descendente. Solo se observa una evolución positiva en la rama de Ciencias de la Salud, con una mejor trayectoria en el conjunto de las universidades andaluzas que en el promedio de las españolas. Este favorable comportamiento no es ajeno a la relevante contribución que viene realizando el Sistema Sanitario Público de Andalucía (SSPA) a la capacitación del capital humano, no solo en materia de formación, también en investigación e innovación. Por el contrario, las tendencias más preocupantes se observan en las enseñanzas de la rama de Ciencias y Arquitectura e Ingenierías, que año tras año anotan cifras más reducidas de graduados.
+
+Se estima que anualmente se incorporan a *la oferta de egresados 73 de cada 100 alumnas/os que acceden a las aulas universitarias andaluzas* (es decir, la tasa bruta de graduación es del 72,6%), algo *por debajo del promedio de las universidades* que forman el sistema universitario público presencial *de España* (SUPPE) *que es del 75%*, con una notable estabilidad en los últimos años. Sin embargo, considerando la tasa de graduación general, atendiendo a la cohorte de entrada a la que pertenecen los alumnas/os egresados, esta tasa desciende hasta el 43,9% en las universidades de Andalucía, frente al 49,3% de las universidades españolas. Estos datos aproximan un coste elevado ligado a la cifra global de abandonos, tanto brutos como netos, según el mencionado informe de la CRUE.
+
+Cabe destacar que Ciencias Sociales y Jurídicas es la rama que más egresados produce en el conjunto de las universidades andaluzas (55%), observándose alguna enseñanza con exceso de capacidad, como maestro de educación infantil y primaria. Mientras, Ciencias de la Salud (15%) y Arquitectura e Ingenierías (14%) superan a las Artes y Humanidades (10% del total de egresados) y a los egresados en Ciencias (6%). Esta información procede del trabajo de la AIRef (El Sistema Público Universitario Andaluz), en base a las Estadísticas Universitarias del Sistema Integrado de Información Universitaria (SIIU del Ministerio de Educación y Formación Profesional) para el curso académico 2017/18.
+
+Para comprobar la inserción laboral y la adecuación de la formación al trabajo desempeñado se tiene en cuenta la relación existente entre la oferta de plazas y la demanda de éstas, por parte de los estudiantes en cada una de las titulaciones de ciclo/grado del sistema universitario andaluz, relacionándolo con la situación más tarde de los egresados, en términos de afiliación a la seguridad social, base de cotización y tipo de contrato.
+
+De este modo, se puede concluir que las mayores tasas de inserción se dan en las Ciencias de la Salud y en Arquitectura e Ingenierías, entre los residentes en Andalucía, siendo los egresados en titulaciones del ámbito Salud y Servicios Sociales los que obtienen, transcurrido un año desde el egreso, la mejor tasa de adecuación (81,8% en el curso 2017/18, según el informe “Inserción laboral de los egresados en universidades públicas de Andalucía”, publicado por el IECA).
+
+También superan una adecuación del 50% los ámbitos de Agricultura, Ganadería, Pesca, Silvicultura y Veterinaria; Mecánica, Electrónica y otra formación técnica, Industria y Construcción; Tecnologías de la Información y las Comunicaciones (TIC); y Ciencias Naturales, Químicas, Físicas y Matemáticas. Por su parte, los egresados del ámbito Negocios, Administración y Derecho son los que tienen la tasa de adecuación más baja. En definitiva, se puede concluir que *existe margen de mejora en la adecuación al mercado laboral en la oferta de titulaciones académicas de las universidades andaluzas*.
+
+Por otra parte, el análisis de la *producción investigadora de las universidades y su contribución a la Transferencia de Conocimiento y a la mejora de la competitividad y la innovación refleja una situación dispar del sistema universitario público andaluz*. Un indicador para este análisis sería el conocido como Ranking de Shanghái (/Academic Ranking of World Universities/) que muestra que, a día de hoy, dos universidades públicas andaluzas, concretamente las de Granada y Sevilla, se sitúan entre las 500 mejores del mundo, y siete entre las 1.000 mejores.
+
+En cambio, si observamos la evolución de los rankings de Shanghái por materias científicas la tendencia es más desfavorable, el número de referencias netas ha bajado en el último trienio como también lo han hecho las posiciones de las universidades.
+
+En todo caso, este conjunto de rankings también nos indica que existen múltiples ejemplos que demuestran que el sistema universitario público andaluz es capaz de alcanzar el máximo nivel excelencia académica internacional, bien en conjunto, como es el caso de la Universidad de Granada (entre las 300 mejores del mundo), o al menos en una o varias materias científicas concretas.
+
+Por otra parte, y con datos para los años 2008-2017, se comprueba que el promedio de las tesis defendidas, los proyectos obtenidos en convocatorias nacionales o europeas de investigación y las publicaciones en colaboración con investigadores internacionales arrojan cocientes más bajos en las universidades andaluzas que en las del conjunto de España. Muy evidentes son también los ingresos por contratos de I+D y consultorías, la producción de patentes nacionales, el importe facturado medio por profesor por prestación de servicios y la cuantía de estos proyectos de investigación competitiva, con una brecha notable en contra del sistema universitario público andaluz. Tan solo en la supervivencia de las spin-off cinco años después de su creación por profesores universitarios, la ratio de Andalucía arroja un promedio superior al del conjunto del sistema universitario español.
+
+Adicionalmente, conviene destacar que la actividad de las universidades públicas andaluzas en materia de investigación y transferencia de conocimiento ha mostrado una evolución negativa, en la última década, atendiendo a la participación de este tipo de producción como fuente de ingresos o financiación. Así, en 2008, la significación de este tipo de ingresos era similar al de los ingresos por enseñanzas no regladas (títulos de máster, experto, entre otros), en torno al 8%. Mientras, en 2018, el *peso de los ingresos por investigación y transferencia de conocimiento ha descendido hasta representar el 5,6% de los ingresos de las universidades andaluzas* (8,06% en España, donde también se ha observado una trayectoria descendente aún más pronunciada).
+
+:fig-0106C1:
+:F:  Encuesta de Población Activa (INE) y Eurostat.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Población de 30 a 34 años de edad con educación superior (%)
+[[./graficos/0106C1.pdf]]
+:END:
+
+:fig-0106C2:
+:F: La Universidad Española en Cifras. CRUE. Estadísticas Universitarias SIIU.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Distribución de la oferta de ciclo/grado por ramas de enseñanza en el Sistema Universitario de Andalucía. Curso 2018/19
+[[./graficos/0106C2.pdf]]
+:END:
+
+:fig-0106C3:
+:F: Ministerio de Educación. SIIU.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Titulaciones más ofertadas en los grados del Sistema Universitario Público Andaluz. Curso 2018/19
+[[./graficos/0106C3.pdf]]
+:END:
+
+:fig-0106C4:
+:F: La Universidad Española en Cifras. Cuentas Anuales de las Universidades Públicas de Andalucía y AIReF.:F:
+:U::U:
+:N: Datos para los años 2008/2017.:N:
+:E::E:
+#+CAPTION: Indicadores sobre la actividad y producción científica e investigadora del Sistema Público de Universidades de Andalucía en comparación con el de España
+[[./graficos/0106C4.pdf]]
+:END:
+
+:fig-0106C5:
+:F: La Universidad Española en Cifras. CRUE. Universidades Españolas. Cuentas Anuales de las Universidades Públicas de Andalucía y AIReF.:F:
+:U::U:
+:N: % s/ingresos por operaciones no financieras.:N:
+:E::E:
+#+CAPTION: Participación de producción destacada en los ingresos de las universidades públicas
+[[./graficos/0106C5.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Adaptar la oferta y el diseño de titulaciones universitarias de grado a las demandas sociales. Potenciar el atractivo de las enseñanzas STEM, para captar alumnado especialmente femenino.
+
+2. Favorecer los recursos destinados a los servicios ofrecidos por las universidades para tareas de prospección, orientación e intermediación laboral, que determinen un conocimiento y seguimiento del alumnado más exhaustivo, desde el inicio de sus estudios universitarios hasta su graduación, para incrementar la tasa de inserción laboral de los egresados.
+
+3. Reforzar las tareas de comunicación y divulgación del nuevo mapa de enseñanzas y sus consiguientes tasas de inserción y adecuación laboral, incluyendo en el diseño de la programación académica de los títulos una potenciación de las competencias transversales, a fin de facilitar el cambio de titulación y la adaptación a las necesidades cambiantes del mercado de trabajo.
+
+4. Potenciar la interrelación e integración del tejido productivo en el ámbito universitario, para favorecer la orientación de la producción (académica e investigadora) a las necesidades de los agentes económicos, especialmente en materias científico-técnicas.
+
+5. Mejorar los servicios de apoyo y gestión a la investigación competitiva y la transferencia del conocimiento. Acometer un proceso de simplificación administrativa global que minimice el tiempo que los profesores deben dedicar a tareas burocráticas relativas a la investigación.
+
+6. Favorecer el trasvase y colaboración de profesores con trayectorias investigadoras de excelencia, bien entre áreas afines, bien entre universidades, dotando de contenido concreto (investigaciones y estudios) a las alianzas universitarias, como los Institutos de Investigación o los Campus de Excelencia.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+
+
+* Footnotes
+
+[fn:23] Gartner IT Glossary: https://www.gartner.com/it-glossary/digital-business-transformation)
+
+[fn:32] Solo países de la UE miembros de la OCDE.
+
+[fn:31] Elaborado por la Agencia de Innovación y Desarrollo de Andalucía IDEA, el ICEX/INVEST IN SPAIN, Multinacionales por Marca España y el International Center for Competitiveness (ICC) del IESE.
+
+[fn:30] DESI en sus siglas en inglés, elaborado por la Comisión Europea.
+
+[fn:10] La escalabilidad se refiere a la características de las startups que combinan un gran potencial de desarrollo con la capacidad de internacionalizar y de incrementar los beneficios sin tener que reinvertir en la empresa al mismo ritmo que aumentan ingresos.
+
+[fn:6] Los resultados del mismo permiten clasificar a las regiones de Europa en cuatro grupos: “líderes en innovación” (treinta y ocho regiones), “innovadoras fuertes” (setenta y tres regiones), “innovadoras moderadas” (noventa y ocho regiones) e “innovadoras modestas” (veintinueve regiones). A su vez, dichos grupos de regiones se desglosan con mayor detalle dividiendo cada uno de ellos en tres tercios: tercio superior (con un «+»), tercio medio y tercio inferior (con un «–»). Así, las regiones más innovadoras serán «líderes en innovación +», y las regiones menos innovadoras, «innovadoras modestas –».
+
+[fn:5] Explicada en la Comunicación “Apoyo al empleo juvenil: un puente hacia el empleo para la próxima generación” (COM(2020) 276 final), y por la “Coalición por las Capacidades y los Empleos Digitales” (https://pledgeviewer.eu/)
+
+[fn:4] https://skillspanorama.cedefop.europa.eu/en/dashboard/european-skills-index?pillar=&country=&year=2020#1
+
+[fn:3] Las cifras del Ministerio de Educación y Formación Profesional del Gobierno de España para el cuso 2018/2019 no son muy diferentes a las de la OCDE, ya que el alumnado matriculado en la Formación Profesional Dual del Sistema Educativo en este curso alcanza un total de 26.340, 16.400 en Grado Superior, 9.428 en Grado Medio y 512 en FP Básica, lo que representa el 4,6%, 2,9% y 0,7% respectivamente del alumnado matriculado en régimen presencial. Mientras, en Andalucía, estos datos y porcentajes eran más bajos, con 1.765 estudiantes, el 2,8% para el grado superior y 1.635, el 2,6%, para el grado medio, así como 205 alumnas/os, el 1,6% para el grado básico.
+
+[fn:2] Su cálculo es definido por Eurostat como el porcentaje de población entre 25 y 64 años que ha participado en educación o formación en las cuatro semanas anteriores a la de entrevista y persigue contar un indicador homogéneo con el que poder hacer comparaciones entre CC.AA. y otros países, a fin de facilitar el seguimiento del objetivo de un aprendizaje permanente, que se había fijado en la Estrategia Europa 2020 que fuese al menos en el 15% en el año meta, 2020.
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

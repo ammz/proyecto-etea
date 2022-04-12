@@ -1,0 +1,9 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+A continuación se presentan unos cuadros en los que se relacionan los principales documentos de planificación de la Junta de Andalucía, por Consejerías, y su correspondencia con las Prioridades de la ETEA en las que tienen una mayor incidencia.
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# End:

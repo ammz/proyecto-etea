@@ -1,0 +1,812 @@
+# -*- buffer-read-only: t; org-confirm-babel-evaluate: nil;  -*-
+
+#+TITLE: Archivo de configuración para la ETEA
+#+AUTHOR: DGPPE
+#+PROPERTY: header-args :tangle "~/Sync/proyectos/etea/tex/etea-conf.tex" :comments org :exports code
+#+OPTIONS: d:nil
+#+LANGUAGE: es
+#+OPTIONS: ':t
+#+OPTIONS: tags:nil
+#+OPTIONS: todo:nil
+
+
+* Configuración general
+** Configuración de la clase de documento y redefinición de cuerpos estándar para la clase
+
+#+begin_SRC latex
+  \documentclass[%
+  11pt,
+  a4paper,
+  % openany,
+  % draft
+  ]{book}
+#+end_SRC
+
+Se definen estos valores para la fuente Linotype Centennial teniendo en cuenta que 9.2pt es análogo aquí a 10pt, por la altura "x" de Centennial.
+
+#+begin_SRC latex :tangle: no
+  \renewcommand{\normalsize}{\fontsize{11pt}{13pt}\selectfont}
+  % \renewcommand{\footnotesize}{\fontsize{7.2pt}{9.6pt}\selectfont}
+  % \renewcommand{\small}{\fontsize{7.2pt}{10.8pt}\selectfont}
+#+end_SRC
+
+** Mis condicionales
+
+*** Para activar las crop marks
+
+#+begin_SRC latex
+  \newif\ifcrop
+  \croptrue
+#+end_SRC
+
+*** Para ver las posibilidades de añadir o eliminar líneas en los párrafos (con Lua) Una solución muy útil para ver cuándo un párrafo nos dejará añadirle o quitarle una línea (looseness), de cara a arreglar los casos de viudas corregidas con última línea en blanco.
+
+Significado de los colores:
+
+- Red: paragraph can be shrunk
+- Blue: paragraph can be expanded
+- Magenta: paragraph can be either expanded or shrunk
+- Dull cyan: paragraph can be expanded using the current emergency stretch value
+- Dull pynk: paragraph can be either expanded with emergency stretch or shrunk
+
+El código Lua, que se deberá cargar como un archivo aparte:
+
+#+begin_SRC latex :tangle no
+\begin{filecontents*}{viudas.lua}
+#+end_SRC
+
+Y por último el condicional que lo dejamos de momento con valor =true=
+
+#+begin_SRC latex :tangle no
+  \newif\ifwidow
+  \widowfalse
+
+  \ifwidow
+  \usepackage{luatexbase}
+  \directlua{dofile("viudas.lua")}
+  \else
+  % \directlua{dofile("viudas.lua")}
+  \fi
+#+end_SRC
+
+*** Para disponer números de línea a ambos lados en las columnas, reseteados con cada párrafo el comando =multicollinenumbers= está tomado de [[https://www.mrunix.de/forums/showthread.php?76323-lineno-in-Verbindung-mit-multicols-Nummern-au%DFen]]
+
+Para resetear con cada párrafo, tomado de [[https://tex.stackexchange.com/questions/377142/line-numbering-paragraph-oriented]]
+
+Esto puede ser de ayuda para ver rápidamente cuántas líneas tiene un párrafo, y si puede variar en el número de líneas (desde la previsualización)
+
+#+begin_SRC latex
+  \newif\iflineno
+  \linenofalse
+
+  \iflineno
+  \usepackage[swith,columnwise]{lineno}
+  \newcommand\multicollinenumbers{%
+    \linenumbers
+    \def\makeLineNumber{\docolaction{\makeLineNumberLeft}{}{\makeLineNumberRight}}}
+  \usepackage[excludeor]{everyhook}
+  \PushPreHook{par}{\resetlinenumber[1]}
+  \AtBeginDocument{\multicollinenumbers}
+  \else
+  % \usepackage[swith,columnwise]{lineno}
+  % \newcommand\multicollinenumbers{%
+  %   \linenumbers
+  %   \def\makeLineNumber{\docolaction{\makeLineNumberLeft}{}{\makeLineNumberRight}}}
+  % \usepackage[excludeor]{everyhook}
+  % \runninglinenumbers
+  % \PushPreHook{par}{\resetlinenumber[1]}
+  % \AtBeginDocument{\multicollinenumbers}
+  \fi
+#+end_SRC
+
+** Dimensiones de la caja
+
+#+begin_SRC latex
+  \topskip=12pt
+
+  \usepackage[%
+  paperwidth=21cm,
+  paperheight=29.7cm,
+  % showframe,
+  textwidth=13.1cm,
+  inner=2.2cm,
+  marginparsep=0.4cm,
+  marginparwidth=3.8cm,
+  % includemp,
+  textheight=25cm,
+  top=2.5cm,
+  headsep=0.9cm,
+  headheight=24pt
+  ]{geometry}
+#+end_SRC
+
+** Parámetros de espacio vertical y horizontal, viudas, parindent, etc.
+
+#+begin_SRC latex
+  \setlength{\bigskipamount}{12pt plus 4pt minus 3pt}
+  \parskip=0pt
+  \setlength{\parindent}{2.2em}
+  \widowpenalty=10000
+  \clubpenalty=10000
+  \flushbottom
+  \setlength\partopsep{-\topsep}\addtolength\partopsep{6pt plus 2pt minus 2pt} % equivalente a medskip (para las citas de poemas)
+#+end_SRC
+
+* Fuentes e idiomas
+** Fontspec y definición de familias
+
+Comenzamos cargando =fontspec=
+
+#+begin_SRC latex
+  \usepackage{fontspec}
+#+end_SRC
+
+la fuente principal con EB Garamond
+
+#+begin_SRC latex
+  \setmainfont{EB Garamond}
+  \setsansfont{PT Sans}
+  % \setmainfont{Noto Sans}[Scale=0.79]
+  % \setsansfont{NotoSansHK-Regular}[Scale=0.79]
+#+end_SRC
+
+Fira code para la fuente monoespaciada y escalada a la altura de la fuente principal
+
+#+begin_SRC latex
+  \setmonofont{fira code}[Scale=MatchLowercase]
+#+end_SRC
+
+** Babel e idiomas
+
+Cargamos Babel con los idiomas que se van a usar en el documento
+
+#+begin_SRC latex
+  \usepackage[english,spanish]{babel}
+#+end_SRC
+
+Definimos un guión de no-corte:
+
+#+begin_SRC latex
+  \def\nocort{\babelhyphen{nobreak}}
+#+end_SRC
+
+Para que el espaciado entre oraciones y palabras sea igual. La tradición inglesa (por defecto en LaTeX) ajusta los espacios después de punto y seguido (o comas, exclamaciones, etc)
+
+#+begin_SRC latex
+  \frenchspacing
+#+end_SRC
+
+* Imprenta
+** Crop
+
+Cargamos Crop con un condicional
+
+#+begin_SRC latex
+  \ifcrop
+  \RequirePackage{luatex85}
+  \usepackage[a4,center,cam]{crop}
+  \else
+  % \usepackage[a4,center,cam]{crop}
+  \fi
+#+end_SRC
+
+* Paquetes misceláneos
+** Gráficos
+
+#+begin_SRC latex
+  \usepackage{nextpage}           % ofrece \cleartoevenpage
+  \usepackage{eso-pic}            % cambios en el background (\AddToShipoutPictureBG)
+  \usepackage[section]{placeins}
+#+end_SRC
+
+#+begin_SRC latex
+  \usepackage{graphicx}
+  \usepackage{xcolor}
+  \color{black}
+  % \PassOptionsToPackage{cmyk}{xcolor}
+  % \usepackage[listformat=empty,labelfont=sc,hypcap=false,centerlast,footnotesize]{caption}
+  \usepackage{wrapfig}
+  \usepackage{dblfloatfix} % para permitir figuras a doble columna abajo
+#+end_SRC
+
+#+begin_SRC latex
+  \usepackage{chngcntr}
+  \counterwithout{figure}{chapter}
+#+end_SRC
+
+#+begin_SRC latex
+  \usepackage{pdfpages}
+#+end_SRC
+
+*** Colores
+
+#+begin_SRC latex
+  \definecolor{azulon}{cmyk}{0.76,0.31,0.04,0}
+  \definecolor{meta}{cmyk}{0.10,0.0,0.20,0}
+  \definecolor{linea}{cmyk}{0.02,0.75,0.97,0.06}
+
+  \definecolor{azulao}{rgb}{0.04,0.33,0.62}
+  \definecolor{morado}{rgb}{0.34,0.12,0.43}
+  \definecolor{verdoso}{rgb}{0.10,0.40,0.20}
+#+end_SRC
+
+*** Definición de nuevos tipos
+
+#+begin_SRC latex
+  \newfontfamily\nummeta[Scale=3.6]{Noto Sans}
+  \newfontfamily\texmeta[Scale=2]{Noto Sans}
+  \newfontfamily\numblo[Color=azulon,Scale=12.4]{Noto Sans}
+  \newfontfamily\texblo[Color=azulon,Scale=3]{Noto Sans}
+  \newfontfamily\meta[Color=azulon,Scale=1.4]{Noto Sans}
+  \newfontfamily\actua[Color=white,Scale=1.4]{Noto Sans}
+  \newfontfamily\fods[Color=white,Scale=0.9]{Noto Sans}
+  \newfontfamily\azul[Color=azulon]{Noto Serif}
+  \newfontfamily\linea[Color=linea,Scale=1.4]{Noto Sans}
+  \newfontfamily\cb[Color=azulao]{PT Sans}
+  \newfontfamily\fnotab{PT Sans}
+  \newfontfamily\fnota[Scale=0.90]{PT Sans}[
+    UprightFont={*},
+    ItalicFont={* Italic},
+    BoldFont={* Bold},
+    BoldItalicFont={* Bold Italic}]
+  #+end_SRC
+
+** Tablas
+
+#+begin_SRC latex
+  \usepackage{array}
+  \usepackage{tabularx}
+  \usepackage{booktabs}
+#+end_SRC
+
+** Cabeceras, títulos e índices
+
+Se carga =titlesec= y =titletoc= pero como son necesarias las cabeceras dinámicas del diccionario, para los estilos de página se usará =fancyhdr=
+
+#+begin_SRC latex
+  % \usepackage[clearempty]{titlesec}
+  \usepackage[rigidchapters]{titlesec}
+  \usepackage{titletoc}
+
+  \newcommand{\sectionbreak}{}
+  \newcommand{\subsectionbreak}{}
+  \newcommand{\subsubsectionbreak}{}
+#+end_SRC
+
+** Listas
+
+#+begin_SRC latex
+  \usepackage{enumitem}
+#+end_SRC
+
+** Matemáticas
+
+#+begin_SRC latex
+  \usepackage{amsmath}
+#+end_SRC
+
+** Cálculos
+
+#+begin_SRC latex
+  \usepackage{calc}
+#+end_SRC
+
+** Cajas y otros efectos
+
+#+begin_SRC latex
+  \usepackage{tcolorbox}
+  \tcbuselibrary{breakable}
+  \tcbuselibrary{skins}
+  \usepackage{tikzpagenodes}
+#+end_SRC
+
+*** Caja coloreada y con alfeizar
+
+#+begin_SRC latex
+  \newtcolorbox{alfeizar}[2][]{%
+    enhanced,skin=enhancedlast jigsaw,
+    attach boxed title to top left={xshift=0mm,yshift=-0.5mm},
+    fonttitle=\bfseries\sffamily,
+    colframe=red!50!black,
+    boxed title style={empty,arc=0pt,outer arc=0pt,boxrule=0pt},
+    underlay boxed title={
+      \fill[red!50!black] (title.north west) -- (title.north east)
+      -- +(\tcboxedtitleheight-1mm,-\tcboxedtitleheight+1mm)
+      -- ([xshift=0mm,yshift=0.5mm]frame.north east) -- +(0mm,-1mm)
+      -- (title.south west) -- cycle;
+    },
+    title={#2},#1}
+#+end_SRC
+
+** Paquetes para ayudas a escribir código
+
+#+begin_SRC latex
+    \usepackage{etoolbox}
+    \usepackage{xparse}
+#+end_SRC
+
+** Referencias cruzadas
+
+#+begin_SRC latex
+  \usepackage[spanish]{varioref}
+#+end_SRC
+
+** Columnas
+
+Es necesario cargar la opción colaction para el código definido en el condicional _Para disponer de líneas a ambos lados en las columnas, reseteados con cada párrafo_
+
+#+begin_SRC latex
+  \usepackage[colaction]{multicol}
+#+end_SRC
+
+** Notas al pie
+
+#+begin_SRC latex
+  \usepackage[marginal,bottom]{footmisc}
+#+end_SRC
+
+* Paquetes para test tipográficos y calibrados varios
+
+Añado esta línea para evitar que la última palabra del párrafo se corte (probablemente dará situación en que haya que reparar el párrafo):
+
+#+begin_SRC latex
+  \finalhyphendemerits=1000000
+#+end_SRC
+
+* Estilos de página (conf fancyhdr)
+
+** Cargamos =fancyhdr= e =ifthen=
+
+#+begin_SRC latex
+  \usepackage{fancyhdr}
+  \usepackage{ifthen}
+#+end_SRC
+
+** Estilo =basico=: con número de página al pie.
+
+#+begin_SRC latex
+  % \pagestyle{fancy}
+  \fancypagestyle{basico}{%
+    \fancyhf{}
+    \fancyfoot[CE]{\normalsize\color{azulao}\thepage}
+    \renewcommand{\headrulewidth}{0pt}}
+#+end_SRC
+
+** Estilo =main=: por defecto
+
+#+begin_SRC latex
+  \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+  \renewcommand{\sectionmark}[1]{\markright{#1}}
+
+  \fancypagestyle{main}{%
+    \fancyhf{}
+    \fancyhead[LE]{\hspace*{-\marginparwidth-\marginparsep}{\makebox[1cm][l]{\sffamily\color{azulao}\thepage}}%
+      \hspace*{\marginparwidth+\marginparsep-1cm}{\sffamily\color{azulao}\footnotesize\leftmark}}
+    \fancyhead[LO]{\sffamily\color{azulao}\footnotesize\rightmark}
+    \fancyhead[RO]{\makebox[0em][l]{\makebox[\marginparwidth+\marginparsep][r]{\sffamily\color{azulao}\normalsize\thepage}}}
+    }
+#+end_SRC
+
+** Estilo =prioridad=: usado solo en el apartado de prioridades
+
+#+begin_SRC latex
+  \fancypagestyle{prioridad}{%
+    \fancyhf{}
+    \fancyhead[LE]{\hspace*{-\marginparwidth-\marginparsep}{\makebox[1cm][l]{\sffamily\color{azulao}\thepage}}%
+      \hspace*{\marginparwidth+\marginparsep-1cm}{\sffamily\color{azulao}\footnotesize
+        \parbox[b]{\textwidth}{
+          \leftmark\\
+          \rightmark
+        }}}
+    \fancyhead[LO]{\sffamily\color{azulao}\scriptsize\footnotesize
+      \parbox[b]{\textwidth}{
+        \leftmark\\
+        \rightmark
+      }}
+    \fancyhead[RO]{\parbox[t]{0cm}{\makebox[\marginparwidth+\marginparsep][r]{\sffamily\color{azulao}\normalsize\thepage}}}
+  }
+#+end_SRC
+
+** Estilo =actuaciones=
+
+* COMMENT Estilos con titleps=stylepages option de titlesec
+#+begin_SRC latex
+         \renewpagestyle{empty}{%
+           \sethead{}{}{}
+           \setfoot{}{}{}
+         }
+
+         \newpagestyle{basico}{%
+           \setfoot{}{\normalsize\thepage}{}
+         }
+
+         \newpagestyle{main}[\sffamily\footnotesize\color{azulao}]{%
+           \sethead[\hspace*{-\marginparwidth-\marginparsep}{\makebox[1cm][l]{\thepage}}\hspace*{\marginparwidth+\marginparsep-1cm}{\chaptertitle}][][]
+                   {\chaptertitle}{}{\makebox[0em][l]{\makebox[\marginparwidth+\marginparsep][r]{\thepage}}}
+           }
+
+         \newpagestyle{prioridad}[\sffamily\footnotesize\color{azulao}]{%
+           \sethead[\thesubsection\ \subsectiontitle \\
+           \thesubsubsection\ \subsubsectiontitle][][]
+                   {\thesubsection\ \subsectiontitle \\
+                     \thesubsubsection\ \subsubsectiontitle}{}{}
+           }
+
+        \settitlemarks{chapter,section,subsection,subsubsection}
+#+end_SRC
+
+* Estilos de partes, capítulos, secciones, etc. (cont titlesec)
+
+** Comenzamos redefiniendo el literal para la tabla de contenido
+
+#+begin_SRC latex
+  \addto{\captionsspanish}{\def\contentsname{\selectfont Contenido}}
+#+end_SRC
+
+** Para que las subsubsection tengan numeración
+#+begin_SRC latex
+  \setcounter{secnumdepth}{3}
+#+end_SRC
+
+** Comando con opciones para estilos de partes
+
+Creamos un comando =estilopagesec= (utilizando el paquete =xparse=) que permite cambiar los estilos de las páginas a partir de donde lo insertemos.
+
+#+begin_SRC latex
+  \DeclareDocumentCommand\estilopagesec{  o }{%
+    % si el valor del argumento opcional es falso (no tiene valor verdadero) se aplica el
+    % valor defecto, pero si es verdadero (no tiene valor falso) se aplican los
+    % condicionales que comparan la cadena del argumento opcional con los
+    % valores prefijados
+
+    \IfNoValueTF{#1}
+    {}
+    %
+    {\ifstrequal{#1}{intro}{%
+        \topskip=12.29pt
+        \fontsize{10.2pt}{12.29pt}\selectfont
+
+        % capítulo en la página
+        \titleformat{\chapter}          % Comando de estructura
+        [block]                         % tipo
+        {\filright\sffamily\huge\color{morado}}  % formato
+        {}                              % label
+        {0cm}                           % separación
+        {}                              % before-code
+        []                              % after-code
+        \titlespacing{\chapter}
+        {0pt}                           % left
+        {2cm}                           % before-sep
+        {3cm}                           % after-sep
+
+        % sección
+        \titleformat{name=\section,numberless}          % comando
+        [block]                                         % tipo
+        {\sffamily\bfseries\Large\color{morado}}        % format
+        {}                                              % label
+        {0mm}                                           % sep
+        {\leavevmode\smash{\llap{\rule{2mm}{2mm}\;\;}}} % before-code
+        []                                              % after-code
+
+        \renewcommand{\thesection}{\arabic{section}}
+        \titleformat{name=\section}              % comando
+        [hang]                                   % tipo
+        {\sffamily\bfseries\Large\color{morado}} % format
+        {\thesection}                            % label
+        {4mm}                                    % sep
+        {}                                       % before-code
+        []                                       % after-code
+        \titlespacing{\section}
+        {0pc}                           % left
+        {.7cm}                          % before-sep
+        {.3cm}                          % after-sep
+
+        % subsección
+        \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+
+        \titleformat{name=\subsection}     % comando
+        [block]                            % tipo
+        {\sffamily\bfseries\color{morado}} % format
+        {\thesubsection}                   % label
+        {3mm}                              % sep
+        {}                                 % before-code
+        []                                 % after-code
+        \titlespacing{\subsection}
+        {0pc}                           % left
+        {5mm}    % before-sep
+        {2mm}                           % after-sep
+
+        % subsubsección
+        \titleformat{\subsubsection}[runin]{%
+          \fontsize{10.2pt}{12.20pt}\selectfont%
+          \mdseries\scshape}%
+        {}%
+        {0em}%
+        {}%
+        [.]
+        \titlespacing{\subsubsection}{0pt}{12.29pt plus 4pt minus 3pt}{0.5em}
+      }{}
+
+      \ifstrequal{#1}{post}{%
+
+        % sección
+        \titleformat{name=\section,numberless}          % comando
+        [block]                                         % tipo
+        {\sffamily\bfseries\Large\color{morado}}        % format
+        {}                                              % label
+        {0mm}                                           % sep
+        {\leavevmode\smash{\llap{\rule{2mm}{2mm}\;\;}}} % before-code
+        []                                              % after-code
+
+        \renewcommand{\thesection}{\arabic{section}}
+        \renewcommand{\sectionbreak}{}
+        \titleformat{name=\section}              % comando
+        [hang]                                   % tipo
+        {\sffamily\bfseries\Large\color{morado}} % format
+        {\thesection}                            % label
+        {4mm}                                    % sep
+        {}                                       % before-code
+        []                                       % after-code
+        \titlespacing{\section}
+        {0pc}                           % left
+        {.7cm}                          % before-sep
+        {.3cm}                          % after-sep
+
+        % subsección
+        \renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
+        \renewcommand{\subsectionbreak}{%
+          \addpenalty{-300}%
+          \vspace*{0pt}}
+        \titleformat{name=\subsection}     % comando
+        [block]                            % tipo
+        {\sffamily\bfseries\color{morado}} % format
+        {\thesubsection}                   % label
+        {3mm}                              % sep
+        {}                                 % before-code
+        []                                 % after-code
+        \titlespacing{\subsection}
+        {0pc}                           % left
+        {12.29pt plus 4pt minus 3pt}    % before-sep
+        {5mm}                           % after-sep
+
+        % subsubsección
+        \titleformat{\subsubsection}[runin]{%
+          \fontsize{10.2pt}{12.20pt}\selectfont%
+          \mdseries\scshape}%
+        {}%
+        {0em}%
+        {}%
+        [.]
+        \titlespacing{\subsubsection}{0pt}{12.29pt plus 4pt minus 3pt}{0.5em}
+      }{}
+
+      % para la parte propositiva
+      \ifstrequal{#1}{propositiva}{%
+
+        % bloques
+        \renewcommand{\thesection}{\arabic{section}}
+        \renewcommand{\sectionbreak}{\cleardoublepage}
+
+        \titleformat{\section}                      % command
+        [display]                                   % shape
+        {\sffamily\bfseries}                        % format
+        {\vspace*{3cm}\centering\numblo\thesection} % label
+        {.5cm}                                      % sep
+        {\centering\texblo}                         % before-code
+        []                                          % after-code
+
+        \titlespacing{\section}
+        {0pt}                           % left
+        {0cm}                           % before-sep
+        {3.5cm}                           % after-sep
+
+        % subsección: prioridades
+        % \renewcommand{\thesubsection}{\arabic{subsection}}
+        \renewcommand{\subsectionbreak}{\cleardoublepage}
+
+        \titleclass{\subsection}{top}
+        \titleformat{\subsection}          % command
+        [display]                          % shape
+        {\vspace{-10mm}\sffamily\bfseries} % format
+        {\nummeta\thesubsection}           % label
+        {.5cm}                             % sep
+        {\raggedright\texmeta}             % before-code
+        [\AddToShipoutPictureBG*{
+          \AtPageUpperLeft{%
+            \color{meta}%
+            \rule[-73mm]{21cm}{73mm}%
+          }
+        }
+        \thispagestyle{empty}]    % after-code
+
+        \titlespacing{\subsection}
+        {0pt}                     % left
+        {0pt}                     % before-sep
+        {5cm}                     % after-sep
+
+        % subsubsección: apartados
+        \renewcommand{\subsubsectionbreak}{\clearpage}
+        \renewcommand{\thesubsubsection}{\Alph{subsubsection}}
+
+        \titleformat{\subsubsection}             % comando
+        [block]                                  % tipo
+        {\sffamily\bfseries\Large\color{morado}} % format
+        {\thesubsubsection.}                     % label
+        {5mm}                                    % sep
+        {}                                       % before-code
+        []                                       % after-code
+
+        \titlespacing{\subsubsection}
+        {0pc}                           % left
+        {.7cm}                          % before-sep
+        {.3cm}                          % after-sep
+      }{}
+    }
+  }
+#+end_SRC
+
+* Estilos de tabla de contenido (con titletoc)
+
+#+begin_SRC latex
+
+  \contentsmargin{3pc}
+
+  \titlecontents{chapter}%
+  [0pt]% -- left
+  {\bfseries\color{morado}\addvspace{1.5ex}}% -- above code
+  {}% -- formato con etiqueta
+  {}% -- formato sin etiqueta
+  {\titlerule*[1pc]{.}\textnormal{\contentspage}}% -- espacio y núm pág
+  % [\addvspace{0.5em}]
+
+  \titlecontents{section}%
+  [2em]% -- left
+  {\addvspace{1.5ex}}% -- above code
+  {\hspace*{-2em}\makebox[2em]{\thecontentslabel. }}% -- formato con etiqueta
+  {}% -- formato sin etiqueta
+  {\titlerule*[1pc]{.}\contentspage}% -- espacio y núm pág
+  % [\addvspace{0.5em}]
+
+  \titlecontents{subsection}%
+  [4em]% -- left
+  {\addvspace{1.5ex}}% -- above code
+  {\contentslabel{2em}}% -- formato con etiqueta
+  {}% -- formato sin etiqueta
+  {\titlerule*[1pc]{.}\contentspage}% -- espacio y núm pág
+  % [\addvspace{0.5em}]
+
+  \titlecontents{subsubsection}%
+  [5.5em]% -- left
+  {}% -- above code
+  {\hspace*{-1.5em}\makebox[1.5em]{\thecontentslabel.\hspace{2mm}}}% -- formato con etiqueta
+  {}% -- formato sin etiqueta
+  {\titlerule*[1pc]{.}\contentspage}% -- espacio y núm pág
+  % [\addvspace{0.5em}]
+#+end_SRC
+
+* Macros, comandos y entornos (re) definidos
+** Formato de las entradas del diccionario
+** Figuras
+
+Los títulos del gráfico van en la parte superior y las fuentes, notas,
+etc. se colocan en los laterales.
+
+#+begin_SRC latex
+  % \usepackage{showframe}
+  \usepackage{floatrow}
+  % Extiende las opciones de includegraphics (max width ...), permite
+  % que las imágemes mayores se ajusten al ancho y las otras se queden igual.
+  \usepackage[export]{adjustbox}
+
+  \DeclareFloatVCode{azulaoruleabove}%
+  {{\color{azulao}\par\rule\hsize{.8pt}\vskip4pt\par}}
+
+  \DeclareFloatVCode{azulaorulemid}%
+  {{\color{azulao}\vskip-12pt\rule\hsize{.2pt}\vskip10pt}}
+
+  \DeclareFloatVCode{azulaorulebelow}%
+  {{\color{azulao}\par\vskip4pt\rule\hsize{.2pt}}}
+
+  \DeclareFloatStyle{rayas}{%
+    capposition=top,
+    precode=azulaoruleabove,
+    midcode=azulaorulemid,
+    postcode=azulaorulebelow,
+    heightadjust=all}
+
+  \floatsetup[figure]{style=rayas,
+    facing=yes,
+    margins=hangoutside,
+  }
+
+  \usepackage{caption}
+  \captionsetup[figure]{%
+    singlelinecheck=off,
+    format=plain,
+    justification=raggedright,
+    labelfont={sf,scriptsize},
+    textfont={color={azulao},sf,bf,footnotesize},
+    labelsep=newline}
+
+  \usepackage[strict]{changepage}
+
+  \newcommand{\mysidelegend}[3]{%
+    \checkoddpage%
+    \ifoddpage%
+    \begin{minipage}[t]{\textwidth}
+      \ffigbox[\textwidth]
+      {\caption{#1}}
+      {\includegraphics[max width=\textwidth]{#2}}
+    \end{minipage}
+    % \hfill
+    \hspace*{.2cm}
+    \begin{minipage}[b]{\marginparwidth}
+      \raggedright\fnota\scriptsize%
+      #3
+    \end{minipage}
+    \else%
+    \hspace*{-\marginparwidth-.4cm}%
+    \begin{minipage}[b]{\marginparwidth}
+      \raggedleft\fnota\scriptsize%
+      #3
+    \end{minipage}%
+    \hfill
+    \begin{minipage}[t]{\textwidth}
+      \ffigbox[\textwidth]
+      {\caption{#1}}
+      {\includegraphics[max width=\textwidth]{#2}}
+    \end{minipage}%
+    \fi%
+  }
+#+end_SRC
+
+** Para una figura dentro de una columna
+** Citas
+** Tracking
+** Listas y enumeraciones
+** Para las imágenes del diccionario
+** Para las citas de poemas
+** COMMENT Para las versalitas en cursiva
+
+Macro basada en =miscrom=, ya que la fuente Centennial no dispone de versalitas en cursiva. Se le aplica un =fake-slant=
+
+#+begin_SRC latex
+  \def\versalitacursiva#1{{\addfontfeatures{FakeSlant=0.2}\textsc{#1}}}
+#+end_SRC
+** Hyperref et alia
+
+Se añade al final con hyperref (que, de momento, se desactiva ---el comando---). Con el comando =labeldict= (activo cuando se carga hyperref), se extraen los marcadores de las entradas de las entradas para crear el índice en org mode, mediante estas funciones.
+
+Cargo =xurl= (en lugar del =url=), porque parece que es el único que garantiza un perfecto corte de las url. Y no hace falta así definir cortes /ad hoc/.
+
+*OJO*: hay que añadir en =hyperref= la opciónn =hyperindex=false= para que genere los rangos de página discrecionales.
+
+#+begin_SRC latex
+  \usepackage{xurl}
+
+  \usepackage[unicode=true,breaklinks=true,final,hyperindex=false]{hyperref}
+  \hypersetup{%
+    linktocpage=true,
+    colorlinks,
+    linkcolor={red!50!black},
+    citecolor={blue!50!black},
+    urlcolor={blue!80!black}
+  }
+
+  \newif\iflabeldict
+  \labeldictfalse
+
+  \iflabeldict
+  \def\labeldit#1{\hypertarget{#1}{}}
+  \else
+  \def\labeldict#1{}
+  \fi
+#+end_SRC
+
+** Ornamentos
+
+Se carga el paquete =pgfornament=
+
+#+begin_SRC latex
+  \usepackage{pgfornament}
+#+end_SRC

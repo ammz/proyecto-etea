@@ -1,0 +1,22 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "./plantillas/etea2.ott"
+
+Por otra parte, el Acuerdo de formulación de la Estrategia para la Transformación Económica de Andalucía 2021-2027 recoge entre sus principios rectores, junto a la cooperación y la participación, el papel de la evaluación. Respecto a esta última, se señala explícitamente que esta evaluación comprende la transparencia, el seguimiento y la rendición de cuentas. Además, se incluye una mención al análisis de las operaciones estadísticas existentes y la valoración sobre la necesidad de poner en marcha otras nuevas.
+
+Sin duda, la evaluación de las políticas públicas es un factor clave para conocer la calidad de la gestión pública en términos de eficiencia, eficacia y coherencia, y al mismo tiempo es un elemento esencial para la modernización y mejora continua de la Administración Pública andaluza.
+
+De hecho, la relevancia de la evaluación está recogida en el Estatuto de Autonomía de Andalucía, al establecer en su artículo 138 que “la ley regulará la organización y funcionamiento de un sistema de evaluación de las políticas públicas”. Asimismo, desde la Unión Europea se posiciona el seguimiento y la evaluación de las políticas públicas como un elemento consustancial a la propia intervención, que es de obligado desarrollo además en el caso de los Fondos Europeos. En este punto, resulta oportuno mencionar que el seguimiento de la Agenda por el Empleo 2024-2020, y de los principales objetivos e indicadores fijados en dicho documento se recoge, de un modo sintético y gráfico, en documento Anexo.
+
+Adicionalmente, la rendición de cuentas ante los ciudadanos sobre la base de información generada por un sistema de seguimiento y evaluación, también es una muestra de la cultura democrática moderna que en la garantía de la transparencia tiene uno de sus valores fundamentales, siendo un pilar básico que complementa la evaluación de programas y políticas públicas.
+
+Atendiendo a lo anterior, el seguimiento y evaluación de la ETEA Horizonte 2027 se realizará a través de un *Sistema de Indicadores*, agrupados por cada uno de los 6 bloques temáticos, que permiten el seguimiento de los avances y logros en los 25 objetivos básicos, y que a su vez presentan una correspondencia con las metas y las prioridades (Ver cuadro siguiente). Estos indicadores utilizan como fuente de información la proporcionada por estadísticas oficiales, garantizándose de esta forma el rigor técnico en la producción de datos y la obtención de información conforme a metodologías fiables, estables, precisas y contrastadas.
+
+Así, los indicadores definidos se calcularán con periodicidad anual por el Sistema Estadístico y Cartográfico de Andalucía. El Instituto de Estadística y Cartografía de Andalucía, como órgano coordinador del Sistema, promoverá su inclusión en la programación estadística y cartográfica anual de las actividades estadísticas precisas para la obtención de los indicadores definidos en la ETEA.
+
+De este modo, la Estrategia será objeto de Informes anuales de Seguimiento y Evaluación. Asimismo, este informe será sometido a consideración de la Comisión de Política Económica, que analizará los resultados de los informes anuales y los pondrá a disposición de los agentes económicos y sociales más representativos y otras instancias de la sociedad civil organizada, dando también difusión al conjunto de la sociedad y la ciudadanía, con su publicación en abierto en el portal web de la Consejería.
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-hide-emphasis-markers: t
+# End:

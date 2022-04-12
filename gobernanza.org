@@ -1,0 +1,961 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+#+begin_SRC latex
+  \loadgeometry{centrada}
+  \pagestyle{basico}
+#+end_SRC
+
+#+RESULTS:
+#+begin_export latex
+\loadgeometry{centrada}
+\pagestyle{basico}
+#+end_export
+
+* Gobernanza
+** Intro                                                            :ignore:
+
+{{{inicol(2)}}}
+Para los responsables de la política económica de Andalucía, la mejora de la gobernanza y la calidad institucional debe ser un elemento transversal a la acción de gobierno. Dichas mejoras son la base y salvaguarda del Estado Democrático y Social de Derecho.
+
+Por tanto, la gobernanza se configura como un bloque fundamental de la Planificación económica regional, basándose en la mejora de la regulación, para promover una Administración más dinámica, menos burocrática y más innovadora, en el refuerzo e inpulso de los servicios públicos, para situar a la ciudadanía en el centro, en el uso de las nuevas tecnologías, para hacerla más cercana y eficiente, y, por supuesto, en la rendición de cuentas, mediante un sistema eficiente y proactivo de evaluación de las políticas públicas.
+
+Al mismo tiempo, la igualdad de género y la cultura de calidad en unas instituciones inclusivas y transparentes guardan una estrecha vinculación, ya que ambas --además de ser prioridades para la política económica de las sociedades modernas y, en particular, para Andalucía-- responden al mismo reto, el de conseguir una sociedad más justa, próspera, igualitaria e inclusiva. Es por ello, que se incluye en esta área estratégica, denominada “Gobernanza”, un eje prioritario dedicado a avanzar en la perspectiva de género en las políticas públicas.
+
+El Banco Mundial define la gobernanza como el marco de procesos e instituciones a través de los cuales se determina la forma en la que se ejerce el poder en un país o región para desarrollar sus recursos económicos y sociales. Y, adicionalmente, entiende la buena gobernanza o el buen gobierno (/good governance/) como la eficacia y transparencia en: 1) los métodos de elección, control y reemplazo de los gobernantes, es decir la estabilidad institucional, 2) la capacidad del gobierno para administrar recursos y aplicar políticas (o dicho de otro modo, el marco regulatorio y la eficacia del gobierno) y 3) el respeto a las ciudadanas y ciudadanos, donde podríamos encuadrar la transparencia, la participación y la garantía del estado de derecho.
+
+Por tanto, se debe entender la gobernanza como “un método o mecanismo para tratar una amplia variedad de problemas y/o conflictos a los que encontrar una decisión o solución satisfactoria, a través de la negociación y el debate, cooperando a su vez para su ejecución”. En este sentido, la gobernanza también es un instrumento para mejorar la gobernabilidad social e institucional, ya que implica la calidad y la buena orientación en la intervención del Estado, de modo que el término gobernanza también admite lugares comunes con el de un gobierno interactivo, emprendedor, colaborador, socio o facilitador.
+
+En la actualidad, la gobernanza se ha convertido, en las sociedades avanzadas, en un paradigma que orienta la acción de los gobiernos y administraciones de los Estados y con el que están comprometidas también las Naciones Unidas (Agenda 2030), la OCDE (Informes periódicos sobre la gobernanza pública en sus países miembros) y la UE, tal y como muestra la publicación del Libro Blanco de la Gobernanza Europea.
+
+En definitiva y como conclusión de este repaso conceptual, la gobernanza se entiende como un estilo (o arte) de gobernar, en el que la producción de las políticas públicas no es el resultado únicamente de la toma de decisiones de los gobiernos y administraciones en las materias en las que son titulares de competencias. Ahora, se concibe como el resultado de un esfuerzo colectivo de trabajo en red, tanto entre los gobiernos y administraciones de diferentes niveles como entre éstas y los agentes económicos y sociales, la sociedad civil y la ciudadanía en general.
+
+De este modo, la gobernanza implica, por un lado, que la capacidad de un gobierno depende de las relaciones entre este conjunto de interlocutores sociales y, por otro, que la interdependencia de los asuntos públicos precisa que todos ellos participen y cooperen, no solo en el proceso de toma de decisiones sino también en la gestión, asumiendo responsabilidades.
+
+Para la política económica de la Junta de Andalucía resulta fundamental el trabajo en red entre los gobiernos y administraciones a nivel local, regional y nacional, es decir, las llamadas relaciones intergubernamentales en la terminología del Derecho y de las Ciencias Políticas y de la Administración. En este punto conviene tener presente que, en el contexto político-institucional del Estado de las Autonomías, la implementación efectiva de las políticas públicas en Andalucía no solo precisa del ejercicio de las competencias regionales, sino que también requiere con frecuencia de actuaciones en las que las competencias son del Estado o de los Entes locales.
+
+Precisamente, las políticas públicas de la Junta de Andalucía se despliegan en este contexto de gobernanza multinivel, en el que también interviene la UE, y, por tanto, dependen de la calidad de las relaciones intergubernamentales, que operan a través de tres mecanismos: la coordinación, la colaboración y la cooperación. El marco constitucional-estatutario y las leyes han establecido una división en el reparto competencial entre los entes locales, las CC.AA. y el Estado. Esta división plantea en la práctica dificultades para abordar situaciones de concurrencia entre competencias y la resolución de algunos de los retos de las sociedades modernas, que se caracterizan por su gran complejidad y su transversalidad (por ejemplo, la perspectiva de género, la transformación digital o el cambio climático). Es por ello por lo que se requiere una gobernanza multinivel para aplicar políticas de forma más efectiva y eficiente, apelando a una responsabilidad compartida.
+
+Frente a ello, la gobernanza multinivel, que constituye la manifestación democrática del principio de transversalidad y complejidad, es un sistema en el que diferentes niveles institucionales no monopolizan sino comparten decisiones sobre las áreas competenciales. La cooperación intergubernamental proporciona la visión integrada y la interacción inteligente (coherencia y sinergia) de las políticas públicas, desarrolladas por cada administración, en el ejercicio de las competencias atribuidas. Todo ello es relevante como pauta de una buena gobernanza siempre, aunque ahora parece más importante que nunca, en el contexto de la crisis sanitaria y económica causada por la pandemia de la COVID-19. Este adverso escenario requiere que todas las administraciones sumen sus esfuerzos, con una lógica cooperativa y lealtad institucional al servicio siempre de la ciudadanía.
+
+Por último, no cabe duda de que esta misma visión integrada y proclive a la interacción inteligente de las políticas públicas, desarrolladas por cada uno en el ejercicio de las competencias que tiene atribuidas, también es válida, dentro del propio nivel de gobierno. De este modo, han de establecerse y aprovecharse bien los cauces de cooperación interdepartamental entre las diferentes Consejerías y organismos de la Junta de Andalucía para alcanzar el máximo potencial de esta prioridad estratégica.
+{{{fincol}}}
+
+** Prioridades                                                      :ignore:
+
+@@latex:\pagestyle{prioridad}@@
+
+** Mejorar la eficiencia de la Administración y la regulación económica
+*** Intro 0601                                                     :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0601
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. La simplificación y agilización administrativa
+2. La regulación y la calidad institucional
+3. Los recursos humanos en la Administración
+{{{finlineas}}}
+{{{ods(16 17)}}}
+Esta primera prioridad constituye un vector fundamental para lograr una mejora de la gobernanza, dado que es aceptado que los términos calidad institucional, calidad de la gobernanza y calidad de las instituciones están intrínsecamente unidos, hasta el punto de ser sinónimos. Bajo esta perspectiva, la simplicidad y estabilidad de las normas (regulación), el buen funcionamiento de los organismos reguladores, la eficiencia y la eficacia de la administración y la calidad de los servicios públicos son condición necesaria para elevar la calidad institucional.
+
+Estos elementos incidirán positivamente en la mejora de la gobernanza y, al mismo tiempo, tendrán un impacto favorable, aunque indirecto, sobre la productividad del país, a medio y largo plazo. Estos efectos se deben a que la mayor seguridad jurídica, la eliminación de trabas administrativas y la mejor regulación incentivan la inversión nacional y extranjera, al facilitar el emprendimiento, la innovación y la mejorara de la asignación de los recursos privados y públicos, dirigiéndolos hacia las actividades más productivas.
+
+De este modo, Andalucía sabe que, contribuyendo a la mejora de la eficiencia de la Administración regional, a la simplificación y a una regulación menos compleja, está sentando las bases para lograr un necesario incremento de la inversión y la productividad y, en definitiva, para alcanzar mayores cotas de producción y empleo, así como una mejor atención a las personas, propiciando que dicho empleo sea de calidad.
+
+Asimismo, es preciso entender el papel de la administración como una fuerza impulsora y facilitadora, que no se limita a una regulación directa, de arriba hacia abajo, con un carácter controlador, sino que aplica instrumentos innovadores (información, sensibilización, educación, asesoramiento, incentivos económicos, entre otros) en sus relaciones con los agentes económicos y sociales y la ciudadanía.
+
+También en este apartado cabría incluir otras cuestiones como las infraestructuras tecnológicas y la transformación digital de la Administración, pero este último aspecto ya fue tratado en la prioridad 0102, dentro del bloque temático “Competitividad”.
+
+*** Objetivo                                                       :ignore:
+{{{initcb(Meta)}}}
+Conseguir una Administración más eficiente, abierta, inclusiva, menos burocratizada y más cercana a la ciudadanía.
+{{{fintcb}}}
+
+*** La simplificación y agilización administrativa
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0601-02
+:END:
+
+La Administración de la Junta de Andalucía, al igual que otras instancias del Estado, debe emprender, de forma inaplazable una tarea de simplificación normativa y de procedimientos.
+
+La costumbre de solucionar los problemas, de índole público, con nuevas normas y procesos está muy enraizada en la cultura de los responsables políticos y el Estado de las Autonomías no es ajeno a esta tendencia. Sin embargo, esta dinámica debe romperse, siendo necesario *reducir el número de trámites para conseguir mejoras significativas en el tiempo de tramitación* de los expedientes, autorizaciones e informes, así como *evitar solapamientos entre distintos órganos* que prolongan los procedimientos administrativos.
+
+De este modo, la simplificación de procedimientos implica la agilización de las relaciones entre los operadores económicos y la administración, a través de una menor intrusión administrativa. Pero, en ningún caso debe implicar menor seguridad jurídica. Para ello, el proceso de simplificación debe ir necesariamente acompañado de un *refuerzo de la inspección y el control que detecte los focos de fraude o ilegalidad*, pero sin afectar a la eficiencia de los operadores que actúan correctamente.
+
+Con este convencimiento, se quiere impulsar un cambio en la cultura de la Administración, que la haga más ágil, accesible y proactiva, que asuma la reducción de barreras y de trabas administrativas para hacer más cómodas y rápidas las relaciones con los operadores económicos y la ciudadanía.
+
+Ciertamente, *en los últimos años se han logrado avances en la simplificación y agilización administrativa*, como pone de manifiesto la aprobación del Decreto-ley 2/2020, de 9 de marzo, de mejora y simplificación de la regulación para el fomento de la actividad productiva de Andalucía, *pero los esfuerzos en esta materia deben proseguir*, en línea con las propuestas del Plan para la Mejora de la Regulación Económica en Andalucía, y seguir avanzando en la convergencia con otras regiones de Europa, que destacan por sus buenas prácticas en este ámbito.
+
+De hecho, cabe destacar que la Comisión Europea ha recomendado a distintos países miembros de la UE, y entre ellos a España, el deber de plasmar, de forma explícita, su compromiso con los principios de la mejora de la regulación en sus Programas Nacionales de Reforma, especificando la aprobación de acciones de simplificación administrativa.
+
+En concreto, y en relación al Programa Nacional de Reformas de 2020, el Consejo Europeo, señaló específicamente que: /“En España, la fragmentación y los obstáculos reglamentarios impiden a las empresas beneficiarse de las economías de escala y afectan negativamente a la productividad. La Ley de Unidad de Mercado, que ya está siendo aplicada por los tribunales y las autoridades de defensa de la competencia, debe utilizarse de forma más activa para fomentar la mejora de la reglamentación y la competencia durante la recuperación.”/
+
+Sin duda, diversas circunstancias pueden hacer más ostensible y prioritaria la necesidad de acelerar estas reformas simplificadoras. La estrategia de política económica que se debe abordar, después de haber padecido la crisis económica más severa que se ha conocido en tiempos de paz desde mediados del siglo XIX, tiene que orientarse a facilitar que las iniciativas económicas se materialicen en proyectos de inversión en el menor tiempo posible.
+
+En este contexto, mención especial merece la llegada de un volumen significativo y extraordinario de fondos europeos en esta década. La mayoría de éstos se enmarcan dentro del Plan de Recuperación de la UE, lo que implicará la movilización de una cuantía ingente de recursos con unos plazos muy ajustados lo que requerirá adoptar medidas dirigidas a reducir barreras normativas y administrativas, así como agilizar la gestión por las Administraciones Públicas, manteniendo las garantías y sin disminuir sus obligaciones de control, con objeto de que no se pierda ningún proyecto de inversión.
+
+En este sentido, debe mencionarse la publicación del Real Decreto-ley 36/2020, de 30 de diciembre, por el que se aprueban medidas urgentes para la modernización de la Administración Pública y para la ejecución del Plan de Recuperación, Transformación y Resiliencia. Esta norma modifica un conjunto de aspectos en materia de gestión y control presupuestario, contratación pública, agilización de convenios y subvenciones, impulso de la colaboración público-privada, la regulación de los Proyectos Estratégicos para la Recuperación y Transformación Económica (PERTES), reduciendo trabas administrativas y agilizando los procedimientos y plazos de la normativa de autorización y evaluación ambiental.
+
+En Andalucía, destaca la aprobación del Decreto-ley 26/2021, de 14 de diciembre, por el que se adoptan medidas de simplificación administrativa y mejora de la calidad regulatoria para la reactivación económica en Andalucía, que completa el Decreto-ley 2/2020, de 9 de marzo, de mejora y simplificación de la regulación para el fomento de la actividad productiva de Andalucía.
+
+Por otra parte, también cabe mencionar el Decreto-ley 3/2021, de 16 de febrero, por el que se adoptan medidas de agilización administrativa y racionalización de los recursos para el impulso a la recuperación y resiliencia en el ámbito de la Comunidad Autónoma de Andalucía, al objeto de facilitar la ejecución y control de proyectos financiados con “Next Generation”, a fin de agilizar los procedimientos de programación, presupuestación, gestión, ejecución y control de las iniciativas, y optimizar al máximo los recursos de la Administración para aumentar su eficacia.
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Proseguir e intensificar el seguimiento y la evaluación de los procedimientos administrativos y actuaciones de simplificación y reducción de trabas administrativas para detectar las opciones existentes y alcanzar compromisos vinculantes.
+
+2. Implementar las actuaciones contenidas en el Plan para la Mejora de la Regulación Económica en Andalucía, a través de la Mesa para la Mejora de la Regulación Económica, y, en particular, de acuerdo con la metodología de la Agencia de la Competencia y de la Regulación Económica de Andalucía (ACREA), avanzar en la reducción de trabas administrativas que afectan a los sectores económicos más importantes y/o emergentes en Andalucía.
+
+3. Efectuar campañas de divulgación y transparencia sobre trabajos, informes o estudios que contengan estimaciones del coste de las trabas administrativas, a fin de concienciar y crear un estado de opinión sobre el ahorro anual que para los operadores económicos y la ciudadanía implica la reducción de trámites y la agilización de los procedimientos.
+
+4. Mejorar la dotación de medios humanos y materiales, a fin de reforzar las tareas de inspección y de control que detecten posibles focos de fraude o ilegalidad sin afectar a la eficiencia de los operadores que actúan conforme a la normativa.
+
+5. Adaptar la dirección y gestión del conocimiento en las actividades de la administración pública a los requerimientos derivados de la incorporación de la inteligencia artificial y el big data.
+
+6. Avanzar en la digitalización de la Administración para un tratamiento telemático de los expedientes, mejorando la comunicación y coordinación entre los diferentes servicios, departamentos y Consejerías de la Junta de Andalucía.
+
+7. Fomentar e impulsar una mayor coordinación entre administraciones, especialmente con las corporaciones locales, prestándoles una adecuada asistencia técnica e información en las actividades de control, al tiempo que se fomentan las relaciones con la Administración Central en esta materia.
+
+{{{finactuaciones}}}
+
+*** La regulación y la calidad institucional
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0601-03
+:END:
+
+La regulación va intrínsecamente ligada a la simplificación y agilización normativa, pero el concepto de calidad de las instituciones abarca aspectos más amplios como el buen funcionamiento de la justicia, la independencia de los organismos de control, la calidad regulatoria, la transparencia del sector público, la eficiencia de la administración y el control de la corrupción, entre otros. Todas estas cuestiones tienen una repercusión directa sobre la buena gobernanza y su mejora contribuirá positivamente a la estrategia de crecimiento a largo plazo de la economía andaluza.
+
+Por ello, en esta prioridad estratégica se dedica una línea de actuación a la *mejora de la calidad institucional*. Conviene recordar que, en el anterior marco presupuestario plurianual 2014-2020, mediante recursos de los fondos de cohesión, se fijó como Objetivo temático 11 el “Mejorar la capacidad institucional de las autoridades públicas y las partes interesadas y la eficiencia de la Administración pública”. Sin embargo, *los avances en Andalucía en esta materia han sido bastante discretos*, por lo que se requiere un mayor esfuerzo en los próximos años.
+
+Atendiendo a la definición de calidad institucional como un concepto multidimensional, que engloba una elevada imparcialidad y calidad en la prestación de servicios públicos, junto con una baja corrupción, se calcula el Índice Europeo de Calidad de Gobierno (EQI), que elabora la Universidad de Gotemburgo, financiado por la Comisión Europea. Con los últimos datos disponibles, para 2021, Andalucía se encuentra en el puesto 135 de un total de 208 regiones europeas y, aunque no obtiene una puntuación relativamente inferior a la de regiones comparables en términos de PIB per cápita.
+
+A su vez, las regiones españolas se sitúan en una posición poco aventajada dentro de la UE, donde destacan países como Finlandia, Suecia, Dinamarca, Países Bajos o Alemania. En sentido contrario, los peores valores del índice de calidad institucional se corresponden a regiones de Rumania, Bulgaria, Grecia o Italia, con peores resultados que el promedio de España. En general, se aprecia que los países del norte y las regiones españolas más septentrionales ofrecen mejores niveles de calidad institucional que las meridionales.
+
+Desde un enfoque temporal, la media del indicador de calidad de gobierno para España desciende entre 2010 y 2017, registrando un ligero ascenso en 2021. Para el periodo 2010-2021 el indicador muestra para las CC.AA. que el rango del EQI crece con el tiempo, es decir se observa una divergencia regional, de manera que la distancia entre la región en la primera y última posición aumenta desde 2010. De este modo, las regiones que se mantienen en los primeros puestos durante las últimas ediciones (País Vasco, Rioja y Navarra) han registrado importantes aumentos en su índice, mientras las que ocupan los últimos puestos han observado variaciones modestas que no han alterado de manera significativa su posición relativa.
+
+En el caso de Andalucía en la edición de 2021 y respecto del año 2017, se produce una mejora en el indicador global que pasa de -0,65 a -0,54, dejando la última posición en el conjunto de las regiones españolas.
+
+De este modo, una de las razones que evidencian la necesidad de mejorar la calidad de la Administración es tratar de eliminar esta brecha o gap con respecto a otras regiones y países, logrando avanzar en algunas de las dimensiones que mide este indicador como es la calidad en la prestación de servicios públicos.
+
+De acuerdo con un trabajo de investigación de la Comisión Europea[fn:17], la calidad de los servicios públicos de un país está correlacionada con el nivel de confianza en la Administración pública, la facilidad para hacer negocios (buena regulación) y el bienestar de la sociedad.
+
+En este sentido, atendiendo a los resultados del informe: “Los costes económicos del déficit de calidad institucional y la corrupción en España”[fn:20], los indicadores de calidad institucional sitúan a España entre el 20% (percentil 81) de los países con una mejor gobernanza en el mundo, pero por debajo del nivel que le correspondería de acuerdo con el desarrollo de su economía. Además, la trayectoria española ha sido ligeramente decreciente en calidad institucional, ya que todos los indicadores se sitúan en 2017 (último año disponible) a un nivel inferior al de 2003. El indicador global ha descendido desde un 7,8 a un 6,8.
+
+Además, existe una extensa doctrina que se refiere al marco regulador y al funcionamiento de la Administración como factores determinantes para la facilidad de hacer negocios. En este ámbito, cabe mencionar la contribución del concepto de la OCDE /“Better Regulation”/ y sus recomendaciones, o el ranking /“Doing Business”/ del Banco Mundial.
+
+De acuerdo, con los resultados del citado informe /Doing Business/, para el año 2015, en España y con detalle por Comunidades Autónomas, puede comprobarse que Andalucía se situaba entre las CC.AA. mal posicionadas en esta materia (14 sobre 19). Mientras, el conjunto de España mantenía una *posición poco aventajada respecto a otras economías de nuestro entorno en materia de regulación* que afectan potencialmente a las pymes, como la apertura de una empresa, la obtención de permisos de construcción, la obtención de electricidad y el registro de propiedades.
+
+Esta baja calidad regulatoria tiene un impacto negativo sobre Andalucía y otras regiones de España, por los costes asociados al deterioro de elementos clave del funcionamiento de una economía, al desincentivar el emprendimiento, la innovación, la competencia y el esfuerzo, lo que se traduce en una menor productividad, un mayor desempleo y unas remuneraciones inferiores a los que serían posibles con la tecnología y el capital disponibles. En el mismo sentido, se ha evidenciado que aquellos países o regiones con mejores puntuaciones en indicadores de calidad institucional y regulatoria muestran mayores tasas de productividad, un crecimiento potencial a largo plazo más elevado y sólido, junto con una mayor resistencia en las crisis económicas.
+
+Adicionalmente, tanto en Andalucía como en España, en general, el Indicador de Confianza Empresarial (ICE) que elaboran el INE y el IECA incorpora un módulo, que tiene una parte dedicada a la percepción de la buena regulación. En concreto, se pregunta sobre los recursos dedicados a la resolución de trámites con las administraciones; sobre los trámites añadidos que deben cursarse para operar y también sobre el beneficio debido a sustitución de autorizaciones previas por declaraciones responsables. Los resultados de este indicador señalan que hay un *margen amplio de mejora para agilizar los procedimientos* para operar en un mercado o industria.
+
+Por otro lado, la buena gobernanza y la calidad de la regulación también atañe *al funcionamiento interno de la Administración* y, en cierto modo, a su “sistema administrativo”, lo que dificulta y ralentiza la resolución de trámites y procedimientos para el conjunto de la ciudadanía (por ejemplo: el reconocimiento de la situación de dependencia y el derecho a distintas prestaciones como la Renta Mínima de Inserción). Por ello, resulta necesario realizar una revisión y evaluación de los trámites y plazos del Registro de Procedimientos de la Junta de Andalucía que afectan tanto a la ciudadanía como a los operadores económicos. Adicionalmente, el ritmo actual de los cambios sociales, tecnológicos y económicos exige que todas las administraciones públicas, no solo la regional, se adapten a las nuevas realidades.
+
+En este punto, conviene destacar el importante papel que debe desempeñar la *digitalización de la Administración* y la prestación de servicios en línea (/online/) para elevar la calidad de la gobernanza regional. Aunque esta materia ya ha sido tratada en una línea de actuación de la prioridad 0102 (“Impulsar la digitalización de la sociedad y de la economía”), cabe mencionar en este apartado que el informe de la Comisión Europea /“eGovernment in Spain”[fn:28]/, publicado en diciembre de 2018, hace una serie de recomendaciones que siguen vigentes y que pueden ser aplicables a Andalucía.
+
+Asimismo, habría que considerar las infraestructuras, equipamientos y herramientas necesarias para poder ofrecer estos servicios online con garantías de calidad. En este sentido, a modo de ejemplo, cabe citar el informe elaborado en el 2019, por el /Joint Research Centre/ (JRC) de la Comisión Europea: /“The role of Spatial Data Infrastructures in the Digital Government Transformation of Public Administrations”/[fn:29]. En dicho documento se aportan recomendaciones para superar el atraso de la incorporación de la componente geoespacial en la digitalización de las administraciones.
+
+También cabe mencionar que se está realizando un esfuerzo notable en la mejora e incremento de los recursos humanos y materiales que afectan a la calidad del *Servicio Público de Justicia*, con el objetivo que la ciudadanía pueda tener una respuesta ágil y eficaz de los órganos jurisdiccionales.
+
+Por último, la calidad de la Administración también se debe complementar con *la implicación de las propias ciudadanas y ciudadanos y de las organizaciones de la sociedad civil y del ámbito académico y empresarial*, por su experiencia y pericia (/expertise/) en distintos ámbitos del sector público. En este sentido, la Administración “deja de asumir” toda la responsabilidad y la comparte, a través de la co-generación y co-elaboración con dichos expertos del sistema andaluz del conocimiento.
+
+
+:fig-0601B1:
+:F: University of Gothenburg:F:
+:U::U:
+:N: Regiones ordenadas por el valor del índice en 2021.:N:
+:E::E:
+#+CAPTION: Evolución del Índice Europeo de Calidad de Gobierno (EQI) por CC.AA españolas
+[[./graficos/0601B1.pdf]]
+:END:
+
+:fig-0601B2:
+:F: “Informe Doing Business España 2015 por CCAA”, Banco Mundial.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Ranking autonómico “La facilidad para hacer negocios”
+[[./graficos/0601B2.pdf]]
+:END:
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Realizar auditorías periódicas sobre los procesos y procedimientos administrativos para racionalizar y agilizar los mismos, mejorando la interoperabilidad tanto entre los centros directivos de las distintas Consejerías de la Administración Autonómica como  con otras Administraciones.
+
+2. Efectuar una revisión del marco normativo, aplicando los principios de una buena regulación, tales como los de cooperación y comunicación entre las Administraciones Públicas, de necesidad y proporcionalidad de las actuaciones, de simplificación de cargas y de transparencia.
+
+3. Fortalecer la gobernanza multinivel, mediante el uso del mapeo funcional y las revisiones para aclarar responsabilidades y reducir las duplicidades.
+
+4. Realizar pruebas de autodiagnóstico para conocer lo que necesitan y esperan la ciudadanía, las empresas y otras administraciones de los servicios públicos, por ejemplo, utilizando encuestas, grupos de trabajo temáticos, entre otras.
+
+5. Revisar toda la cartera de servicios para comprobar solapamientos, rigideces e ineficiencias, incluyendo los trámites y plazos del Registro de Procedimientos de la Junta de Andalucía, valorando el grado de incidencia real de los mismos mediante robustas metodologías y criterios cualitativos y cuantitativos de evaluación.
+
+6. Implantar el registro “solo una vez” y la prestación automática de servicios.
+
+7. Utilizar soluciones informáticas homogéneas y compatibles que permitan la interacción y comunicación inter e intrainstitucionales, mejorando el rendimiento de las administraciones públicas.
+
+8. Construir una plataforma de gobierno del dato e interoperabilidad de la Junta de Andalucía desde la perspectiva organizativa, semántica y tecnológica, facilitando el intercambio de datos entre los sistemas de gestión, la generación de información estadística y espacial, la publicación de datos abiertos y el soporte a la toma de decisiones.
+
+9. Aplicar el principio “digital por defecto”.
+
+10. Potenciar el asesoramiento externo de las políticas públicas de la Junta de Andalucía por instituciones especializadas del sistema andaluz del conocimiento, a modo de laboratorio de ideas y lugares de pensamiento estratégico (/think tanks/).
+
+{{{finactuaciones}}}
+*** Los recursos humanos en la Administración
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0601-04
+:END:
+
+La consecución de un sector público (Administración y Entes instrumentales)  más eficiente y eficaz viene determinada, en gran medida, por la *disponibilidad, capacitación y el sistema de incentivos de los recursos humanos*, es decir, de las empleadas y empleados públicos, así como por una *distribución equilibrada* de personal y equipamientos por departamentos y funciones.
+
+Dado que los las personas empleadas constituyen el principal activo de las Administraciones públicas, tendencias como el envejecimiento del funcionariado y el pendiente relevo generacional, o la creciente automatización de los procesos rutinarios, requieren la capacidad de anticiparse y responder a estas cuestiones estratégicas. De este modo, resulta necesario disponer de una función pública cualificada y con un alto rendimiento y adaptada a las necesidades actuales de la sociedad.
+
+A esta inquietud responde la reciente creación de un grupo de análisis y propuesta de reformas en la Administración Pública, por parte del Ministerio de Política Territorial y Función Pública y, con más claridad, el Anteproyecto de Ley de Función Pública de Andalucía. Tal y como se recoge en la exposición de motivos, tras más de treinta y cinco años de existencia de la Administración de la Junta de Andalucía, parece indicado introducir elementos de modernización y dinamización en la gestión de sus recursos humanos.
+
+La nueva regulación andaluza en esta materia tiene como finalidad la integración normativa, la mejora en la sistematización y ordenación de la función pública andaluza y pretende ser un instrumento de modernización para lograr un empleo público de calidad, cualificado, eficiente y comprometido con la realidad social. Bajo esta perspectiva, el texto normativo aborda cuestiones tan relevantes como la formación, el régimen de seguridad social, las reglas relativas a la negociación colectiva, la conciliación de la vida profesional con la personal y familiar, la representación y participación o el régimen disciplinario, en las que no entraba la vigente regulación (Ley 6/1985, de 28 de noviembre).
+
+En cualquier caso, los nuevos textos normativos y los resultados finales de las propuestas recogidas en las consultas públicas y de expertos deberían atender una serie de *cuestiones que inciden en la calidad de los servicios prestados*.
+
+En primer lugar, la *modificación del sistema de acceso a la función pública*, más acordes con los sistemas de selección establecidos en la UE y adecuados a las nuevas necesidades derivadas de la organización administrativa.
+
+Por otro lado, la *profesionalización del personal directivo público* requiere la elaboración de un estatuto propio que regule la forma de acceso, primando los principios de idoneidad, mérito y capacidad, atendiendo a la valoración de capacidades, actitudes, conocimientos, experiencias profesionales y competencias técnicas y directivas, así como el desarrollo de sus funciones y su retribución. Esta profesionalización se encuentra respaldada por experiencias de éxito de países de nuestro entorno, a modo de ejemplo se tiene la referencia de Portugal, que cuenta con una Comisión de Reclutamiento y Selección para la Administración Pública (CReSAP)[fn:19], que aporta recomendaciones sobre la selección de los directivos públicos y, en concreto, “sobre la importancia de que la misma se lleve a cabo atendiendo, como elemento esencial, al mérito”. La selección de estos mediante un órgano independiente ha supuesto un elemento clave en la mejora de la calidad de los servicios públicos lusos, constituyendo una vía esencial para lograr profesionalizar la función pública directiva.
+
+La existencia de unas *Relaciones de Puestos de Trabajo* (RPT) anticuadas, rígidas y no adaptadas a las nuevas necesidades operativas de una Administración cada vez más tecnificada y digitalizada requiere de una revisión global y continua que la haga más flexible.
+
+La mayor *participación de las empleadas y empleados públicos*, incluidos sus representantes sindicales, y su capacitación para tomar decisiones permitirá la adquisición de responsabilidad, una menor resistencia al cambio, fomentará la comunicación, el desarrollo de la responsabilidad en grupos y, en definitiva, redundará en un mejor servicio a la sociedad.
+
+Por último, la productividad del personal al servicio de la Administración está relacionada con la *formación a lo largo de su vida laboral*. Dicha adecuación de competencias y habilidades puede actualizarse tanto a través de la formación organizada por el Instituto Andaluz de Administración Pública (IAAP), como mediante el acceso a otra formación reglada académica, y debe ser tenida en cuenta a la hora de aspirar a promociones y concursos. En este punto también cabe recordar la contribución del IAAP al aprendizaje organizacional a través de procesos de innovación y gestión de conocimientos y el desarrollo de competencias directivas.
+
+Asimismo, cabe señalar el especial esfuerzo necesario en el ámbito de las competencias digitales que requieren las personas empleadas del sector público para adaptarse a la nueva Administración electrónica (e-goverment), dinámica e innovadora, que aspira a alcanzar mayores niveles de eficacia y eficiencia.
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Realizar una planificación estratégica en materia de recursos humanos que aborde el conjunto de actuaciones destinadas a su gestión en la Administración General, en tanto que garantes del adecuado funcionamiento de ésta e instrumento imprescindible para implementar las políticas públicas, con el fin último de responder eficaz y eficientemente a las necesidades, problemas y retos de la ciudadanía de los próximos diez años.
+
+2. Aprobar la ley de función pública y finalizar su desarrollo reglamentario.
+
+3. Elaborar un estatuto propio para el personal directivo público, en consonancia con el Estatuto Básico del Empleado Público, donde primen los principios de profesionalidad, idoneidad, mérito y capacidad.
+
+4. Rediseñar la relación de los puestos (RPT) en función de las necesidades reales, atendiendo al enriquecimiento de tareas y responsabilidades, permitiendo una adecuación y equilibrio más ágil a las necesidades.
+
+5. Establecer un nuevo sistema de carrera profesional, que contemple la promoción horizontal y una evaluación del desempeño, que incentive la motivación, la excelencia y la mayor participación de las personas empleadas públicas en la toma de decisiones.
+
+6. Mejorar la formación del personal al servicio de la Administración Pública a lo largo de su carrera profesional, adecuándose a la transformación digital y fomentando el trabajo en equipo, la colaboración y la gestión del conocimiento, incluidas las redes de aprendizaje y el aprendizaje intergeneracional.
+
+7. Velar por la consecución de objetivos en materia de conciliación, de modo que sea compatible la responsabilidad en el trabajo y las necesidades familiares, estableciendo horarios flexibles y ayudas al cuidado de ancianos y niños.
+
+8. Avanzar en la aplicación del teletrabajo y en la Ley que lo regula, con una evaluación por resultados, por sus ventajas para la conciliación de la vida laboral con la vida familiar y sus beneficios en términos económicos, ambientales y para la salud.
+
+9. Proseguir impulsando la innovación entre los recursos humanos de la Administración, mediante itinerarios formativos y laboratorios de innovación y programas de autodiagnostico en unidades administrativas, entre otras actuaciones.
+
+10. Impulsar la redacción e implantación de los planes de igualdad en las Consejerías y organismos dependientes.
+
+{{{finactuaciones}}}
+** Avanzar en la incorporación de la Perspectiva de Género en el diseño de las Políticas Públicas
+*** Intro 0602                                                     :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0602
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Mercado Laboral
+2. Políticas de conciliación y corresponsabilidad
+3. Empoderamiento de la Mujer
+4. Educación en igualdad
+{{{finlineas}}}
+{{{ods(5 8 10 16)}}}
+Existe un consenso generalizado a nivel internacional de incorporar la perspectiva de género en el diseño de las políticas públicas como instrumento para avanzar hacia la plena igualdad, articulando con ello políticas más efectivas que permitan una reducción de las desigualdades sociales en materia de género.
+
+Las brechas de género observadas en las distintas sociedades no solo implican una importante injusticia social y de discriminación hacia la mujer, sino que, además, económicamente evidencian una utilización ineficiente de los recursos humanos de una sociedad, al desincentivar una parte significativa del potencial del factor laboral femenino. Es por ello, que los poderes públicos están obligados a diseñar políticas que vayan encaminadas a la reducción de estas desigualdades con el objetivo de alcanzar la plena igualdad y que esta sea real y efectiva, no solo formal o legal.
+
+En este sentido, la Conferencia de Beijing de 1995 concluyó que para garantizar un avance real hacia la igualdad se requería una mayor implicación de los Estados y tener en cuenta la perspectiva de género en el diseño de todas sus políticas públicas, es decir, analizar el origen y la causa de las desigualdades, así como, el resultado que tenían las actuaciones públicas en la reducción de las brechas de género.
+
+Desde entonces, se ha avanzado en esta materia, aunque siguen existiendo desigualdades especialmente en aspectos como la toma de decisiones o poder, el conocimiento y la división del tiempo, es decir, el dedicado a realizar actividades de cuidado y domésticas y el destinado a actividades sociales.
+
+Para la Junta de Andalucía, avanzar en la igualdad  de oportunidades a partir de los Presupuesto Públicos con perspectiva de género (PPG) no es sólo una cuestión de justicia social, sino una condición imprescindible para lograr la eficacia y eficiencia de los recursos públicos y un crecimiento económico sostenible e inclusivo a largo plazo. El principal objetivo de los PPG, es valorar la incidencia de las políticas presupuestarias desde dicha perspectiva, así como visibilizar las medidas que, a través de dichas políticas, se ponen en marcha desde la administración pública andaluza cada año para corregir los desequilibrios existentes entre mujeres y hombres.
+
+En coherencia con este planteamiento, Andalucía desarrollará una estrategia transversal que incluye el Informe de Impacto de Género, Auditorías de Presupuesto y Género de los programas presupuestarios y planes anuales de sensibilización y de formación en Presupuesto y Género. Adicionalmente, cabe recordar el papel del Instituto Andaluz de la Mujer como coordinador de las principales políticas en materia de igualdad entre hombre y mujeres que son competencia de la Comunidad Autónoma.
+
+*** Objetivo                                                       :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Reducir la Brecha de Género para evitar desigualdades sociales, laborales y económicas.
+{{{fintcb}}}
+
+*** Mercado Laboral
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+
+Pese a los avances conseguidos en los últimos años, *en el mercado laboral es donde mejor se visualizan las desigualdades entre hombres y mujeres.*
+
+En Andalucía, a 1 de enero de 2020, el 50,7% de su población son mujeres y el 49,3% son hombres. Esta igualdad natural, sin embargo, no se traslada al mercado laboral. Por ejemplo, en términos de *población activa*, en 2020, el 55,1% son hombres y el 44,9% mujeres, es decir, hay más de diez puntos porcentuales de diferencia.
+
+Cuando se analiza esta diferencia entre hombres y mujeres, los datos de la Encuesta de Población Activa reflejan que en el colectivo femenino casi el 40% (39,9%) de las encuestadas vinculan su inactividad a “las labores del hogar” frente al 7,9% de los hombres.
+
+Es verdad, que esta situación nada o poco tiene que ver con la que las mujeres tenían a principios de los años ochenta (1981) donde la diferencia entre la población activa diferenciada por sexo superaba los 50 puntos, siendo la población activa masculina del 77,5% del total de los activos, frente al 22,5% de la femenina. Sin duda alguna, esto evidencia el progreso de la mujer en la incorporación al mercado laboral favorecido, en parte, por el desarrollo de actuaciones y políticas en favor de la igualdad.
+
+Estas diferencias también existen tanto en términos de *ocupación* como en desempleo. Si desagregamos estos indicadores por sexo se pone de manifiesto que el 57,6% de la población ocupada en Andalucía en 2020 son varones y el 42,4% mujeres, lo que supone un diferencial de más de 15 puntos. Con relación a la *tasa de paro*, también se observan diferencias importantes, de manera que el desempleo afecta más al colectivo de mujeres, con una tasa del 26,5% frente al 18,8% de los hombres.
+
+Todo ello refleja una discriminación real de la mujer en materia laboral que también se manifiesta en términos de *estabilidad y precariedad en el empleo, en la brecha salarial* o en la diferencia que hay en el acceso a puestos de responsabilidad, entre otros. Todos los indicadores analizados ponen de manifiesto que existen importantes desigualdades dentro del mercado laboral.
+
+En este sentido, la igualdad de género es un factor fundamental no solo para alcanzar un desarrollo social equilibrado, sino también un crecimiento económico sostenible que permita incrementar la productividad, la competitividad y el PIB potencial de un país. De hecho, según el Plan de Recuperación, Transformación y Resiliencia (España Puede), si en España se produjese una incorporación plena de la mujer en el mercado laboral, el crecimiento potencial sería del 15% del PIB.
+
+Por tanto, resulta necesario poner en marcha acciones positivas que favorezcan la incorporación de la mujer al mercado laboral y mejoren la calidad y las condiciones del empleo femenino, sobre todo en el contexto actual de crisis que ha provocado la pandemia de la COVID-19, en el que se ha puesto de manifiesto que ésta ha tenido un impacto más negativo sobre las mujeres (también en los jóvenes) que en el resto de colectivos. Así, la destrucción de empleo masculino en Andalucía en 2020 ha sido del -2,1% mientras que en el femenino la caída fue del -4,5%.
+
+Un ejemplo de estas acciones positivas, es la iniciativa WomANDigital, promovida desde la Junta de Andalucía, que tiene como objetivo aumentar la participación activa, la visibilización y la influencia de las mujeres en el sector TIC andaluz.
+
+:fig-0602A1:
+:F: Encuesta de Población Activa (INE).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de la Tasa de Paro por sexo en Andalucía
+[[./graficos/0602A1.pdf]]
+:END:
+
+:fig-0602A2:
+:F: Encuesta de Población Activa (INE).:F:
+:U::U:
+:N: % de mujeres ocupadas y % hombres ocupados que cuentan con jornada a tiempo parcial.:N:
+:E::E:
+#+CAPTION: Población ocupada a tiempo parcial por sexo. Andalucía
+[[./graficos/0602A2.pdf]]
+:END:
+
+:fig-0602A3:
+:F: Estadísticas Tributarias: Mercado de Trabajo y Pensiones. AEAT.:F:
+:U: Euros.:U:
+:N::N:
+:E::E:
+#+CAPTION: Salario anual medio por sexos. Andalucía
+[[./graficos/0602A3.pdf]]
+:END:
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Implementar Políticas Activas de Empleo que contengan medidas de discriminación positiva que favorezcan la creación y el mantenimiento del empleo femenino, mejorando a su vez las condiciones laborales.
+
+2. Fomentar acciones formativas que permitan un mayor acceso de la mujer al mercado laboral, especialmente en competencias digitales y en sectores emergentes y aquellos tradicionalmente masculinizados.
+
+3. Potenciar los programas que impulsen el trabajo autónomo, el emprendimiento y cooperativismo de mujeres como una opción de creación de empleo.
+
+4. Impulsar el diseño de Planes de Igualdad en los centros de trabajo (tanto públicos como privados) para la reducción de las desigualdades entre hombres y mujeres, y para facilitar la promoción de estas últimas a los puestos directivos.
+
+5. Colaborar con los agentes económicos y sociales más representativos, para desarrollar programas específicos dirigidos a la eliminación de la discriminación salarial por razón de género.
+
+6. Potenciar el papel del Consejo Andaluz de Relaciones Laborales (CARL), como instrumento que impulse medidas de igualdad, conciliación y corresponsabilidad en el ámbito de la negociación colectiva.
+
+{{{finactuaciones}}}
+*** Políticas de conciliación y corresponsabilidad
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+
+Una de las herramientas más eficaces para la reducción efectiva de las desigualdades existentes entre hombres y mujeres son las políticas de conciliación o conciliación responsable.
+
+Estas son un factor determinante si se quiere lograr una mayor inserción de la mujer en el mercado laboral o que éstas alcancen puestos de trabajo de responsabilidad en las empresas o centros de trabajo. En definitiva, si se quiere alcanzar la igualdad real y no solo la formal.
+
+La ampliación de los permisos de maternidad y paternidad, la mayor disponibilidad de guarderías (de 0 a 3 años), la flexibilización horaria para cuidados familiares, los permisos o la adaptación de la jornada laboral, son solo algunas de las medidas que deben promoverse para facilitar la conciliación responsable. En este sentido, diversos estudios ponen de manifiesto que cuanto más generosas son las prestaciones o servicios para el cuidado de hijos, mayores o personas con discapacidad, más elevada es la tasa femenina de actividad en el mercado laboral.
+
+Sin embargo, existe otro factor que no depende directamente de estas políticas y que influye en las desigualdades entre hombres y mujeres, como es el *cambio de mentalidad en la sociedad y en las relaciones de pareja y familia*. Avanzar en igualdad significa una mayor implicación de los hombres en las tareas del hogar o el cuidado de hijos y personas dependientes. Según la /“Encuesta Social sobre Conciliación en el Hogar: hábitos y actitudes de la población andaluza”/ realizada por el IECA y referida al año 2019, los hombres siguen dedicando menos horas al día a las tareas del hogar y al cuidado de los hijos que las mujeres.
+
+Esta realidad social explica por qué son las mujeres, en su inmensa mayoría, las que se acogen a las excedencias, permisos por cuidados de hijos o a las reducciones de jornada laboral para poder compatibilizar el cuidado de la familia, casa y trabajo. También es frecuente el hecho de que muchas mujeres renuncian a puestos de responsabilidad debido a la dedicación que éstos requieren, ya que entienden, por roles sociales adquiridos, que deben dedicarse antes al cuidado de la familia que al desarrollo de su carrera profesional.
+
+
+:fig-0602B1:
+:F: Consejería de Educación y Deporte.:F:
+:U: % sobre el total de centros con enseñanzas susceptibles de prestar servicios complementarios.:U:
+:N: No contabiliza a los centros de educación infantil de primer ciclo.:N:
+:E::E:
+#+CAPTION: Servicios que afectan a la conciliación. Andalucía
+[[./graficos/0602B1.pdf]]
+:END:
+
+:fig-0602B2:
+:F: Ministerio de Trabajo y Economía Social.:F:
+:U::U:
+:N:     % sobre el total de excedencias. Incluyen Excedencia por Cuidado de Hijos y de Familiares.:N:
+:E::E:
+#+CAPTION: Excedencias por cuidado de hijos y familiares según sexo. Andalucía
+[[./graficos/0602B2.pdf]]
+:END:
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Propiciar una mejora en los servicios de asistencia al cuidado de hijos y personas dependientes.
+
+2. Analizar la conveniencia de ampliar la red de centros públicos de atención a menores que atiendan a la población infantil de 0 a 3 años.
+
+3. Evaluar la conveniencia de ampliar los servicios extraescolares en las etapas de primer y segundo ciclo de educación infantil.
+
+4. Establecer compensaciones horarias que permitan flexibilidad en los horarios de trabajo.
+
+5. Facilitar el teletrabajo para aquellas personas trabajadoras, que lo soliciten, con menores y personas dependientes a su cargo, mediante acuerdos particulares o en convenios con las empresas.
+
+6. Fomentar medidas de flexibilización horaria, bolsas de horas de cuidados, mejora de los permisos o adaptación de jornada, entre otras iniciativas que faciliten la conciliación y fomenten la corresponsabilidad, en el marco de la negociación colectiva y adaptadas a la realidad de cada empresa, centro de trabajo o sector.
+
+7. Diseñar fórmulas para cofinanciar los servicios de cuidados familiares entre la Administración, las empresas y las personas trabajadoras.
+
+8. Realizar campañas de sensibilización para propiciar un cambio de mentalidad en la sociedad y en las relaciones de pareja y familia, incentivando esta cultura desde las escuelas.
+
+{{{finactuaciones}}}
+*** Empoderamiento de la mujer
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+
+En la IV Conferencia Mundial sobre las mujeres celebrada en Beijing en el año 1995, se identificaron dos estrategias básicas para la consecución efectiva de la igualdad de oportunidades entre hombres y mujeres. Una de ellas fue la incorporación del /mainstreaming/ de género en todos los procesos de toma de decisiones, así como en el diseño, ejecución y evaluación de las políticas públicas. Y la otra fue el empoderamiento de las mujeres, que consiste en una estrategia de impulso y promoción social, cultural y política de las mujeres con el objetivo de facilitar la participación de éstas en todos los ámbitos de la sociedad e incorporar sus perspectivas, necesidades e intereses en la toma de decisiones.
+
+Para que este *empoderamiento* sea realmente efectivo debe alcanzarse desde dos puntos de vista: el *personal* o individual, es decir, que las mujeres tengan el poder y la capacidad de adoptar sus propias decisiones, y el *social*, que se traduce en la participación equilibrada de mujeres y hombres en todos los ámbitos de la sociedad (político, económico y empresarial y social), aumentando así su capacidad de influencia en la toma de decisiones.
+
+Las estadísticas ponen de manifiesto una *infrarrepresentación de la mujer en muchos ámbitos de la sociedad*. Por ejemplo, según los últimos datos publicados por la CNMV (2020), de las 35 empresas que componen el IBEX solo tres eran dirigidas por mujeres, siéndolo el resto por hombres. En puestos de alta dirección, las mujeres apenas alcanzan el 16%, mientras que en los consejos de administración su representación llega a ser del 30%, debido sobre todo a la puesta en marcha de acciones positivas aprobada por la CNMV que pretenden alcanzar la paridad en las empresas cotizadas. En el año 2002, esta representación era solo del 2%.
+
+:fig-0602C1:
+:F: Consejo Audiovisual de Andalucía.:F:
+:U::U:
+:N:     % de hombres y mujeres sobre el total.:N:
+:E::E:
+#+CAPTION: Participación de personas expertas en los informativos de la televisión Pública de Andalucía según sexo
+[[./graficos/0602C1.pdf]]
+:END:
+
+Por otro lado, diversos estudios[fn:24] han puesto de manifiesto que cuando las mujeres quieren emprender proyectos empresariales se encuentran con problemas para acceder a la financiación.
+
+En el ámbito de la investigación científica, los equipos directivos de los centros del CSIC en Andalucía ascendieron en 2020 a 72 personas, mostrando una distribución desequilibrada por sexo, ya que un 72,2% son hombres y un 27,8% son mujeres. En 2010, esta brecha era de 69 puntos porcentuales (15,5% directivas y 84,5% directivos), reduciéndola a 44 puntos porcentuales en 2020.
+
+En la Junta de Andalucía, según la Adenda de Género del Anexo de Personal para el Presupuesto 2021, el personal de la Administración General lo componen 42.455 personas de las cuales, el 63% son mujeres y el 37% son hombres dándose, por tanto, una feminización del personal en su conjunto. Si se realiza un análisis más detallado de los datos, se observa que a nivel de altos cargos se cumple la paridad establecida por la Ley 12/2007, de 26 de noviembre, para la promoción de la igualdad de género en Andalucía, en los órganos directivos y colegiados. Esta paridad significa que la representación de uno y otro sexo no puede ser superior al 60% ni inferior al 40%. En este sentido, a nivel de altos cargos se cumple con el criterio de paridad establecido en la normativa vigente ya que un 42% son mujeres y un 58% hombres.
+
+Entre el personal funcionario, los hombres representan el 44% y las mujeres el 56%. Sin embargo, la presencia femenina disminuye a medida que se avanza en los niveles de la carrera administrativa. Los niveles inferiores tienen una mayor representación de mujeres, mientras que en los niveles superiores se aprecia un mayor protagonismo masculino. Así, por ejemplo, hasta el nivel 14 las mujeres suponen el 70,8% del personal, mientras que en los niveles superiores de la escala administrativa (27-30) alcanzan el 46% frente al 54% de los hombres.
+
+De este modo, se concluye que aunque ha habido un avance importante, aún persisten diferencias que justifican la puesta en marcha de acciones que permitan avanzar en el empoderamiento de la mujer.
+
+**** Graficos no utilizados                                     :noexport:
+:fig-0602C2:
+:F: Informe de Impacto de Género del Presupuesto de la Comunidad andaluza 2021.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Composición de los Órganos Ejecutivos de las Organizaciones Económicas y Sociales en Andalucía. Año 2020
+[[./graficos/0602C2.pdf]]
+:END:
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Impulsar la incorporación de la perspectiva de género en los programas y servicios de la Administración Andaluza.
+
+2. Evaluar y difundir los progresos alcanzados y las brechas persistentes en materia de igualdad para una mayor concienciación.
+
+3. Realizar campañas de sensibilización y divulgación para promover la igualdad de género en puestos de responsabilidad y directivos dentro del mundo político, económico y empresarial.
+
+4. Diseñar convocatorias de ayudas y subvenciones que incorporen requisitos y criterios de género que faciliten a la mujer el acceso a los recursos financieros cuando quieran poner en marcha un proyecto empresarial.
+
+5. Potenciar, dentro de la Administración de la Junta de Andalucía, los planes de formación del personal en materia de igualdad de mujeres y hombres, así como realizar actividades de sensibilización para el personal que desempeñe funciones de dirección, bajo la coordinación y asesoramiento del Instituto Andaluz de la Mujer (IAM) a las Unidades de Igualdad de Género de las distintas Consejerías.
+
+6. Establecer mecanismos regulatorios que contribuyan a una representación equilibrada entre hombres y mujeres en los niveles medios de la administración.
+
+{{{finactuaciones}}}
+*** Educación en Igualdad
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+
+Eliminar los prejuicios, los roles y los estereotipos sociales de carácter sexista que han permanecido durante años en la sociedad es fundamental si se quiere una igualdad real y efectiva.
+
+En este sentido, la *educación* constituye el principal instrumento para reducir las brechas de género. Pero, entendiéndola en un sentido más amplio, no limitándose a la impartida *en los colegios*, sino también a la recibida *en el seno familiar y social*. Por tanto, esta lucha por alcanzar una sociedad más igualitaria es una responsabilidad de todos.
+
+Si se observan las estadísticas, existen diferencias entre lo que se denominan profesiones feminizadas o masculinizadas, debido precisamente a las tradiciones sociales.
+
+Estos roles se mantienen a tenor de los datos disponibles de participación de las mujeres en los estudios de ciencias, tecnología, ingenierías y matemáticas (STEM), en los que todavía es reducida, pese a que todos ellos son claves para acceder a los puestos de trabajo con más futuro en el mercado laboral.
+
+Así, los últimos datos disponibles del Sistema Universitario Público andaluz señalan que en el curso 2019/2020 se han matriculado en las universidades públicas andaluzas un total de 44.354 alumnas/os de los cuales el 55,9% son mujeres y el 44,1% son hombres.
+
+Sin embargo, si estos datos se desagregan por ramas de enseñanza se observa que el 85,5% del total de las alumnas siguen decantándose por aquellos estudios que tradicionalmente se han considerado más femeninos, es decir, Artes y Humanidades, Ciencias Sociales y Jurídicas y Ciencias de la Salud. Solo el 14,5% de las alumnas optan por estudios relacionados con Ciencias, Ingenierías o Arquitectura.
+
+Para combatir estas diferencias, hay que *hacer visible y reconocer la contribución de las mujeres* en las distintas facetas de la historia, la ciencia, la política, la cultura y el desarrollo de la sociedad.
+
+Al objeto de avanzar hacia una mayor diversificación profesional de la mujer se debe promover una elección académica y profesional libre de prejuicios y estereotipos, lo que favorecerá la eliminación progresiva de la segregación ocupacional vertical y horizontal existente.
+
+Al mismo tiempo, *la coeducación* juega un papel primordial en la erradicación de la violencia de género. Para ello, desde el sistema educativo se debe fomentar que las relaciones entre hombres y mujeres se construyan sobre la base de la igualdad, ayudando a identificar y prevenir situaciones de discriminación y violencia de género.
+
+
+:fig-0602D1:
+:F: IECA e INE.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Proporción de mujeres universitarias por ramas de estudios. Andalucía
+[[./graficos/0602D1.pdf]]
+:END:
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Formar al profesorado en perspectiva de género para que puedan educar en igualdad.
+
+2. Poner en marcha acciones educativas relacionadas con el fomento de la igualdad con la participación conjunta de padres, madres, profesorado y alumnado.
+
+3. Fomentar la diversificación profesional basando la elección de las opciones académicas y profesionales en las capacitaciones del alumnado, libre de condicionamientos basados en el género.
+
+4. Incorporar métodos en el aula para la resolución pacífica de los conflictos y modelos de convivencia basados en el respeto a la igualdad de derechos y oportunidades entre hombres y mujeres.
+
+5. Promover dentro del ámbito educativo actuaciones de sensibilización y prevención de la violencia de género para contribuir a su erradicación.
+
+
+{{{finactuaciones}}}
+** Potenciar la cooperación institucional y facilitar la participación social
+*** Intro 0603                                                     :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0603
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Cooperación
+2. Participación
+{{{finlineas}}}
+{{{ods(16 17)}}}
+La capacidad de cooperar y de hacer partícipe a la sociedad en la acción de gobierno son piezas clave de la buena gobernanza, que no deberían pasar desapercibidas.
+
+Por tanto, la consecución de una mejora en la calidad del gobierno, por parte de la Junta de Andalucía, deberá apoyarse en la mejora de la cooperación interdepartamental e interadministrativa, así como en el fortalecimiento de sus relaciones con el sector privado.
+
+Otro elemento básico para entender la calidad de la gobernanza y lograr una Administración más comunicativa y cercana a la realidad de su tiempo y a la ciudadanía, es lo que ha venido en denominarse como “participación social”. De este modo, la participación, en sentido amplio, constituye el principal pilar en el que descansa el modelo de gobierno abierto y participativo, que orienta a las sociedades modernas, alineado con la Agenda 2030, es decir, que pone a la ciudadanía en el centro.
+
+Con estos criterios se identifica la acción del Gobierno de Andalucía y por ello considera una prioridad estratégica el potenciar la leal cooperación (intergubernamental/interadministrativa, interdepartamental, territorial y pública-privada), por sus efectos positivos en la implementación de las políticas públicas.
+
+Asimismo, existe un convencimiento de los beneficios derivados de facilitar y promover la participación en sentido amplio, ya que permite alcanzar resultados óptimos de las políticas públicas, gracias a las aportaciones e implicación de los agentes económicos y sociales, así como, en general, de la sociedad andaluza.
+
+*** Objetivo                                                       :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Metas)}}}
+Potenciar la cooperación en todas sus modalidades.
+
+\bigskip
+
+Facilitar la participación de la ciudadanía en los asuntos públicos, con el mayor alcance posible y en todas las fases del ciclo de políticas del gobierno (diseño, implementación y evaluación).
+{{{fintcb}}}
+
+*** Cooperación
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0602-01
+:END:
+
+Como es sabido, en el contexto de la descentralización política de España, las políticas públicas de la Junta de Andalucía operan en un entorno de gobernanza multinivel, en el que también interviene la UE. De este modo, la implementación efectiva no solo depende de las actuaciones de la Junta de Andalucía en base a sus propias competencias, sino que también requiere con frecuencia las actuaciones en las que las competencias son del Estado o de los Entes locales.
+
+Esta necesidad de interactuar, cada vez más relevante por la enorme complejidad y transversalidad de las cuestiones que actualmente debe afrontar la acción pública, convierte a la calidad de las *relaciones intergubernamentales* e interadministrativas en un factor determinante de gobernanza. Se entiende por dicha calidad, el funcionamiento razonable de los mecanismos de cooperación, de naturaleza voluntaria, y de coordinación y colaboración, obligatorios ambos en la Ley 40/2015, de Régimen Jurídico del Sector Público.
+
+Igualmente, resulta de gran importancia la manera en la que funcionan estos tres mecanismos en las *relaciones interdepartamentales* en el seno de la propia Junta de Andalucía, entre sus diferentes Consejerías y organismos, evidenciándose la necesidad de potenciar los cauces de cooperación interdepartamental, que a tenor de lo observado durante varias legislaturas no es tarea fácil, sino que constituye un reto.
+
+Otra modalidad relevante de la cooperación es la *cooperación territorial*. Ésta se refiere a la voluntad de los entes locales andaluces de abordar conjuntamente tareas de interés común, por ejemplo, en materia de transporte o gestión de residuos, por diferentes vías cooperativas formales (mancomunidades o consorcios) o informales (redes de ciudades, Consejos de Alcaldes, entre otros). El uso infrecuente y restringido que se ha hecho de estas fórmulas de cooperación ya ha sido tratado en el bloque temático 5.
+
+Por otra parte, cabe mencionar la *cooperación pública-privada*, entendiendo por ésta no solo las iniciativas comprendidas dentro de la definición clásica (es decir, el acuerdo o convenio que liga al sector público y la empresa privada para la construcción y mantenimiento de infraestructuras y la prestación de servicios), sino también cualquier relación cooperativa para la consecución de determinados objetivos, como, por ejemplo, el uso de fondos mixtos de inversión para el desarrollo de la I+D, las startups o la digitalización.
+
+En todos estos casos de cooperación, tanto en Andalucía, como en general en España, se observan grandes deficiencias que atestiguan el *limitado grado de desarrollo de la cultura de cooperación*, siempre basada en un firme principio de lealtad institucional, en un estado como el español cuasi-federal.
+
+En cuanto a las *relaciones intergubernamentales*, estamos lejos de las buenas prácticas del federalismo cooperativo en Alemania, que suele servir de referencia en las propuestas para el futuro desarrollo del Estado de las Autonomías. Salvo algunas excepciones, como la del Consejo de Política Fiscal y Financiera, la cultura de la cooperación en las Conferencias Sectoriales sigue siendo precaria y la Conferencia de Presidentes no suele ser un instrumento habitual de la gobernanza. De este modo, en lugar del multilateralismo, prevalecen en las relaciones entre las CC.AA. y el Gobierno central un enfoque de bilateralismo y, en ocasiones, frentes partidistas que eclipsan el carácter institucional de estas relaciones.
+
+Igualmente, no son muy frecuentes las dos vías de la “cooperación horizontal autonómica”, los Acuerdos de Cooperación y los Convenios de Colaboración entre CC.AA. Esta cooperación horizontal se produce ocasionalmente solo entre regiones limítrofes y de forma bilateral.
+
+Parece que ni siquiera el enorme reto colectivo de la pandemia de la COVID-19 está induciendo un “salto cualitativo” en las relaciones intergubernamentales entre el Estado y las CC.AA. y entre las propias CC.AA. Se perpetúan en estas relaciones la ausencia de lógicas de /win-win/, de sumar y de pactar, mucho más allá de las lógicas de partido.
+
+En Andalucía, la *coordinación interdepartamental* se viene articulando a través de las Comisiones Delegadas de Gobierno, Comisiones Interdepartamentales y, en el ámbito de la planificación, mediante Comisiones o Grupos de Trabajo participados por las diferentes Consejerías involucradas en cada plan.
+
+En general, se ha podido comprobar la operatividad de esta coordinación interdepartamental, pero se siguen registrando dificultades. Por ejemplo, en las tareas de seguimiento y evaluación de planes estratégicos, o en materia territorial, con el Plan de Ordenación del Territorio de Andalucía, que propugnaba en su desarrollo varios “Programas Coordinados” a realizar bajo la corresponsabilidad de diferentes Consejerías que no han llegado a ejecutarse.
+
+Entre los pocos casos de éxito, cabe mencionar la experiencia en Andalucía de la *cooperación territorial* a través de los Grupos de Desarrollo Rural (GDR) en el marco de la Iniciativa Comunitaria Leader, cuyo éxito en Andalucía se debe en gran parte al hecho de que los recursos financieros de la UE incentivaron desde fuera la voluntad de cooperación. No obstante, el panorama general de la cooperación territorial en Andalucía ofrece un escenario de debilidad.
+
+La *cooperación pública-privada*, también llamada colaboración privada-pública no tiene una definición precisa, entendiéndose por ésta, comúnmente, a las diferentes formas de asociación entre los responsables del sector público y el mundo empresarial, con el objetivo de garantizar la financiación, construcción, renovación, gestión o el mantenimiento de una infraestructura o la prestación de un servicio.
+
+Tal y como se señala en el Libro Verde de la Comisión Europea sobre la colaboración público-privada (COM(2004) 327 final), las operaciones de esta cooperación público-privada (CPP) se caracterizan, habitualmente, por una serie de elementos comunes, como la duración relativamente larga de la relación, el volumen de financiación del proyecto (a menudo, garantizado por el sector público), el importante papel del operador económico, que participa en diferentes etapas del proyecto (diseño, realización, ejecución y financiación) y la distribución de los riesgos entre el socio público y el privado, al que se le transfieren riesgos que habitualmente soporta el sector público.
+
+Las administraciones públicas europeas, españolas, y también en Andalucía (la autonómica y la local), han recurrido de forma creciente a operaciones de CPP para realizar proyectos de infraestructura, en particular en los sectores del transporte, la sanidad pública, la educación y la seguridad pública. No obstante, más recientemente, se considera que esta cooperación debe entenderse en un sentido más amplio, como una actuación conjunta del sector público y del sector privado, que mejora los resultados obtenidos separadamente por cada una de las partes, que permita activar recursos privados para fines de interés general y optimiza el capital colectivo disponible. Bajo este enfoque, se pretende aumentar las inversiones destinadas a las infraestructuras de la red transeuropea, así como al ámbito de la innovación, la investigación y el desarrollo.
+
+Pero conviene tener presente que no es fácil para el sector público lograr un acuerdo de CPP para un proyecto que combine la mejor relación calidad/precio y, al mismo tiempo, preservar los objetivos de interés público. La experiencia demuestra que es conveniente determinar, en cada caso, si la opción de colaboración ofrece una plusvalía real en relación con las demás posibilidades, como la adjudicación más clásica de un contrato, tal y como recuerda el Libro Verde de la Comisión Europea, antes mencionado.
+
+Precisamente, el interés por la CPP se ha renovado, a raíz de la inclusión, como una palanca, de estas fórmulas de cooperación en el Plan de Recuperación, Transformación y Resiliencia, quedando reflejada en el texto del Real Decreto-Ley 36/2020: /“... dado el efecto multiplicador que implica en la economía una movilización de recursos de esta dimensión, la CPP será clave para la ejecución de los distintos proyectos tractores contemplados en el Plan de Recuperación, Transformación y Resiliencia, siendo necesario adaptar el marco normativo de los instrumentos de la colaboración público-privada a fórmulas que, manteniendo los controles y exigencias comunitarias, permitan fórmulas más flexibles y adaptativas a los requerimientos de los proyectos financiables con el Instrumento Europeo de Recuperación”/.
+
+Durante los últimos años, en la Junta de Andalucía se han producido avances considerables en la cooperación pública-privada en diferentes ámbitos de actuación. Sin embargo, al igual que en el resto de España, las “alianzas o partenariados público-privados” han tenido un menor uso que las “externalizaciones”, aunque en algunos casos se podría haber optado por las primeras.
+
+En resumen, con el fomento de la coordinación y colaboración y, especialmente la cooperación como principios rectores de su acción política y administrativa, la Junta de Andalucía puede obtener múltiples ventajas, tales como:
+
+- una visión más integrada y mejor informada de los problemas, oportunidades y retos, con una mayor coherencia de las actuaciones (compatibilidad mutua y complementariedad),
+
+- la obtención de sinergias y generación de economías de escala,
+
+- el acceso a la financiación privada, la flexibilidad en la gestión, la compartición de riesgos y el aprovechamiento de la experiencia, tecnología e innovación del sector privado.
+
+Todas estas razones explican que la política pública de la Junta de Andalucía considere la *cooperación como un recurso de la gobernanza de especial valor estratégico*, que permite fortalecer el capital social de nuestra región. Así, se genera lo que los expertos han llegado a definir como la existencia de redes de cooperación entre múltiples actores basados en la confianza mutua, y que la OCDE y la UE consideran como un componente del capital territorial, así como un factor que contribuye al éxito del desarrollo económico de las regiones.
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Fortalecer la cooperación intergubernamental con el Estado, instando, en alianza con otras CC.AA., al Gobierno de España para que convierta las Conferencias Sectoriales y la Conferencia de Presidentes en instrumentos vivos y habituales de la cooperación multilateral.
+
+2. Activar la cooperación intergubernamental con otras CC.AA., aprovechando las oportunidades en el marco de planificaciones conjuntas (con las CC.AA. vecinas) y de Acuerdos de Cooperación y Convenios de Colaboración.
+
+3. Potenciar la cooperación interdepartamental para cuestiones de alto valor estratégico.
+
+4. Fomentar la puesta en valor de la cooperación pública-privada en Andalucía, especialmente de las alianzas o partenariados público-privados, pudiéndose destacar como ejemplos relevantes de dicha cooperación los PERTEs, las alianzas de innovación, los clústeres sectoriales y las iniciativas en los ámbitos sociales, de cooperación internacional o medioambiente.
+
+{{{finactuaciones}}}
+**** Planes                                                     :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+*** Participación
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0602-01
+:END:
+
+La participación constituye un elemento imprescindible de la buena gobernanza, dado que es la condición básica del paradigma de gobierno abierto y transparente. Cierto es que la participación es inherente a las democracias, pero los límites del concepto no se circunscriben a la posibilidad de participación política de la ciudadanía en unas elecciones, sino que también incluye diferentes modalidades de contribución, aportación e implicación y en diferentes ámbitos, como, por ejemplo, en propuestas de políticas públicas y elaboración de normas.
+
+Asimismo, la participación puede tener un carácter amplio o más restringido, en función del espectro de los sujetos (actores públicos y privados, organizaciones de la sociedad civil, toda la ciudadanía) y tener un alcance mayor o menor (desde la mera información a la ciudadanía, pasando por la consulta y audiencia, hasta la involucración activa).
+
+El papel relevante de la participación explica que goce de un respaldo reglado, tanto en la normativa europea, como en la nacional y, por supuesto, en el ámbito autonómico. Precisamente, en la legislación europea se insiste en la relación que existe entre la participación ciudadana y el buen gobierno. Por su parte, la Constitución Española recoge el deber de los poderes públicos de fomentar la participación ciudadana. Y, en Andalucía, el Estatuto de Autonomía, también le confiere un papel principal a la participación ciudadana, desarrollando el derecho a la participación directa o por medio de representantes.
+
+Esta relevancia también se evidencia en la aprobación de la Ley 7/2017, de 27 de diciembre, de Participación Ciudadana de Andalucía, que, entre otras cosas, persigue fomentar e impulsar la participación de la ciudadanía en los asuntos públicos, de modo que se mejore y fortalezca la comunicación entre el gobierno y la sociedad. Entre estos asuntos, cabría citar la elaboración de presupuestos de la Comunidad Autónoma, los procesos de participación ciudadana mediante consultas populares, la elaboración de normas, el seguimiento o la evaluación de las políticas públicas.
+
+De este modo, con la participación como principio conductor de la producción de sus políticas públicas, la Junta de Andalucía, al igual que los demás gobiernos y administraciones, no solo pretende contar con una fuente de respaldo y legitimidad política, sino que también aspira a *integrar el conocimiento y la pericia que existe en la sociedad (la inteligencia social)*, para mejorar el diseño de políticas al estar más adaptadas a las necesidades reales.
+
+Asimismo, cabe esperar una *mayor eficacia en la implementación de las políticas*, ya que políticas construidas sobre la base de una participación amplia cuentan con un consenso sólido respecto a unos objetivos y líneas de actuación compartidas. Es por ello que la fase de la implementación de estas políticas debe resultar más ágil y potencialmente con menores fricciones o conflictos.
+
+Por último, una finalidad adicional que persigue la participación es la de crear una *corresponsabilidad de los agentes participantes* en la puesta en práctica de las políticas públicas y en sus resultados. Bajo esta perspectiva, se trata de transformar lo público en una responsabilidad compartida. Para ello, la administración debe facilitar la implicación de la ciudadanía y agentes interesados (/stakeholders/), mientras que de la sociedad civil se requiere una mayor proactividad y compromiso con la generación de valor público, dejando de lado el “clientelismo” en su relación con la administración.
+
+Aunque no abundan los estudios e informes estadísticos que cuantifiquen, al menos de forma aproximada, el grado de participación efectiva de la ciudadanía en el conjunto de sus políticas públicas durante las diferentes legislaturas de la Junta de Andalucía, existen evidencias empíricas y algunas estimaciones que ponen de manifiesto determinadas *carencias o deficiencias en el contexto de la participación*.
+
+Así, la participación pública prevista normativamente, en los casos de elaboración de proyectos normativos, así como de planes, programas y estrategias de la Junta de Andalucía, en distintas materias, se ha caracterizado por *cierta debilidad y rigidez*. En concreto, la participación en muchos casos estuvo ceñida, exclusivamente, a los plazos previstos de información pública o audiencia, sin aportaciones previas o posteriores a la aprobación de la norma o el plan. En el mismo sentido, resulta frecuente que la participación coincida con una fase avanzada en la elaboración del documento relativo a la política o acción pública, es decir, en un momento en el que los contenidos y decisiones más relevantes ya pueden estar tomados.
+
+Por último, hay que considerar que en los procesos de participación pueden predominar grupos fuertemente interesados y organizados (/lobbies/), que pueden introducir sesgos en las acciones de gobierno, en detrimento de otros colectivos con menor capacidad, cuya participación puede verse mermada o minusvalorada.
+
+Una mención especial por su significación en el diseño de estrategias conjuntas con la Administración en materia de política económica es la que ha venido en denominarse como *“participación institucional”*. Dicha participación constituye una fórmula para propugnar y dotar de relevancia al diálogo social y al consenso con los agentes económicos y sociales más representativos. Esta participación, entendida como tomar parte, intervenir, contribuir y colaborar, es un rasgo distintivo de las sociedades democráticas más avanzadas, en las que existe un eficaz y fluido diálogo entre las distintas instituciones de gobierno y los agentes económicos y sociales. De este modo, la institucionalización del diálogo social se materializa mediante la presencia de delegados o portavoces de las organizaciones sindicales y empresariales más representativas en determinados órganos constituidos por las distintas entidades públicas.
+
+Andalucía ha sido una Comunidad Autónoma que ha apostado decididamente por la participación institucional, es decir, la celebración a lo largo de sucesivas legislaturas de acuerdos o pactos de concertación de sus políticas y planificaciones más relevantes con los agentes económicos y sociales más representativos. Sin duda, esta concertación ha supuesto un factor de estabilidad y legitimidad política.
+
+En el contexto generado por la crisis de la pandemia COVID-19 se ha hecho más evidente la necesidad de aprovechar los beneficios derivados de una colaboración y cooperación fluidas entre todos los agentes involucrados. En este sentido, existe un consenso en reconocer que el diálogo social ha sido un pilar fundamental en el que se ha apoyado el conjunto de respuestas que han logrado evitar un mayor colapso económico y social durante esta crisis, tanto en España como en Andalucía. Prueba de ello ha sido la firma del Acuerdo para la Reactivación Económica y Social de Andalucía en julio de 2020, revalidado con una segunda rúbrica en marzo de 2021. Además, esta experiencia ha servido para fortalecer la concertación social, revalidando la acreditada efectividad de este instrumento para afrontar las consecuencias de las crisis de gran impacto en la actividad productiva, el empleo y el tejido social.
+
+Andalucía, bajo esta perspectiva y guiada por su confianza en los beneficios del diálogo permanente con los agentes económicos y sociales más representativos, es consciente de la necesidad de fortalecer el espíritu de la concertación como un elemento imprescindible para abordar la recuperación económica, afrontando con responsabilidad compartida las decisiones y medidas de la mejor política económica a implementar en el futuro.
+
+En este sentido, las funciones del diálogo social no pueden limitarse a este periodo de crisis pandémica y de urgencia, sino que debe servir para reavivar este instrumento de buena gobernanza y de calidad institucional que supone la participación de los agentes económicos y sociales más representativos en el diseño de estrategias conjuntas que minimicen los efectos de la crisis y que también hagan frente a otros retos difíciles y con un horizonte temporal más amplio. Todo ello permitirá la transformación y las reformas pendientes para hacer una sociedad más justa e igualitaria, con una economía más sólida, productiva y capaz de afrontar futuros desafíos en las próximas décadas.
+
+Desde un punto de vista legal, atendiendo a las referencias explícitas al diálogo social en nuestro Estatuto de Autonomía, resulta necesario reconocer y potenciar esta participación institucional, mediante un respaldo normativo que lo enmarque y lo defina, con el objetivo claro de hacer oír la voz de las organizaciones sindicales y empresariales más representativas en todas aquellas materias relevantes sobre las que, obviamente, tenga competencias la Administración de la Junta de Andalucía.
+
+Dicho reconocimiento debe estar reflejado en una norma reguladora, similar a la que ya disponen la mayoría de las Comunidades Autónomas españolas. Esta regulación también podría establecer las bases para fijar unas reglas de participación objetivas, transparentes, eficaces y equitativas, al tiempo que para clarificar otros aspectos de su participación, como su forma de organización, su funcionamiento y su fomento.
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Impulsar el cumplimiento de la Ley de Participación Ciudadana de Andalucía, así como de la Ley de Transparencia de Andalucía, incidiendo en el carácter complementario de ambos textos legales y sus estrechos lazos con la consecución de una buena gobernanza en Andalucía.
+
+2. Explorar y establecer nuevos cauces que faciliten y potencien la participación ciudadana como principio básico de la gestión pública del gobierno regional.
+
+3. Elaborar una Guía de Buenas Prácticas o un Libro Blanco sobre la participación, como documento de referencia y divulgación, que anime a la ciudadanía a interesarse y conocer los procesos de participación en distintos ámbitos y temáticas, proporcionando referencias y experiencias de éxito en otras regiones y/o países.
+
+4. Establecer una priorización de las políticas públicas en las que procede, especialmente, un cauce de participación ciudadana, proporcionando las herramientas para un papel activo de las personas y agentes económicos participantes.
+
+5. Realizar estudios y divulgar sus resultados sobre el grado de participación e identificación diferenciada de los agentes interesados participantes. Este seguimiento puede prevenir la presencia de grupos de presión que ejerzan un excesivo poder de influencia.
+
+6. Aprobar una Ley de Participación Institucional de las organizaciones sindicales y empresariales más representativas en la Comunidad Autónoma de Andalucía, fortaleciendo un nuevo modelo de concertación y participación institucional, respaldado por una regulación legal.
+
+{{{finactuaciones}}}
+**** Planes                                                     :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+** Favorecer la rendición de cuentas y la evaluación de políticas públicas
+*** Intro 0604                                                     :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0604
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. La rendición de cuentas y la evaluación de políticas públicas
+2. Transparencia e inteligencia de gobierno
+{{{finlineas}}}
+{{{ods(16 17)}}}
+La evaluación de las políticas públicas constituye otro pilar fundamental de la buena gobernanza y de la calidad institucional. Esta relevancia convierte a la rendición de cuentas, que está estrechamente vinculada a la vocación por la transparencia y al interés por aprender de las propias actuaciones de gobierno, en una prioridad estratégica para la Junta de Andalucía.
+
+Así, esta Administración Autonómica está fuertemente convencida de la validez de la evaluación como una herramienta útil que debe complementar las decisiones de gobierno, tanto en el diseño, como en la implementación y en la estimación del impacto y los resultados de las políticas públicas. De hecho, la inquietud por conocer la validez y la idoneidad de las acciones de gobierno se ha visto materializada en el impulso de una Ley de Evaluación de Políticas Públicas, que actualmente está en fase de elaboración.
+
+La futura ley establecerá un sistema de evaluación que, al menos, perseguirá dos grandes objetivos. De una parte, facilitar la optimación de los recursos públicos y, de otra, aprender, es decir, adquirir conocimiento, y, en su caso, reconsiderar y/o reconducir aquellas políticas fallidas o poco exitosas que no logren alcanzar los resultados esperados.
+
+De este modo, la evaluación constituye una herramienta útil que contribuirá a hacer más eficiente y más racional las decisiones ejecutivas. Al mismo tiempo, también dotará de mayor legitimidad a la acción política, garantizando mayor transparencia y participación, dado que brindará elementos de juicio a la ciudadanía sobre la marcha de los asuntos públicos y la gestión del gobierno.
+
+Un elemento complementario y muy importante en el reforzamiento de la transparencia y facilitador de la rendición de cuentas está referido al uso inteligente de los datos. Así, la creación de un sistema integrado de información e indicadores permitiría un correcto desarrollo y seguimiento continuo y transparente de las políticas públicas, al tiempo que contribuiría a la evaluación de los resultados, entre otras funciones.
+
+*** Objetivo                                                       :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Convertir la evaluación de las políticas públicas en una práctica continua e ineludible de la Administración andaluza.
+{{{fintcb}}}
+
+*** La rendición de cuentas y la evaluación de políticas públicas
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0603-01
+:END:
+
+La rendición de cuentas podría definirse como la capacidad de los gobiernos y administraciones para dar una respuesta clara sobre el grado de consecución de los objetivos de las políticas públicas implementadas y el uso eficiente de los recursos financieros utilizados. De este modo, la rendición de cuentas debe materializarse en un *proceso o sistema que permita medir*, al menos de forma aproximada, los resultados y, por tanto, *evaluar* la eficacia de las políticas públicas.
+
+Además, las conclusiones resultantes de este trabajo de evaluación deben hacerse públicas y fácilmente accesibles a la ciudadanía. De este modo, este principio de la rendición de cuentas y la cultura de la evaluación son dos caras de la misma moneda.
+
+Bajo este enfoque, la evaluación de las políticas públicas es una pieza clave de la calidad de gobierno, es decir, de buena gobernanza, por varias razones: 1) permite conocer la calidad de la gestión pública en términos *de eficiencia, eficacia, coherencia*, sinergia y sostenibilidad, 2) constituye un elemento importante del principio de *transparencia y de la calidad de la democracia*, 3) aporta una adicional fuente de *legitimidad política* de las instituciones, cada vez más basada en el rendimiento de éstas y 4) contribuye a fortalecer el *capital social*, en la medida en que afecta positivamente a la confianza de las ciudadanas y ciudadanos en las instituciones.
+
+Aunque en los últimos años se ha constatado un interés creciente por incorporar criterios de evaluación en los documentos de planificación, estrategias y otros instrumentos impulsados desde la Junta de Andalucía, puede afirmarse que, al igual que en España, *la cultura evaluadora* resulta todavía *bastante débil*, siendo la evaluación de las políticas públicas muy poco frecuente, especialmente la evaluación ex post y de impacto.
+
+Esta debilidad de nuestra cultura evaluadora es consecuencia de *la falta de experiencia* en esta materia y también de los reparos y cautelas que siempre genera el someter a examen las políticas y decisiones del propio gobierno. En sentido contrario, una cultura evaluadora sólida exige que este proceso sea visto por la ciudadanía como una herramienta de mejora continua de la gestión de sus gobiernos y no como un arma de confrontación política.
+
+Así, una comparativa con otros países de nuestro entorno sitúa a Andalucía y a España, bastante alejadas de aquellos que han desarrollado una cultura de la rendición de cuentas más consolidada en el tiempo, como Alemania, Suecia, Países Bajos, Francia y el Reino Unido.
+
+Tradicionalmente, en el caso español, al igual que en Andalucía, *el planteamiento sobre la idoneidad en la gestión pública* se ha abordado desde una perspectiva legalista, preocupada en comprobar si las políticas públicas atienden a las normas y reglas financieras y contables, pero minusvalorando y relegando a un plano secundario la evaluación de sus resultados respecto a los objetivos perseguidos y los resultados económicos, sociales y ambientales generados. Aquellas pocas excepciones a esta ausencia de análisis han sido fruto de las exigencias de la política de cohesión de la UE respecto al empleo adecuado de los recursos financieros de los Fondos Europeos en Andalucía.
+
+No obstante, conviene señalar la labor realizada por el *Instituto Andaluz de Administración Pública (IAAP)*, en los últimos años, en materia de promoción, divulgación, asesoramiento de la evaluación basada en la evidencia y sobre la idoneidad de que los planes estratégicos sean evaluables. Sin embargo, la adopción de estas recomendaciones por parte de los distintos responsables, dado su carácter voluntario y no obligatorio, ha tenido escaso recorrido.
+
+En cualquier caso, la experiencia acumulada en estos años, pese a no ser muy dilatada, permite identificar una serie de *debilidades en los documentos de planificación* de la Junta de Andalucía, destacando los siguientes aspectos:
+
+1. Amplia *heterogeneidad* en los modos de incorporar y prever la evaluación en los documentos estratégicos, abundando las referencias escuetas y poco desarrolladas.
+
+2. *Bajo grado de cumplimiento* en la realización práctica de los informes de evaluación previstos, tras la finalización del periodo de ejecución del plan o estrategia, a menudo porque no se han podido aplicar los sistemas de indicadores establecidos, lo que explica que la evaluación ex post sea deficiente y, en muchos casos, imposible. O bien se limite a indicadores de ejecución presupuestaria o de procedimiento.
+
+3. En algunos casos, los informes de evaluación se han llegado a realizar, pero no se han divulgado, *adoleciendo de la publicidad* propia del principio de transparencia.
+
+4. Los informes de evaluación realizados y publicados, a menudo, son documentos meramente descriptivos *y centrados en el seguimiento*, apreciándose una *ausencia de análisis de impacto* o una evaluación de resultados, es decir, no contienen información sobre el grado de consecución de los objetivos planteados.
+
+5. Pocos planes presentan un enfoque propio de una /administración inteligente/ (la que procura aprender) y no incorporan un apartado dedicado a hacer un balance y *“extraer lecciones”* de la implementación del anterior plan.
+
+:fig-0604A1:
+:F: Elaboración propia.:F:
+:U::U:
+:N: Por influencia del /New Public Management/ en Estados Unidos, se produjo una implantación progresiva de la evaluación en Europa.:N:
+:E::E:
+#+CAPTION: Institucionalización de la evaluación de políticas públicas en Europa: algunos hitos
+[[./graficos/0604A1.pdf]]
+:END:
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Aprobar una Ley andaluza de evaluación de políticas públicas, que aborde los siguientes aspectos clave:
+
+   - El carácter obligatorio de la evaluación para las políticas públicas y sus correspondientes instrumentos, tales como normas, planes, programas, estrategias y grandes proyectos, con participación de los agentes sociales y económicos más representativos.
+
+   - La transparencia sobre las conclusiones de los trabajos de evaluación, a las que debe tener libre acceso cualquier persona. Por ejemplo, podría establecerse la obligación de publicar los resultados de las evaluaciones en el Portal de Transparencia de la Junta de Andalucía.
+
+   - La identificación de una serie de áreas temáticas, de planes y estrategias que, por su repercusión social, su relevancia presupuestaria o por otras razones, sean susceptibles de una evaluación más profunda, incluyendo los análisis de impacto o ex-post, basados en metodologías econométricas.
+
+   - La determinación de estándares comunes para garantizar que los informes de evaluación presentan una mínima homogeneidad.
+
+   - Una hoja de ruta que contribuya a extender, primero, y a consolidar después la cultura evaluadora en Andalucía.
+
+2. Apoyar y fortalecer el papel del IAAP, para que pueda desplegar sus principales funciones, en materia de:
+
+   - Asesoramiento para la elaboración de Planes Estratégicos.
+
+   - Elaboración de una Guía de Buenas Prácticas (con ejemplos de referencia) para la evaluabilidad de los Planes, actuaciones, normativas y otras acciones de gobierno que tengan una repercusión financiera o presupuestaria.
+
+   - Generar procedimientos, protocolos de trabajo y terminología común que permita no solo el entendimiento entre los agentes implicados sino también la comprensión de la ciudadanía, para cumplir con el principio de la rendición de cuentas.
+
+   - Impulsar las tareas de formación y capacitación en materia de cultura evaluadora, a fin de que las empleadas y empleados públicos sean conscientes de la importancia de la rendición de cuentas.
+
+3. Adaptar los distintos sistemas de información de la Junta de Andalucía, para generar la información que precisan los sistemas de indicadores de las evaluaciones, aprovechando al mismo tiempo la oportunidad que brindan las nuevas tecnologías.
+
+4. Incorporar en la elaboración y evaluación de las políticas públicas el cálculo de su huella ecológica y el impacto sobre la salud de la población.
+
+5. Favorecer, mediante la definición de las líneas de investigación de las diferentes convocatorias públicas de apoyo a la investigación, la generación de un tejido de investigadores especialistas en evaluación de políticas públicas independientes que focalicen sus trabajos en Andalucía.
+
+6. Fortalecer el papel del IECA como proveedor de servicios, herramientas e información estadística y geoespacial contextualizada, para que pueda extraer evidencias que informen la toma de decisiones en la planificación, el seguimiento y la evaluación de políticas públicas, así como para valorar el grado de cumplimiento y calidad de los servicios públicos basada en datos estadísticos y geoespaciales. Todo ello requiere:
+
+   - Impulsar instrumentos metodológicos de apoyo en la definición de sistemas de indicadores de contexto, estratégicos, de proceso y de impacto de políticas públicas.
+
+   - Participar en la definición de la información estadística y geoespacial necesaria para valorar el grado de cumplimiento y calidad de los servicios públicos que sean competencia de la Administración de la Junta de Andalucía.
+
+   - Fomentar el uso de los datos integrados y enlazados del Sistema Estadístico y Cartográfico de Andalucía (SECA) en la evaluación de políticas públicas, así como en la valoración del grado de cumplimiento y calidad de los servicios públicos, de acuerdo con la normativa que regule estos servicios y su evaluación en cada caso.
+
+   - Ofrecer sistemas de indicadores y cuadros de mando para el seguimiento y evaluación de políticas públicas, así como para valorar el grado de cumplimiento y calidad de los servicios públicos, de acuerdo con la normativa que regule estos servicios y su evaluación en cada caso.
+
+   - Ofrecer servicios de integración, análisis y generación de muestras e indicadores orientados a la evaluación de políticas públicas, por parte del Instituto de Estadística y Cartografía de Andalucía en colaboración con los departamentos de la Administración de la Junta de Andalucía, de acuerdo con la normativa que regule estos servicios y su evaluación en cada caso.
+
+   - Promover la capacidad de los datos integrados y enlazados del SECA para la elaboración de modelos de microsimulación o algoritmos de perfilado.
+
+{{{finactuaciones}}}
+**** Planes                                                     :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+*** Transparencia e inteligencia de Gobierno
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Texto                                                        :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0603-01
+:END:
+
+El fortalecimiento de un sistema de evaluación de políticas públicas requiere contar con las *infraestructuras de datos y servicios* que proporcionen información accesible, útil y en formatos interoperables que favorezcan su reutilización contribuyendo con ello a la transparencia, la generación de valor y la toma de decisiones basadas en evidencias.
+
+Se trata de infraestructuras de datos que permiten la integración de los sistemas de información y nuevas fuentes de datos, así como el desarrollo de herramientas y servicios seguros que posibilitan el aprovechamiento de toda la inteligencia proporcionada por los datos. Además, estos datos y servicios interoperables, ofrecidos en condiciones no restrictivas de uso, son un elemento fundamental que estimula la prestación de servicios innovadores basados en datos, al tiempo que contribuye a la generación de valor añadido, así como al desarrollo de la investigación y la participación ciudadana.
+
+En Andalucía, el Sistema Estadístico y Cartográfico y el Instituto de Estadística y Cartografía de Andalucía, como coordinador y productor, cuentan con una larga trayectoria de generación de datos estadísticos y geoespaciales que permiten el conocimiento de la realidad territorial, demográfica, social, económica y ambiental de Andalucía.
+
+El contexto derivado de la crisis de la COVID-19 ha hecho más evidente la importancia de los *datos para la toma de decisiones*, tanto en el ámbito sanitario, para conocer el alcance de la pandemia en distintas localizaciones, como en el económico, por la necesidad de conocer el impacto en el empleo, en los hogares o en la movilidad, por citar algunos ejemplos. El análisis de estos comportamientos, que está basado en la observación y recopilación de datos, constituye una herramienta útil para la toma de decisiones de los responsables políticos.
+
+A esta tendencia, la Administración de la Junta de Andalucía no puede ser ajena, no solo por la instrumentalización de los resultados del análisis de los datos, sino también por el papel en la *producción o generación de datos* que tienen los distintos centros administrativos de la Junta, al igual que otros organismos y agencias de la Administración central.
+
+Esta ingente cantidad de información, que permitiría alimentar la toma de decisiones e implementar mejores políticas públicas, supone una apuesta por la “inteligencia de gobierno”. Al mismo tiempo, estos datos pueden y deben ponerse al servicio de los agentes económicos y sociales y de la ciudadanía en general para su uso, contribuyendo también a una mayor racionalidad en sus elecciones de trabajo, compra y desplazamiento, favoreciendo así el crecimiento económico y la mejora del bienestar general.
+
+El valor de los datos residen en su uso y en este contexto se enmarca la puesta en marcha en la UE de una /“Estrategia de datos”/[fn:21] en el marco de una iniciativa de Economía de los Datos, que tiene como objetivo convertir a Europa en líder de la sociedad del dato, creando para ello un *mercado único del dato* que permita la libre circulación de éste para el beneficio de empresas, investigadores y administración pública.
+
+Esta estrategia establece el papel relevante de los datos como elemento vital de desarrollo económico, ya que /“constituyen la base de muchos nuevos productos y servicios”/ más personalizados, provocando un shock positivo y transversal en la economía, a la vez que mejora /“no solo la elaboración de políticas sino también de los servicios públicos”/. De este modo, el valor de los datos reside en su uso y reutilización y, especialmente, en el hecho de que esta reutilización es innovadora.
+
+En definitiva, la estrategia aboga por la *innovación basada en datos*, ya que se trata de una fuente extraordinaria de recursos con valor económico, que pueden tener un efecto transformador de la economía, tanto por su potencial uso por el sector privado como por su utilidad para mejorar los servicios públicos, dotando de mayor eficacia y calidad a las Administraciones públicas.
+
+Por tanto, y desde la perspectiva de la transparencia y la calidad de gobierno, Andalucía tiene la oportunidad de abanderar esta transformación, mediante la creación de un sistema integrado de información e indicadores, con el objetivo de permitir el correcto desarrollo y el seguimiento continuo y transparente de las políticas públicas y servir de base para la evaluación de resultados. Esta iniciativa atendería a las propuestas y recomendaciones de la AIReF[fn:22] en materia de evaluación de políticas públicas.
+
+**** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Constituir al IECA como un centro seguro de tratamiento de datos, a modo de “Oficina del Dato”, con la competencia para establecer las claves identificativas individuales anonimizadas, a fin de que permita la integración de la información de origen administrativo de base poblacional, empresarial y de vivienda y la generación de conjuntos de datos útiles para la difusión y reutilización, en coordinación con los departamentos sectoriales responsables.
+
+2. Promover la constitución de una Infraestructura Interoperable de datos integrados para fines analíticos en el marco del Sistema Estadístico y Cartográfico que genere información para apoyar la toma de decisiones públicas y privadas, con todas las garantías de calidad, seguridad y confidencialidad.
+
+3. Impulsar la investigación poniendo a disposición de los investigadores, de forma segura, la información resultado de la integración de estos registros de datos.
+
+{{{finactuaciones}}}
+**** Planes                                                     :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+
+
+* Footnotes
+
+[fn:29] https://publications.jrc.ec.europa.eu/repository/handle/JRC117724
+
+[fn:28] https://joinup.ec.europa.eu/sites/default/files/inline-files/eGovernment_in_Spain_2018_0.pdf
+
+[fn:24] (1) Informe Anual 2019 (CNMV), (2) Informe de la Comisión de Derechos de la Mujer e Igualdad de Género  (2) “Inversión con un enfoque de género: una oportunidad para el ecosistema de la empresa social europa” (ESADE).
+
+[fn:22] Página 65 del Proyecto 1 (Transversal) del /Spending Review/. “Evaluación del gasto público 2018. Sobre la evaluación de estrategia y procedimiento de las subvenciones”
+
+[fn:21] https://ec.europa.eu/info/strategy/priorities-2019-2024/europe-fit-digital-age/european-data-strategy_es
+
+[fn:20] Elaborado en el marco de colaboración de la Fundación BBVA y el Ivie, publicado en 2018.
+
+[fn:19] Las principales características de la Comissão de Recrutamento e Seleção para a Administração Pública pueden conocerse en la web: https://www.cresap.pt/
+
+[fn:17] European Comission, Overview of public administrations in EU Member States, apoyado en el Portal de datos abiertos de la UE, Eurobarómetro estándar 85, datos de 2016, volumen A, y realizado entre finales de 2016 y abril de 2017.
+
+
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

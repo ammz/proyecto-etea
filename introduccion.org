@@ -1,0 +1,154 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+El presente documento es fruto de la estrategia de planificación del Gobierno de Andalucía con la que se busca mejorar el modelo de gobernanza y ofrecer una renovada visión de la acción planificadora, contribuyendo al desarrollo económico y social de nuestra Comunidad Autónoma, bajo los parámetros de creación y calidad del empleo y la estricta salvaguarda de nuestro patrimonio natural y cultural. Todo ello en un entorno de excepcional incertidumbre causado por la pandemia de la COVID-19.
+
+Esta estrategia se fundamenta, entre otros principios, en una constante búsqueda de mejora de la regulación, con el objetivo final de promover un gobierno más dinámico, menos burocrático y más innovador; en la transformación digital de la sociedad en su conjunto; en el refuerzo y promoción de los servicios públicos para aumentar la calidad y el retorno social de los mismos y en la necesaria evaluación de las políticas públicas, incorporando el enfoque de género de forma transversal en la acción de gobierno.
+
+Tal y como se señalaba en el Acuerdo, de 6 de noviembre de 2019, del Consejo de Gobierno, por el que se aprueba la formulación de la *Estrategia para la Transformación Económica de Andalucía (ETEA) 2021-2027*, este documento aspira a impulsar un proceso de transformación económica de Andalucía, que contribuya a acercar nuestros niveles de renta por habitante y bienestar a los de la UE, corrigiendo el aumento en la desigualdad observado en los últimos años.
+
+Esta /“Hoja de Ruta”/ de la política económica de Andalucía es el resultado de la conjunción y coordinación de las políticas de todas las Consejerías que conforman el Gobierno de la Junta de Andalucía.
+
+Tradicionalmente, las orientaciones de las políticas públicas de la Administración de la Junta de Andalucía a medio plazo han estado plasmadas en una planificación de carácter estratégico. Se considera un instrumento de coherencia, racionalidad, consenso y coordinación de la política económica, social y medioambiental regional, con capacidad para generar y propiciar una cultura de proyección, seguimiento y evaluación de las acciones llevadas a cabo.
+
+Asimismo, desde una perspectiva cronológica, se ha tratado de hacer coincidir el horizonte temporal de la planificación regional y el correspondiente a la programación de los Fondos Europeos, con plena sincronía desde el marco 2007-2013. De este modo, los últimos planes se han convertido en los documentos estratégicos de referencia de la política de Andalucía, a medio plazo (normalmente entre siete y diez años), procurando, al mismo tiempo, que sirvieran para mostrar una coherencia con los principales criterios y objetivos que se definen en los programas operativos de los Fondos Europeos para la región de Andalucía, durante el mismo periodo.
+
+De este modo, los contenidos del presente ejercicio de planificación regional con horizonte 2027 son coherentes con las prioridades que se definen en la Política de Cohesión en el nuevo marco financiero plurianual de la UE para el período 2021-2027. A su vez, dicho contexto de presupuestación a largo plazo se encuentra marcado por el Next-GenerationEU, el instrumento temporal concebido para impulsar la recuperación tras la pandemia, que pretende reconducir a los países y regiones europeas (entre ellas, Andalucía) haciéndolos más ecológicos, digitales y resilientes en la deseada etapa post-COVID-19.
+
+Al mismo tiempo, la ETEA también atiende a los Objetivos de Desarrollo Sostenible (ODS) de la Agenda 2030 para el Desarrollo Sostenible, así como incorpora los grandes retos y objetivos que fijan los principales instrumentos de planificación de la Administración de la Junta de Andalucía, con carácter sectorial, aprobados y/o vigentes para este horizonte temporal.
+
+La ETEA también trata de contribuir a la salida de la crisis generada por la pandemia, ya que comparte, con los agentes económicos y sociales más representativos de Andalucía, tal y como se recoge en el /“Acuerdo para la Reactivación Económica y Social de Andalucía”/, firmado en 30 de julio de 2020, por la Administración de la Junta de Andalucía y CCOO de Andalucía, CEA y UGT Andalucía, la preocupación por acelerar la recuperación y alcanzar, lo antes posible, los niveles anteriores de producción y empleo. De este modo, la ETEA quiere ser una herramienta para intentar transformar este contexto negativo en una oportunidad para reorientar la economía y las condiciones de vida de las andaluzas y andaluces.
+
+De hecho, esta reorientación debe servir para afrontar los desafíos que atañen a la economía global y a los que Andalucía debe responder con fundamentos tan relevantes como la educación, la innovación, la I+D, la sostenibilidad, el emprendimiento, la calidad del empleo y, por supuesto, favoreciendo y ayudando a las economías domésticas de rentas más bajas.
+
+* Metodología: Procedimiento de elaboración
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+
+La elaboración de la Estrategia ha requerido un proceso de investigación y conjunción de perspectivas, implicando la participación, el diálogo social y, en definitiva, buscando el máximo consenso. De hecho, la génesis de la ETEA habría comenzado antes del Acuerdo de formulación (6 de noviembre de 2019), cuando la Secretaría General de Economía recabó distintos análisis de personas expertas y profesionales acerca de cuáles serían los retos a los que se enfrentaría Andalucía en la próxima década y que, sin duda, podían y pueden condicionar su futuro.
+
+Así, en las /“Jornadas sobre retos de la economía andaluza: Horizonte 2027”/ se abordaron temas relacionados con los rasgos estructurales de su modelo productivo, los problemas de accesibilidad a los mercados centrales europeos y las rémoras que impiden un mayor ritmo en la convergencia con el resto de España y la UE. Al mismo tiempo, se concluyó la necesidad de hacer frente a otros desafíos globales, como el cambio disruptivo que conlleva la digitalización, la transición energética y el envejecimiento demográfico, entre otros. En definitiva, se entendía que a todas estas cuestiones debía atender y dar respuesta el futuro ejercicio de planificación del gobierno de Andalucía.
+
+Más recientemente, en el contexto generado por la pandemia, se ha entendido que, para la elaboración de la Estrategia, junto a estas aportaciones iniciales, resultaba necesario un proceso de asimilación de los criterios y enfoques que subyacen en el /Plan de Recuperación, Transformación y Resiliencia del Gobierno de España/, así como en los documentos de reflexión sobre la economía española (y sus regiones) de los Informes País para los años 2019 y 2020, y los Programas Nacionales de Reforma. En el mismo sentido, cabría mencionar el documento /“España 2050: Fundamentos y propuestas para una Estrategia Nacional de Largo Plazo”/.
+
+Adicionalmente, se han realizado otras actuaciones para recabar los planteamientos y estrategias de los distintos centros directivos de la Administración de la Junta de Andalucía con una perspectiva de medio-largo plazo y se ha contado con un asesoramiento externo. En concreto, a través de:
+
+- Las /Líneas Estratégicas de Actuación/ (LEAs) de las distintas Consejerías (y los centros directivos que componen la Administración de la Junta de Andalucía), de acuerdo con sus competencias específicas. En una fase inicial, estas manifestaciones de las propias unidades administrativas de la Junta sirvieron para dar contenido al borrador en determinados ámbitos y campos de actuación. Posteriormente, durante el proceso de elaboración, las Consejerías han desempeñado un papel activo y fundamental para depurar y consensuar el documento final.
+
+- Las estrategias y planes ya aprobados por el Consejo de Gobierno o en la fase final de su elaboración, dentro del mismo ámbito temporal de programación, con el objeto de reforzar la coherencia, racionalidad, consenso y coordinación de esta herramienta.
+
+- Varios trabajos de investigación sobre las orientaciones de la política regional en el contexto europeo, en materia de políticas de bienestar y gobernanza, así como sobre el marco territorial y la Agenda Urbana, fruto de colaboraciones con el Instituto de Desarrollo Regional de la Universidad de Granada y del Centro de Políticas Económicas de Esade, entre otros.
+
+- Un informe sobre /“Propuestas para la modernización y transformación de la economía andaluza”/, elaborado por la Universidad Loyola Andalucía. El contenido de este trabajo respalda las orientaciones, objetivos y líneas estratégicas de la ETEA, así como aproxima los principales ejes de actuación. El enfoque metodológico de este trabajo es eminentemente cualitativo y se ha realizado a través de análisis de información secundaria, cuestionarios y entrevistas en profundidad semiestructuradas a expertos de reconocido prestigio en las diferentes áreas, así como paneles de expertos (/focus group/) organizados por área temática.
+
+Como resultado de estos trabajos de reflexión y síntesis, se elaboró un primer borrador de la Estrategia, para el que se solicitó a las distintas Consejerías y centros directivos sus aportaciones, sugerencias y subsanaciones.
+
+Una vez analizadas estas aportaciones, revisado y acordado el documento (en Comisión de Política Económica), el primer borrador resultante fue puesto a disposición de los agentes económicos y sociales más representativos de Andalucía, en aras de favorecer la participación institucional.
+
+Tras incorporar las aportaciones y sugerencias efectuadas por los agentes económicos y sociales y, contrastar el documento resultante con todas las Consejerías, que han realizado observaciones y puntualizaciones, se ha obtenido un borrador (2º) que ha sido sometido a información pública, tras su aprobación en el seno de la Comisión de Política Económica.
+
+Al mismo tiempo, a los contenidos de este borrador se le han incorporado otros tres apartados: un escenario económico, un breve capítulo acerca de la coherencia de esta Estrategia con otros instrumentos de planificación en los ámbitos europeo y nacional, así como otro dedicado a los indicadores para el seguimiento, con los principales objetivos.
+
+* Índice de contenidos y esquema de la Estrategia
+:PROPERTIES:
+:UNNUMBERED: t
+:END:
+
+Atendiendo a estos antecedentes, la ETEA se alinea con Europa tanto desde el punto de vista de los contenidos (5 grandes objetivos[fn:1] que se incorporan a las “Orientaciones sobre la Financiación de la Política de Cohesión 2021-2027 para España”) como en lo que respecta al ámbito temporal, reflejando también las grandes inquietudes y objetivos que se definen en los distintos planes y políticas públicas de la Administración de la Junta de Andalucía.
+
+Así, con esta finalidad de conjuntar, coordinar y dotar de coherencia, la ETEA se sitúa como el plan central o “en el núcleo” del marco estratégico general para el desarrollo regional de Andalucía, que debe trazar las directrices principales de actuación para los agentes públicos y privados implicados en el desarrollo social y económico de la Comunidad Autónoma.
+
+El índice de la ETEA contempla este esquema:
+
+1. Una introducción, donde se establece el procedimiento de elaboración y un avance de los contenidos.
+
+2. Un diagnóstico, que incorporará un análisis descriptivo de la situación general de la economía andaluza en el contexto nacional y europeo.
+
+3. Una matriz “DAFO” sobre la identificación de las principales debilidades, amenazas, fortalezas y oportunidades.
+
+4. La identificación de “seis grandes bloques temáticos” de acuerdo con los principales pilares de actuación y metas a alcanzar en materia de Competitividad, Sostenibilidad, Conectividad, Bienestar, Territorio y Gobernanza.
+
+   Dentro de cada uno de estos 6 bloques se establecen una serie de materias clave, que se ha propuesto denominar como “prioridades”. En total, se han reconocido una treintena de prioridades y para cada una de estas prioridades se formula o expone, al menos, un objetivo o meta que debería alcanzarse, por lo que podría decirse que se identifican 33 metas.
+
+   En realidad, estas prioridades se analizan a modo de ámbitos temáticos o líneas de actuación, que presentan un esquema homogéneo, con un breve diagnóstico de la situación que justifica su consideración como una prioridad, junto con una propuesta de “actuaciones”, a fin de corregir el déficit/debilidad existente o para alcanzar su mayor potencial.
+
+5. Un apartado dedicado a mostrar la coherencia de este documento de planificación regional con los principales instrumentos de planificación europeos y español, así como la elevada coincidencia en sus planteamientos y contenidos con las prioridades y políticas públicas de la Unión Europea para la economía española y, por tanto, para Andalucía.
+
+6. Los escenarios macroeconómico y financiero de la ETEA.
+
+7. Unos objetivos estratégicos cuantificables y definidos de forma homogénea para permitir su comparación en los ámbitos nacional y europeo. Dichos objetivos estratégicos guardan una estrecha vinculación con los objetivos políticos establecidos en los Reglamentos de los Fondos Europeos para el marco 2021-2027. Se proponen diez objetivos para su consecución al final del horizonte temporal de la ETEA, al menos, uno por cada bloque temático, a fin de que resulten operativos.
+
+8. Indicadores para el seguimiento y evaluación de la Estrategia.
+
+A continuación, se presenta una breve reflexión que justifica la elección de los seis bloques temáticos, anteriormente mencionados.
+
+- Resulta fundamental lograr mayores dosis de *competitividad* en nuestra economía, a través de la incorporación de la innovación y la asimilación de las nuevas tecnologías digitales, del impulso al emprendimiento, de la internacionalización de las empresas y de la atracción de grandes inversiones, así como mediante la diversificación del tejido productivo, incorporando nuevos procesos industriales, la modernización de los sectores tradicionales, junto con la mejora de la calidad del sistema educativo y de la formación para el empleo.
+
+- Se requiere hacer a la *economía más sostenible* y luchar contra las consecuencias del cambio climático. Hay que prestar especial atención a la prevención de riesgos, la gestión de recursos hídricos y la disminución de emisiones contaminantes, entendiendo estos desafíos como una oportunidad para la transición hacia una economía baja en carbono y el desarrollo de nuevos sistemas energéticos basados en la eficiencia y el aprovechamiento de las energías renovables y alternativas, como la economía circular. La transición justa hacia una economía más sostenible debe ser compatible con un mayor dinamismo económico, buscando desarrollar nuevos procesos productivos y yacimientos de empleo de calidad asociados a las actividades antes descritas.
+
+- La política económica regional debe contribuir a corregir la posición de desventaja de Andalucía en materia de *conectividad*, entendida ésta en sentido amplio, es decir, en materia de conexiones de la red de transportes, y también en el ámbito de la conectividad digital. Sin duda, esta corrección contribuirá al fortalecimiento de la competitividad y a la disminución de las “distancias”, a fin de alcanzar mayores cotas de integración, cohesión social y territorial y convergencia real. Aunque el aprovechamiento económico y social de esta mayor integración requerirá, sin duda, de otros elementos y factores complementarios.
+
+- El *bienestar* comprende los grandes condicionantes que definen la calidad de vida de las andaluzas y andaluces (el empleo de calidad y la erradicación de la precariedad laboral, la protección social, la asistencia sanitaria, la vivienda, entre otros) y al mismo tiempo, un aspecto que tendrá una relevancia fundamental, como es la educación (o formación). Se entiende por ésta la adquisición de habilidades y competencias no solo en la enseñanza obligatoria, sino también a lo largo de la vida, con especial importancia en la etapa laboral. Los objetivos de la Administración de la Junta de Andalucía en este campo pasan por reducir los niveles de desigualdad y el riesgo de exclusión social, aspirando a superar las cotas en materia de salud, atención a la dependencia y vivienda, así como reforzando las funciones de los servicios públicos de empleo y formación, bajo el enfoque del aprendizaje permanente.
+
+- La política económica del *territorio* es para la Administración de la Junta de Andalucía un bloque estratégico fundamental, reconociendo así la importancia que tienen los distintos espacios geográficos y humanos en el desarrollo de los territorios (comarcas, áreas metropolitanas, provincias y municipios) que conforman la Comunidad Autónoma. Los contenidos de este bloque van más allá de la ordenación territorial para ampliar la finalidad de las actuaciones a la reducción de los desequilibrios territoriales existentes dentro de Andalucía.
+
+- Por último, todas estas prioridades se enmarcan en un contexto de mejora de la *gobernanza*, de revisión de la calidad institucional, del marco regulatorio, de los modos en los que se comunica y coopera una Administración autonómica más inclusiva y abierta con la ciudadanía, los agentes económicos y sociales y con otras Administraciones Públicas, en aras de lograr una mayor eficiencia para el conjunto de la sociedad andaluza. De este modo, se incorpora este bloque temático porque una buena gobernanza orienta a las sociedades avanzadas y sustenta la calidad democrática de las mismas, la acción de los gobiernos y la administración de los Estados. Con esta forma de entender la calidad de los gobiernos están comprometidas las Naciones Unidas (Agenda 2030), la OCDE (Informes periódicos sobre la gobernanza pública en sus países miembros), la Unión Europea y el Estatuto de Autonomía de Andalucía.
+
+A continuación, se incluye un esquema de la metodología utilizada para la elaboración de la ETEA y del proceso seguido hasta su aprobación por el Consejo de Gobierno.
+
+Adicionalmente, después del diagnóstico y el análisis DAFO se incluye un esquema de los seis bloques temáticos, con sus respectivas prioridades y los aspectos centrales que dan contenido a las líneas de actuación.
+
+* Footnotes
+
+[fn:1] \vspace{-8pt}\begin{description}[itemsep=0pt,parsep=0pt,topsep=0pt,partopsep=0pt]
+\item[Objetivo 1:] Una Europa más inteligente: una transformación industrial innovadora e inteligente. \par
+\item[Objetivo 2:] Una Europa más verde y con bajas emisiones de carbono: una transición energética limpia y equitativa, inversión verde y azul, economía circular, adaptación al cambio climático y prevención de los riesgos.\par
+\item[Objetivo 3:] Una Europa más conectada: movilidad y conectividad regional en materia de tecnologías de la información y la comunicación.\par
+\item[Objetivo 4:] Una Europa más social mediante la aplicación del pilar europeo de derechos sociales.\par
+\item[Objetivo 5:] Una Europa más próxima a sus ciudadanos, que fomente el desarrollo integrado y sostenible de las zonas urbanas, rurales y costeras y las iniciativas locales.
+\end{description}
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

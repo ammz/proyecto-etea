@@ -1,0 +1,174 @@
+#+INCLUDE: "lisp"
+#+SETUPFILE: etea.setup
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+* Escenario macroeconómico
+
+** Los supuestos básicos del escenario macroeconómico de la ETEA Horizonte 2027
+
+El escenario macroeconómico de Andalucía para el periodo de vigencia de la Estrategia para la Transformación Económica de Andalucía. Horizonte 2027 (ETEA), tiene como fundamentos los escenarios que se contemplan para el entorno socioeconómico de la región, especialmente los del entorno europeo y nacional, dada la fuerte vinculación que tiene la economía andaluza con sus economías de referencia.
+
+Es importante poner de manifiesto el contexto históricamente atípico en el que se ha elaborado este escenario, en una situación marcada por la pandemia de la COVID-19, que derivó en 2020 en la mayor caída de la economía mundial en la historia del último siglo. Una situación sanitaria que a finales de 2021 aún no está resuelta, lo que conlleva fuertes dosis de incertidumbre de cara al futuro.
+
+De otro lado, desde el punto de vista del análisis econométrico, la pandemia y su consecuente crisis económica ha derivado en una fuerte distorsión de tasas en las variables macroeconómicas, lo que dificulta las labores de predicción, que ya de forma intrínseca tiene especialmente la realización de predicciones macroeconómicas a medio-largo plazo. Todos estos aspectos están provocando constantes revisiones de las estimaciones y previsiones que realizan tanto las instituciones públicas como privadas, lo que añade mayor incertidumbre a los escenarios.
+
+En este sentido, caben destacar algunos riesgos que se contemplan a finales de 2021, y que condicionan los pronósticos macroeconómicos:
+
+- la persistencia de la pandemia de la COVID-19, y el alcance que el proceso de vacunación tenga a nivel mundial, con las incertidumbres vinculadas a la aparición de nuevas variantes del virus más persistentes en los contagios y las implicaciones que ello tendría para determinadas actividades que se vieran afectadas por restricciones y medidas de distanciamiento, sobre todo las más relacionadas con el turismo y el consumo social;
+
+- la continuidad de las disrupciones de las cadenas de producción global que se ha evidenciado en 2021, con desajustes entre la oferta y la demanda, que ha derivado en repuntes inflacionistas;
+
+- posibles efectos de segunda ronda en la subida de los precios, que podría derivar en la persistencia de estas tensiones inflacionistas, y en un endurecimiento de la política monetaria de los bancos centrales, con las consecuencias que ello tendría para la política fiscal y la solvencia financiera de las empresas; de hecho, la Reserva Federal norteamericana ha anunciado en el mes de diciembre que va a acelerar el ritmo de retirada de estímulos y que prevé tres aumentos de tipos de interés en 2022 y otros tres en 2023;
+
+- la resolución final de los mecanismos establecidos para amortiguar los efectos de la crisis en el empleo (ERTES) y la incógnita sobre la transición de las personas trabajadoras implicadas hacia el empleo o al desempleo;
+
+- así como el ritmo en la asignación y ejecución de los fondos Next Generation EU y sus efectos multiplicadores reales en la actividad económica, elemento que condiciona el cumplimiento de las previsiones económicas especialmente para el período que han sido establecidos (2021-2024).
+
+Estos factores, entre otros, obligan a considerar con cautela los actuales escenarios de previsión a medio y largo plazo, que se sustentan en supuestos básicos de evolución de variables económicas relevantes.
+
+En el caso concreto del presente escenario macroeconómico de la ETEA Horizonte 2027, se consideran supuestos básicos relacionados con el crecimiento económico del contexto nacional e internacional, la evolución de los precios de producción y de las materias primas, especialmente el petróleo, el tipo de cambio del euro y los tipos de interés.
+
+Respecto al crecimiento económico esperado en el contexto nacional e internacional, el Fondo Monetario Internacional (FMI), en sus últimas previsiones económicas publicadas el mes de octubre de 2021, estima para la economía mundial una senda de crecimiento elevado para los próximos años, mayor en los primeros tras la caída real del PIB observada en 2020 (-3,1%), para desacelerarse progresivamente con el paso de los años. De esta forma, en base a las estimaciones del FMI, el crecimiento medio anual del PIB mundial para el periodo 2021-2027 sería del 3,9% en términos reales.
+
+Para las economías avanzadas, el FMI prevé un perfil de evolución similar, aunque de menor dinamismo, estimando un crecimiento medio real del 2,6% en el periodo, 1,3 puntos inferior al pronóstico para la economía mundial (3,9%).
+
+Del mismo modo, ya en el ámbito europeo, el FMI también espera un comportamiento similar en la evolución de la economía de la Zona Euro, aunque todavía con menor intensidad que el conjunto de los países industrializados, situando su crecimiento real medio para el periodo en el 2,4%.
+
+Para la economía española, el entorno de referencia más próximo a la economía andaluza, se han considerado las previsiones del Ministerio de Asuntos Económicos y Transformación Digital del Gobierno de España, establecidas en el Proyecto de Presupuestos Generales del Estado para 2022 (octubre de 2021), y en la Actualización del Programa de Estabilidad del Reino de España 2021-2024 (mayo de 2021), y las del FMI para los años restantes. Considerando estas previsiones, el crecimiento medio real del PIB español esperado en 2021-2027 sería del 3,4%.
+
+Respecto a la evolución prevista de los precios de las materias primas, más concretamente del petróleo, el FMI estima una reducción progresiva, aunque leve, tras el importante repunte en 2021, por el aumento de la demanda asociado a la salida de la crisis. De este modo, la cotización del barril de Brent quedaría situada en los 61,9 dólares de media anual entre 2021 y 2027, volviendo a cifras de 2019, tras la brusca caída en 2020 por la contracción de la demanda (41,5 dólares en 2020).
+
+De otro lado, según las previsiones del Ministerio de Asuntos Económicos y Transformación Digital y el FMI, se espera que el deflactor del PIB de la economía española crezca a tasas moderadas, aunque crecientes en los próximos años, de forma que estaría en todo el periodo por debajo del objetivo de estabilidad de precios del Banco Central Europeo (2%), en concreto, con una tasa media anual del 1,6%.
+
+El contexto exterior de la economía andaluza descrito se espera que venga acompañado de unas condiciones de financiación caracterizadas por un mantenimiento de los niveles actuales de tipos de interés, tanto a corto como a largo plazo, en los primeros años del periodo, para aumentar en los últimos, así como por una apreciación del tipo de cambio del euro frente al dólar.
+
+:fig-supuestos:
+:F: (1) Fondo Monetario Internacional (octubre-2021) hasta 2026, manteniendo el crecimiento de este año en 2027, salvo las previsiones referidas a España que, para el período 2021-2024, se trata de las previsiones del Proyecto de Presupuestos de 2022 (octubre-2021) y de la Actualización del Programa de Estabilidad 2021-24 (mayo-2021) \par (2) Banco Central Europeo (septiembre-2021) hasta 2023 y de 2024 a 2027 Ceprede (octubre-2021).:F:
+:U::U:
+:N: 2020 datos observados, resto previsiones. \par 2021-27 media del período, salvo indicación. \par * Euribor a tres meses. \par **Rendimiento nominal de la deuda pública a diez años de la zona del euro.:N:
+:E: Secretaría General de Economía. Junta de Andalucía:E:
+#+CAPTION: Supuestos básicos
+[[./graficos/supuestos.pdf]]
+:END:
+
+En concreto, en su informe publicado en el mes de septiembre, el BCE prevé un mantenimiento de los tipos de interés a corto plazo, medidos por el Euribor a tres meses, ligeramente en negativo hasta 2023, y para el largo plazo, espera que el rendimiento de la deuda pública a diez años se mantenga prácticamente nulo. Para el resto del periodo el BCE no tiene publicadas previsiones, habiéndose considerado las del Centro de Predicción Económica (Ceprede) de la Universidad Autónoma de Madrid. Ceprede pronostica un aumento de los tipos a corto hasta el entorno del 0,8% al final del período, y por encima del uno por ciento para el rendimiento de la deuda pública a diez años. Con todo ello, el Euribor a tres meses de media en el período 2021-2027 sería el 0,2%, y el 0,7% el rendimiento de la deuda pública a diez años.
+
+Finalmente, en cuanto al tipo de cambio de la moneda única, los pronósticos conjuntos del BCE y Ceprede apuntan una media en el período de 1,22 dólares por euro, lo que supone una trayectoria de ligera apreciación.
+
+** Escenario macroeconómico de la ETEA Horizonte 2027
+
+Con estos supuestos que configuran el contexto económico en el que se desenvolverá la economía andaluza en los próximos años, caracterizado básicamente por un crecimiento relativamente intenso de su entorno, con tasas moderadas de inflación y de tipos de interés, y una cierta apreciación del euro, se espera para Andalucía un ciclo positivo de crecimiento económico y creación de empleo, con avances de productividad que permitirán reducir la tasa de paro.
+
+En concreto, el escenario macroeconómico de Andalucía 2021-2027 contempla un crecimiento medio real del PIB de la economía andaluza del 3,5% anual en el período.
+
+Este crecimiento de la economía andaluza estaría por encima de los esperados para las economías española (3,4%) y de la Zona Euro (2,4%), lo que se traduciría en avances en convergencia respecto a las mismas.
+
+El perfil de crecimiento de la economía regional estaría en consonancia con el de su entorno, de manera que la intensidad de los primeros años, especialmente entre 2021 y 2023, tras el retroceso observado en 2020 a causa de la pandemia (-10,3%), se iría desacelerando hasta el final del periodo.
+
+En materia de precios, y en consonancia con lo esperado para la economía española, se prevé que evolucionen a tasas moderadas, manteniéndose por debajo del objetivo de estabilidad de precios del BCE (2%). De este modo, se estima que el deflactor del PIB en Andalucía crezca a una tasa media anual del 1,7% en el periodo.
+
+Con esta evolución del deflactor y el crecimiento real de la economía, el PIB nominal de la región crecería a un ritmo medio anual del 5,3%, y alcanzaría los 223.861 millones de euros al final del período, en 2027, lo que supondría un crecimiento nominal del 43,1% respecto al año 2020.
+
+:fig-escenario2:
+:F: INE, IECA y Consejería de Transformación Económica, Industria, Conocimiento y Universidades.:F:
+:U::U:
+:N: 2020 datos observados, resto previsiones. \par 2021-27 media del período, salvo indicación. \par (1) En términos de la Encuesta de Población Activa del INE. \par (2) Dato al final del período. :N:
+:E: Secretaría General de Economía. Junta de Andalucía:E:
+#+CAPTION: Previsiones Económicas de Andalucía
+[[./graficos/previsiones.pdf]]
+:END:
+
+El comportamiento esperado en la evolución del PIB regional se trasladaría al mercado de trabajo en creación de empleo. En términos de la Encuesta de Población Activa del INE, la población ocupada tendría crecimiento positivo todo el periodo, siendo el incremento medio anual del empleo pronosticado del 1,9%.
+
+Con esta evolución del empleo, se alcanzaría en 2027 un nivel de población ocupada próxima a los tres millones y medio de personas, lo que supondría un aumento del 14,4% respecto al año 2020 y la creación de casi 435.000 empleos en el período.
+
+Esta creación de empleo, en un contexto en el que las proyecciones demográficas apuntan un crecimiento muy moderado de la incorporación de activos, permitiría una reducción de la tasa de paro de 8,2 puntos porcentuales en el período, pasando del 22,3% de la población activa en 2020, al 14,1% que se registraría en 2027.
+
+El mayor ritmo de crecimiento real del PIB, respecto al previsto para el empleo, tendría como consecuencia ganancias de productividad por ocupado en la economía andaluza, que crecería a una tasa media anual del 1,5%, con una senda de mayor intensidad en los primeros años en sintonía con lo esperado para el PIB real y la ocupación.
+
+
+* Escenario financiero
+
+La Estrategia para la Transformación Económica de Andalucía (ETEA) Horizonte 2027, como planteamiento estratégico para el desarrollo regional de Andalucía, se configura como el marco global de la planificación en la Comunidad Autónoma, que recoge de forma sintética el conjunto de instrumentos de planificación y programación de la Junta de Andalucía.
+
+Sin embargo, este carácter estratégico y transversal, y su papel como documento guía (plan de planes) y referencia de las principales políticas públicas a medio plazo, que serán desarrolladas por otros planes y programas sectoriales más concretos, supone que la ETEA no debería ser considerada como un plan con contenido económico-financiero, en sentido estricto.
+
+No obstante, se ha considerado conveniente incluir un apartado dedicado a ofrecer una visión esquemática de los recursos financieros previstos durante el horizonte temporal de la ETEA, que complemente al escenario macroeconómico, especificando aquellos con mayor capacidad de transformar y propiciar los cambios propuestos que necesita Andalucía.
+
+Por ello, los recursos financieros con los que contará la Estrategia para la Transformación Económica de Andalucía Horizonte 2027 se estiman en 27.917 millones de euros, para todo el periodo, que incluye la anualidad 2021, dado que en dicho ejercicio ya se estaban ejecutando planes y políticas sectoriales que se contemplan en las prioridades y actuaciones recogidas en la ETEA.
+
+Los datos expuestos se fundamentan en los documentos de programación financiera vigentes y en los provisionales disponibles en el momento de elaboración de esta memoria.
+
+:fig-escenario2:
+:F: Ministerio de Hacienda y Función Pública y Consejería de Hacienda y Financiación Europea.:F:
+:U: Millones de euros.:U:
+:N: Ejecución a diciembre 2021. :N:
+:E: DG Análisis, Planificación y Política Económica. Secretaría General de Economía. :E:
+#+CAPTION: Escenario financiero 2021-2027 para la ETEA H-2027
+[[./graficos/financiero.pdf]]
+:END:
+
+Este escenario financiero comprende exclusivamente el gasto público por operaciones de capital (Capítulos de gasto VI y VII) y el conjunto de los gastos financiados con Fondos Europeos y las correspondientes tasas de cofinanciación ya sean por operaciones corrientes (Capítulos de gasto I a IV) o de capital (Capítulos de gasto VI y VII). El cálculo de las cifras correspondientes a cada recurso y gasto se ha realizado en base a la información disponible, así como a los parámetros y las proyecciones que se indican a continuación:
+
+- Los recursos propios que la Junta de Andalucía destina a atender las distintas áreas de la ETEA se estiman en 5.667 millones de euros. Esta cantidad solo engloba los gastos por operaciones de capital e incluye los servicios del 01 al 09. Para los ejercicios presupuestarios 2021 y 2022 se han tenido en cuenta la ejecución de las operaciones de capital a diciembre de 2021 y el Decreto de prórroga del Presupuesto de 2022, según datos de la Secretaría General de Hacienda. Para las anualidades del 2023 en adelante, se establece la hipótesis de que el gasto se mantiene constante.
+
+- Los Fondos de Compensación Interterritorial (FCI) suponen 1.127 millones de euros. Este importe es el resultado de considerar que se va a mantener estable durante todo el periodo la dotación para Andalucía consignada en los Presupuestos Generales del Estado de 2021 y 2022, que ascendió a 161 millones de euros.
+
+- Las Transferencias finalistas del Estado se ha estimado que ascenderán a 755 millones de euros para todo el período. En concreto, para los ejercicios 2021 y 2022 se ha tenido en cuenta la ejecución de las operaciones de capital a diciembre de 2021 y el Decreto de prórroga de 2022, según datos de la Secretaría General de Hacienda. El gasto se ha proyectado para el resto de anualidades de acuerdo con la previsión de crecimiento del PIB nominal de Andalucía de un 5,3% anual.
+
+- Para determinar los Gastos afectos a otros ingresos finalistas se ha tenido en cuenta la ejecución de los gastos capital para 2021 y el Decreto de prórroga del Presupuesto de 2022. Para las anualidades desde 2023 a 2027 estos gastos se mantienen constantes.
+
+- En relación con el Mecanismo de Recuperación y Resiliencia (MRR) se ha estimado que la Administración General del Estado transferirá a la Junta de Andalucía 4.188 millones, correspondientes a los gastos financiados por este instrumento principal de los fondos NextGeneration. Esta previsión se ha calculado a partir de la territorialización de 24.209 millones de euros, asignando a Andalucía el 17,3% del total conforme al documento sobre el MRR de la Dirección General de Presupuestos a fecha 22/12/2021.
+
+- Por último, los gastos financiados con Fondos Europeos correspondientes a la asignación a la Junta de Andalucía tanto del Marco Financiero Plurianual (MFP) 2014-20 como del MFP del período 2021-27, se estiman en 15.284 millones de euros. En este apartado se incluyen tanto los ingresos provenientes de los distintos fondos (FSE, FEDER, FEADER y otros) como el gasto público que aporta la Junta de Andalucía como cofinanciación, ya sean por operaciones corrientes o de capital.
+
+Con objeto de ofrecer una información sinóptica del conjunto de fuentes de financiación durante el escenario temporal de la Estrategia, agregando las hipótesis para los distintos ejercicios presupuestarios se ha considerado conveniente presentar en el cuadro adjunto un promedio anual de los recursos estimados para el periodo 2021-2027. De este modo resumido, resulta más fácil apreciar el incremento de los recursos procedentes de los Fondos Europeos para el nuevo marco, en total 15.284 millones de euros, es decir, 2.183 millones de euros al año, lo que representa el 54,7% del total del gasto público previsto en el escenario financiero de la ETEA.
+
+Adicionalmente, estos recursos se ven reforzados con los correspondientes al Mecanismo de Recuperación y Resiliencia, que tienen un carácter extraordinario. En sentido contrario, cabe reseñar que la inversión autofinanciada durante este periodo se mantendrá estable, en torno a los 703 millones de euros consignados en el presupuesto de 2022.
+
+En cualquier caso, es necesario subrayar que este escenario financiero es una previsión, dada la provisionalidad de algunas de las hipótesis de partida que se han expuesto. Máxime en un momento como el actual, en el que encontramos un escenario fiscal y económico que presenta un alto grado de incertidumbre que no permite determinar, con un grado de verosimilitud razonable, los recursos presupuestarios disponibles a medio plazo. Esto es así por varios motivos: La evolución incierta de las variables macroeconómicas debido a que la pandemia COVID-19 sigue teniendo un impacto macroeconómico y fiscal extraordinario que, junto con la actual situación geopolítica, crea una incertidumbre excepcional, el ritmo en la asignación y ejecución de fondos vinculados al Mecanismo de Recuperación y Resiliencia a lo largo de su periodo de vigencia, la todavía escasa definición de los instrumentos de desarrollo del nuevo marco de los fondos europeos para el periodo 2021/2027, la falta de información sobre los objetivos relativos a las reglas fiscales para los ejercicios próximos y la falta de determinación del impacto de otras magnitudes fiscales vinculadas al funcionamiento mismo del Sistema de Financiación de las Comunidades Autónomas.
+
+Todo ello aconseja adoptar un criterio de prudencia sobre las evoluciones futuras de los gastos presupuestarios, que podrían dificultar e, incluso, impedir que se dispongan de las partidas necesarias para acometer algunas de las actuaciones contenidas en la Estrategia, al menos, durante el horizonte temporal señalado. No obstante, en todo caso, serán las sucesivas leyes del presupuesto las que establezcan los recursos efectivamente disponibles en cada momento durante el periodo de vigencia de la ETEA.
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

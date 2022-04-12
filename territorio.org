@@ -1,0 +1,694 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+#+begin_SRC latex
+  \loadgeometry{centrada}
+  \pagestyle{basico}
+#+end_SRC
+
+#+RESULTS:
+#+begin_export latex
+\loadgeometry{centrada}
+\pagestyle{basico}
+#+end_export
+
+
+* Territorio
+** Intro                                                            :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-05
+:END:
+
+{{{inicol(2)}}}
+En las últimas décadas, los aspectos territoriales han ido ganando importancia dentro de las políticas económicas en los países más desarrollados. De hecho, la OCDE reconoce que, entre las actuaciones públicas de los responsables económicos, se ha evidenciado la necesidad de fomentar medidas destinadas, específicamente, a limitar las diferencias socioeconómicas entre regiones y ciudades y a optimizar sus oportunidades de desarrollo para que puedan alcanzar mayores cotas de prosperidad.
+
+Estas diferentes medidas suelen agruparse bajo el epígrafe “políticas de desarrollo territorial”, o simplemente “políticas territoriales” y en ellas subyacen tres principios básicos: el apoyo al desarrollo endógeno con el que mejorar las oportunidades propias de expansión de las unidades territoriales; el fomento del desarrollo sostenible, que permite reconciliar los objetivos de eficiencia económica, cohesión social y equilibrio ecológico y, en tercer lugar, una mejora de los distintos niveles de gobierno que afectan al territorio, es decir, una gobernanza más responsable.
+
+Sin duda, para la Comisión Europea, la agenda territorial resulta cada vez más importante, y el concepto “Territorio” se ha incorporado al léxico de la política económica europea, desde el Tratado de Lisboa, cuando con la nueva estrategia de alto nivel de la UE (Europa 2020) se introdujera dentro de la política de cohesión, la dimensión territorial junto a la cohesión económica y la social.
+
+Igualmente, para la política económica de Andalucía, el territorio constituye un activo fundamental de valor estratégico. No solo porque aspira a reducir las diferencias existentes entre diversas áreas subregionales dentro de la Comunidad Autónoma, sino porque es consciente de la relevancia del capital territorial para el éxito de las actuaciones de política (inversiones, incentivos fiscales, por ejemplo) para el desarrollo de una determinada área o espacio territorial.
+
+Esta importancia también está explicada por el tamaño de Andalucía, ya que es la segunda Comunidad Autónoma de mayor extensión en España, tras Castilla y León, y una de las regiones más grandes de Europa y la tercera en habitantes, por lo que el aprovechamiento inteligente del citado capital territorial --considerado un factor clave en los procesos exitosos de desarrollo regional para la UE, OCDE y economistas de prestigio, como Krugman o Camagni--, se convierte en una tarea imprescindible.
+
+A este capital territorial ya se habían referido, aún sin nombrarlo, grandes economistas como A. Marshall (1842-1924), al señalar que existían factores intangibles en el entorno de determinadas regiones o áreas económicas, como resultado de una combinación de instituciones, normas, prácticas, productores, investigadores y políticos que hacen posible una cierta creatividad e innovación. De esta forma se propicia un retorno más elevado para ciertos tipos de inversiones que otros, haciéndolos más idóneos por sus cualidades y potencial para determinados desarrollos.
+
+Más recientemente, diversos trabajos de investigación han puesto de manifiesto que las políticas públicas que tratan de fomentar el desarrollo territorial y limitar las desigualdades, para cumplir su propósito, deberían ayudar primero a desarrollar el capital territorial de dicha región. También concluyen que el uso únicamente de incentivos económicos fiscales o financieros para estimular a empresas a invertir en áreas, donde no lo harían en ausencia de incentivos, no tiene por qué garantizar el desarrollo a largo plazo, dado que no asegura que las inversiones estén ajustadas al capital territorial.
+
+Por todo ello, parece justificado que un eje estratégico para la política económica de Andalucía sea aumentar su capital territorial, tal como se menciona en el Informe "/Territorial Economy, OECD Territorial Outlook, 2001/", entendiendo que este engloba diferentes componentes (natural, físico-construido, humano, social y de imagen) y que en el caso de nuestra región tiene un papel fundamental por varias razones:
+
+1) Por su posición geoestratégica, entre dos continentes (Europa y África) y entre el Océano Atlántico y el Mar Mediterráneo, que aporta una aventajada situación para la integración de Andalucía en la esfera internacional (flujo de mercancías y orientaciones culturales, entre otras).
+
+2) Por disponer de un sistema urbano equilibrado con alta presencia de redes de ciudades medias, que diferencia Andalucía de la mayoría de las demás CC.AA. y proporciona a nuestra región ventajas para un desarrollo económico equilibrado territorialmente.
+
+3) Por una dotación de recursos naturales, culturales y paisajísticos, que suponen una base para el desarrollo de sectores tradicionales (agricultura, pesca, minería o turismo, entre otros) y nuevos (energías renovables o aeronáutica, por ejemplo) de la economía andaluza.
+
+4) Por la existencia de polos urbanos, áreas logísticas y puertos, que operan como una malla territorial fundamental para el funcionamiento y la vertebración de la economía regional.
+
+No obstante, este capital territorial en Andalucía no está repartido de forma homogénea, sino que presenta divergencias significativas en espacios geográficos y humanos. De este modo, se configuran constelaciones de capital territorial distintas, con condiciones desiguales entre las diferentes áreas, en términos de ventajas o desventajas, para su desarrollo.
+
+En este punto, y con el objetivo de promover el desarrollo sostenible, la cohesión territorial y la competitividad de Andalucía en su conjunto, cabe impulsar en una escala subregional estrategias de desarrollo diseñadas de forma específica a las oportunidades, problemas y retos que existen en cada territorio (municipios, espacios periurbanos, áreas metropolitanas, comarcas, zonas costeras o de montaña u otros).
+
+Este tipo de estrategias de desarrollo en la escala territorial intermedia coincide con la propuesta de la Comisión Europea, para la política de cohesión en el marco financiero plurianual 2021-2027, como respuesta al Objetivo estratégico 5 de la UE: /“Una Europa más próxima a sus ciudadanos, que fomente el desarrollo integrado y sostenible de las zonas urbanas, rurales y costeras y las iniciativas locales”/.
+
+De este modo, el desarrollo de Andalucía en su conjunto se nutrirá de los logros de este tipo de estrategias para las diferentes subregiones de nuestra Comunidad Autónoma, al igual que de la existencia de un sistema urbano equilibrado. Para alcanzar el ambicioso objetivo de la reducción de los desequilibrios territoriales y sociales existentes dentro de Andalucía, se requiere una atención diferencial y especializada a todos aquellos ámbitos supramunicipales que conforman un área coherente, por sus características físicas, funcionales, y socioeconómicas o por la existencia de fórmulas de cooperación intermunicipal institucionalizadas o informales. Solo desde esta perspectiva puede afrontarse el reto de un desarrollo urbano y rural integrado y sostenible, acorde a sus características singulares: sociales, medioambientales, demográficas, su patrimonio cultural y el resto de rasgos diferenciales.
+{{{fincol}}}
+
+** Prioridades                                                      :ignore:
+
+@@latex:\pagestyle{prioridad}@@
+
+*** Afrontar el desafío demográfico
+**** Intro 0501                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0501
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Envejecimiento de la población
+2. Fenómenos migratorios
+3. Desequilibrio rural-urbano
+4. Concentración de población flotante o estacional
+{{{finlineas}}}
+{{{ods(8 10 11)}}}
+En general, la cuestión demográfica tiene claras implicaciones económicas y sociales, en la medida en que atañe directamente a los principales indicadores macroeconómicos de un país o región, así como al Estado de bienestar, con repercusiones especialmente relevantes para el futuro de las pensiones y en lo que se refiere, entre otros aspectos, a los servicios sanitarios y la asistencia a personas mayores.
+
+En el caso de Andalucía, los efectos derivados del progresivo envejecimiento y la baja tasa de natalidad, unidos a otros rasgos específicos de los flujos de población, deben analizarse desde un enfoque territorial, ya que existen grandes diferencias entre ámbitos comarcales o subregionales dentro del territorio andaluz, lo que genera impactos económicos, sociales y ambientales distintos, precisando respuestas diferenciadas.
+
+En cualquier caso, el ensanchamiento de la pirámide demográfica en los tramos de edad madura y las conocidas dificultades de los jóvenes para encontrar empleo, independizarse y tener hijos, ponen de manifiesto la necesidad de nuevas políticas sociales y económicas para la población joven.
+
+Estas tendencias pueden hacerse más evidentes en determinados ámbitos rurales, donde asegurar una perspectiva de vida personal y laboral a los jóvenes y a las mujeres puede ser una poderosa arma contra la despoblación.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Asegurar la sostenibilidad económica, social y medioambiental de los distintos territorios de Andalucía, atendiendo a sus características demográficas.
+{{{fintcb}}}
+
+**** Envejecimiento de la población
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0501-01
+:END:
+
+El *envejecimiento progresivo de la población que muestra la pirámide demográfica* está, en gran medida, explicado por el aumento de la esperanza de vida y el descenso de la natalidad. Este descenso es consecuencia del retraso de la emancipación de los jóvenes, la maternidad tardía y el menor número de hijos por mujer. Factores que a su vez dependen, entre otras variables, de la alta temporalidad del empleo y otras condiciones laborales, de las dificultades en el acceso a la vivienda y de las insuficientes medidas de apoyo a la conciliación familiar.
+
+Por otra parte, el ensanchamiento progresivo de la mitad superior de la pirámide demográfica implica un incremento de la proporción de personas mayores, que necesitan y necesitarán más atención y cuidados, en relación con la población potencialmente activa, es decir, un aumento de las ratios de dependencia.
+
+Al mismo tiempo, el envejecimiento tendrá un impacto significativo en el mercado de trabajo (relevo generacional o jubilaciones), que exigirá un aumento de la productividad que compense la menor aportación relativa del factor trabajo, a fin de mantener el crecimiento económico a largo plazo. Aunque obviamente se reflejará en una disminución de la fuerza laboral y en un descenso, de forma natural, de la tasa de desempleo en las próximas décadas.
+
+En Andalucía, la *tasa de natalidad* se ha reducido más rápidamente que en España y la UE en la última década, situándose en 2019 por debajo del promedio europeo (8,2 nacidos por cada 1.000 habitantes, frente a 9,3 de la UE). Mientras, la edad media de la población andaluza ha aumentado en 5 años en lo que va de siglo (37 años en 2001 frente a 42 en 2019).
+
+
+:fig-0501A1:
+:F: Instituto Nacional de Estadística:F:
+:U:   Personas.:U:
+:N::N:
+:E::E:
+#+CAPTION: Población de Andalucía por edad (grupos quinquenales) y sexo, 2020
+[[./graficos/0501A1.pdf]]
+:END:
+
+:fig-0501A2:
+:F: Instituto de Estadística y Cartografía de Andalucía, Instituto Nacional de Estadística y Eurostat.:F:
+:U: Tasa de natalidad: Nacidos por mil habitantes. \par Esperanza de vida: En años.:U:
+:N::N:
+:E::E:
+#+CAPTION: Tasas de natalidad, edad media y esperanza de vida (en años) en Andalucía
+[[./graficos/0501A2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Fomentar medidas de conciliación familiar y laboral que favorezcan el nacimiento y la crianza de los hijos.
+
+2. Implementar políticas de apoyo a la natalidad.
+
+3. Incrementar las acciones dirigidas a personas mayores, en coordinación con otras administraciones (central y locales), en materia de envejecimiento activo y atención a la dependencia en todo el territorio. Estas actuaciones implicarán, entre otras, propuestas de desarrollos digitales que faciliten dicho envejecimiento activo y saludable a través de la práctica físico-deportiva, que apoyen el cuidado y autocuidado, fomenten el deporte entre las personas mayores, al tiempo que contribuyan a prevenir la soledad, fomenten la comunicación interpersonal y el mantenimiento de la memoria y retraso del deterioro cognitivo.
+
+4. Potenciar la Acción Local en Salud, al ser el ámbito local el más efectivo para situar las políticas y las acciones de Salud Pública (prevención, promoción, y protección), capaz de reorientar los recursos disponibles y centrar las acciones en políticas territoriales organizadas.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+- Estrategia frente al desafío demográfico en Andalucía (en elaboración)
+
+**** Fenómenos migratorios
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0501-03
+:END:
+
+En los últimos años, en Andalucía se ha observado un importante flujo de salida de población. En concreto, la emigración con destino a otra región española presenta un saldo negativo, es decir, *la cifra de emigraciones supera a la de inmigraciones* desde 2011, y llegó a ser especialmente acusada en 2016 y 2017.
+
+También, la *emigración de población joven andaluza*, frecuentemente con una elevada capacitación educativa que, por falta de perspectivas profesionales, decide trabajar fuera de nuestra Comunidad Autónoma (resto de España y el extranjero) ha aumentado en los últimos años, con la consecuente pérdida de capital humano y de talento, y el menoscabo del crecimiento potencial de nuestra economía.
+
+En este sentido, la estadística sobre las variaciones residenciales desde Andalucía al extranjero revela un importante aumento de la emigración en los tramos todavía jóvenes de población (de 20 a 39 años), desde el comienzo de la anterior crisis económica, si bien las salidas al extranjero fueron especialmente intensas entre los años 2013-2017 y para la población con edades comprendidas entre los 30 y 39 años.
+
+En sentido contrario, por su localización geográfica, Andalucía es uno de los puntos de entrada habituales en la península de *población migrante no regulada*. Esta llegada de personas en situación irregular supone una responsabilidad para las administraciones públicas competentes que deben evitar, de acuerdo con la legislación vigente, la discriminación y la segregación espacial, laboral, educativa y social.
+
+Dada la dificultad de contar con datos estadísticos de la migración irregular llegada a Andalucía, la relevancia de este fenómeno puede inferirse a través del fuerte aumento en el número de solicitantes de protección internacional en Andalucía, con más de diez mil en 2019.
+
+
+:fig-0501B1:
+:F: Estadística de variaciones residenciales en Andalucía, IECA.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Jóvenes andaluces que emigran al extranjero
+[[./graficos/0501B1.pdf]]
+:END:
+
+:fig-0501B2:
+:F: Estadística de variaciones residenciales en Andalucía, IECA.:F:
+:U: Número de variaciones.:U:
+:N::N:
+:E::E:
+#+CAPTION: Saldo migratorio exterior de Andalucía con el resto de España
+[[./graficos/0501B2.pdf]]
+:END:
+
+:fig-0501B3:
+:F: IECA con datos del Ministerio del Interior (Gobierno de España).:F:
+:U::U:
+:N:     * En Andalucía no se contabilizan las solicitudes presentadas en embajadas ni las de reasentamientos.:N:
+:E::E:
+#+CAPTION: Número de solicitantes de protección internacional por lugar de presentación de la solicitud
+[[./graficos/0501B3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Facilitar el regreso de la población andaluza residente en el exterior que desee volver a Andalucía, con actuaciones que incentiven, especialmente, el retorno del talento andaluz en el extranjero o en otras regiones españolas.
+
+2. Incentivar la contratación por parte de las empresas de una mayor proporción de población joven en sus plantillas, así como establecer ayudas en materia de autoempleo juvenil (menores de 35 años), aprovechando la financiación europea, en particular el Fondo Social Europeo y los Fondos Next Generation UE.
+
+3. Intensificar los trabajos de coordinación con la UE y las autoridades españolas para canalizar una migración regular y ordenada, garantizando el respeto a los derechos humanos y facilitando su arraigo en la sociedad andaluza. En concreto, en el ámbito de la Comunidad Autónoma se prestará atención a la implantación, seguimiento y evaluación de la Estrategia Andaluza para la Inmigración, 2021-2025.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Desequilibrio rural-urbano
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0501-02
+:END:
+
+Otro factor relevante para la caracterización demográfica del territorio es el desequilibrio rural-urbano, que en el caso de Andalucía se traduce en una disminución significativa de habitantes en un buen número de municipios andaluces rurales de pequeño tamaño, observándose por el contrario un incremento poblacional en las áreas urbanas y metropolitanas.
+
+La *pérdida de población en el ámbito rural*, que afecta en mayor proporción a jóvenes, y que puede tener implicaciones más severas cuando este éxodo es superior entre las mujeres, causa un declive de la economía local, con efectos sobre la cohesión social y en el modelo de convivencia familiar y vecinal. Además, no se debe olvidar el impacto ambiental en forma del incremento de riesgos (erosión, inundación, incendios) por el abandono de la gestión del territorio, resultado de la pérdida de las actividades agrarias, ganaderas y forestales. Adicionalmente, este desequilibrio afecta al reparto de la provisión de los servicios públicos entre el medio rural y urbano.
+
+Una de las causas de esta pérdida de población vendría explicada por el hecho de que el medio rural, con carácter general, carece de una diversidad de actividades económicas (industriales y servicios alternativos a los tradicionales), que aprovechen otros recursos naturales autóctonos con un mayor potencial, especialmente aquellos vinculados a la energía, los minerales o el turismo rural.
+
+Andalucía es una comunidad autónoma muy poblada y con saldo vegetativo positivo en las últimas décadas. Pero atendiendo a las proyecciones actuales de población por ámbitos subregionales para el periodo 2016-2040 realizadas por el IECA, existe riesgo de despoblación en determinadas zonas de Sierra Morena (desde el Andévalo al norte de la provincia de Jaén), así como en municipios de la Cordillera Bética, donde predomina la dispersión de población con bajas densidades.
+
+:fig-0501C1:
+:F: Instituto de Estadística y Cartografía de Andalucía.:F:
+:U::U:
+:N: Se identifican los municipios con menos de 1.000 habitantes y una densidad inferior a 20 habitantes/km^{2}.:N:
+:E::E:
+#+CAPTION: Mapa de Municipios de Andalucía en riesgo de desaparición
+[[./graficos/0501C1.pdf]]
+:END:
+
+:fig-0501C2:
+:F: Instituto de Estadística y Cartografía de Andalucía.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Proyección de la población de Andalucía por ámbitos subregionales 2016-2040
+[[./graficos/0501C2.pdf]]
+:END:
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Establecer medidas que fomenten el emprendimiento y la puesta en marcha de proyectos de desarrollo socioeconómico para jóvenes, tanto en nuevas actividades productivas como en otras tradicionalmente vinculadas al ámbito rural, para fijar y atraer población.
+
+2. Impulsar medidas que garanticen el relevo intergeneracional en las explotaciones agrarias, de acuerdo al nuevo marco financiero plurianual 2021-2027 y a los criterios de la política de desarrollo rural de Andalucía.
+
+3. Aprovechar las oportunidades de capitalización del medio rural, que ofrecen las inversiones en plantas eólicas y fotovoltaicas, para favorecer el desarrollo de nuevas iniciativas empresariales complementarias (por ejemplo, apicultura o ganadería ovina) y alternativas (desarrollo de nuevas explotaciones agrarias).
+
+4. Fomentar y facilitar la implantación de actividades industriales y de aprovechamiento de los recursos naturales minerales que fijen población a los territorios rurales con empleos de calidad, innovadores y de larga duración.
+
+5. Favorecer la distribución directa de productos de cercanía del medio rural en los ámbitos urbanos, especialmente en las grandes ciudades, mediante plataformas digitales y mercados de productores en fines de semana.
+
+6. Intensificar la conectividad para acelerar la transformación digital en el medio rural.
+
+7. Apoyar el desarrollo de proyectos que garanticen la elección de residencia efectiva de las mujeres en el territorio rural y/o urbano.
+
+8. Impulsar el teletrabajo en zonas rurales o de segundas residencial estacionales, para fijar población.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Concentración de población flotante o estacional
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0501-04
+:END:
+
+El *notable incremento y la concentración de población flotante o estacional* en determinados territorios, tanto de forma puntual como en ciertos periodos a lo largo del año, es un fenómeno con indudables *impactos sobre la disponibilidad de servicios públicos* en dichas áreas, que se agrava con la falta de determinación de las competencias entre las distintas administraciones actuantes en el territorio.
+
+Aunque cuantificar y anticipar estas variaciones poblacionales no es tarea fácil, por la cantidad de variables estacionales, demográficas y económicas distintas que inciden en estos fenómenos, los responsables públicos deben anticiparse a las adversas consecuencias que se pueden provocar si los recursos públicos no están adaptados al número de personas que se encuentren en una determinada localidad o municipio. Esta población estacional puede llegar a ser muy superior a las personas censadas o empadronadas para las que la administración ha diseñado, inicialmente, una prestación de servicios básicos adecuada.
+
+De este modo, en Andalucía se produce un notable *incremento de población debido al turismo* durante todos los meses del año, si bien la concentración de población flotante o estacional resulta mucho más significativa en la temporada turística alta en determinados municipios.
+
+Asimismo, hay que tener en cuenta que el *carácter estacional de ciertas producciones agrarias* en Andalucía genera una sobrepoblación en algunos municipios y comarcas (caso de la provincia de Huelva y la fresa o la campaña de la aceituna en la provincia de Jaén, entre otras), que las administraciones locales y regional deben atender.
+
+:fig-0501D1:
+:F: Elaboración propia a partir de datos del INE e IECA.:F:
+:U: Promedio de los meses del tercer trimestre de los años 2017, 2018 y 2019.:U:
+:N:La comparación de la población residente con las pernoctaciones hoteleras es un modo de aproximar las "personas equivalentes a tiempo completo anual", como medida para estimar la población usuaria de servicios en un territorio.:N:
+:E::E:
+#+CAPTION: Estimación sobrecarga en algunos municipios con elevada población estacional de Andalucía
+[[./graficos/0501D1.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Identificar correctamente los flujos turísticos, principalmente estivales, y los derivados de acontecimientos culturales, deportivos, así como los vinculados a la actividad agrícola para anticipar la provisión de los servicios públicos necesarios para territorios afectados.
+
+2. Reforzar los servicios públicos básicos para la población residente y flotante durante los períodos de gran afluencia de población, ajustando el dimensionamiento de las infraestructuras y equipamientos adecuados.
+
+3. Contribuir a la cooperación interadministrativa (colaboración con las administraciones central y de las entidades locales), para definir, sin solapamientos, el ámbito competencial de cada una.
+
+4. Mejorar el conocimiento estadístico demográfico de los flujos estacionales, que permitan diseñar modelos de previsión.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Optimizar la localización de las infraestructuras públicas
+**** Intro 0502                                                   :ignore:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Dotaciones de infraestructuras y equipamientos
+{{{finlineas}}}
+{{{ods(3 4 6 8 9)}}}
+El desarrollo social y económico del territorio junto con la protección de éste y la coordinación de las políticas públicas sectoriales con incidencia territorial constituyen los elementos básicos para la política de ordenación del territorio.
+
+Dicho desarrollo requiere de un conjunto de infraestructuras y equipamientos, con una localización específica en los distintos ámbitos o áreas subregionales y municipios que componen Andalucía.
+
+Entre las infraestructuras, cabe citar las de transporte y, por supuesto, las digitales, sin olvidar las destinadas a atender los servicios públicos, que son destacados componentes del capital físico construido. Este conjunto de activos, unido al propio sistema de asentamientos y a los espacios libres, conforman el tercer gran sistema estructurante del territorio de Andalucía, y tiene una enorme relevancia para la articulación y cohesión territorial, la equidad social y el buen funcionamiento de la economía.
+
+La importancia de estas dotaciones físicas y equipamientos para los servicios básicos está estrechamente ligada a la /accesibilidad/ a los mismos (distancia, en términos de tiempo), que debe garantizarse en los diferentes territorios de Andalucía.  Ello resulta fundamental para lograr una igualdad real en la calidad de vida y el bienestar de la ciudadanía.
+
+Para abordar esta prioridad y la consiguiente oferta de servicios públicos se debe tener en cuenta las diferencias derivadas de los distintos grados de urbanización y ruralidad.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Garantizar que toda la población andaluza tenga acceso a las infraestructuras, los equipamientos y servicios públicos, sea cual sea su lugar de residencia.
+{{{fintcb}}}
+
+**** Dotaciones de infraestructuras y equipamientos
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0502-01
+:END:
+
+En términos generales, la dotación de infraestructuras y equipamientos hace referencia, por un lado, a las redes, sistemas y servicios de transporte terrestres, marítimos y aéreo, eléctricos, hidráulicos y de las telecomunicaciones y, por otro, a los equipamientos públicos para los servicios básicos, entre los que destacan, sin duda, los de la salud, educación y justicia.
+
+El papel fundamental de dichos equipamientos se ha puesto de manifiesto en los anteriores bloques temáticos de esta Estrategia. Así, por ejemplo, en el de “Conectividad” se ha destacado la función de las comunicaciones digitales y físicas, en el de “Bienestar” se ha evidenciado la necesidad de servicios educativos, de salud o atención social. Ahora, esta significación se trata desde una perspectiva territorial, no sectorial, así el foco se pone en la contribución de las infraestructuras y equipamientos a la articulación, la cohesión territorial y la competitividad regional, configurada por el sistema de ciudades (como centros de dotaciones, equipamientos y servicios), las vías de comunicación terrestres principales y las áreas logísticas y puertos.
+
+El concepto de cohesión territorial incluye entre sus significados el de equidad social, por lo que para alcanzar dicha cohesión debe garantizarse las *condiciones de accesibilidad (medida en tiempo) a las infraestructuras, equipamientos y servicios básicos en las diferentes partes del territorio regional*, que debe ser equilibrado y reflejar las menores disparidades posibles. La creación de condiciones de accesibilidad a los equipamientos (educativos, sanitarios, judiciales, culturales, deportivos y también ambientales) en la práctica totalidad del territorio andaluz es un requisito de calidad de vida y bienestar de la ciudadanía. No obstante, aún existen problemas tanto en áreas urbanas como rurales de Andalucía y se *precisan más esfuerzos* para logar una equidad social en términos territoriales. Igualmente, se debe garantizar el acceso universal a estos equipamientos para aquellas personas con movilidad reducida.
+
+Atendiendo a la *información disponible* por el Instituto de Estadística y Cartografía de Andalucía (IECA), *resulta posible conocer la distribución de la población y la dotación de equipamientos y servicios básicos* en el territorio regional y las diferencias entre distintos ámbitos.
+
+En concreto, a partir de la información de la malla de población (Distribución espacial de la población en Andalucía [fn:14]) es posible detectar patrones poblacionales característicos en el territorio atendiendo al distinto grado de urbanización.
+
+Aplicando esta metodología, en Andalucía, el 11,3% de las cuadrículas (de 250 m x 250 m) habitadas corresponde a centros urbanos, el 24% a agrupaciones urbanas y el resto (64,7%) a cuadrículas habitadas de malla rural. Además, considerando el volumen de población que habita en estas áreas, el 44,6% de la población andaluza reside en cuadrículas clasificadas como centros urbanos, el 38% en cuadrículas del tipo agrupaciones urbanas y el 17,4% en cuadrículas rurales. Esta proporción obviamente difiere entre las provincias andaluzas, de modo que en la provincia de Jaén es donde más población reside en el ámbito rural (28,1%) y en la provincia de Sevilla, en la que menos (9,2%), con información correspondiente a 2019.
+
+En cualquier caso, una característica diferenciadora de Andalucía en relación con el promedio europeo es la mayor concentración de la población en nuestra Comunidad Autónoma. Así, mientras en Europa el 65,7% de la población vive en cuadrículas de más de 1.000 habitantes (las cuales representan el 5,7% de las celdas), en Andalucía es el 86% de la población la que vive en celdas de más de 1.000 habitantes (que representan el 12,7%).
+
+Gracias a la información estadística disponible para estas mallas de población y a la georreferenciación, resulta posible detectar patrones poblacionales característicos en el territorio según los grados de urbanización, así como determinar la dotación de equipamientos y servicios básicos en cada unidad territorial. Así, por ejemplo, se constata que en las poblaciones rurales existe un desequilibrio entre hombres y mujeres, con menor presencia de estas últimas; o que el número de pensionistas es porcentualmente más elevado en las zonas rurales (19,5%) que en las zonas no rurales (por debajo del 16%), ya que concentra población más envejecida. Esta diferente caracterización debe tenerse en cuenta a la hora de la provisión de servicios públicos.
+
+Adicionalmente, utilizando el visor para el “Inventario de Sedes y Equipamientos de la Junta de Andalucía”, la Comunidad Autónoma está dotada con 20.522 equipamientos relacionados con distintos ámbitos, de los cuales el 35,75% (un total de 7.338) se localizan en ciudades de más de 50.000 habitantes. Estos equipamientos se encuentran distribuidos en 15 tipologías distintas, siendo los más numerosos, los educativos, los de salud, culturales y deportivos.
+
+En cualquier caso, se puede concluir que persisten diferencias notables entre distintos territorios en Andalucía, siendo un factor determinante de este desequilibrio el distinto grado de *urbanización y ruralidad*, al margen de otras circunstancias como la orografía.
+
+Una consideración especial en materia de accesibilidad merece la digitalización, por su carácter transversal y su capacidad para transformar los territorios. En este sentido, la UE incorpora la digitalización en su Agenda Territorial 2030, en la Nueva Carta de Leipzig[fn:16] y en el Plan de Recuperación NextGenerationEU, como un tema clave y determinante para el futuro desarrollo en la escala territorial (smart territories, tanto en el ámbito rural y urbano), insistiendo en que la fortaleza de la smart cities será un factor decisivo para la competitividad de la UE en su conjunto.
+
+De este modo, el desarrollo de las smart cities posibilita nuevas posibilidades en el ámbito de la movilidad, acceso a servicios públicos, comercio, participación ciudadana, entre otras potencialidades, por lo que Andalucía debe apostar por la excelencia digital (y por las infraestructuras de telecomunicaciones) que proporcione servicios de alta calidad a las empresas y a la sociedad, en su conjunto.
+
+La conectividad de los territorios rurales, preferentemente con cobertura de banda ancha (ya tratada en el bloque temático 3, dedicado a la “conectividad”) constituye una oportunidad para *disminuir los desequilibrios territoriales en Andalucía y para favorecer una distribución de la población* que, en la actualidad, se concentra excesivamente en el litoral y las ciudades del interior, pero bastante dispersa en los ámbitos rurales. Este reequilibrio haría más rentable la dotación de infraestructuras y más eficiente la provisión de servicios públicos.
+
+
+:fig-0502A1:
+:F: Instituto de Estadística y Cartografía de Andalucía.:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Distribución de la población según del grado de urbanización por provincias, 2020
+[[./graficos/0502A1.pdf]]
+:END:
+
+:fig-0502A2:
+:F: Instituto de Estadística y Cartografía de Andalucía.:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Comparación sobre la distribución del inventario de equipamientos por categorías y ámbitos, 2020
+[[./graficos/0502A2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Elaborar Planes de Movilidad Urbana Sostenible (PMUS) en las ciudades y áreas conurbanas de Andalucía, al menos en las clasificadas como ciudades medias o centros regionales.
+
+2. Impulsar el monitoreo continuo del territorio a través de diagnósticos e informes sobre la situación del territorio y escenarios prospectivos. Para su financiación se emplearán las actuales convocatorias competitivas de la Junta de Andalucía, como las de la Agencia Andaluza del Conocimiento o las de la Fundación Centro de Estudios Andaluces.
+
+3. Impulsar el desarrollo local integral en el ámbito rural, en línea con las propuestas del nuevo marco de la política europea para el desarrollo rural, que contribuyan a la dotación de equipamientos y la calidad de los servicios.
+
+4. Desarrollar una Comisión-Ponencia Interdepartamental, asesorada por expertos externos en evaluación de infraestructuras, que ayude a priorizar las inversiones en infraestructuras en función de criterios objetivos de Análisis Coste Beneficio Social.
+
+5. Realizar inversiones en infraestructuras y equipamientos en aquellos ámbitos territoriales donde se detecten déficits estructurales, atendiendo a una priorización en los ámbitos educativos, sanitarios, sociales, judiciales, del transporte, telecomunicaciones, vivienda, culturales, deportivos, turísticos, industriales o comerciales, garantizando la accesibilidad universal, y priorizando el uso de los materiales reciclados.
+
+6. Incluir el enfoque territorial en el conjunto de políticas regionales, especialmente, en las políticas de digitalización y de conectividad, para disminuir los desequilibrios y mejorar la accesibilidad a los servicios públicos.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Favorecer un desarrollo local y regional integrado y endógeno
+**** Intro 0503                                                   :ignore:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Desarrollo local y regional integrado
+{{{finlineas}}}
+{{{ods(9 11 15 17)}}}
+Esta prioridad de la política económica de Andalucía, /favorecer un desarrollo local y regional integrado y
+endógeno/, pretende dar respuesta al Objetivo estratégico 5 para la política de cohesión en el período de 2021-2027 y a las visiones estratégicas de la UE para el desarrollo del territorio y las ciudades europeas, recogidas en la “Agenda Territorial 2030: Un futuro para todos los lugares” y la “Nueva Carta de Leipzig”.
+
+Atendiendo a las propuestas contenidas en estos documentos de referencia, se establecen tres ejes para articular este tipo de política territorial.
+
+En primer lugar, las estrategias de desarrollo territorial impulsadas “desde abajo” (/bottom-up/) en el marco de la cooperación intermunicipal y centradas en el desarrollo económico y la mejora de competitividad. En segundo lugar, los planes de ordenación del territorio centrados en la protección y cohesión del territorio y el crecimiento urbanístico razonable. Y, en tercer lugar, los proyectos de cooperación territorial (transfronteriza, transnacional e interregional) de Andalucía con otras regiones españolas y/o extranjeras.
+
+Andalucía comparte el espíritu que subyace en el mencionado objetivo estratégico 5 de la programación presupuestaria plurianual de la UE "Una Europa más próxima a sus ciudadanos, que fomente el desarrollo integrado y sostenible de las zonas urbanas, rurales y costeras y las iniciativas locales" que, a su vez, se encuentra claramente alineado con el Pacto Verde Europeo y su Plan de Inversiones.
+
+De este modo, la política económica regional andaluza hace suyas estas mismas prioridades europeas para el desarrollo territorial (tanto en las zonas urbanas como en las no urbanas, a través de la cultura, el patrimonio natural y el turismo sostenible) y los principios clave para la buena gobernanza urbana, en el horizonte 2027, en consonancia con las políticas comunitarias de cohesión y de desarrollo rural, la implementación de la Agenda Urbana Europea y la aplicación del instrumento Interreg (cooperación transfronteriza, transnacional e interregional). Todo ello con la finalidad de promover la cohesión territorial, recogida en el art. 3 del Tratado de la Unión Europea y consagrada como objetivo básico para la Comunidad Autónoma, tal y como refleja el artículo 10º del Estatuto de Autonomía para Andalucía.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Adoptar el enfoque de un desarrollo integrado, endógeno y sostenible de las zonas urbanas, rurales y costeras, para reducir los desequilibrios territoriales.
+{{{fintcb}}}
+
+**** Desarrollo local y regional integrado
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0503-01
+:END:
+
+En las últimas décadas, todas las áreas subregionales, comarcas y municipios, en general, que componen Andalucía han observado una mejora en el desarrollo económico y social. No obstante, las distintas políticas públicas de la Junta de Andalucía, tanto sus actuaciones de carácter general, como sus instrumentos focalizados en determinados territorios (por ejemplo, el desarrollo rural a través de los Grupos de Desarrollo Rural/Iniciativa Leader, las Iniciativas Turísticas Sostenibles/ITS, o las Inversiones Territoriales Integradas, concretamente las ITIs de Cádiz y Jaén) *no han conseguido lograr una equidad territorial satisfactoria.*
+
+Sin perjuicio de otras razones, esta situación es también consecuencia de que los instrumentos de atención focalizada en determinados territorios, promovidos desde la política económica regional y la política de ordenación del territorio, no han tenido, en ocasiones, una implementación suficiente. También han sido muy escasas *las estrategias de desarrollo territorial en la escala intermedia[fn:15]*, impulsadas desde abajo en el marco de la cooperación intermunicipal y orientadas al desarrollo económico, la innovación y la mejora de competitividad.
+
+La escasez de estas estrategias viene explicada por la *débil cultura de cooperación* existente entre los municipios andaluces. Bien es cierto que existen fórmulas organizativas, como Mancomunidades y Consorcios, pero éstas se centran en la gestión de determinados servicios públicos (transporte, agua, o recogida de basura, entre otros) o en la promoción turística conjunta. Sin embargo, en las competencias municipales de alto valor estratégico, como el desarrollo urbanístico o la promoción económica, suele dominar la acción individual de la entidad local.
+
+La *reducida cobertura regional por la planificación subregional* prevista en el POTA, especialmente, en los ámbitos de zonas rurales del interior de Andalucía, puede suponer una debilidad para el desarrollo territorial de estos ámbitos que actualmente, en algunos casos, están presentando tendencias regresivas de población y aproximándose a los rasgos que caracterizan el nuevo paradigma de la “España vaciada”.
+
+Por su parte, *el Plan de Ordenación del Territorio (POTA)* presta una considerable atención a la dimensión económica del desarrollo territorial, tal y como reflejan sus programas coordinados de carácter interdepartamental (como el Programa Coordinado para el Desarrollo de las Zonas del Interior de Andalucía), o sus Estrategias para el Sistema intermodal de transportes y, en particular, sus Estrategias para el Sistema de Ciudades, destacando sus recomendaciones para la cooperación entre los Centros Regionales (las áreas metropolitanas andaluzas) y la cooperación en el marco de las Redes de Ciudades Medias. Sin embargo, *estas recomendaciones apenas han sido desarrolladas*, a pesar de las experiencias positivas de otros países europeos (especialmente Alemania y Francia) y el consenso sobre su oportunidad para generar y aprovechar economías de escala y efectos sinérgicos.
+
+El POTA preveía el desarrollo de instrumentos para el seguimiento y evaluación del territorio y de su planificación, que ha sido implementado de manera parcial, a través fundamentalmente del sistema de información y del seguimiento y evaluación de planes de desarrollo.
+
+Adicionalmente, conviene señalar *el limitado recorrido de la Estrategia del Paisaje de Andalucía*, a pesar de que la excelencia paisajística, en términos de diseño e integración en el territorio, constituye un valor económico indirecto, que contribuye positivamente a la imagen corporativa de los espacios que ocupan, no solo barrios en ciudades y en municipios rurales, también centros de investigación, logísticos, parques empresariales, entre otros enclaves.
+
+Asimismo, dentro de los diferentes instrumentos de la planificación ambiental de la Junta de Andalucía, han de reforzarse aquellos que tienen una relación directa con el desarrollo local integrado y endógeno. Entre ellos destacan los *Planes de Desarrollo Sostenibles* (PDS), cuya finalidad es impulsar el desarrollo de actividades productivas sostenibles en los espacios naturales protegidos.
+
+Por último, en Andalucía al igual que la mayoría de las regiones europeas se ha producido en las últimas décadas un excesivo consumo de suelo para urbanización, que resulta poco sostenible, coincidiendo con instrumentos urbanísticos y de ordenación territorial escasamente operativos. Por ello, la Ley para la Sostenibilidad del Territorio unifica la actual legislación de ordenación del territorio y el bloque normativo de la legislación urbanística en un solo texto legislativo. Su propósito es resolver las dificultades que han ido afrontado ambas disciplinas en los últimos años, dotar de garantía jurídica al desarrollo de los instrumentos de planificación, gestión y disciplina territorial y urbanística, avanzar en la autonomía local y afianzar las medidas de simplificación y agilización administrativas en el marco de estas disciplinas.
+
+En definitiva, Andalucía debe adoptar enfoques más avanzados e innovadores, para activar el capital territorial propio de cada espacio subregional, conocimiento y bienes, a través de soluciones diseñadas a medida. Dichas soluciones pueden ser estrategias a la escala específica del territorio (regional, subregional y local), encaminadas al desarrollo y la competitividad a largo plazo de esa área geográfica, junto con *el establecimiento de acuerdos o convenios con otras Comunidades Autónomas españolas o regiones de países vecinos* (como Portugal o Marruecos, por ejemplo).
+
+:fig-0503A1:
+:F: Plan de Ordenación del Territorio de Andalucía (POTA).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Modelo territorial de Andalucía, según el vigente POTA
+[[./graficos/0503A1.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Implementar la Ley de Impulso para la Sostenibilidad del Territorio de Andalucía (LISTA) y desarrollar los instrumentos previstos en ella.
+
+2. Revisar el Plan de Ordenación del Territorio de Andalucía, de acuerdo a los contenidos y previsiones de la Ley de Impulso para la Sostenibilidad del territorio de Andalucía (LISTA) y prever la elaboración de un informe de seguimiento y evaluación.
+
+3. Incrementar el número de POTS de nueva formulación en desarrollo del POTA y culminar los que actualmente están pendientes de aprobación, en los términos previstos en la LISTA.
+
+4. Desarrollar las previsiones de la Ley de Impulso para la Sostenibilidad del territorio de Andalucía en materia de paisaje y protección del litoral.
+
+5. Propiciar desde el urbanismo y la ordenación del territorio la movilidad sostenible a través de la apuesta por la ciudad compacta, la mezcla de usos y proximidad a los servicios a escala de supermanzanas y barrios.
+
+6. Adaptar los contenidos de los POTS y de los PGOU a las orientaciones en materia de cambio climático y de una economía baja en carbono como vectores del desarrollo urbano-territorial sostenible, con objeto de facilitar, en el medio rural, el desarrollo de actividades económicas compatibles.
+
+7. Fomentar el desarrollo de actividades productivas sostenibles en los entornos naturales protegidos.
+
+8. Fortalecer la cooperación trasfronteriza de Andalucía con regiones y territorios vecinos, especialmente en el ámbito de la Eurorregión Alentejo-Algarve-Andalucía (Euro AAA), a través del desarrollo de iniciativas, estrategias y proyectos, que coadyuven a su desarrollo tanto económico, como urbano-territorial sostenibles
+
+9. Impulsar iniciativas y proyectos industriales y de desarrollo de las infraestructuras locales ligadas a los procesos de Transición Justa, en las provincias de Almería, Cádiz y Córdoba, en coordinación con la Administración General del Estado y la Federación Española de Municipios y Provincias y con la colaboración del sector privado.
+
+10. Implementar actuaciones en materia de espacios libres, tanto metropolitanos como de carácter supralocal, desarrollando las previsiones de los instrumentos de planificación territorial, para mejorar la calidad de las ciudades, reforzar el sistema de infraestructuras verdes y los vínculos entre el medio urbano y el rural.
+
+11. Impulsar el desarrollo turístico sostenible en diferentes ámbitos territoriales.
+
+12. Fomentar la coordinación interadministrativa y con las entidades locales responsables de la gestión de los polígonos para favorecer el desarrollo de suelos industriales, así como facilitar el desarrollo de actividades económicas compatibles con otros usos del suelo en el ámbito rural.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Impulsar una política de ciudades
+**** Intro 0504                                                   :ignore:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Política de ciudades y áreas metropolitanas
+{{{finlineas}}}
+{{{ods(11 17)}}}
+Dentro del bloque temático dedicado al territorio, la política de ciudades constituye una prioridad en la acción de gobierno. Este convencimiento coincide con el compromiso con los 17 Objetivos de Desarrollo Sostenible (ODS) de la Agenda 2030 de Naciones Unidas, especialmente con el ODS 11, que se refiere a “lograr que las ciudades sean más inclusivas, seguras, resilientes y sostenibles”. En este contexto, se entiende por ciudades tanto espacios urbanos de reducida dimensión como las áreas metropolitanas. De este modo, esta política se encuentra, nuevamente, imbricada con la Nueva Carta de Leipzig.
+
+Esta clara identificación con los principios que inspiran dichas propuestas explica que las Agendas Urbanas se hayan convertido en un instrumento de carácter estratégico y en el marco de referencia para orientar las políticas públicas urbanas, en los distintos niveles de gobierno, es decir, la UE, el Gobierno de España, diferentes administraciones regionales y algunas entidades locales. Precisamente que distintas administraciones públicas hagan uso del mismo instrumento resulta novedoso y constituye una oportunidad para que el desarrollo urbano se convierta en una política pública multinivel, correctamente alineada y coordinada y, por tanto, potencialmente exitosa.
+
+Para Andalucía, esta perspectiva debe centrarse en poner en valor uno de sus principales activos del capital territorial, como es su sistema urbano equilibrado, con una presencia destacada de redes de ciudades medias. Para ello, la puesta en práctica de actuaciones se debe articular en torno a la implementación de la Agenda Urbana de Andalucía para la consecución de un desarrollo sostenible de las ciudades.
+
+Adicionalmente, también se deben apoyar las “agendas metropolitanas” en Andalucía, dada la elevada relevancia de las áreas metropolitanas para la sostenibilidad, sobre todo, el reto del cambio climático y competitividad regional, en su conjunto. Y, por último, conviene fomentar e impulsar la formación de redes de cooperación entre ciudades medias, que emprendan iniciativas conjuntas de relevancia económica como, por ejemplo, el desarrollo de sistemas productivos locales o parques empresariales compartidos.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Lograr que las ciudades andaluzas sean más inclusivas, seguras, resilientes y sostenibles, contribuyendo al desarrollo económico y la competitividad de Andalucía.
+{{{fintcb}}}
+
+**** Política de ciudades y áreas metropolitanas
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+***** Texto                                                      :ignore:
+:PROPERTIES:
+:CUSTOM_ID: texto-0504-01
+:END:
+
+El sistema urbano andaluz está configurado por 10 áreas metropolitanas (Almería-El Ejido, Bahía de Algeciras, Bahía de Cádiz-Jerez, Córdoba, Granada, Huelva, Jaén, Málaga, Costa del Sol y Sevilla), que representan 195 municipios y 68,7% de la población andaluza, las ciudades medias interiores y litorales (253 municipios, 22,3% de la población) y asentamientos rurales con o sin centro urbano (330 municipios, 8,9% de la población).
+
+De este modo, las *áreas metropolitanas* concentran, mayoritariamente, la población y la actividad económica de Andalucía, siendo espacios de vida y de acción de la ciudadanía y los agentes económicos. En ellas se aglutinan el empleo, el consumo, los recursos, la innovación, el conocimiento y la vida cultural, desempeñando un papel determinante para el desarrollo y la competitividad regional. Igualmente resultan decisivas para la sostenibilidad de nuestra Comunidad Autónoma, ya que las ciudades y las conurbaciones son el principal campo de batalla contra el cambio climático.
+
+En este sentido, cabe tener presente que la *amplia red de ciudades medias* existente en Andalucía alberga un rico patrimonio histórico-cultural, que constituye un activo relevante para el desarrollo turístico. Igualmente son un elemento importante del desarrollo económico local y regional, donde han surgido sistemas productivos locales y, en algunos casos, clústeres industriales. Asimismo, presentan ventajas ambientales y de calidad de vida vinculadas al tamaño medio de estas ciudades y a su forma urbana tradicional, con los patrones de una ciudad compacta, siguiendo un modelo urbano más sostenible.
+
+En su conjunto las áreas metropolitanas, las ciudades medias y los asentamientos rurales configuran en Andalucía un *sistema urbano equilibrado*. Este equilibrio se refleja en la distribución geográfica relativamente homogénea de las ciudades y en la ausencia de grandes diferencias poblacionales entre las dos urbes más grandes (Sevilla y Málaga).
+
+Precisamente, este sistema urbano equilibrado y policéntrico brinda ventajas para el desarrollo económico del territorio y también para su cohesión, tanto en términos de vertebración e integración física como de accesibilidad a los equipamientos y servicios en las diferentes partes de nuestra región, permitiendo también la fijación de la población en el territorio.
+
+No obstante, esta posición aventajada del sistema urbano de Andalucía no evita la existencia de varios problemas que ponen de manifiesto que sus ventajas potenciales se encuentran amenazadas o no se han aprovechado de forma suficiente. Así, el proceso de urbanización en forma de expansión dispersa, sobre todo en las áreas metropolitanas y el litoral de Andalucía, ha supuesto un binomio de *excesivo consumo de suelo y de incremento de movilidad en coche particular*, con fuertes impactos ambientales y también costes económicos y sociales, que ha puesto el desarrollo urbano de algunas zonas de Andalucía en la senda de la insostenibilidad.
+
+Igualmente, existen en el interior de muchas ciudades situaciones de declive económico, de problemas sociales y de pobreza, que se han traducido en un número considerable de zonas urbanas desfavorecidas dentro de la región.
+
+Además, en las áreas metropolitanas andaluzas, como espacios urbanos funcionales compuestos por múltiples municipios, los problemas y retos presentan una enorme complejidad y las soluciones planteadas suelen adolecer de una visión integral.
+
+Especialmente, estos problemas atañen a cuestiones relativas a la ordenación urbanística-territorial y a la movilidad (en las áreas metropolitanas una parte considerable de los vehículos que entran cada día en la ciudad central correspondiente proceden de municipios de su entorno), a las infraestructuras verdes, a la gestión del agua y de los residuos municipales, sin olvidar la promoción económica.
+
+Todos estos asuntos tienen un alcance y una dinámica que exceden de los límites  geográficos y las esferas competenciales de cada municipio, ya que afectan de forma transversal a distintas administraciones públicas, que operan en cada área metropolitana. Por ello, se hace imprescindible *abordar estos problemas de forma unitaria y coordinada* para el conjunto de cada área metropolitana en el marco de un enfoque de planificación integrada, como recuerda la Declaración de Montreal sobre Áreas Metropolitanas de 2015.
+
+Esta planificación integrada precisa de una cooperación multinivel entre todas las administraciones y la cooperación público-privada de éstas con los actores interesados (agentes económicos, sociales y sociedad civil) para construir una alianza con una visión común y estrategias de acción compartidas y coherentes, para asegurar un desarrollo inclusivo, seguro, resiliente y sostenible de las áreas metropolitanas, de acuerdo con el ODS 11.
+
+En Andalucía, no ha existido este tipo de alianzas amplias para la puesta en marcha de una agenda metropolitana, ya que esta perspectiva solo ha sido objeto de aproximaciones parciales (Planes de Transporte Metropolitano y Planes de Ordenación del Territorio subregionales) o genéricas, aunque la Agenda Urbana de Andalucía 2030 esboza posibles líneas de actuación.
+
+Al mismo tiempo, existen algunos planeamientos estratégicos para ciudades que contemplan e incorporan la dimensión metropolitana (el Plan Estratégico Sevilla 2030 o el Foro Metropolitano de Alcaldes en Málaga), pero *no se han llegado a formular todavía planes estratégicos metropolitanos*, como resultado del acuerdo de varios municipios y otros actores relevantes de las áreas metropolitanas. Tampoco se ha avanzado en la importante cuestión de los modelos de organización institucional específicos para áreas metropolitanas, ya sean gobiernos metropolitanos (como el Área Metropolitana de Barcelona) o fórmulas más blandas de la gobernanza metropolitana.
+
+Bien es cierto que el POTA señaló varios campos de actividad para crear redes de cooperación entre los Centros Regionales (las áreas metropolitanas), algunos de ellos directamente referidos a la economía (actividades productivas, innovación e investigación), pero la cooperación inter-metropolitana ha sido prácticamente inédita en Andalucía. Tan solo, a modo de excepción, cabe mencionar el Protocolo de Cooperación de 2015 para el “Eje Sevilla-Málaga” (al que se adhirió Córdoba), impulsado desde las alcaldías de ambas ciudades.
+
+Por otra parte, el potencial de las ciudades medias para el desarrollo económico no ha sido aprovechado de forma óptima. El POTA recogió una agenda para la cooperación en red de las ciudades medias de Andalucía, a fin de realizar iniciativas compartidas de interés económico (por ejemplo, estrategias conjuntas para el desarrollo de sistemas productivos locales u oferta coordinada de suelo para actividades productivas). Pero esta agenda no obtuvo respuestas significativas en los municipios y agentes económicos y sociales locales. Por todo ello, resulta necesario un nuevo impulso, para que las redes de cooperación entre ciudades medias se conviertan en auténticas redes de acción, capaces de generar economías de escala y efectos sinérgicos positivos, no solo sobre las urbes andaluzas sino también sobre el conjunto del territorio.
+
+La *Agenda Urbana de Andalucía* es el principal instrumento de desarrollo estratégico urbano en el ámbito regional, que toma como referencia las agendas urbanas de superior nivel y los ODS, aspirando a convertirse en el manual de cabecera para las agendas urbanas que impulsen los municipios andaluces.
+
+La Agenda andaluza fue aprobada en 2018 con anterioridad a la Agenda Urbana Española (2019), por lo que ha requerido de una adaptación y alineación con esta última.
+
+Con este desarrollo a escala multinivel se reconoce la función rectora de los gobiernos nacionales en la definición y aplicación de políticas urbanas, así como las contribuciones de los gobiernos subnacionales y locales, de la sociedad civil y otros interesados pertinentes, de manera transparente y responsable, lo que conlleva necesariamente un modelo de implementación a escala local de estas agendas urbanas.
+
+Debido al alto impacto del desarrollo de diferentes tecnologías (5G, IoT, big data, entre otros ejemplos) en la gestión de los espacios urbanos, nos encontramos ante la introducción de un nuevo concepto, el de *Ciudades o Territorios Inteligentes*, que trae consigo un amplio abanico de oportunidades en cuanto a la mejora de la gestión de los recursos de la ciudad, en aras de un mayor equilibrio económico, mejora de la calidad de vida y del sistema del bienestar, así como de las condiciones medioambientales, con la prioridad de aportar valor a la ciudadanía y resolver sus necesidades.
+
+En los últimos años se ha venido impulsando el proceso de transformación de las ciudades y municipios de Andalucía a través de un modelo cohesionado, colaborativo y sostenible, liderado por la Junta de Andalucía y en colaboración con las diputaciones provinciales y la Federación andaluza de Municipios y Provincias.
+
+Cabe esperar que las entidades locales de Andalucía, como principales destinatarias de estos planteamientos, sean también parte fundamental en la materialización de las diversas estrategias diseñadas en los niveles superiores de gobierno (nacional y regional). La función de las ciudades será llevar a cabo una adaptación a los principios y contenidos de estas agendas, de acuerdo a las necesidades de su territorio, conforme a los principios de ciudad justa, verde y productiva de la Nueva Carta de Leipzig, que abarca el concepto de “Ciudad Amable”.
+
+:fig-0504A1:
+:F: Agenda Urbana de Andalucía. Elaborado a partir del Censo de Población 2001.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Elementos del Sistema Urbano
+[[./graficos/0504A1.pdf]]
+:END:
+
+:fig-0504A2:
+:F: Agenda Urbana de Andalucía. Elaborado a partir del Censo de Población 2001.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Modelo de interrelación de los distintos marcos estratégicos para el desarrollo urbano
+[[./graficos/0504A2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Implementar la Agenda Urbana de Andalucía 2030 en todas sus dimensiones (espacial, económica, social, ambiental y de gobernanza) y requerir que las ciudades andaluzas hagan una adaptación de la misma a sus correspondientes ámbitos locales.
+
+2. Apoyar desde la Junta de Andalucía a los municipios en la elaboración de Planes Estratégicos de Ciudades.
+
+3. Crear y fomentar la marca «Ciudad Industrial».
+
+4. Favorecer y apoyar los procesos de cooperación entre los municipios de las distintas áreas metropolitanas de Andalucía, a fin de crear y consolidar mecanismos institucionalizados o informales de gobernanza metropolitana.
+
+5. Impulsar la elaboración en cada área metropolitana de Planes Estratégicos Metropolitanos en el marco de amplias alianzas de cooperación entre los actores públicos y privados de distintos municipios.
+
+6. Propiciar e incentivar la cooperación entre las áreas metropolitanas andaluzas de las diferentes provincias en materia de ordenación del territorio y urbanismo, movilidad y transporte metropolitanos, suelo y vivienda, servicios públicos, sostenibilidad urbana, desarrollo de actividades productivas, innovación e investigación, entre otras.
+
+7. Fomentar la creación y el funcionamiento de redes de cooperación entre ciudades medias para emprender iniciativas conjuntas de relevancia económica (desarrollo de sistemas productivos locales, plataformas logísticas o parques empresariales compartidos, entre otros).
+
+8. Desarrollar iniciativas que propicien la adopción de estrategias de Ciudad o Territorio Inteligentes (Smart) en los municipios de Andalucía.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+
+
+* Footnotes
+
+[fn:16] La Nueva Carta de Leipzig (2020) renueva el documento que inspira la política urbana en Europa (la anterior era de 2007) y fue aprobada el 30 de noviembre de 2020.
+Esta Carta apuesta por los principios de la buena gobernanza e insiste en que las ciudades y las áreas urbanas funcionales han de liderar una transformación justa, verde y productiva. Además, en ella se resalta la importancia que tiene la digitalización como oportunidad para procurar las transformaciones urbanas que son precisas, entre ellas la mejora de los servicios que se prestan a la ciudadanía, pero también la innovación que hará más competitivas a las empresas europeas.
+
+[fn:15] Los elementos básicos de dichas Estrategias son: 1) la contribución a la cohesión territorial, 2) el desarrollo territorial integrado, la coordinación horizontal y vertical y políticas públicas basadas en la evidencia, 3) un enfoque de gobernanza multinivel atento a la subsidiariedad y 4) la cooperación, involucrando a la ciudadanía, sociedad civil, empresas, instituciones científicas, académicas y centros de conocimiento.
+
+[fn:14] El concepto de “urbanización” busca caracterizar la intensidad del asentamiento en las áreas donde reside la población. El estudio del grado de urbanización se apoya en la malla de celdas/cuadrículas de 1 km2 que, a nivel de toda Europa, está definida por EUROSTAT. Según esta malla de 1 km^2, Andalucía se encuentra cubierta por 89.358 celdas, de las cuales el 14,8% (13.292) se hayan habitadas por alguna persona en 2019.
+
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

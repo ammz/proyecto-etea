@@ -1,0 +1,12 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+De una forma resumida, y con objeto de complementar el diagnóstico efectuado y de recoger los aspectos más significativos abordados y otros elementos que deben tenerse presentes en las propuestas de actuaciones que se recogen en este documento estratégico para el horizonte temporal señalado, hasta 2027, se incorpora una matriz de Debilidades, Amenazas, Fortalezas y Oportunidades (DAFO) sobre la realidad social y económica de Andalucía.
+
+El cuadro DAFO se presenta en cuatro partes separadas (una por hoja) y comienza con la descripción de los aspectos negativos que pudiesen tener efecto, tanto a nivel interno (Debilidades) como procedentes del exterior (Amenazas). Posteriormente, se abordan los aspectos positivos, que son recursos endógenos (Fortalezas) o factores externos que pueden tener unos efectos o impactos positivos (Oportunidades) sobre el contexto socioeconómico de la Comunidad Autónoma de Andalucía.
+
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# End:

@@ -1,0 +1,21 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+Este apartado de la Estrategia está dedicado a mostrar, con mayor claridad, cuáles son los objetivos que persigue la ETEA, aunque a lo largo del documento se hayan apuntado los propósitos e intenciones que responden a las prioridades y a las líneas de actuación descritas. De hecho, en la parte propositiva, que se ha denominado “Bloques temáticos”, se presenta un conjunto amplio de *prioridades* (29 en total), que resultan imprescindibles para que Andalucía pueda avanzar en competitividad, sostenibilidad, conectividad y bienestar, atendiendo a un desarrollo territorial integrado y cohesionado, que se apoya en los pilares de una buena gobernanza.
+
+Cada una de las prioridades descritas en los seis bloques temáticos persiguen, al menos, una meta (en algunos casos dos), de modo que se han establecido un total de 33 *metas*. Su determinación y redacción es fruto de la participación y el consenso de los distintos centros directivos que conforman, en la actualidad, la Administración de la Junta de Andalucía. De este modo, todas y cada una de estas metas resultan igual de relevantes, siendo necesaria su consecución simultánea para lograr la finalidad de la Estrategia.
+
+No obstante, para facilitar una exposición más precisa de los contenidos y prioridades de esta Estrategia, parece apropiado referirse a unos *objetivos estratégicos*, como aquellos más ligados a los fines principales y a los fundamentos de la Estrategia, que en cierto modo compendian o resumen las metas que se pretenden alcanzar en el horizonte temporal fijado en la ETEA Horizonte 2027.
+
+Dado que se trata de unos objetivos estratégicos, se han determinado atendiendo a su claridad, simplicidad y coherencia, así como teniendo en consideración que sean medibles y alcanzables en el periodo. Con esta finalidad, se ha considerado oportuno que no superen la decena. Estos diez objetivos se especifican en el cuadro adjunto, señalándose el bloque temático con el que presentan una mayor vinculación, así como el /“target”/ final que se espera alcanzar en 2027.
+
+La determinación de estos objetivos se ha basado en los distintos instrumentos de planificación de la Junta de Andalucía, como por ejemplo el Plan Andaluz de Acción por el Clima 2030 (PAAC), la Estrategia de Investigación, Desarrollo e Innovación de Andalucía (EDIA), así como con otros documentos de referencia nacionales y/o europeos, cuya consecución sigue vigente.
+
+En cierto modo, esta decena de objetivos tienen un carácter principal y presentan una estrecha relación con el sistema de indicadores de seguimiento, que se expone en el apartado siguiente, donde se muestra la correspondencia existente entre las metas definidas para las prioridades desarrolladas a lo largo del documento y un conjunto de *25 objetivos*, que se han denominado *básicos*, para distinguirlos de los estratégicos, y cuya evolución será medible mediante una serie de indicadores definidos en el apartado dedicado al seguimiento de la ETEA.
+
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

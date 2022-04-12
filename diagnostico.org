@@ -1,0 +1,591 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+
+* La economía andaluza en el contexto de España y la UE: dimensión y posicionamiento relativo
+
+En la configuración actual de la Unión Europea de veintisiete países (UE-27), tras la salida efectiva del Reino Unido el 1 de enero de 2021, esta área cuenta actualmente con 240 regiones, entre las que se encuentra Andalucía. Situada al sur de España y Europa, y siendo la región más meridional de la Europa Continental, tiene una posición relevante dentro del conjunto de la UE, al ser una de las regiones con mayor superficie, población y aportación a la generación de Producto Interior Bruto (PIB). No obstante, en términos de convergencia, aproximada por el PIB por habitante, se sitúa en el grupo de regiones consideradas menos desarrolladas.
+
+Más concretamente, en superficie, Andalucía ocupa 87.597 km^2, lo que representa el 17,3% del total nacional y el 2,1% del conjunto de la UE. Es la cuarta región más extensa de la UE, tras una de Finlandia (Pohjois-ja Itä-Suomi), una de Suecia (Övre Norrland) y otra española (Castilla y León). Su superficie es mayor que la de quince países de los 27 de la UE, entre los que se encuentran Austria, Irlanda, Dinamarca, Países Bajos o Bélgica.
+
+La población de Andalucía, a 1 de enero de 2021, se cifra en 8.465.236 personas, según datos del Padrón Continuo del Instituto Nacional de Estadística (INE), concentrando el 17,9% de la población española y el 1,9% de la UE. Andalucía es la región más poblada de España y la tercera de la UE, por detrás de la francesa Île de France (12.291.557 habitantes) y la italiana Lombardía (10.027.602 habitantes). Su población es superior a la de trece de los 27 países de la UE; más específicamente, supera en más del 60% a la población de Eslovaquia e Irlanda y en un 75% a la de Finlandia y Dinamarca, siendo similar a la de Austria.
+
+Con ello, la densidad de población se cifra en 96,6 hab/km^2, superior a la media española (93,6 hab/km^2), pero inferior a la del conjunto de la UE (105,9 hab/km^2). Hay quince países de los 27 que presentan una densidad de población más elevada que Andalucía, entre los que se encuentran Alemania, Italia, Portugal o Francia.
+
+:fig-d01:
+:F: INE, IECA, Eurostat.:F:
+:U::U:
+:N: Población, datos referidos a 1/1/2021 \par pps: paridad de poder adquisitivo \par PIB nominal pps, PIB pc nominal y PIB pps pc, año 2019.:N:
+:E::E:
+#+CAPTION: Datos básicos de la economía andaluza
+[[./graficos/diagnostico/d01.pdf]]
+:END:
+
+Por lo que respecta a la generación de Producto Interior Bruto (PIB), en 2020, último ejercicio cerrado, el PIB nominal de Andalucía fue de 156.892 millones de euros, según el Instituto de Estadística y Cartografía de Andalucía (IECA), cifra que representa el 14% del PIB nominal en España y el 1,2% de la UE. Un resultado que se ha visto muy condicionado, al igual que a nivel mundial, por el impacto económico de la crisis sanitaria de la COVID-19, con caídas históricas del PIB en términos reales, del -10% en Andalucía según la Contabilidad Regional de España del INE, casi un punto por debajo de la media nacional (-10,8%), aunque superior a la de la UE (-5,9%); en cualquier caso, el peso relativo de Andalucía en España y la UE no varió sustancialmente. En concreto el peso de Andalucía en el PIB nominal de la UE apenas ha variado: 1,24% en 2019 y 1,18% en 2020.
+
+Para poder efectuar comparaciones homogéneas con otros territorios, los niveles nominales de PIB se deben corregir por las paridades de poder de compra (pps, por sus siglas en inglés), definido como la tasa de cambio de equilibrio que iguala el poder adquisitivo de una moneda en su país, con lo que dicha moneda podría adquirir fuera del mismo. En paridad de poder de compra, la última información publicada por la oficina de estadística europea, Eurostat, está referida al año 2019. En dicho año, el PIB de Andalucía valorado en pps fue de 177.947 millones de euros, siendo la duodécima región con mayor nivel de la UE, y superando a diez países de la UE, entre ellos Eslovaquia y Bulgaria.
+
+:fig-d02:
+:F: Eurostat.:F:
+:U::U:
+:N::N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: PIB per cápita en las regiones de la UE. Año 2019
+[[./graficos/diagnostico/d02.pdf]]
+:END:
+
+Relativizando por la población, un indicador que comúnmente se utiliza para medir el nivel de riqueza de un territorio, el resultado es que el PIB por habitante, valorado en pps, en Andalucía fue de 21.100 euros en 2019, según Eurostat, lo que representa el 74,3% de la media nacional y el 68% de la media europea. De este modo, Andalucía se clasificaría dentro del grupo de regiones menos desarrolladas de la UE, ya que su PIB por habitante es inferior al 75% de la media europea, situándose en la posición 185ª de las 240 regiones que componen actualmente la UE-27 en términos de este indicador.
+
+* El ciclo económico de Andalucía en perspectiva: impacto de la crisis de la COVID-19
+
+En las más de tres décadas que han transcurrido desde que Andalucía se configura como Comunidad Autónoma, han sido varías las etapas de crisis y recuperación económica posterior por las que se ha atravesado.
+
+En todas ellas, Andalucía ha mostrado una gran sincronía con el ciclo económico de España, observándose no obstante que la economía andaluza ha amplificado el comportamiento respecto al promedio nacional, creciendo más en etapas de recuperación económica, y retrocediendo más en las crisis.
+
+Desde 2005, de manera casi generalizada, Andalucía se descuelga de este comportamiento, con diferenciales negativos, de forma que crece menos en expansión y cae más en recesión como regla general. Sin embargo, en 2019 y 2020 se recuperan diferenciales positivos, siendo el crecimiento en 2019 algo superior a la media nacional, y significativamente menor la caída en 2020.
+
+Desde el año 2020, y como se analiza en detalle en el Informe Económico de Andalucía 2020, elaborado por la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, la economía andaluza, al igual que la española y todas las economías mundiales, se ha enfrentado a una crisis sin precedentes, no debida a problemas económicos, sino que su causa ha sido de origen sanitario.
+
+Una crisis sanitaria derivada de un brote de coronavirus, Covid-19, surgido en China a finales de 2019, y que adquirió la consideración de pandemia global por parte de la Organización Mundial de la Salud (OMS) el 12 de marzo de 2020.
+
+Para tratar de contener la propagación de contagios y reducir la presión sobre los sistemas sanitarios, la mayoría de las economías adoptaron medidas de confinamiento de la población que supusieron la paralización de parcelas importantes de la actividad, reflejándose en intensas caídas del PIB, especialmente en la primera mitad del año 2020, dando paso la crisis sanitaria global a una crisis económica mundial.
+
+El balance del año 2020 fue, por tanto, muy negativo, con caídas históricas del PIB, prácticamente generalizadas en todos los países.
+
+El Fondo Monetario Internacional (FMI), en el informe de Perspectivas de la economía mundial publicado en abril de 2021, cifra en un -3,3% el descenso real del PIB mundial en 2020, la peor recesión desde la Gran Depresión de 1930; no obstante, estima que la caída hubiera sido tres veces superior de no haberse implementado medidas extraordinarias de política económica.
+
+Los países más afectados han sido los más dependientes del turismo y de la exportación de materias primas, así como aquellos con un limitado margen de maniobra para la aplicación de políticas expansivas.
+
+Más específicamente, por áreas, la contracción del PIB alcanzó el -4,7% de media en 2020 en las economías avanzadas, más del doble que en el conjunto de economías emergentes y en desarrollo (-2,2%).
+
+En las economías emergentes, la menor caída correspondió a los países en desarrollo de Asia (-1%), favorecido por el aumento en China (2,3%), donde la pandemia solo tuvo una negativa repercusión en el PIB en el primer trimestre del año, siendo una de las pocas economías que registró crecimiento del PIB en 2020.
+
+En las economías avanzadas, en un contexto recesivo generalizado, las caídas más elevadas se registraron en la Zona Euro y la UE (-6,4% y -5,9%, respectivamente), sobre todo en España (-10,8%), Italia (-9%) y Francia (-8%), y algo más moderada en Alemania (-4,9%).
+
+En este contexto, de acuerdo con la Contabilidad Regional Trimestral de Andalucía que elabora el Instituto de Estadística y Cartografía de Andalucía (IECA), en el conjunto de 2020, la economía andaluza registró un descenso histórico del PIB, el -10,3% en términos reales, no obstante, medio punto más moderado que en el conjunto de España (-10,8%), a diferencia de lo ocurrido en anteriores etapas recesivas en las que Andalucía había caído por encima del promedio nacional. Mayor aún es el diferencial favorable para Andalucía si se consideran las estimaciones de la Contabilidad Regional del España del INE, que señalan una caída real del PIB del -10% en 2020 en Andalucía, ocho décimas por debajo de la media nacional (-10,8%).
+
+Sin lugar a dudas, y al igual que ha ocurrido a nivel mundial, es la mayor caída de la economía en tiempos de paz, pero refleja en Andalucía, como también se recoge en el Informe Económico de Andalucía 2020 elaborado por la Secretaría General de Economía, un cambio en su patrón de comportamiento respecto a otras etapas recesivas anteriores, en las que Andalucía siempre cayó diferencialmente más que la media española.
+
+:fig-d03:
+:F: IECA; INE; Eurostat; AMECO (Comisión Europea).:F:
+:U::U:
+:N: Tasa de variación anual.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: PIB real. Andalucía-España-UE
+[[./graficos/diagnostico/d03.pdf]]
+:END:
+
+En concreto, en la última crisis económica vivida, entre los años 2008 a 2013, la economía andaluza acumuló una caída que superó en 1,7 puntos a la media española (-10,3% en Andalucía acumulado en los cinco años, frente a un -8,6% en el conjunto nacional).
+
+Algo que también sucedió en 1993, cuando Andalucía registró una caída un punto superior a la media española (-2% y -1%, respectivamente), y en 1981, con una caída de la economía andaluza 1,3 puntos más intensa que la media (-1,5% y -0,1%, respectivamente).
+
+En 2020, y a diferencia de lo ocurrido en las anteriores crisis económicas, Andalucía ha caído menos que la economía española; en concreto 0,8 puntos menos, según el INE.
+
+En cualquier caso, esta caída de la economía andaluza y española fue en torno a cuatro puntos superior a la registrada por la Unión Europea y la Zona Euro (-5,9% y -6,4% respectivamente), un comportamiento relativamente más negativo que el entorno europeo que vino explicado: por el confinamiento más severo en España; una estructura productiva más especializada en actividades de consumo social, como hostelería y turismo, las más afectadas por las medidas restrictivas a las que ha obligado la pandemia; un tejido empresarial caracterizado por la mayor abundancia de pymes que aguantan peor las crisis; y la elevada proporción de empleos temporales, cuyos contratos se rescinden con más facilidad en coyunturas adversas.
+
+La estructura productiva en Andalucía presenta unas características históricas diferenciales respecto a España y la UE. Destaca el mayor peso relativo del sector primario, que supone el 8% del VAB generado por la economía andaluza en 2020, más del doble que en el conjunto nacional (3,5%) y más de cuatro veces lo que representa en la UE (1,9%).
+
+Por el contrario, presenta una menor especialización productiva en las actividades industriales, que suponen, en conjunto, el 10,6% del VAB en Andalucía en 2020, casi seis puntos menos que en España (16,3%) y casi nueve puntos menos que en la UE (19,4%). En particular, esto se explica por la industria manufacturera, que representa el 7,4% del VAB en Andalucía (12,2% en España), menos de la mitad que en la UE (16,2%).
+
+Al igual que España y la UE, Andalucía es una economía fuertemente terciarizada, con un peso del sector servicios del 74,9% del VAB, casi un punto más que en España (74%) y casi dos puntos más que en la UE (73,1%).
+
+Finalmente, el sector de la construcción presenta un similar peso relativo a la estructura productiva de Andalucía y sus economías de referencia, en el entorno del seis por ciento (6,5% en Andalucía, 6,2% en España y 5,7% en la UE).
+
+La estructura productiva en Andalucía ha mostrado en las últimas dos décadas (2000-2020) algunos cambios, que afectan fundamentalmente a los sectores no agrarios, mientras se ha mantenido prácticamente estable el peso del primario.
+
+Destaca el notable ajuste de la construcción, como también ocurrió en la economía española, que ha perdido 4,5 puntos en la estructura productiva de Andalucía, pasando del 10,9% en 2000, al 6,5% en 2020, tras el fuerte retroceso experimentado por el sector durante la crisis financiera internacional (2007-2013), que le llevó a aproximarse a su participación relativa en España y la UE.
+
+Asimismo, y en línea con lo observado en las economías de referencia, el sector industrial ha registrado en las dos últimas décadas una pérdida de peso de 3 puntos en la estructura productiva de Andalucía (-4,4 puntos en España, -3,2 puntos en la UE), en parte, debido a que actividades anteriormente consideradas industriales han pasado a externalizarse hacia los servicios. Como resultado, el sector servicios ha aumentado su peso en la estructura productiva de Andalucía (+7,6 puntos), algo menos que en España (+8,9 puntos), pero casi el doble que en la UE (+3,9 puntos). Este aumento del peso del sector servicios viene explicado por las actividades inmobiliarias, la administración pública, sanidad y educación, las actividades profesionales, científicas y técnicas, y las actividades financieras.
+
+Con todo ello, las ramas del sector servicios, que reflejan una mayor especialización en Andalucía son: comercio, transporte y hostelería (20,1% del VAB en Andalucía frente a 17,8% en la UE); actividades inmobiliarias (14,2% del VAB en Andalucía; 11,4% en la UE); y Administración pública, educación y sanidad (24,4% del VAB en Andalucía; 19,8% en la UE). Por el contrario, Andalucía se encuentra menos especializada en ramas más vinculadas a la sociedad de la información y el conocimiento, como información y comunicaciones (2% del VAB; 5,4% en la UE) y actividades profesionales, científicas y técnicas (6,7% del VAB; 11,1% en la UE).
+
+Volviendo al análisis del comportamiento observado en el último año, y como se analiza en detalle en el  Informe Económico de Andalucía 2020, elaborado por la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, desde el punto de vista de la oferta productiva, las mayores caídas en 2020 las registraron en Andalucía las ramas de actividades artísticas, recreativas y de ocio (-24,4%), y el comercio, transporte y hostelería (-23,2%), ambas no obstante ligeramente por debajo de los descensos en España (-24,9% y -24,4%), pero muy por encima de la media en la Eurozona (-17,7% las actividades artísticas, recreativas y de ocio, y -13,2% el comercio, transporte y hostelería).
+
+:fig-d04:
+:F: IECA; INE; Eurostat.:F:
+:U::U:
+:N: %  sobre VAB total.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Estructura productiva. Andalucía-España-UE. Año 2020
+[[./graficos/diagnostico/d04.pdf]]
+:END:
+
+Desde el punto de vista de la demanda, el sector exterior experimentó un fuerte ajuste, con un descenso de las exportaciones de bienes y servicios en Andalucía del -23,2%, acusando la contracción del comercio mundial, que según el FMI se redujo un -8,5%, más del doble que el PIB (-3,3%), arrastrado por la parálisis de la producción y las cadenas de suministro globales.
+
+En los componentes internos, la mayor caída correspondió a la inversión, con un descenso de la Formación Bruta de Capital en términos reales del -15,5%, lastrando el potencial de crecimiento de la economía andaluza; junto a ello el gasto en consumo final regional descendió un -7,3% en términos reales, debido exclusivamente al descenso del gasto en consumo de los hogares (-11,8%), mientras el gasto en consumo de las Administraciones Públicas e ISFLSH creció un 4,6%, y alcanzó un máximo histórico de 44.475 millones de euros, vinculado al incremento notable de los gastos públicos para hacer frente a los efectos negativos de la pandemia.
+
+Como elemento positivo, el impacto de la crisis de la COVID-19 en el mercado laboral en 2020 fue más moderado que en crisis anteriores, debido al recurso, en el marco del diálogo social, de los expedientes de regulación temporal de empleo (ERTE). Hay que tener en cuenta que, según la metodología de la EPA, los afectados por un ERTE se consideran ocupados cuando existe una garantía de reincorporación al puesto de trabajo, una vez finalizado el periodo de suspensión.
+
+En Andalucía se llegaron a registrar casi medio millón de personas trabajadoras en situación de ERTE a principios de la pandemia (477.392 en abril de 2020), habiéndose reducido esta cantidad paulatinamente, aunque condicionado por las medidas de distanciamiento social implementadas en las diferentes olas de la pandemia, hasta los 35.353 en agosto de 2021. Estas personas trabajadoras en situación de ERTE en Andalucía representan el 1,1% de los afiliados, tres décimas por debajo de lo que suponen en España (1,4%).
+
+Tanto en Andalucía como en España se registró en 2020 destrucción de empleo y aumento del número de personas paradas, lo que no ocurría desde el final de la crisis financiera internacional, en 2013. No obstante, y comparado con crisis anteriores, el impacto fue más moderado, debido al mencionado recurso de los expedientes de regulación temporal de empleo.
+
+De esta forma, según la Encuesta de Población Activa (EPA), la población ocupada se redujo un -3,2% en 2020 en Andalucía, frente a un -10,3% de caída del PIB. Mientras, el número de horas efectivas trabajadas, también según la EPA, se redujeron en Andalucía un -9,8%, un máximo histórico, en línea con la caída del PIB (-10,3%), seis décimas menos que el descenso de las horas en España (-10,4%).
+
+:fig-d05:
+:F: IECA; INE.:F:
+:U::U:
+:N: Tasas de variación anual.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: PIB y empleo. Andalucía
+[[./graficos/diagnostico/d05.pdf]]
+:END:
+
+En crisis económicas anteriores, como la vivida entre 2008-2013, o en 1993, el ritmo de caída del empleo en Andalucía llegó a duplicar el observado por el PIB, con fuertes impactos en los niveles de tasa de paro.
+
+En 2020, la EPA cifró de media en el año 866.180 personas paradas en Andalucía, 27.533 más que en 2019, con un incremento del 3,3%, casi tres veces inferior al del conjunto de España (8,7%). Un aumento significativamente inferior al registrado al inicio de la anterior crisis económica internacional, cuando el paro se elevó más del cuarenta por ciento (43,9% en 2008), debido, como se ha señalado anteriormente, a la aplicación de los expedientes de regulación temporal de empleo.
+
+Con ello, la tasa de paro de Andalucía aumentó 1,1 puntos en 2020, menos que en España (+1,4 puntos), situándose en el 22,3% de la población activa de media en 2020, nivel que, aunque sólo es superado por la Comunidad Autónoma de Canarias, es el segundo más bajo desde 2008.
+
+:fig-d06:
+:F: INE; Eurostat; AMECO (Comisión Europea).:F:
+:U::U:
+:N: % sobre población activa.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Tasa de paro. Andalucía-España-UE
+[[./graficos/diagnostico/d06.pdf]]
+:END:
+
+Esta tasa de paro de Andalucía (22,3% en 2020), aunque se registra en una coyuntura económica muy adversa de destrucción de empleo y aumento del paro, presenta un diferencial con la media de España (15,5%) de 6,7 puntos porcentuales, el más bajo también desde 2008, y significativamente menor al observado en anteriores crisis económicas como la de 2008-2013 o 1993, cuando el diferencial de tasa de paro con España superó los 10 puntos.
+
+Comparado con la media de la Unión Europea, la tasa de paro de Andalucía presenta un diferencial desfavorable muy elevado, de 15,3 puntos en 2020. Un diferencial desfavorable que Andalucía ha mostrado históricamente, que llegó casi a alcanzar los veinticinco puntos porcentuales (24,8 puntos) al final de la gran depresión, en 2013, y que mostró su menor valor en 2006, cuando la tasa de paro de Andalucía registró su valor más bajo (12,6% de la población activa), solo 4 puntos por encima de la media de la Unión Europea.
+
+En materia de precios, su comportamiento en 2020 estuvo muy condicionado por la trayectoria del precio del petróleo en los mercados internacionales, que experimentó una notable caída, derivada del fuerte ajuste de la demanda mundial de esta materia prima.
+
+Por término medio en 2020, el barril de petróleo brent cotizó a 41,5 dólares, un 35,9% por debajo del año anterior, y su nivel más bajo desde 2004. Esto se trasladó a los precios de los bienes energéticos de consumo, que registraron un descenso medio anual en Andalucía del -9%.
+
+:fig-d07:
+:F: INE; Eurostat; AMECO (Comisión Europea).:F:
+:U::U:
+:N: % variación.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: IPC medio anual. Andalucía-España-Zona Euro
+[[./graficos/diagnostico/d07.pdf]]
+:END:
+
+Derivado fundamentalmente de esta caída, el Índice de Precios al Consumo (IPC) registró en Andalucía un descenso medio anual del -0,2%, en línea con España (-0,3%) y en un contexto de crecimiento muy moderado en la Zona Euro (0,3%). Tasa todas ellas muy por debajo del objetivo de estabilidad de precios establecido por el Banco Central Europeo (2%), y que reflejan la convergencia en materia de inflación que Andalucía y España han experimentado con la Unión Europea, desde la integración. Así, se ha pasado de un diferencial en tasa de inflación de Andalucía con la Zona Euro de algo más de seis puntos en 1986, a escasamente en el entorno del medio punto en los últimos años.
+
+Esta situación de tasas negativas de inflación contrasta con lo que está ocurriendo en 2021, donde las subidas de los precios energéticos, tanto del petróleo como de la electricidad están haciendo subir el IPC claramente por encima del objetivo de estabilidad precios del BCE, mermando la capacidad de compra de los consumidores.
+
+* Las fuentes del crecimiento económico en Andalucía: la restricción de la productividad total de los factores
+
+La economía andaluza ha mostrado desde comienzos del siglo XXI y hasta 2019, previo a la histórica caída del PIB en 2020, derivada de la crisis sanitaria de la COVID-19, un crecimiento anual acumulativo del 1,6% en términos reales; un crecimiento igual al observado por término en la economía española, algo más elevado que en el conjunto de la UE (1,4%) y países relevantes del área como Alemania y Francia (1,2% y 1,3%, respectivamente) y similar al del Reino Unido (1,7%). Comparado con el crecimiento registrado en otras economías desarrolladas fuera de Europa, el aumento anual en Andalucía ha sido en estos años (2000-2019), tres décimas inferior al de Estados Unidos (1,9%).
+
+Cabe plantearse si las fuentes o factores sobre los que se ha asentado este crecimiento económico, similar en Andalucía al de las economías de su entorno, han mostrado un comportamiento similar también al de estas economías, o han tenido un patrón diferenciado.
+
+El crecimiento económico no depende solo de las cantidades de factor capital y factor trabajo utilizadas, sino que también depende del grado de eficiencia con el que estos factores se combinen, lo que se conoce como productividad total de los factores.
+
+La productividad total de los factores mide la relación existente, en una determinada economía y en un período de tiempo, entre la producción y los factores que se han utilizado para generarla. Sin embargo, es difícil medirla correctamente por la existencia de factores cualitativos difícilmente cuantificables. La mejora tecnológica y el aumento de eficiencia son dos de las variables que más contribuyen a la productividad total de los factores.
+
+Como se refleja en un recuadro recogido en el Informe Económico de Andalucía 2018, elaborado por la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, una de las herramientas que suele utilizarse en el análisis empírico en economía para intentar aproximar el cálculo de las fuentes del crecimiento económico es la función de producción Cobb-Douglas. Ésta representa las relaciones entre el PIB y las variaciones de los insumos: trabajo, capital y tecnología. Su formulación matemática básica es la siguiente:
+
+#+begin_export latex
+$$Y = L^{\alpha} \cdot  K^{1-\alpha} \cdot A$$
+#+end_export
+
+Donde Y es el PIB; y las tres fuentes potenciales de crecimiento del mismo son la dotación del factor trabajo (L), la dotación del factor capital (K) y un residuo (A) que recoge la tecnología también llamada productividad total de los factores (PTF); \alpha es el peso del trabajo en el PIB, cuyo valor, según el criterio más extendido en el análisis económico, es de 0,65.
+
+Según se recoge en la literatura económica, el crecimiento en la productividad total de los factores se mide como un residuo entre la diferencia del crecimiento del PIB y el crecimiento de una media ponderada del capital agregado y del trabajo agregado. De hecho, también se conoce como el residuo de Solow, por el premio Nobel de economía Robert Solow, que en 1957 publicó su artículo sobre el cambio tecnológico y la función de producción agregada, cuantificando el progreso técnico de manera residual.
+
+Utilizando esta formulación y actualizados los datos recogidos en el citado recuadro, se tiene que el análisis de la composición factorial del crecimiento mostrado por la economía andaluza entre 2000 y 2019 muestra un patrón en Andalucía diferenciado al de su entorno comparado.
+
+De este modo, medido el factor trabajo a través de las horas totales trabajadas según la Contabilidad Regional de España del INE, y el factor capital por el stock de capital neto a precios constantes de 2010 publicado por la Fundación BBVA-IVIE, se tiene que el aumento medio anual acumulativo del PIB entre el año 2000 y 2019 en Andalucía (1,6%) ha venido explicado, de un lado, por el factor trabajo (+0,6 puntos anuales) y de otro, por el factor capital (+1 punto anual). Mientras, la productividad total de los factores ha tenido una contribución nula. Una manera de entender el nulo crecimiento de la productividad total de los factores en estos veinte años, es que los recursos productivos no se han dirigido a sus usos más eficientes.
+
+Estos resultados contrastan con lo observado en otras economías de referencia, donde la productividad total de los factores es un componente que ha tenido una notable contribución al crecimiento del PIB.
+
+Así, y a partir de la información publicada por Eurostat y la base de datos de la Comisión Europea (AMECO), se observa que el crecimiento medio anual acumulativo en la UE entre 2000 y 2019 fue del 1,4%, como se ha comentado anteriormente, siendo la contribución del factor capital a este crecimiento de 0,5 puntos, de 0,2 puntos el factor trabajo, y el resto (0,7 puntos) a la productividad total de los factores; es decir, la mitad del crecimiento económico en la UE ha correspondido a la productividad total de los factores.
+
+:fig-d08:
+:F: INE; IECA; Comisión Europea (Base de datos AMECO).:F:
+:U::U:
+:N: Tasas medias anuales acumulativas período 2000-2019.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Fuentes del crecimiento económico
+[[./graficos/diagnostico/d08.pdf]]
+:END:
+
+Destaca especialmente el caso de Alemania, con un crecimiento medio anual acumulativo del PIB del 1,2% entre 2000 y 2019, correspondiendo casi el sesenta por ciento del mismo (57,7%) a la productividad total de los factores.
+
+Mientras, en la economía española, la contribución de la productividad total de los factores al crecimiento económico ha sido significativamente más moderada, ligeramente por encima del doce por ciento (12,5%).
+
+En otras economías desarrolladas como Estados Unidos y Reino Unido, la productividad total de los factores ha explicado en torno al 40% del incremento del PIB en estos años.
+
+Por tanto, según se concluye en el citado recuadro del Informe Económico de Andalucía 2018, uno de los retos de la economía andaluza debe ser lograr una mayor contribución de los avances tecnológicos y de los procesos de innovación y digitalización, dado que, si bien a corto plazo trabajo y capital contribuyen al crecimiento, en el largo plazo éste viene determinado exclusivamente por el progreso tecnológico.
+
+Un crecimiento de los factores sin mejoras de la productividad no es sostenible a largo plazo y limita la capacidad para converger a los niveles de renta por habitante de los países más desarrollados.
+
+* El proceso de convergencia de la economía andaluza con la UE
+
+Como se recoge en diversos Informes Económicos anuales de la economía andaluza, elaborados por la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, la medición del proceso de convergencia de Andalucía en el contexto de la Unión Europea (UE) requiere, con carácter previo, realizar una serie de consideraciones metodológicas sobre algunos aspectos fundamentales del análisis.
+
+En primer lugar, el proceso de convergencia debe quedar encuadrado en un marco temporal específico, porque, necesariamente, convergencia implica acción de aproximación. Por ello, es preciso determinar un período de tiempo, y analizar la evolución que la variable en cuestión considerada ha experimentado a lo largo del mismo.
+
+En segundo lugar, resulta necesario comparar el comportamiento de la economía analizada en relación con el entorno que se establezca como referencia, que en el caso de Andalucía está constituido por la Unión Europea actual de 27 países miembros. Es importante matizar, que debido a la falta de series estadísticas oficiales, comparables y actualizadas, para las variables que miden el proceso de convergencia en sentido amplio, esto es, la evolución del capital humano, físico, tecnológico, social o natural, el análisis de la convergencia de Andalucía con la UE se efectúa, como en la mayoría de los análisis que se realizan al respecto, desde un enfoque simplificado, cuantificando los resultados básicamente en términos de PIB per cápita. El PIB per cápita mide cuanto le corresponde a cada habitante del valor de todos los bienes y servicios finales generados durante un año en el territorio, lo que puede aproximarse al nivel de riqueza por habitante.
+
+En este análisis de la convergencia, es preciso además diferenciar entre convergencia nominal y real. En la convergencia real, los indicadores en términos nominales (el PIB en este caso) se corrigen por los diferentes niveles de precios existentes en cada ámbito, valorándose para ello en términos de paridad de poder de compra (pps por sus siglas en inglés). La paridad de poder de compra es una tasa de cambio de equilibrio, que iguala el poder adquisitivo de una moneda en su país, con lo que dicha moneda podría comprar fuera del mismo, lo que permite efectuar comparaciones homogéneas del nivel de vida en dichos ámbitos territoriales. Eurostat publica series de paridad de poder de compra de cada país comparado con la media de la UE, aplicando en sus estimaciones a nivel regional (NUTS2), las correspondientes paridades nacionales; es decir, en el caso de Andalucía, se aplica la paridad de poder de compra de España respecto a la UE.
+
+La información estadística publicada por Eurostat del Producto Interior Bruto per cápita (PIB pc), valorado en paridad de poder de compra, está disponible por países para el período 1995-2020, y por regiones (NUTS2), para el período 2000-2019.
+
+:fig-d09:
+:F: Eurostat.:F:
+:U::U:
+:N::N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: PIB per cápita pps (UE27=100)
+[[./graficos/diagnostico/d09.pdf]]
+:END:
+
+En esta serie histórica disponible para Andalucía de Eurostat, se observa que en las últimas dos décadas (2000-2019) el nivel de riqueza por habitante de Andalucía, medido a través del PIB pps per cápita, se ha mantenido siempre claramente por debajo del promedio europeo.
+
+En concreto, en el inicio del presente siglo, en el año 2000, Andalucía mostraba un nivel de PIB per cápita, valorado en paridad de poder de compra, que representaba el 72% de la media de la UE-27; es decir, un nivel de riqueza por habitante un 28% inferior a su entorno europeo. En 2019, última información disponible publicada por Eurostat, esta posición relativa es aún más desfavorable para Andalucía, con un nivel de PIB pps per cápita que representa el 68% de la UE-27; es decir, un nivel de riqueza por habitante valorado en paridad de poder adquisitivo un 32% inferior a su entorno europeo. Por tanto, entre 2000 y 2019, la economía andaluza ha experimentado un retroceso en convergencia con la media europea de 4 puntos porcentuales, en un contexto también de pérdida o alejamiento de España a los niveles europeos, incluso de mayor magnitud (-7 puntos porcentuales).
+
+En esta evolución desde el año 2000 cabe diferenciar cuatro períodos, condicionados por la posición cíclica de la economía andaluza: de 2000 a 2007, de acercamiento o convergencia económica con la media europea; 2008 a 2013, de alejamiento o pérdida de convergencia; de 2014 a 2017, de un cierto acercamiento muy moderado; y finalmente los dos últimos años, 2018-2019, de práctico mantenimiento.
+
+Concretamente, entre los años 2000 a 2007, período caracterizado por la continuidad de la etapa expansiva del ciclo de crecimiento económico que había comenzado en 1994, Andalucía experimentó un notable avance en convergencia, pasando el PIB per cápita de representar el 72% de la media de la UE en 2000, al 81% en 2007, lo que supone un incremento de 9 puntos porcentuales. Este avance en convergencia con la media europea de la economía andaluza fue más intenso incluso que el observado en ese período en España, donde el PIB pps per cápita pasó del 98% de la UE-27 en el año 2000, al 104% en 2007, avanzando en 6 puntos porcentuales.
+
+Posteriormente, la crisis económica que se desarrolló entre los años 2008 y 2013, provocó un fuerte retroceso del PIB pps pc de Andalucía respecto al promedio europeo, disminuyendo 14 puntos, hasta situarse en el 67% de la media europea en 2013; en España también retrocedió 14 puntos, hasta el 90%.
+
+Con el inicio de la recuperación económica tras la Gran Recesión, a partir de 2014 vuelve a retomarse ligeramente un proceso de acercamiento o convergencia, aumentando el nivel de PIB pps pc respecto al promedio europeo al 69% en Andalucía y al 93% en España en 2017.
+
+En los dos últimos años de información disponible para Andalucía, la posición relativa no ha variado, con un nivel de PIB pps per cápita mantenido en el 68% de la media de la UE-27.
+
+El avance de la información para el año 2020, solo disponible por países, un año marcado por la crisis sanitaria de la COVID-19 y sus severos efectos económicos, muestra un fuerte retroceso de la convergencia en el último año de la economía española, situándose su nivel de PIB pps pc en el 86% de la media de la UE-27, cinco puntos por debajo de 2019.
+
+Por tanto, y como se ha comentado anteriormente, el balance del período 2000-2019 es de un retroceso de 4 puntos en el nivel de PIB pps pc de Andalucía respecto a la media de la UE-27, menos intenso que en el conjunto nacional, donde disminuyó en este mismo período en 7 puntos.
+
+Analizando las tres variables que componen el PIB pps per cápita: PIB nominal, paridades de poder de compra y población, se tiene que el retroceso en convergencia en estos años considerados se ha debido a un acercamiento a los niveles de precios medios europeos y a un mayor crecimiento relativo de la población en Andalucía y España; factores ambos, que han contrarrestado el mayor crecimiento relativo registrado por el PIB en relación a la media europea.
+
+En concreto, el PIB nominal ha mostrado un mayor dinamismo relativo en Andalucía y España que en la UE-27 en las últimas dos décadas, registrando en ambos casos una tasa de crecimiento anual acumulativa del 3,5% entre 2000 y 2019 frente al 3,1% en la UE. De otro lado, la paridad de poder de compra de España respecto a la UE se fue aproximando a un ritmo anual acumulativo del 0,2%, hasta quedar situado el nivel de precios de España respecto a la UE en el 93,2% en 2019, frente al 89,1% de 2000. Por su parte, la población de Andalucía y España aumentó un 0,8% anual, cuatro veces más que en la UE (0,2%). Como resultado, el PIB pps pc creció a un ritmo anual del 2,4% en Andalucía y España, ligeramente por debajo de la media de la UE-27 (2,8%).
+
+El retroceso en convergencia con la media europea entre 2000 y 2019 ha sido prácticamente generalizado en todas las CC.AA. españolas, con las dos únicas excepciones de Extremadura y Galicia, que han registrado un avance del PIB pps per cápita respecto al promedio de la UE de 5 puntos y 6 puntos, respectivamente. Destaca especialmente el retroceso en Baleares y Canarias (-26 puntos y -22 puntos, respectivamente), seguidas de Comunidad Valenciana, Navarra, Cataluña y La Rioja (en torno a -12 puntos), y Cantabria, Madrid y Murcia, las tres con -7 puntos, igual que la media nacional.
+
+Si se considera la evolución de las dos variables que determinan el nivel de PIB pps per cápita, esto es, el PIB nominal pps y la población, cabe señalar que el crecimiento acumulado del PIB nominal pps en el período 2000-2019 en Extremadura y Galicia, las dos únicas CC.AA. que han avanzado en convergencia, ha sido muy similar al que presentan Andalucía y España, y superior al registrado por la UE. En cambio, mientras que en Andalucía y España la población ha crecido por encima del 15% en el período, el triple que en la UE, en Extremadura y Galicia se ha registrado un crecimiento prácticamente nulo. De este modo, el resultado diferencial en convergencia que han experimentado estas dos regiones respecto al observado en Andalucía y España, no se ha debido al mayor crecimiento económico, sino que ha venido determinado fundamentalmente por el nulo crecimiento de la población.
+
+:fig-d10:
+:F: Eurostat.:F:
+:U::U:
+:N::N:
+:E: Secretaría General de Economía :E:
+#+CAPTION: Evolución del PIB nominal pps y población en CC.AA. españolas 2000-2019
+[[./graficos/diagnostico/d10.pdf]]
+:END:
+
+De otro lado, cabe analizar el proceso de convergencia de las CC.AA. con la media española en este mismo período. Como se observa en el cuadro, las Comunidades Autónomas españolas han registrado en los últimos veinte años una evolución muy diferenciada en términos de convergencia con respecto al PIB per cápita medio en España. Los mayores retrocesos han correspondido a las Islas Baleares (-19 puntos) y Canarias (-17,4 puntos), seguidas, a mucha mayor distancia por la Comunidad Valenciana (-7,5 puntos), Navarra (-5,6 puntos) y La Rioja (-5 puntos). En el lado opuesto, destacan los avances de Galicia (+12,7 puntos), Extremadura (+10,1 puntos) y País Vasco (+6,6 puntos).
+
+Esta convergencia o divergencia con el nivel medio de PIB per cápita en España es el resultado conjunto del mayor o menor crecimiento registrado por el PIB, de un lado, y, de otro, por la evolución de la población. Con crecimientos del PIB muy por encima de la media nacional destacan Murcia, Madrid y Baleares, todos ellas también con crecimientos muy superiores a la media en población.
+
+En este contexto, Andalucía ha presentado en las últimas dos décadas un crecimiento del PIB y de la población ligeramente por debajo de la media española, manteniendo el mismo nivel de PIB per cápita respecto a España, algo por encima del 74%. Esto hace que continúe en las últimas posiciones en el ranking, siendo la segunda CC.AA. con menor nivel de PIB pc (solo Extremadura, con el 73,6% de la media de España, presenta un ratio más bajo que Andalucía).
+
+:fig-d11:
+:F: CRE (INE) :F:
+:U::U:
+:N::N:
+:E: Secretaría General de Economía. Junta de Andalucía :E:
+#+CAPTION: Convergencia CC.AA. con España. Período 2000-2019
+[[./graficos/diagnostico/d11.pdf]]
+:END:
+
+El PIB pps per cápita puede descomponerse, a su vez, en dos factores explicativos: la productividad aparente del trabajo, y la tasa de empleo. Si se miden ambos factores, productividad y tasa de empleo, en términos de horas trabajadas, se tiene la siguiente igualdad:
+
+#+begin_export latex
+  $$\text{PIB pps por habitante} = \frac{\text{PIB pps}}{\text{Habitantes}} = \frac{\text{PIB pps}}{\text{Horas trabajadas}} \times  \frac{\text{Horas trabajadas}}{\text{Habitantes}}$$
+#+end_export
+
+De esta forma, es posible representar en un gráfico, las combinaciones observadas cada año de productividad y tasa de empleo, que han dado lugar al nivel de PIB pps pc; es lo que se representa en el gráfico adjunto, donde se tienen las combinaciones de productividad y tasa de empleo, medidas en los términos indicados, de Andalucía, España y la UE-27 para los años 2000 a 2019, y sus correspondientes niveles de PIB pps per cápita de cada año, a partir de la información que proporciona Eurostat. Las curvas de indiferencia representadas indican las diferentes combinaciones posibles entre ambas variables, productividad y tasa de empleo, para ese nivel de PIB pps per cápita.
+
+En primer lugar, cabe resaltar que el PIB pps per cápita de Andalucía en el período considerado ha crecido a un ritmo medio anual del 2,4 %, insuficiente para avanzar hacia los niveles existentes en el conjunto de la economía española y en la UE.
+
+:fig-d12:
+:F: INE; Eurostat; SGE.:F:
+:U::U:
+:N::N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Productividad y tasa de empleo. Andalucía-España-UE. Período 2000-2019
+[[./graficos/diagnostico/d12.pdf]]
+:END:
+
+Para aumentar el PIB pps per cápita existen tres vías: aumentar solo la tasa de empleo, aumentar exclusivamente la productividad del trabajo, o incrementar tanto el empleo como la productividad.
+
+En Andalucía, al igual que en España, se observa que el crecimiento del PIB pps per cápita en las últimas dos décadas se ha producido con fuertes oscilaciones en la tasa de empleo, algo que no ha sucedido de manera tan notable en la UE-27, donde el avance en los niveles de PIB per cápita se ha producido fundamentalmente por aumentos de la productividad.
+
+De esta forma, en el conjunto de la UE, la productividad por hora ha crecido entre 2000 y 2019 a un ritmo anual del 2,8%, cuatro décimas por encima de la media en España (2,4%), y más de medio punto por encima de Andalucía (2,2%). Por su parte, la tasa de empleo, medida en términos de horas trabajadas por población ha crecido en Andalucía de forma muy moderada (0,2% anual), en línea con España (0,03%), y también con el promedio de la UE-27 (0,1%). Por tanto, el menor crecimiento relativo del PIB pps per cápita de Andalucía en estos años respecto a la media europea ha sido por el menor crecimiento relativo de la productividad aparente del trabajo.
+
+Adicionalmente, cabe señalar, que el avance de la productividad en Andalucía y España ha sido a costa de un fuerte ajuste del empleo durante los años de la Gran Recesión (-20,8% en Andalucía de forma acumulada entre 2007 y 2013; -18,9% en España), mientras que en la UE el impacto en el empleo fue de menor intensidad (-6,2%). Esto constituye un elemento diferenciador de Andalucía y España respecto al entorno europeo: la productividad del trabajo crece con mayor intensidad en los períodos recesivos, cuando se produce un significativo ajuste de la tasa de empleo, mientras que en la UE, las variaciones de la tasa de empleo son más estables, y muestran una mayor sintonía con los incrementos de la productividad.
+
+:fig-d13:
+:F: AMECO; Andalucía: Elaboración propia partir de datos del INE y AMECO.:F:
+:U::U:
+:N::N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Productividad y tasa de empleo comparadas con países europeos y más desarrollados. Año 2019
+[[./graficos/diagnostico/d13.pdf]]
+:END:
+
+Cabe también efectuar una comparativa de la posición de Andalucía y España en PIB pps per cápita y sus componentes, productividad y tasa de empleo, no solo respecto al promedio de la UE sino también respecto a los países europeos y otros países desarrollados fuera del ámbito de Europa, como Estados Unidos o Japón.
+
+Como se observa en el gráfico, Andalucía y España se encuentran en el cuadrante que identifica a los territorios con inferiores niveles de productividad y tasa de empleo, ambos por debajo del promedio de la UE. En el lado opuesto, destacan Estados Unidos, Suiza, Países Bajos, Suecia, Austria y Finlandia, con los mayores niveles de productividad y tasa de empleo.
+
+En el contexto de las Comunidades Autónomas españolas, también Andalucía muestra una posición relativamente menos favorable, situándose, como se observa en el gráfico, en el cuadrante inferior izquierdo, donde están representadas las CC.AA. con menores niveles de productividad y tasa de empleo que la media nacional. En concreto, Andalucía es, tras Murcia y Extremadura, la tercera región con menor productividad por hora y la comunidad autónoma con menor tasa de empleo, medida como el número medio anual de horas trabajadas por habitante. Frente a esta situación se encuentran Madrid, País Vasco, Navarra y Cataluña, todas ellas con los mayores niveles de productividad por hora y tasas de empleo de España.
+
+:fig-d14:
+:F: CRE (INE).:F:
+:U::U:
+:N::N:
+:E: Secretaría General de Economía. Junta de Andalucía:E:
+#+CAPTION: Productividad y tasa de empleo en Andalucía comparadas con resto de CC.AA. españolas. Año 2019
+[[./graficos/diagnostico/d14.pdf]]
+:END:
+
+En concreto, la combinación de productividad y tasa de empleo de Andalucía en 2019 da lugar a un PIB per cápita (valorado en paridad de poder de compra) que representa el 68% de la media de la UE, inferior al del conjunto de España (91% de la UE). Este nivel de PIB per cápita se corresponde, por un lado, con una productividad por hora un quince por ciento inferior a la media de la UE (84,1% de la misma) y un diez por ciento más baja que la española (88,6%). Con todo, es superior a la que registran dieciséis de los países analizados, entre los que se encuentran Japón, Portugal, Grecia, Hungría o Polonia.
+
+Por otro lado, y por lo que respecta a la tasa de empleo, medida en términos de horas trabajadas por población, a Andalucía corresponde de media 609,1 horas anuales trabajadas por habitante, en torno a un veinte por ciento menos que en la UE (759,5 horas) y España (726,1 horas). Una cifra que está en línea con la mayor tasa de paro relativa existente en la región, que en 2019 era del 21,2% de la población activa, 7,1 puntos superior a la española (14,1%), y más que triplicando la de la UE (6,7%), y que pone de manifiesto, entre otros, el problema de dimensión del tejido productivo andaluz.
+
+Estos resultados evidencian que las diferencias que presenta Andalucía en PIB por habitante respecto a las economías de su entorno se explican tanto por el menor nivel relativo de su productividad, como, y en mayor medida, por la inferior ocupación relativa de su población, especialmente acuciante en los colectivos más jóvenes de población. Para incrementar el nivel de PIB per cápita, y, por tanto, moverse a una isocuanta más elevada, Andalucía debería mejorar ambos factores, siendo clave para ello avanzar en competitividad, mejorando la dotación de capital físico productivo, fomentando la investigación, el desarrollo, la innovación y la transferencia del conocimiento, reforzando el tejido empresarial para que gane en dimensión y adaptando los modelos de cualificación de la población.
+
+* La dotación factorial del sistema productivo de Andalucía como condicionante del desarrollo económico y la convergencia
+
+El crecimiento económico y la capacidad de convergencia de Andalucía dependen de la dotación de capital físico, humano y tecnológico, observándose una posición relativamente menos favorable en la región que en el contexto nacional y europeo, en indicadores como el stock de capital productivo privado, la dimensión empresarial, el gasto en Investigación, Desarrollo (I+D) e innovación, así como un modelo de cualificación de la población que difiere de los estándares europeos. En la medida en que se actúe sobre estos factores productivos se estará incidiendo sobre el potencial de crecimiento de la economía andaluza y por tanto sobre los niveles de riqueza por habitante que determinan la convergencia con los niveles europeos.
+
+** La insuficiente capitalización del sector privado en Andalucía
+
+Como se recoge en un recuadro de la revista Coyuntura Económica de Andalucía, de julio de 2019, que elabora la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, el stock de capital es, junto con el trabajo y la tecnología, una de las variables que explica el nivel de producción de una economía, y por ello, clave en el crecimiento económico. Aumentar la capitalización de la economía permite ampliar la capacidad productiva de los diferentes sectores económicos, y con ello, aumentar su producción, lo que se refleja en mayores niveles de renta por habitante y productividad.
+
+Existen importantes limitaciones de información para medir el stock de capital en España y sus regiones, al no disponerse de una estadística oficial al respecto. No obstante, el Instituto Valenciano de Investigación Económica y la Fundación BBVA publican regularmente el estudio “El stock y los servicios de capital en España y su distribución territorial y sectorial”, existiendo información disponible a nivel regional para el período 1964-2016.
+
+A partir de estos datos que ofrece, se puede analizar la dotación y evolución del stock de capital productivo, conformado por el conjunto de activos no residenciales (infraestructuras, equipos de transporte, maquinaria y activos inmateriales) que se han ido acumulando a través de la inversión, en las CC.AA. españolas.
+
+:fig-d15:
+:F: INE; Fundación BBVA-IVIE.:F:
+:U::U:
+:N: Datos referidos al año 2016.\par El stock de capital productivo está conformado por el conjunto de activos no residenciales (infraestructuras, equipos de transporte, maquinaria y activos inmateriales) que se han ido acumulando a través de la inversión, ajustado por la pérdida de eficiencia como resultado del envejecimiento del activo.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: PIB per cápita y stock de capital productivo por habitante en las CC.AA. españolas
+[[./graficos/diagnostico/d15.pdf]]
+:END:
+
+Considerando los datos del último año disponible, 2016, se observa que el stock de capital productivo por habitante en cada comunidad autónoma tiene una vinculación directa, positiva y significativa con su nivel de PIB per cápita, siendo las regiones con menor dotación relativa de capital productivo las que presentan los menores niveles de riqueza por habitante, encontrándose Andalucía entre estas regiones.
+
+En concreto, el stock de capital productivo en Andalucía se cifra en 255.528 millones de euros (dato de 2016), lo que supone el 13,3% del total nacional, equiparable a su participación en el PIB de España (13,9% en 2016), pero inferior al peso de la región en población (18% también referido al año 2016). Un menor peso relativo explicado por la inferior dotación de stock de capital productivo privado, que representa el 12,6% del total nacional, mientras el stock de capital productivo público es el 16,3% del conjunto de la economía española.
+
+Relativizando por la población, el stock de capital productivo per cápita de Andalucía representa el 73,6% de la media española, porcentaje equivalente a su posición en PIB por habitante (73,6% en 2016, según el INE). Si se diferencia entre el sector público y el privado, el stock de capital productivo público por habitante en Andalucía supone el 90,1% de la media nacional, mientras el stock de capital productivo privado por habitante representa tan solo el 69,8% de la media española; es decir, el stock de capital productivo privado por habitante en Andalucía es más de un treinta por ciento inferior al promedio nacional.
+
+:fig-d16:
+:F: INE; Fundación BBVA-IVIE.:F:
+:U::U:
+:N: Datos referidos al año 2016.\par El stock de capital productivo está conformado por el conjunto de activos no residenciales (infraestructuras, equipos de transporte, maquinaria y activos inmateriales) que se han ido acumulando a través de la inversión, ajustado por la pérdia de eficiencia como resultado del envejecimiento del activo.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: PIB per cápita y stock de capital productivo por habitante de Andalucía (España=100)
+[[./graficos/diagnostico/d16.pdf]]
+:END:
+
+Más concretamente, si se analiza con mayor detalle por tipo de activo, el menor peso del stock de capital productivo privado por habitante en Andalucía respecto a la media española se registra en productos de la propiedad intelectual (el stock de capital productivo privado por habitante en Andalucía respecto a la  media española es del 57,3%). Según el Sistema de Cuentas Nacionales 2008 de la Comisión Europea, el FMI, la OCDE, Naciones Unidas y el Banco Mundial, estos productos son los activos no financieros producidos como resultado de la investigación, desarrollo, estudio o innovación que conlleva conocimiento; entre ellos se encuentran, entre otros, el software (54,5%) y la I+D (59,2%). También destaca la menor dotación relativa en material de transporte, siendo el stock de capital productivo privado per cápita de Andalucía el 67% de la media nacional, y en maquinaria y equipo (67,5% de la media española), especialmente en comunicaciones (58%), y equipo de oficina y hardware (60,5%). En infraestructuras, el mayor déficit corresponde a las infraestructuras viarias (el stock de capital productivo privado per cápita de Andalucía es el 41% de la media nacional), observándose por el contrario una dotación relativamente superior en infraestructuras hidráulicas (127,6%) y portuarias (107,4%). Finalmente, también presenta Andalucía una dotación de capital productivo privado relativamente superior a la media española en términos per cápita en recursos biológicos cultivados (116%), de procedencia animal, agrícola o forestal.
+
+Por tanto, la insuficiente capitalización que presenta la economía andaluza viene explicada fundamentalmente por el déficit de stock de capital productivo del sector privado. Dado que es una variable clave en el crecimiento potencial de la economía, como se concluye en el recuadro citado anteriormente, uno de los retos de Andalucía es aumentar la inversión y posterior acumulación de stock de capital productivo privado, lo que permitiría mejorar su dotación y recortar la brecha que muestra con el conjunto nacional. Con ello, se podría incrementar la productividad agregada y la del trabajo, y así, elevar la renta por habitante y aproximarla a la media española.
+
+** El inferior tamaño relativo de las empresas de Andalucía comparado con el entorno europeo
+
+La dimensión de las empresas es un factor estratégico en la dinámica económica, porque son las empresas más dimensionadas las que generan más efectos arrastre en el conjunto del sistema productivo, mejorando las cadenas de valor añadido de la economía y su entramado, y favoreciendo la competitividad global de la economía, al ser las más internacionalizadas, las más productivas, las que más proporción de personas trabajadoras cualificados tienen, y las más innovadoras.
+
+Como también se recoge en un recuadro del Informe Económico de Andalucía 2019, elaborado por la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, a nivel europeo, Eurostat proporciona información sobre el número de empresas de los sectores no agrarios, excluidas las actividades financieras y de seguros y de servicios sociales. Con datos referidos al año 2018, último publicado, el tejido empresarial en la UE, en su configuración actual de 27 países, está constituido por 22.710.033 empresas, de las cuales 2.650.529 son españolas; es decir, el 11,7% del total, por encima de su peso en población (10,5%) o PIB (8,9%). Esto supone que, por cada mil habitantes, hay en la UE 44,3 empresas, una ratio que en el caso de la economía española se eleva hasta 56,8.
+
+:fig-d17:
+:F: Eurostat (UE, España, Alemania, Reino Unido); IECA (Andalucía).:F:
+:U::U:
+:N: Datos referidos al año 2018.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Empresas por mil habitantes
+[[./graficos/diagnostico/d17.pdf]]
+:END:
+
+Considerando para Andalucía también las empresas no agrarias excluidas las del sector financiero y de servicios sociales, por homogeneidad con la estadística de Eurostat, y según datos del Directorio de Empresas y Establecimientos con Actividad Económica en Andalucía, del IECA, la ratio de empresas por cada mil habitantes es de 49,8 empresas, más que por término medio en la UE (44,3 empresas) y significativamente por encima de la ratio en países como Alemania (31,4 empresas) o Reino Unido (33 empresas). Por tanto, Andalucía no tiene un déficit en cuanto a número de empresas en el contexto de la UE.
+
+En cambio, si se analiza la estructura empresarial andaluza en lo que al tamaño se refiere, sí se observa que Andalucía, en línea con España, tiene un déficit en lo que al tamaño de empresas se refiere. Las microempresas (0-9 personas trabajadoras) suponen en Andalucía el 94,8% de todo el tejido empresarial, similar a España (94,4%), y muy por encima de lo que representan en Alemania (83,2%) o Reino Unido (90,2%).
+
+:fig-d18:
+:F: Eurostat (UE, España, Alemania, Reino Unido); IECA (Andalucía).:F:
+:U::U:
+:N: Datos referidos al año 2018.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Microempresas (0-9 personas trabajadoras) (% sobre total)
+[[./graficos/diagnostico/d18.pdf]]
+:END:
+
+Por el contrario, el peso relativo de las empresas de mayor dimensión es más bajo, con un 5,2% del total de empresas con 10 o más personas trabajadoras en Andalucía, tres veces menos que en Alemania (16,8%) y casi la mitad que en Reino Unido (9,8%).
+
+:fig-d19:
+:F: Eurostat (UE, España, Alemania, Reino Unido); IECA (Andalucía).:F:
+:U::U:
+:N: Datos referidos al año 2018.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Empresas de 10 o más personas trabajadoras (% sobre total)
+[[./graficos/diagnostico/d19.pdf]]
+:END:
+
+Estos resultados evidencian, como se concluye en el mencionado recuadro, que Andalucía no tiene una falta de tejido empresarial, pero sí tiene un déficit de empresas más dimensionadas. Incrementar el tamaño de las empresas es un factor estratégico para mejorar el crecimiento potencial de la economía porque las empresas más grandes son más intensivas en capital físico, humano y tecnológico, presentan una mayor facilidad para acometer proyectos de internacionalización, una mayor productividad, y una mayor capacidad inversora, especialmente para el impulso de la innovación y la adopción de nuevas tecnologías; es decir, configuran un tejido empresarial más competitivo que ayudaría a mejorar la calidad del empleo.
+
+** El esfuerzo tecnológico en Andalucía: el déficit del gasto en Investigación, Desarrollo e innovación (I+D+i) en el sector privado
+
+Para medir el esfuerzo tecnológico de una economía se suelen utilizar dos indicadores: el gasto en investigación y desarrollo (I+D) y el gasto en innovación tecnológica.
+
+A efectos estadísticos, el INE considera el gasto en I+D como “el conjunto de trabajos creativos que se emprenden de modo sistemático a fin de aumentar el volumen de conocimientos, incluidos el conocimiento del hombre, la cultura y la sociedad, así como la utilización de esa suma de conocimientos para concebir nuevas aplicaciones”. Como se recoge en el Informe metodológico de la Estadística sobre Actividades de I+D del INE, la I+D engloba tres tipos de actividades: investigación básica, investigación aplicada y desarrollo experimental.
+
+La investigación básica comprende, también según se recoge en el citado informe metodológico, aquellos trabajos experimentales o teóricos que se llevan a cabo sobre todo para obtener nuevos conocimientos de fenómenos o hechos observables, sin intención de otorgarles ninguna aplicación o utilización determinada. La investigación aplicada, sin embargo, está dirigida fundamentalmente hacia un objetivo práctico específico. El desarrollo experimental, hace referencia a trabajos sistemáticos basados en los conocimientos adquiridos de la investigación y de la experiencia, y que están orientados a la fabricación de nuevos productos o procesos, o a mejorar productos o procesos que ya existen.
+
+Según la Estadística sobre actividades de I+D del INE, el gasto en I+D en Andalucía ascendió a 1.538,4 millones de euros en 2019, última información disponible, lo que supone en torno al 10% del total nacional (15.572 millones de euros), por debajo del peso relativo que Andalucía tiene en otras magnitudes como población (17,9% en 2019) y en generación de Producto Interior Bruto (13,9% también en 2019).
+
+En términos de esfuerzo tecnológico, el gasto en I+D de Andalucía representa el 0,93% del PIB, siendo la media española del 1,25%; porcentajes ambos, que están muy por debajo de los observados en los países del entorno europeo, alcanzando de media en la Unión Europea el 2,19% y en la Zona Euro el 2,22%. Entre los países que conforman la Unión Europea, los que mayor esfuerzo tecnológico presentan, superior al 3%, son Suecia (3,4%), Austria (3,19%) y Alemania (3,18%), mostrando Dinamarca (2,91%), Bélgica (2,89%) y Finlandia (2,79%) también un nivel superior al promedio europeo.
+
+Según se recoge en un recuadro del Informe Económico de Andalucía 2019, elaborado por la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, la evidencia empírica para los países de la UE muestra que existe una relación directa y estadísticamente significativa entre el esfuerzo tecnológico de una economía y su nivel de riqueza por habitante, siendo los países que mayor esfuerzo tecnológico realizan los que presentan mayores niveles de PIB por habitante.
+
+En este sentido, cabe destacar que países con gasto en I+D, en porcentaje del PIB, superiores al 3%, como Suecia, Austria o Alemania, tienen un PIB pps por habitante en torno a un 20% superior a la media de la UE. Por el contrario, países como Bulgaria, Letonia o Rumanía, con un gasto en I+D que representa menos del 1% del PIB, tienen un PIB pps por habitante que es más de un 20% inferior a la media de la UE.  En este grupo se encontraría Andalucía, con un gasto en I+D en porcentaje del PIB del 0,93%, y un nivel de PIB pps por habitante del 68% de la media de la UE-27.
+
+:fig-d20:
+:F: INE; Eurostat.:F:
+:U::U:
+:N: Año 2019.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: PIB per cápita y gasto en I+D en la UE
+[[./graficos/diagnostico/d20.pdf]]
+:END:
+
+Cabe analizar si el esfuerzo relativamente menor del gasto en I+D en Andalucía y España se debe al sector privado, conformado por las empresas y las instituciones privadas sin fines de lucro (IPSFL), o al sector público, que engloba a la Administración Pública y la Enseñanza Superior.
+
+Andalucía presenta una distribución del gasto en I+D entre los sectores institucionales muy diferente a su entorno europeo. En Andalucía, el sector público realiza casi las dos terceras partes (63,5%) del gasto en I+D (44,1% Enseñanza Superior y 19,4% la Administración Pública), correspondiendo el 36,5% restante al sector privado. Mientras, en la UE es al contrario: alrededor de las dos terceras partes del gasto en I+D lo realiza el sector privado (66,9%) y la tercera parte restante el sector público.
+
+:fig-d21:
+:F: Estadística sobre Actividades de I+D del INE; Eurostat.:F:
+:U::U:
+:N: % sobre total. Año 2019.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Gasto en I+D según sector institucional
+[[./graficos/diagnostico/d21.pdf]]
+:END:
+
+Esto determina que, en términos de esfuerzo tecnológico, el gasto en I+D del sector público sobre el PIB sea similar en Andalucía y España, no muy alejado de la Unión Europea. En concreto, en Andalucía, el gasto en I+D del sector público representa el 0,59% del PIB, ligeramente por encima de España (0,55%), siendo el 0,73% en la UE. Mientras, el gasto en I+D del sector privado sobre el PIB es del 0,34% en Andalucía, la mitad que en España (0,71%) y menos de la cuarta parte de la UE (1,47%).
+
+En el ámbito europeo, los países con mayor esfuerzo tecnológico del sector privado, superior al 2% del PIB, son Bélgica, Alemania, Austria y Suecia, seguidos de Finlandia (1,85%) y Dinamarca (1,83%). Estos países también muestran un superior nivel de gasto en I+D público, por encima del 1% en Dinamarca, en torno al 0,9% en Alemania, Suecia, Austria y Finlandia, y del 0,8% en Bélgica.
+
+:fig-d22:
+:F: INE; Eurostat.:F:
+:U::U:
+:N: Gastos en I+D en porcentaje de PIB. Dato de 2019.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Esfuerzo tecnológico en Andalucía y España en el contexto de la Unión Europea
+[[./graficos/diagnostico/d22.pdf]]
+:END:
+
+Todos estos resultados evidencian que uno de los principales retos a los que se enfrenta la economía andaluza es conseguir que el sector privado aumente su gasto en I+D.
+
+De igual forma, Andalucía presenta también unos niveles inferiores a los de su entorno en otras variables que miden la innovación tecnológica, como el gasto en innovación de las empresas o el desarrollo de patentes.
+
+Según la Encuesta de Innovación en las empresas del INE, en 2019, último año con información disponible, el gasto en innovación de las empresas, que se asocia con la introducción de productos nuevos o sensiblemente mejorados en el mercado, o la adopción, por parte de las empresas, de procesos nuevos o sensiblemente mejorados, se cifró en Andalucía en 1.227 millones de euros, el 6,3% del total nacional; un porcentaje muy por debajo del peso relativo de Andalucía en población (17,9%) o generación de PIB (13,9%). De esta forma, respecto al PIB, el gasto en innovación de las empresas en Andalucía representa el 0,74%, menos de la mitad que la media española (1,56%).
+
+En cuanto a las patentes, y según datos de la Estadística de Propiedad Industrial de la Oficina Española de Patentes y Marcas, del Ministerio de Industria, Comercio y Turismo, referidos a las peticiones para la cobertura dentro del territorio nacional (vía nacional), en Andalucía en el año 2020 hubo 200 solicitudes de patentes, el 13,5% del total nacional (1.479). Junto a ello, se concedieron en Andalucía 74 patentes, el 12,6% del total nacional (587). En ambos casos, por tanto, porcentajes que se sitúan por debajo del peso relativo de Andalucía en población o generación de PIB.
+
+El Centro de Predicción Económica (CEPREDE) de la Universidad Autónoma de Madrid elabora un indicador de Innovación Tecnológica por comunidades autónomas, que se construye como media ponderada de cinco variables: porcentaje del gasto en I+D respecto al PIB regional; peso que tiene el personal en I+D respecto al total de ocupados; número de patentes (solicitadas y concedidas) por millón de habitantes; número de artículos publicados en revistas científicas por millón de habitantes y año; y porcentaje de gastos en innovación de las empresas respecto al PIB regional; las tres primeras variables con una ponderación en el índice del 25% y las dos últimas con un peso del 12,5%.
+
+:fig-d23:
+:F: INE; N-Economía (CEPREDE-UAM).:F:
+:U::U:
+:N: * Datos CEPREDE, calculados con información disponible en 2020.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Innovación tecnológica y PIB per cápita en las CC.AA. españolas
+[[./graficos/diagnostico/d23.pdf]]
+:END:
+
+La evidencia empírica disponible para las Comunidades Autónomas españolas pone de manifiesto que existe una relación directa y estadísticamente significativa entre este indicador de innovación tecnológica y el nivel de PIB per cápita en las regiones, de manera que son aquellas con mayor nivel de innovación tecnológica las que presentan los mayores niveles de riqueza por habitante, destacando Madrid, País Vasco y Navarra.
+
+Con la última información disponible de este indicador de innovación tecnológica de CEPREDE, calculado con la información disponible en 2020, Andalucía, se sitúa en el 76% de la media española en Innovación Tecnológica, posición equivalente a la que la comunidad autónoma tiene en PIB per cápita (74,3% en 2019, último dato publicado), y que le lleva a estar entre las regiones con menores niveles de PIB por habitante.
+
+:fig-d24:
+:F: INE; N-Economía (CEPREDE-UAM).:F:
+:U::U:
+:N: * Datos CEPREDE, calculados con información disponible en 2020.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Componentes del indicador de innovación tecnológica. Andalucía (España=100)
+[[./graficos/diagnostico/d24.pdf]]
+:END:
+
+Un análisis más detallado por componentes pone de manifiesto que las mayores diferencias con la media nacional se encuentran en el gasto en innovación de las empresas, estando Andalucía en el 47,5% de la media española en gasto en innovación de las empresas respecto al PIB.
+
+En personal en I+D respecto al total de ocupados, el nivel de Andalucía representa el 68,4% del conjunto nacional, similar a los que se observa en cuanto al gasto en I+D en porcentaje del PIB (74,1% de la media española), y en número de patentes (solicitadas y concedidas) por millón de habitantes (73,9% de la media española). En cambio, en difusión de la producción científica en revistas está en el promedio de España (99,4%).
+
+Para avanzar en convergencia económica con España, la economía andaluza debe realizar un esfuerzo en innovación tecnológica, y muy especialmente, en el gasto en innovación realizado por las empresas; un aspecto este último que se vería favorecido con el aumento del tamaño del tejido empresarial y un mayor peso del sector industrial, dado que son estas empresas las que relativamente dedican un mayor porcentaje de su gasto a innovación. En este sentido, las empresas industriales son las que presentan la mayor intensidad de innovación relativa, medida como el porcentaje de gastos en actividades innovadoras respecto a su cifra de negocio, concretamente el 1,09% en Andalucía (según la Encuesta sobre innovación en las empresas del INE del año 2019), ratio un 45,3% superior a la que muestra el conjunto de empresas en la región (0,75%).
+
+** Los modelos de cualificación de Andalucía y España comparados con la UE: la formación intermedia como elemento diferencial
+
+Como se recoge en un recuadro de la revista Coyuntura Económica de Andalucía, de julio de 2019, que elabora la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, la educación y la formación de la población constituyen un elemento clave en el proceso de avance de la sociedad, ya que permite aumentar la competitividad de la economía y el bienestar general. La mejora de la empleabilidad y el aumento de la competitividad del tejido empresarial está vinculado a la cualificación y habilidades de que dispongan las personas trabajadoras. Uno de los retos en Andalucía es promover que los jóvenes sigan estudiando después de la educación obligatoria, y se reduzca la tasa de abandono educativo temprano. En Andalucía, al igual que en España, se observa una mejora significativa del nivel de formación de la población en edad de trabajar en las últimas décadas, si bien se aprecian diferencias significativas respecto al entorno europeo.
+
+En este sentido, en la mayor parte de Europa, los modelos de cualificación se asientan sobre la formación intermedia. En el conjunto de la UE, según la Encuesta Europea de Fuerza de Trabajo de Eurostat, con datos de 2020, casi la mitad (46%) de la población en edad de trabajar (15 a 64 años) tiene estudios de segunda etapa de secundaria (bachillerato y formación profesional de grado medio); algo menos del treinta por ciento (28,9%) dispone de estudios superiores (enseñanzas universitarias y enseñanzas técnico-profesionales de grado superior); y el 25,1% restante ha completado como máximo hasta la enseñanza secundaria obligatoria (ESO).
+
+:fig-d25:
+:F: Eurostat.:F:
+:U::U:
+:N: % sobre el total población en edad de trabajar (15-64 años). Datos del año 2020.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Nivel educativo de la fuerza de trabajo en Andalucía, España y Europa
+[[./graficos/diagnostico/d25.pdf]]
+:END:
+
+Este modelo de cualificación de la población en edad de trabajar, que dibuja una figura de rombo, se reproduce en la mayoría de los países del área, en concreto en veinte de los 27 países de la UE, entre ellos Alemania, Francia, o Austria, en los que el mayor porcentaje de la población tiene un nivel intermedio de formación.
+
+España y Andalucía muestran modelos de cualificación diferentes a su entorno europeo, estando basada la formación de la fuerza de trabajo en una combinación de cualificaciones bajas y en los extremos superiores. En concreto, según datos de la Encuesta de Población Activa (EPA) de 2020, en España, casi el 40% de la población entre 15 y 64 años (38,2%) ha completado como máximo la enseñanza secundaria obligatoria (ESO), porcentaje que se eleva hasta casi la mitad (47,2%) en el caso de Andalucía. La población con estudios superiores supone el 36% del total en España, peso superior a la media europea (28,9%), y que es similar al que se registra en Andalucía (29,3%). Mientras, en el estrato de población con formación intermedia, es decir, bachillerato y formación profesional de grado medio, se concentra aproximadamente la cuarta parte (25,8% en España; 23,4% en Andalucía) de la población en edad de trabajar, en torno a la mitad de lo que representan en la UE (46%).
+
+Se podría pensar que esta situación es debido a la herencia histórica de una población con cualificación reducida, constituida sobre niveles educativos muy elementales; sin embargo, si se analiza el perfil de formación para la población joven, de 25 a 34 años, se tiene que mientras que en la UE solo el 14,8% tiene estudios hasta la ESO, en España este porcentaje es casi el doble (28,3%) y en Andalucía se eleva hasta el 35%; mientras, el 44,7% de la población entre 25 y 34 años tiene una cualificación intermedia en la UE, casi el doble que en España (24,3%) y Andalucía (25,7%), y un 40,5% tiene estudios superiores en la UE, menos que en España (47,4%) siendo en Andalucía este porcentaje del 39,3%, similar al de la UE.
+
+:fig-d26:
+:F: IECA; INE; Eurostat.:F:
+:U::U:
+:N: Tasa de paro: % sobre población activa. Datos referidos al año 2020. \par Tasa de abandono educativo temprano: % población de 18 a 24 años que no ha completado el nivel de Educación Secundaria 2ª etapa y no sigue ningún tipo de educación-formación.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Tasa de abandono educativo temprano y tasa de paro. Año 2020
+[[./graficos/diagnostico/d26.pdf]]
+:END:
+
+Esta falta de cualificaciones intermedias de la población en edad de trabajar en España y Andalucía viene acompañada de superiores tasas de abandono educativo temprano, entendida como el porcentaje de población de 18 a 24 años que no ha completado el nivel de educación secundaria 2ª etapa, y no sigue ningún tipo de educación-formación. En Andalucía, la tasa de abandono educativo temprano alcanza el 21,8% en 2020 (16% en España), más del doble que la media de la UE (9,9%). Esto se refleja en el mercado laboral en índices muy inferiores de empleabilidad, de forma que la tasa de paro en Andalucía más que triplica la media de la UE (22,3% y 7,1%, respectivamente).
+
+El avance hacía la sociedad del conocimiento hace necesario una adaptación de los sistemas de formación a las nuevas demandas sociales, siendo uno de los retos consolidar la educación superior y potenciar la formación intermedia, elevando sus tasas de alumnado y adaptándola a las necesidades del sistema productivo. Esto permitirá encauzar la vocación de buena parte de los jóvenes y proveerles de competencias para desarrollar su profesión y acceder a un adecuado nivel de vida. La apuesta por una formación profesional que eleve los niveles de cualificación intermedia puede favorecer la reducción del fracaso y del abandono escolar prematuro, y una mayor empleabilidad, con la consiguiente reducción de las tasas de paro, como ya se ha puesto de manifiesto en los países que han apostado por la misma.
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

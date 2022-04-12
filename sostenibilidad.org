@@ -1,0 +1,1462 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+#+begin_SRC latex
+  \loadgeometry{centrada}
+  \pagestyle{basico}
+#+end_SRC
+
+#+RESULTS:
+#+begin_export latex
+\loadgeometry{centrada}
+\pagestyle{basico}
+#+end_export
+
+* Sostenibilidad
+
+** Intro                                                            :ignore:
+
+{{{inicol(2)}}}
+El cambio climático es un problema global de nuestro tiempo y sus consecuencias, tanto en ámbitos medioambientales como económicos y sociales, pueden ser devastadoras si no se reducen drásticamente las emisiones globales de gases de efecto invernadero y la dependencia de los combustibles fósiles.
+
+El principal motor del cambio climático es el efecto invernadero, producido por algunos gases que provocan el calentamiento global de la Tierra. Según datos de Eurostat, el 79% de las emisiones de gases de efecto invernadero en la Unión Europea son debidas a la quema de combustibles para usos energéticos y/o de transporte.
+
+Los niveles de dióxido de carbono CO_{2} y de otros gases de efecto invernadero (GEI) en la atmósfera han subido vertiginosamente en los últimos años, provocando incrementos en la temperatura media. Los principales problemas de contaminación están asociados a elevados niveles de partículas, óxidos de nitrógeno y ozono. Esta situación es similar a la de otros países europeos, si bien España, y especialmente Andalucía, se ve afectada por las circunstancias climatológicas existentes de alta insolación, estabilidad atmosférica, bajas precipitaciones y menor latitud.
+
+La confirmación de que las emisiones de gases a nivel mundial aumentan de forma insostenible, junto a la creciente concienciación de la ciudadanía y sus responsables políticos, motivaron el Acuerdo Climático de París, adoptado en diciembre de 2015 por 195 países. En el mismo se regularon las emisiones de gases de efecto invernadero a partir del año 2020, con el objetivo de mantener el incremento medio de la temperatura del planeta muy por debajo de los 2 °C durante el presente siglo, respecto a niveles preindustriales, comprometiéndose a hacer lo posible para limitar el aumento a 1,5 °C, para ayudar a los países más vulnerables.
+
+Además, y según el principio de transición justa, debe protegerse adecuadamente a aquéllos que, sin ser responsables de la degradación ambiental, se vean perjudicados por las medidas necesarias para corregirla, evitando que la transición de modelo energético se convierta en una nueva fuente de injusticia y desigualdad.
+
+Con el fin de regular las actuaciones a realizar en Andalucía para implementar este Acuerdo, se aprobó la Ley 8/2018, de 8 de octubre, de medidas frente al cambio climático y para la transición hacia un nuevo modelo energético en Andalucía, que establece en su artículo 8.1 que el Plan Andaluz de Acción por el Clima (en adelante PAAC), constituye el instrumento general de planificación en materia de cambio climático en nuestra región. El PAAC, con un periodo de vigencia desde su aprobación hasta el año 2030, incluye tres Programas: el Programa de Mitigación de Emisiones para la Transición Energética, el Programa de Adaptación y el Programa de Comunicación y Participación.
+
+Para luchar contra el cambio climático, mediante la descarbonización del actual modelo económico, la Ley 2/2007, de 27 de marzo, de fomento de las energías renovables y del ahorro y eficiencia energética de Andalucía, así como la Estrategia Energética de Andalucía 2030, formulada en marzo de 2021, establecen las actuaciones que propiciarán la transición energética en Andalucía con los objetivos de reducir el consumo de energía e incrementar el aporte de energía procedente de fuentes renovables.
+
+Por otra parte, el cambio climático se refleja en una mayor incidencia de fenómenos climáticos extremos, como el aumento de sequías, precipitaciones torrenciales, inundaciones, incendios forestales, tormentas y olas de frío y de calor, cuyos impactos habrá que minimizar.
+
+De esos posibles impactos, el PAAC recoge y analiza 17 para Andalucía, deducidos siguiendo el enfoque propuesto por el Grupo Intergubernamental de Expertos sobre el Cambio Climático (IPCC), en su informe AR5. Once de estos impactos se evalúan como de riesgo medio, 1 de riesgo bajo y 5 como de riesgo alto. De estos 5, al menos tres tienen una relación directa con la alteración en el régimen pluviométrico: inundaciones por lluvias torrenciales, cambios de la disponibilidad del agua y pérdida de la calidad e incremento de la sequía. Por ello, es fundamental cuidar los recursos hídricos de la región para poder garantizar el abastecimiento de la población, la prosperidad económica y las necesidades medioambientales.
+
+La otra vía para revertir las tendencias en el cambio climático es más integral e implica modificar nuestro modelo de producción y consumo, es decir, tornar hacia una economía circular. Hasta ahora, nuestro esquema económico está basado en un modelo de crecimiento que se apoya en la producción de bienes y servicios bajo las pautas, generalmente, de “usar-consumir-tirar”. Este esquema “lineal” conlleva un uso intensivo de recursos naturales y crea una elevada presión sobre el medio ambiente, contribuyendo al cambio climático y la pérdida de biodiversidad. Estos efectos adquieren una dimensión adicional cuando nos referimos a recursos no renovables o escasos, y cuando se trata de insumos clave en la producción de determinados bienes y equipos, como, por ejemplo, la ropa y los dispositivos electrónicos, respectivamente.
+
+En este sentido, no cabe duda de que las posibles sinergias y efectos combinados de los diferentes actuaciones e instrumentos de planificación de políticas públicas en Andalucía, en materias relativas al cambio climático, movilidad, calidad del aire, contaminación acústica, entre otras, deberían tener un impacto muy positivo sobre la calidad de vida de los residentes en Andalucía, y también favorecer un crecimiento social y económico sostenible.
+
+De este modo, en coherencia con el Pacto Verde Europeo, Andalucía se propone facilitar y acelerar la transición hacia una economía moderna, competitiva y eficiente en el uso de recursos, sin emisiones netas de gases de efecto invernadero, en 2050, con un crecimiento económico desvinculado del uso de recursos y generador de un empleo de calidad.
+
+Por último, dada la gran riqueza y diversidad biológica existente en Andalucía, es fundamental mantener un compromiso para su conservación, implicando a toda la sociedad en su conocimiento y preservación para las generaciones venideras.
+{{{fincol}}}
+
+** Prioridades                                                      :ignore:
+
+@@latex:\pagestyle{prioridad}@@
+
+*** Reducir las emisiones
+**** Intro 0201                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0201
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Emisiones de gases de efecto invernadero
+{{{finlineas}}}
+{{{ods(7 8 11 13 17)}}}
+La constatación de la importancia del cambio climático y de la relevancia de sus consecuencias, tanto en términos ambientales como económicos y sociales, puestas de manifiesto por los informes elaborados por el Grupo Intergubernamental de Expertos sobre Cambio Climático (IPCC), hacen ya incuestionable la necesidad de avanzar hacia una economía descarbonizada, debiendo ser prioritaria la toma de decisiones que posibiliten la reducción de las emisiones de Gases de Efecto Invernadero (GEI).
+
+El “Informe Especial sobre los Impactos de un calentamiento global de 1,5°C”, del IPCC, pone de manifiesto que el cumplimiento de los actuales compromisos de mitigación del Acuerdo de Paris no es suficiente para alcanzar el compromiso de limitar el calentamiento global a 1,5°C. La Conferencia de las Naciones Unidas sobre el Cambio Climático (COP25) celebrada en Madrid en 2019, sentó las bases para que los países sean más ambiciosos ante la emergencia climática.
+
+Las emisiones de gases en Andalucía, según el Inventario Nacional de Gases de Efecto Invernadero, aumentó un 36% en el período 2018-1990. Este último es el año base del Protocolo de Kioto. Además, se registró en 2007 el nivel más alto de emisiones.
+
+Para reducir estas emisiones en Andalucía, el PAAC establece como uno de sus objetivos estratégicos la descarbonización. En concreto, propone disminuir las emisiones GEI difusas un 39% en 2030 con respecto a datos de 2005. Este objetivo podrá ser revisado durante la vigencia del Plan para aumentarlo hasta un 41%, en función de los compromisos o cambios en la normativa internacional, de los objetivos de la Unión Europea, de la normativa básica estatal, de la reducción de emisiones conseguida o de los impactos económicos y sociales generados por la adopción de las medidas previstas en el Programa de Mitigación de Emisiones para la Transición Energética.
+
+Por otra parte, las medidas adoptadas para frenar la pandemia producida por la COVID-19 han generado una importante disminución en la emisión de CO_{2} en 2020, si bien estos impactos positivos han sido solo temporales. Una vez se supere la emergencia sanitaria, las estrategias y planes de los distintos sectores habrán de ser revisados, así como los programas de gasto y de inversión pública. Ello supone una oportunidad para lograr una transición hacia modelos de desarrollo más sostenibles.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Lograr una transformación ordenada de nuestra economía hacia una economía baja en carbono.
+{{{fintcb}}}
+
+**** Emisiones de gases de efecto invernadero
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0201-01
+:END:
+***** Texto                                                      :ignore:
+Los *niveles de dióxido de carbono (CO_2) y de otros gases de efecto invernadero en la atmósfera han subido vertiginosamente* en los últimos años provocando una subida de temperatura.
+
+Los principales problemas de contaminación están asociados a elevados niveles de partículas, óxidos de nitrógeno y ozono. Esta situación es similar a la de otros países europeos, si bien España, y especialmente Andalucía, se ve afectada por las circunstancias climatológicas existentes de alta insolación, estabilidad atmosférica y bajas precipitaciones.
+
+Las emisiones de GEI se dividen en dos grandes grupos: las procedentes de actividades afectadas por el Régimen de Comercio de Derechos de Emisión (RCDE) del sector industrial, y las procedentes del sector difuso, que incluye el resto de las emisiones de gases de efecto invernadero y que se deben principalmente a los siguientes sectores: transporte, agricultura, sector industrial no afectado por el RCDE, residencial, comercial e institucional, tratamiento de residuos y gases fluorados.
+
+Las emisiones del sector difuso son ligeramente superiores a las emisiones incluidas en el RCDE, suponiendo, como promedio de los años 2005-2018, el 54% de las emisiones de gases de efecto invernadero en Andalucía. Además, éstas representan un 16,5% sobre el total de las emisiones difusas de España en el mismo periodo y un 1,25% sobre el total de las emisiones difusas de la Unión Europea.
+
+En cuanto a las emisiones afectadas por el RCDE, hay que indicar que éstas se deben principalmente a cuatro sectores: la generación de energía eléctrica (54%), la fabricación de cemento (14%), el refino de petróleo (12%) y las cogeneraciones (11%). Las emisiones de estos cuatro sectores suponen, como promedio de los años 2005-2018, el 91% del total de las emisiones del RCDE.
+
+Analizando las emisiones difusas según las diez áreas estratégicas definidas en la Ley 8/2018, de 8 de octubre, las principales áreas que emiten gases de efecto invernadero son el transporte y movilidad (95% asociadas al transporte por carretera) que representan el 47,1% del total entre 2013-2018, la agricultura, ganadería, acuicultura y pesca (25,9%) y los residuos (9,7%). Las dos primeras son, además, las que más han aumentado sus emisiones en ese período (17% y 8%, respectivamente).
+
+Con el fin de alcanzar el objetivo general de reducción de las emisiones GEI difusas del 39% en 2030, con respecto a datos de 2005, en el PAAC se definen las disminuciones a alcanzar en las distintas áreas estratégicas (ver figura 2.3).
+
+Por tanto, para luchar contra el cambio climático se deberán realizar actuaciones que propicien la descarbonización del actual modelo económico.
+
+:fig-0201A1:
+:F: Inventario Nacional de Emisiones GEI, Serie 1990-2018. Ministerio para la Transición Ecológica y el reto Demográfico y Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N:     Emisiones totales y difusas: tCO_{2}eq. Emisiones RCDE: tCO_{2}.:N:
+:E::E:
+#+CAPTION: Evolución de emisiones GEI en Andalucía: totales, RCDE y difusas. 2005-2018
+[[./graficos/0201A1.pdf]]
+:END:
+
+:fig-0201A2:
+:F: Inventario Nacional de Emisiones GEI, Serie 1990-2018. Ministerio para la Transición Ecológica y el reto Demográfico y Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Distribución emisiones GEI difusas por sector, 2018 (%). Andalucía-España
+[[./graficos/0201A2.pdf]]
+:END:
+
+:fig-0201A3:
+:F: Inventario Nacional de Emisiones de GEI, Inventario Andaluz de Emisiones de GEI, Proyecciones de emisiones de GEI, Ministerio para la Transición Ecológica y el Reto Demográfico (edición 2019) y Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N:     (*) Se ha de tener presente que las emisiones difusas de este área son debidas fundamentalmente a las emisiones fugitivas de los combustibles líquidos y gaseosos. Las emisiones de la generación de energía eléctrica, el  refino de petróleo y otros sectores industriales intensivos en el consumo de energía no están incluidas por estar afectadas por el RCDE.:N:
+:E::E:
+#+CAPTION: Objetivos de reducción de emisiones por área estratégica
+[[./graficos/0201A3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Elaborar y difundir el Inventario Andaluz de Emisiones de Gases de Efecto Invernadero, con periodicidad anual.
+
+2. Crear el Registro del Sistema Andaluz de Emisiones Registradas (SAER) y el Sistema Andaluz de Compensación de Emisiones (SACE).
+
+3. Priorizar en las convocatorias públicas la investigación, la innovación y la transferencia de conocimiento centradas en aquellas actividades que reduzcan la emisión de GEI.
+
+4. Fomentar el cambio modal del transporte de mercancías y personas hacia modos de transporte más eficientes, como el ferrocarril y el transporte marítimo, frente al avión y la carretera. Así como, el uso del transporte público, la bicicleta y el desplazamiento a pie de las personas en los entornos urbanos.
+
+5. Incorporar a la Red de Transporte Público vehículos de bajas emisiones, con la adquisición o transformación de vehículos energéticamente eficientes para flotas públicas, especialmente las que prestan servicios de transporte de pasajeros.
+
+6. Fomentar soluciones tecnológicas, desde el teletrabajo a las videoconferencias, o los servicios de carsharing, que permitan reducir la necesidad de transporte de las personas.
+
+7. Incorporar en los Pliegos de Prescripciones Técnicas medidas para la reducción de emisiones y eficiencia energética en las concesiones de transporte público.
+
+8. Impulsar la movilidad y el transporte sostenible en la Administración de la Junta de Andalucía, incluyendo la consideración del cambio climático en la planificación estratégica de la movilidad y el transporte.
+
+9. Realizar actuaciones de plantaciones y restauraciones paisajísticas en las infraestructuras viarias y en otros proyectos y actuaciones que requieran estudio ambiental, a fin de aumentar la capacidad de éstos de convertirse en sumideros de CO_{2}.
+
+10. Mejorar la regularidad superficial y de la resistencia a la rodadura de los pavimentos de carreteras.
+
+11. Fomentar los sistemas y prácticas de producción agraria sostenible.
+
+12. Establecer medidas que reduzcan las emisiones de gases fluorados en las viviendas y en la industria.
+
+13. Impulsar la investigación de procesos innovadores (nuevos materiales, captura y el almacenamiento) y dispositivos de combustión industrial bajos en carbono, para la reducción de los contaminantes atmosféricos.
+
+14. Evitar, y excepcionalmente compensar, las modificaciones de suelo en las que existan sumideros de carbono con fines comerciales.
+
+15. Incluir, en los planes urbanísticos y de ordenación del territorio, consideraciones para la mitigación de las emisiones de GEI y la mejora de la eficiencia energética.
+
+16. Fomentar la aplicación de los principios de la economía circular en la gestión de restaurantes e instalaciones hoteleras, y en el diseño de edificios en los sectores turístico y comercial, así como en los edificios de titularidad pública.
+
+17. Desarrollar Planes de Calidad del Aire y fortalecer la Red de Vigilancia y Control de la Calidad del Aire de Andalucía, de acuerdo con lo previsto en la Estrategia Andaluza de Calidad del Aire y las obligaciones legales.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Andaluz Acción por el Clima.
+- Directrices energéticas de Andalucía. Horizonte 2030.
+- Estrategia Andaluza de Desarrollo Sostenible 2030.
+- Planes de Gestión de Riesgo de inundación.
+- Planes de Desarrollo Sostenible de los parques naturales de Andalucía.
+- Estrategia Andaluza de Calidad del Aire.
+- Planes de mejora de la calidad del aire en determinadas zonas de Andalucía.
+- PITMA 2021-2030.
+- Plan Estratégico de puertos y áreas logísticas de Andalucía (En elaboración-integrado en Extenda).
+- Plan Vive en Andalucía, de Vivienda, Rehabilitación y Regeneración Urbana de Andalucía 2020-2030.
+*** Promover la transición energética
+**** Intro 0202                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0202
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Uso más eficiente de la energía
+2. Dependencia energética y transición a las renovables
+3. Divulgación e información
+{{{finlineas}}}
+{{{ods(7 8 9 11 12 13)}}}
+Para contribuir a la necesaria reducción de las emisiones de gases a la atmósfera las administraciones deben promover la transición energética actuando sobre dos ámbitos fundamentales: promoviendo la eficiencia energética y fomentando el uso de las energías renovables, especialmente en autoconsumo.
+
+Dado que las fuentes de energía no renovable existen de forma limitada en la naturaleza y que el modo de extraerlas, transportarlas y consumirlas tiene un importante impacto en el medioambiente, se considera muy importante realizar un consumo responsable de la misma, fomentando el ahorro energético y una generación lo más próxima al lugar de consumo.
+
+Para ello, resulta necesario seguir promoviendo la eficiencia energética a través de la implicación de todos los agentes económicos (empresas, ciudadanía y administraciones públicas) en una nueva reconversión hacia una economía baja en carbono competitiva, ecológica y eficiente en el uso de los recursos. En el contexto actual de inestabilidad internacional y su repercusión sobre los precios de la energía, se ha hecho más evidente la necesidad de un cambio de modelo energético. Para su consecución, habrá que disponer de inversiones que aseguren una política que tenga en cuenta los costes medioambientales de todas las actividades productivas y de las edificaciones, garantizando la viabilidad de la transición hacia estos equipamientos más sostenibles.
+
+Por otra parte, Andalucía cuenta con un sólido tejido empresarial en el sector de las energías renovables y la eficiencia energética, con alto potencial de crecimiento, lo que, sin duda, posiciona a Andalucía en un lugar privilegiado para aprovechar el contexto actual de la transición energética a través del fomento de las energías renovables y la eficiencia energética.
+
+Dicho apoyo debe realizarse desde dos perspectivas: por un lado, actuando como facilitadora e impulsora del cambio de modelo (con su capacidad regulatoria, normativa y de interlocución con otros agentes), y por otro, presentando un papel ejemplarizante incorporando en su gestión criterios de ahorro, eficiencia energética y uso de las energías renovables y haciendo de sus infraestructuras un campo de demostración de nuevas tecnologías.
+
+De acuerdo con estos planteamientos, las siguientes líneas de actuación identificadas en esta prioridad se encuadran en los ejes de acción y actuaciones que se señalan en las Directrices Enegéticas de Andalucía - Horizonte 2030, cuyo desarrollo programático se recogerá en la Estrategia Energética de Andalucía, 2030.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Metas)}}}
+Reducir el consumo tendencial de energía primaria.
+
+\bigskip
+
+Consolidar un sistema de generación y consumo de energía renovable.
+{{{fintcb}}}
+
+**** Uso más eficiente de la energía
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0202-01
+:END:
+***** Texto                                                      :ignore:
+En las “Directrices Energéticas de Andalucía, Horizonte 2030” se establece como primer eje de acción para luchar contra el cambio climático el uso de la energía de una forma más racional y responsable en la edificación, la industria y el transporte.
+
+Además, el programa de Mitigación de Emisiones para la Transición Energética de Andalucía, incluido en el Plan Andaluz de Acción por el Clima, se basará, entre otros, en el ahorro del consumo de energía y en el incremento de la eficiencia energética, especialmente en el transporte y la movilidad.
+
+*El consumo total de energía primaria en Andalucía ha crecido un 57,9% desde el año 1995* hasta situarse en 2019 en 19.121 ktep, el 15,2% del consumo de energía a nivel nacional. En términos de energía final, el incremento en este periodo ha sido del 51,3%, alcanzando los 13.566 ktep en 2019.
+
+Según la Agencia Andaluza de la Energía, el transporte es el principal responsable del consumo final de energía en Andalucía (39,2% del total en 2019), siendo el sector industrial el segundo máximo consumidor de energía final (31,3% del total) y el sector residencial el tercero (el 13,4%).
+
+Por otra parte, la economía andaluza, al igual que la nacional, ha tendido a un *consumo de energía con una mayor eficiencia energética*. La intensidad energética, que mide la relación entre el consumo energético y el producto interior bruto de un país, debe tender a ser cada vez menor, es decir, se debe buscar minimizar el consumo energético a la vez que se incrementa el PIB. Desde 2005 la intensidad energética andaluza se ha reducido un 16,1% en el caso de energía primaria y un 18,1% en términos de energía final, mientras que en España ha disminuido un 25,5% y 26,0%, respectivamente.
+
+Si en 2000 el consumo de energía primaria por habitante en Andalucía era un 33,0% inferior al consumo de energía per cápita nacional, en 2019 esta diferencia ha pasado a ser del 14,8%.
+
+Andalucía tiene como objetivo reducir el consumo tendencial de energía primaria en el año 2030, como mínimo al 39,5%, excluyendo los usos no energéticos. Resulta, por tanto, prioritario fomentar el ahorro energético e impulsar la eficiencia energética en los siguientes ámbitos:
+
+- Fomentar la rehabilitación energética de los *edificios* andaluces: fundamental para reducir el consumo de energía y mejorar las condiciones de vida, confort y salud de la población, la competitividad de las empresas y la economía de los hogares.
+
+- Optimizar los consumos energéticos en los *sectores económicos*: persigue incrementar su competitividad y la reducción de emisiones.
+
+- En materia de *transporte*, es necesario minimizar su consumo energético y mejorar su eficiencia energética mediante el empleo de tecnologías eficientes y de una necesaria transformación de la movilidad para mejorar la calidad del aire y preservar la salud de las personas.
+
+Además de ahorrar en el consumo de energía, la mejora de la eficiencia energética puede alcanzarse mediante el progreso tecnológico y a través de la reducción de las pérdidas de energía en las redes. El consumo de energía final es igual a la diferencia entre el consumo de energía primaria y los consumos y las pérdidas sufridas en su proceso de extracción, transformación, como la generación de electricidad y refino, transporte y distribución. Por ello, para maximizar la eficiencia se necesita minimizar estas pérdidas.
+
+Si se mide *el rendimiento o la eficiencia en el consumo de energía*, a través del cociente entre el consumo de energía final y el consumo de energía primaria, se observa que en Andalucía dicho rendimiento *es inferior al alcanzado a nivel nacional* (70,9% y 72,3%, respectivamente), con valores además por debajo de los registrados en 2005 en nuestra región (72,6%).
+
+Para conseguir una mayor eficiencia energética es primordial la captación de inversiones industriales y empresariales que potencien el desarrollo de proyectos energéticos en Andalucía que eviten esas pérdidas. Proyectos que no solo dependan de la iniciativa pública, sino que procedan también del ámbito privado.
+
+Además, se debe invertir en sistemas y aparatos para el consumidor final que consigan un mayor aprovechamiento de la energía, aumentando la energía útil y reduciendo pérdidas.
+
+
+:fig-0202A1:
+:F: Agencia Andaluza de la Energía.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución del Consumo Energía Primaria y Final (ktep). Andalucía
+[[./graficos/0202A1.pdf]]
+:END:
+
+:fig-0202A2:
+:F: Agencia Andaluza de la Energía.:F:
+:U::U:
+:N:   Consumo de energía primaria/PIB (tep/M€ 2015).:N:
+:E::E:
+#+CAPTION: Evolución de la intensidad energética primaria. Andalucía-España
+[[./graficos/0202A2.pdf]]
+:END:
+
+:fig-0202A3:
+:F: Agencia Andaluza de la Energía.:F:
+:U::U:
+:N:   Consumo de energía final/PIB (tep/M€ 2015).:N:
+:E::E:
+#+CAPTION: Evolución de la intensidad energética final. Andalucía-España
+[[./graficos/0202A3.pdf]]
+:END:
+
+:fig-0202A4:
+:F: Agencia Andaluza de la Energía.:F:
+:U: En %.:U:
+:N::N:
+:E::E:
+#+CAPTION: Rendimiento o eficiencia: cociente del consumo de energía final frente a consumo de energía primaria
+[[./graficos/0202A4.pdf]]
+:END:
+
+:fig-0202A5:
+:F: Elaboración propia.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Proceso de transformación de la energía
+[[./graficos/0202A5.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Apoyar la gestión energética y descarbonizada en entidades y servicios públicos.
+
+2. Rehabilitar energéticamente edificios de empresas y hogares y su entorno urbano, prestando especial atención a los colectivos más vulnerables.
+
+3. Mejorar la sostenibilidad y competitividad de la industria y del sector servicios a través de la eficiencia energética y uso de energía renovable.
+
+4. Aumentar la eficiencia energética de los procesos industriales, fomentando la bioeconomía y economía circular asociada al sector energético, así como la colaboración entre industrias de distintos sectores, compartiendo sus infraestructuras y sus entradas y salidas de materiales (incluidos los residuos), con el objetivo de reducir el consumo de energía final y optimizar el uso de recursos.
+
+5. Promover un sistema de transporte eficiente avanzando hacia la movilidad cero emisiones.
+
+6. Fomentar el uso del transporte público y la reducción de las necesidades de movilidad, incluyendo los ámbitos metropolitano y rural.
+
+7. Incentivar las inversiones en tecnologías que mejoren los sistemas de transformación, transmisión y distribución de la energía para reducir las pérdidas.
+
+8. Promover la instalación y renovación de los equipamientos domésticos, la iluminación y los sistemas de climatización de edificios y viviendas para mejorar su eficiencia.
+
+9. Estimular la inversión privada en el desarrollo de proyectos y actuaciones de eficiencia energética, mediante la concesión de incentivos económicos, la generación de confianza y la simplificación y agilidad administrativa.
+
+10. Ofrecer un servicio de asesoramiento a los potenciales inversores o personas usuarias interesadas sobre los sectores con mayor potencia de mejora energética, la utilización de las mejores tecnologías disponibles, así como la puesta en valor de las tecnologías andaluzas.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+**** Dependencia energética y transición a las renovables
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0202-03
+:END:
+***** Texto                                                      :ignore:
+Una forma de evaluar a lo largo del tiempo la solidez del sistema energético en un espacio económico resulta de analizar la trayectoria de la tasa de dependencia energética, tasa que en Andalucía ha venido mostrando un progresivo y favorable perfil descendente desde hace una década. Sin embargo, aunque se han acortado las distancias con respecto a los promedios nacional y europeo, lo cierto es que la brecha persiste y que el *grado de dependencia energética exterior es mayor en Andalucía* (83% en 2018) que en España y en el conjunto de la Zona Euro (73,3% y 63,3%, respectivamente), lo que hace más vulnerable a la economía regional.
+
+Esta situación se traduce en unas necesidades muy elevadas de importación de productos energéticos que repercuten negativamente en nuestra balanza comercial. De este modo, resulta evidente la necesidad de apostar por fuentes de energía renovables (eólica, solar, biomasa o biocarburantes, entre otras), tanto en la producción como en el consumo en Andalucía.
+
+Andalucía consume como principal fuente de energía el petróleo. En 2019 el consumo total de esta fuente de energía se elevó a 8.504,3 ktep, el 44,5 % del total del consumo interior bruto. En el periodo 2005-2019 han tomado relevancia otras fuentes energéticas como el gas natural y las energías renovables en detrimento del consumo de carbón y derivados de petróleo. Esto se ha debido a una mayor participación de las primeras en la generación eléctrica y la reducción de la demanda del transporte, entre otros. El consumo de gas, en 2019, es la segunda fuente energética de mayor demanda con un consumo de 5.625,8 ktep.
+
+Por tanto, Andalucía ha evolucionado desde un sistema centralizado de generación basado en combustibles fósiles a otro más eficiente conformado, en mayor medida, por una generación más distribuida que aprovecha los recursos autóctonos renovables. Pero todavía queda mucho por hacer para conseguir el nuevo modelo energético neutro en carbono que propugna la Unión Europea para 2050, al que todos debemos contribuir.
+
+Las energías renovables han ido ganando protagonismo en la matriz de demanda de energía de Andalucía, pasando de suponer un 5% del consumo primario de energía, excluyendo usos no energéticos en 2006 (año de menor aporte renovable) al 21% en 2019. Además, se ha reducido de forma drástica la demanda de carbón, suponiendo solo el 3,9% del total del consumo energético de la comunidad.
+
+Este proceso de transición y adaptación a nuevas fuentes de energía se está acelerando en Andalucía con el cierre de las centrales térmicas de Carboneras (Almería), Puente Nuevo-Valle del Guadiato (Córdoba) y Los Barrios (Cádiz). De este modo, nuestra Comunidad Autónoma afronta el reto de impulsar la generación de alternativas económicas que compensen el cese de actividad de las mencionadas plantas de generación de energía eléctrica y de explotaciones mineras de carbón.
+
+Este adaptación se enmarca en el contexto de las actuaciones previstas en la Estrategia de Transición Justa del Gobierno de España, que tiene como principal objetivo maximizar las oportunidades de empleo y minimizar los impactos negativos de la trasición hacia un modelo de desarrollo bajo en carbono, encontrándose apoyada en el Fondo de Transición Justa, el instrumento financiero dentro de la política de cohesión diseñado para ayudar a los territorios más afectados por dicho proceso de transición a la neutralidad climática.
+
+La mayor parte del crecimiento de la energía renovable mundial se ha producido en el sector de la electricidad, debido a la rápida expansión de la energía eólica y solar, que ha sido posible gracias al apoyo sostenido de las políticas y la significativa reducción de los costes en la última década, especialmente de los paneles solares. Mientras, el uso de la energía renovable en la calefacción y el transporte se está quedando rezagado.
+
+La *progresiva sustitución de las fuentes de energía convencionales* (agotables y contaminantes), *por fuentes de energía renovables* (no agotables o con una capacidad de regeneración tal a corto plazo que permite su utilización en el tiempo de manera predecible, y mucho menos contaminantes) es un componente ineludible de este proceso de cambio de sistema energético.
+
+Andalucía es rica en fuentes de energía renovables. Puede ser, por tanto, un territorio idóneo para realizar la transformación del modelo energético acordada en la Unión Europea. A modo de ejemplo, el desarrollo de la cadena de valor del hidrógeno renovable se presenta como una oportunidad para la región. No obstante, se debe estar atentos a la tendencia de concentración en grandes multinacionales de la instalación de parques energéticos.
+
+La generación de energías renovables requiere de la existencia del recurso (sol, aire, agua, entre otras) y del acceso a una tecnología, equipos y sistemas que para su fabricación necesitan de diversas sustancias minerales, consideradas críticas y fundamentales.
+
+La independencia energética depende en buena parte de la capacidad de acceso o de fabricación de los equipos y tecnologías necesarios, a partir de los recursos minerales de que dispone nuestra región.
+
+La transición verde y digital pasa tanto por una mayor utilización de las fuentes de energía renovables como por la utilización de nuevas tecnologías muy demandantes de determinadas sustancias minerales, consideradas críticas y fundamentales, que son aportadas por la industria extractiva.
+
+Otro factor que incide en la independencia energética es el acceso o fabricación de los sistemas de almacenamiento de energía (baterías) utilizando los recursos minerales del territorio, fundamentales para compensar la falta de disponibilidad de la energía renovable debida a factores climáticos.
+
+Por otro lado, los graves efectos de las fluctuaciones en los precios de la energía, como la observada en la segunda mitad de 2021, podrían aminorarse, en parte, mediante el aprovechamiento de las posibilidades de almacenamiento estratégico subterráneo de hidrocarburos o hidrógeno en el territorio de Andalucía, que haga al sistema más robusto.
+
+En definitiva, resulta necesario fomentar el incremento del uso de fuentes de energía renovables, la disminución de la dependencia de los derivados de petróleo y la mejora al acceso a unos servicios energéticos asequibles y de calidad, que incrementen la calidad de vida de la población y la competitividad de las empresas.
+
+Andalucía se fija como objetivo aportar, a partir de fuentes de energía renovables, al menos el 42% del consumo de energía final bruta en 2030, de acuerdo con el PAAC.
+
+:fig-0202B1:
+:F: Agencia Andaluza de la Energía (Estadística energética de Andalucía) y Eurostat (Europe 2020 Indicators).:F:
+:U: Importaciones netas dividido por la suma del consumo interior bruto de energía (en %).:U:
+:N::N:
+:E::E:
+#+CAPTION: Dependencia Energética
+[[./graficos/0202B1.pdf]]
+:END:
+
+:fig-0202B2:
+:F: Agencia Andaluza de la Energía.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución del consumo de energía primaria por fuentes en Andalucía (ktep).
+[[./graficos/0202B2.pdf]]
+:END:
+
+:fig-0202B3:
+:F: Agencia Andaluza de la Energía.:F:
+:U::U:
+:N: Incluyendo usos no energéticos.:N:
+:E::E:
+#+CAPTION: Evolución de la estructura del consumo de energía primaria por fuentes. Andalucía
+[[./graficos/0202B3.pdf]]
+:END:
+
+:fig-0202B4:
+:F: Agencia Andaluza de la Energía.:F:
+:U: MW.:U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de la potencia renovable instalada en Andalucía
+[[./graficos/0202B4.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Potenciar y priorizar la producción y utilización de energías de fuentes renovables, junto a los biocombustibles, combustibles sintéticos, hidrógeno verde y otros gases renovables en todas las actividades económicas (transporte, sector industrial y primario, entre otros), así como el desarrollo sostenible de las redes energéticas.
+
+2. Establecer medidas disuasorias tendentes a un modelo energético en el que el consumo de combustibles fósiles sea mínimo.
+
+3. Potenciar las tecnologías de proximidad: con almacenamiento e infraestructuras energéticas acordes al mercado energético local y fomentando el autoconsumo de las energías renovables.
+
+4. Incentivar el desarrollo de tecnologías limpias que permitan la aplicación de los principios de economía circular.
+
+5. Implantar instalaciones de energías renovables en grandes edificios públicos como ejemplos de autoconsumo.
+
+6. Impulsar el papel de la administración autonómica como facilitadora de la transición energética, dotando de ayudas económicas a los consumidores y, en coordinación con la Administración local, establecer las medidas necesarias para garantizar un desarrollo de nuevas plantas de producción de energía renovable y otras infraestructuras energéticas, compatible con la conservación del patrimonio natural y la adecuada ordenación del territorio.
+
+7. Definir convenios de transición justa en los territorios más afectados por el proceso de descarbonización, en colaboración con otras administraciones públicas y con los agentes económicos y sociales más representativos para el desarrollo de actividades relacionadas con las energías renovables y la eficiencia energética, la movilidad sostenible, la rehabilitación de edificios, la economía circular, la eco-innovación, la restauración de ecosistemas, la biodiversidad, la adaptación al cambio climático, la agricultura ecológica o de secano, la ganadería extensiva o el turismo sostenible, entre otros.
+
+8. Propiciar un suministro seguro y de calidad mediante un modelo energético sostenible y competitivo, que evite la brecha energética y favorezca el acceso a un consumo suficiente a toda la ciudadanía y muy especialmente a aquellos colectivos más vulnerables.
+
+9. Intensificar la industrialización energética.
+
+10. Facilitar e impulsar el aprovechamiento de minerales críticos y fundamentales, así como la fabricación de sistemas, equipos y componentes para la industria, en concreto las energías renovables, la electrificación, electromovilidad y almacenamiento energético.
+
+11. Facilitar e impulsar el aprovechamiento de estructuras subterráneas como almacenamientos estratégicos de hidrocarburos o hidrógeno.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Andaluz de Acción por el Clima.
+- Directrices energéticas de Andalucía. Horizonte 2030.
+- Estrategia Andaluza de Desarrollo Sostenible 2030.
+- Borrador actualizado del Plan Nacional Integrado Energía y Clima 2021-2030.
+
+**** Divulgación e información
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0202-05
+:END:
+***** Texto                                                      :ignore:
+Para continuar impulsando ese mayor protagonismo de las energías renovables y que el sistema energético evolucione hacia un modelo descarbonizado, desde la administración se deben realizar acciones de divulgación, formación e información para la reducción de la demanda energética a través de una mayor eficiencia y mejor uso de la energía y para que tanto la producción como el consumo dependan cada vez más de las energías renovables.
+
+Es necesaria la sensibilización y capacitación de la sociedad (ciudadanía, empresas y administraciones) para habilitarla en la toma decisiones de consumo energéticas adecuadas. Para ello, es preciso reforzar las actuaciones encaminadas a inducir cambios de hábitos y actitudes de consumo, forjando una conciencia colectiva de buen uso de la energía, fomentando aquellas que conlleven un alto impacto social y mostrando a la ciudadanía las posibilidades de mejora energética que tiene a su disposición. Se necesita impulsar un cambio que ayude a abordar la transición energética en Andalucía, mediante la difusión de la importancia de adoptar medidas de ahorro, eficiencia y uso de energías renovables y las ventajas de un uso más racional, responsable y eficiente de la energía, dando a conocer los beneficios de consolidar un sistema de generación propio de energía verde, respetuosa con el medio ambiente y generadora de empleo. Se debe además ofrecer y acercar soluciones de ahorro y eficiencia energética y de acceso a energía de origen renovable a un precio asequible, sea a través de una red convencional, de instalaciones propias en autoconsumo o mediante nuevas estructuras de generación y consumo compartidas, en particular a través de las Comunidades de Energía. Además, se debe optimizar la información sobre los diferentes instrumentos normativos, de financiación y asesoramiento puestos en marcha por la Administración de la Junta de Andalucía para ayudar a la sociedad en el camino hacia la sostenibilidad energética.
+
+En lo que respecta a la empresa, el sector energético actual, que lleva años evolucionando por la penetración de las energías renovables, se está transformando en otro mucho más atomizado, con la participación de un mayor número de empresas y con la aparición de nuevas actividades en el sector. El sector energético, las empresas y sus profesionales deben afrontar el reto de adaptarse y crecer basado en la formación.
+
+La rápida evolución tecnológica y la digitalización, como es el ejemplo del autoconsumo, la gestión energética, la domótica, la ecoconstrucción, la irrupción de los vehículos eléctricos o la aparición en el mercado de nuevos vectores energéticos como el hidrógeno, hacen necesaria una adaptación de la capacitación profesional y el reciclaje de los profesionales de las empresas andaluzas como herramienta para el mantenimiento y crecimiento del empleo local en base a la actividad relacionada con los nuevos servicios energéticos.
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Involucrar a la ciudadanía en la transición energética mediante la comunicación y formación.
+
+2. Concienciar a los consumidores para que realicen inversiones en sistemas y aparatos que consigan un mayor aprovechamiento de la energía.
+
+3. Potenciar las oportunidades profesionales y empresariales que ofrece la transición energética.
+
+4. Adaptar los programas formativos (académicos y de formación para el empleo), para que se incluyan materias ligadas a las energías renovables y la instalación de equipos de autoconsumo.
+
+5. Fomentar las asociaciones o alianzas empresariales y entidades públicas o privadas de investigación y desarrollo, como elemento clave para el fomento y uso de las energías renovables.
+
+6. Desarrollar canales de comunicación y de intercambio que favorezcan una relación más dinámica y flexible entre oferta y demanda en el mercado de las renovables.
+
+7. Impulsar nuevos sistemas de financiación sostenibles y verdes, así como nuevos modelos de negocio.
+
+8. Estimular la innovación energética.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+
+- Plan Andaluz de Acción por el Clima.
+- Directrices energéticas de Andalucía. Horizonte 2030.
+- Estrategia Andaluza de Desarrollo Sostenible 2030.
+- Borrador actualizado del Plan Nacional Integrado Energía y Clima 2021-2030.
+*** Impulsar la adaptación al cambio climático
+**** Intro 0203                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0203
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Medidas de adaptación
+2. Comunicación, colaboración  y participación
+{{{finlineas}}}
+{{{ods(7 8 9 11 12 13)}}}
+El calentamiento global también se refleja en una mayor incidencia de fenómenos extremos, como incendios forestales, precipitaciones torrenciales, inundaciones por desbordamientos de ríos, erosión e inundaciones costeras, sequías y olas de frío y de calor. La intensidad y frecuencia con las que ocurren provocan pérdidas sustanciales, tanto económicas como humanas, y son motivo de preocupación de las administraciones públicas.
+
+Estudios de evaluación de vulnerabilidad al cambio climático en el ámbito europeo, como el del proyecto de la Comisión Europea, /ESPON Climate/, han permitido la identificación de tipologías regionales de exposición al cambio climático, de gran utilidad para la selección de opciones de adaptación para el desarrollo de políticas territoriales sensibles al mismo. Además, analiza la vulnerabilidad de las regiones desde la perspectiva de los impactos previstos y la capacidad de una región para adaptarse al cambio climático.
+
+Para adaptarse a los impactos producidos por el cambio climático, la Administración debe actuar en aquellos ámbitos que tengan una mayor incidencia a la hora de reducir los efectos medioambientales, económicos y sociales asociados al mismo.
+
+Por su parte, los sectores productivos deberán atender a los criterios recogidos en el Pacto Verde Europeo, y en las distintas estrategias que lo desarrollan, como, por ejemplo, la  Estrategia de la Granja a la Mesa, para un sistema alimentario justo, saludable y respetuoso con el medio ambiente, o la Estrategia para la Biodiversidad de la Unión Europea para 2030.
+
+Estas medidas de adaptación requieren a su vez actuaciones de apoyo en materia de comunicación y participación, incrementando con ellas el conocimiento respecto al grado de percepción, valoración y predisposición a la acción en materia de cambio climático por parte todos los actores implicados (sociedad civil, sector empresarial o administraciones andaluzas).
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Reducir los riesgos económicos, ambientales y sociales derivados del cambio climático.
+{{{fintcb}}}
+
+**** Medidas de adaptación
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0204-02
+:END:
+***** Texto                                                      :ignore:
+El Programa de Adaptación del PAAC tiene por objeto reducir los riesgos económicos, ambientales y sociales derivados del cambio climático mediante la incorporación de medidas de adaptación en los instrumentos de planificación autonómica y local.
+
+El impacto de las consecuencias del cambio climático es desigual, ya que éste incide de diversa manera en función de múltiples factores en juego, por lo que deben evaluarse tanto a nivel regional como local.
+
+En este sentido, el proyecto /ESPON Climate/[fn:11] utiliza un marco conceptual ampliamente referenciado en la comunidad de investigación del impacto y el cambio climático, que relaciona las crecientes emisiones antropógenas de gases de efecto invernadero con el calentamiento global y, por tanto, con su contribución al cambio climático.
+
+Esta contribución antropogénica corre paralela a la variabilidad climática natural, es decir, los cambios climáticos resultantes difieren entre las regiones, ya que cada país/región/provincia tiene una exposición diferente al cambio climático. Además, cada espacio geográfico tiene distintas características físicas, ambientales, sociales, culturales y económicas que dan como resultado diferentes sensibilidades al cambio climático. Juntas, la exposición y la sensibilidad, determinan el posible impacto que los cambios climáticos pueden tener en una región.
+
+No obstante, una región podría tener capacidad de ajustarse o adaptarse, a medio/largo plazo, por ejemplo, mediante el fomento del uso de infraestructuras verdes, en línea con la estrategia que se plantea desde la Comisión Europea. Esta capacidad de adaptación corrige o contrarresta los impactos del cambio climático y, por lo tanto, evidencia el diferente grado de vulnerabilidad general de una región al cambio climático.
+
+Según las conclusiones del proyecto ESPON Climate sobre evaluación de vulnerabilidad al cambio climático en Europa, puede esperarse una *vulnerabilidad /media a alta/ en la región mediterránea, y /alta/ para la práctica totalidad del territorio de Andalucía.*
+
+De acuerdo con las conclusiones del Taller sectorial sobre el documento de “Diagnosis y Alcance del Plan Andaluz de Acción por el Clima - Forjando Resiliencia en Andalucía”, las principales vulnerabilidades en Andalucía se identifican en torno a la demanda y disponibilidad de agua (extracción de agua de acuíferos, pozos de extracción o disminución de las reservas de agua) así como la relacionada por su incremento súbito en forma de precipitaciones intensas (desarrollo en área inundable) o por incremento del nivel del mar (pérdida de playas o suelos). De igual manera, destacan, en cuanto a peligros e impactos, sobre todo los relacionados con las olas de calor, las sequías y los incendios forestales, las inundaciones fluviales, la erosión e inundaciones costeras como consecuencia de la subida del nivel medio de mar y el incremento de la intensidad y frecuencia de los temporales, y sus consecuencias de carácter social como el riesgo de desempleo o la despoblación.
+
+La Ley 8/2018, de 8 de octubre, de medidas frente al cambio climático y para la transición hacia un nuevo modelo energético en Andalucía, establece 13 áreas estratégicas para la adaptación. De ellas, son consideradas como de mayor riesgo climático en Andalucía el turismo, el urbanismo y ordenación del territorio y la agricultura, ganadería, acuicultura, pesca y silvicultura.
+
+De hecho, resulta cada vez más clara la incidencia del cambio climático en el territorio y su actividad. Determinados sectores de actividad dependen mucho de los factores naturales y éstos se están viendo alterados como consecuencia del cambio climático, produciendo efectos muy negativos en las producciones, así como sobre los elementos que determinan un buen estado de salud, como son la calidad del agua, del aire o la alimentación, entre otros.
+
+En este sentido, el Pacto Verde Europeo constituye una de las principales líneas transversales de acción política de la Comisión Europea para la próxima década. Dentro de este Pacto se ha aprobado la Estrategia de la Granja a la Mesa, para un sistema alimentario justo, saludable y respetuoso con el medio ambiente y la Estrategia para la Biodiversidad de la Unión Europea para 2030, que fueron publicadas en el año 2020.
+
+La Administración de la Junta de Andalucía tiene como objetivo en materia de adaptación el reducir el riesgo de los impactos del cambio climático, minimizando sus efectos. Para ello, implementa un Presupuesto Verde como instrumento que ayude a reorientar el gasto y la inversión tanto pública como privada, el consumo y la fiscalidad hacia los objetivos ecológicos.
+
+
+:fig-0203A1:
+:F: IRPUD, ESPON Climate Project, 2011.:F:
+:U::U:
+:N:     La vulnerabilidad es calculada como una combinación de los potenciales impactos regionales del cambio climático y de la capacidad de la región para adaptarse al cambio. Los impactos potenciales fueron calculados como una combinación de la exposición regional al cambio climático (diferencia entre los valores de ocho variables climáticas observadas en el periodo 1961-1990 y los valores que se proyectan para el periodo 2071-2100 según un modelo utilizado por el ESPON).:N:
+:E::E:
+#+CAPTION: Vulnerabilidad potencial de las regiones europeas al cambio climático
+[[./graficos/0203A1.pdf]]
+:END:
+
+:fig-0203A2:
+:F: Taller sectorial sobre el documento de Diagnosis y Alcance del Plan Andaluz de Acción por el Clima. Forjando Resiliencia en Andalucía (Deep Demonstration).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Principales peligros climáticos, impactos, vulnerabilidades y resiliencia, identificados en los talleres sectoriales y multisectorial para todo el territorio andaluz.
+[[./graficos/0203A2.pdf]]
+:END:
+
+:fig-0203A3:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N: Según el artículo 11 de la Ley 8/2018, de medidas frente al cambio climático y para la transición hacia un nuevo modelo energético en Andalucía.:N:
+:E::E:
+#+CAPTION: Clasificación de áreas estratégicas para la adaptación y su grado de afección por la evaluación de impactos
+[[./graficos/0203A3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Reforzar los instrumentos financieros y de apoyo para la investigación y generación de conocimiento que permitan desarrollar nuevas herramientas de gestión de riesgos, incorporen soluciones basadas en la naturaleza y apoyen la adopción de medidas idóneas de adaptación climática, por parte del sector público y privado.
+
+2. Integrar la cultura de la gestión de los riesgos climáticos en la planificación de las políticas de la Administración de la Junta de Andalucía.
+
+3. Crear grupos de trabajo intersectoriales en la Administración andaluza y colaborar con las distintas Administraciones públicas.
+
+4. Establecer fórmulas que permitan la financiación público/privada de los proyectos demostrativos de adaptación relacionados con los impactos y las áreas estratégicas con mayor riesgo climático.
+
+5. Estudiar nuevas fórmulas de financiación sostenibles, como los bonos o títulos de deuda verdes al objeto de alinear la estrategia de inversión sostenible con la financiación.
+
+6. Fomentar la adopción de estilos de vida sostenibles (alimentación, transporte, deporte, ocio, entre otras) minimizando su huella ecológica que promuevan la adaptación al cambio climático de la sociedad andaluza.
+
+7. Establecer herramientas que aseguren una perspectiva social y la consideración de colectivos vulnerables en materia de adaptación al cambio climático.
+
+8. Apoyar y fomentar planes de adaptación en otros ámbitos territoriales inferiores al de la Comunidad Autónoma y en especial a los planes de adaptación municipal.
+
+9. Desarrollar las anteriores actuaciones de carácter transversal en las áreas estratégicas recogidas en el marco de la Ley 8/2018, de 8 de octubre. Concretamente las siguientes:  recursos hídricos, prevención de inundaciones, agricultura, ganadería, acuicultura, pesca y silvicultura, biodiversidad y servicios econosistémicos, energía, urbanismo y ordenación del territorio, edificación y vivienda, movilidad e infraestructuras, salud, comercio, turismo, litoral, migraciones asociadas al cambio climático, seguros y adaptación a la empresa.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+- Plan Andaluz Acción por el Clima.
+- Directrices energéticas de Andalucía. Horizonte 2030.
+- Estrategia Andaluza de Desarrollo Sostenible 2030.
+- Estrategia Andaluza de Educación Ambiental.
+- Plan Andaluz de Formación Ambiental 2019.
+- Estrategia de generación de empleo medioambiental en Andalucía 2030.
+- Planes de Gestión de Riesgo de inundación.
+- Planes de Desarrollo Sostenible de los Parques Naturales de Andalucía.
+- Estrategia Andaluza de Calidad del Aire.
+- Planes de mejora de la calidad del aire en determinadas zonas de Andalucía.
+- PITMA 2021-2030.
+- Plan Estratégico de puertos y áreas logísticas de Andalucía (En elaboración-integrado en Extenda).
+- Plan Vive en Andalucía, de Vivienda, Rehabilitación y Regeneración Urbana de Andalucía 2020-2030.
+
+**** Comunicación, colaboración y participación
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0204-03
+:END:
+***** Texto                                                      :ignore:
+La participación relacionada con el medio ambiente va cobrando cada vez más fuerza en la sociedad andaluza, no obstante, para *potenciar la participación activa de la sociedad* en la lucha contra el cambio climático y promover e impulsar la participación ciudadana en el desarrollo de las políticas en esta materia, la política regional debe fomentar las acciones de información, formación, sensibilización y corresponsabilización. Se deben incluir a todos los actores implicados (sociedad civil, colectivos sociológicos o sectoriales, sector empresarial y Administraciones públicas).
+
+Las actividades de comunicación deberían basarse preferentemente en el empleo de las tecnologías de la información y la comunicación (TIC) y con el apoyo de los medios audiovisuales de la Radio y Televisión de Andalucía (RTVA), donde se diseñarán campañas específicas de información y formación a la ciudadanía.
+
+Las noticias en televisión continúan siendo en Andalucía el medio más popular por el que las personas se acercan a la actualidad del medio ambiente (83,3%), aunque éstas han perdido algún peso frente al auge como fuente de información ambiental de las charlas formales e informales, tanto presenciales como /online/ y distintos foros de Internet.
+
+La evolución del Plan Andaluz de Formación Ambiental es positiva, con un importante número de acciones y participantes en 2018, si bien debe seguir aumentando en ejercicios futuros.
+
+Por su parte, también aumenta la conciencia y el compromiso ambiental. Según lo recogido en el Informe de Síntesis del Ecobarómetro de Andalucía en 2018, algo más de la mitad de las personas (54,2%) consideran el cambio climático como uno de los dos problemas medioambientales más importantes del planeta y casi un tercio (31,1%) lo cita como el más importante. No obstante, el 45,6% de los andaluces aseguran estar muy poco o poco informados sobre asuntos relacionados con el medio ambiente.
+
+El estudio “Como comunicar el cambio climático” muestra que las políticas públicas no consiguen implicar suficientemente a la población, pese a que la gran mayoría es consciente de la realidad del fenómeno y de su peligrosidad.
+
+El desafío es pues empoderar a la ciudadanía para la acción dentro de sus responsabilidades y capacidades con información relevante y objetiva y, sobre todo, facilitarle su integración con actuaciones desde la política y el buen Gobierno.
+
+Todo parece indicar que el sistema educativo aún no está logrando trasladar adecuadamente a la sociedad los rasgos singulares que configuran la cuestión climática, presentando con frecuencia unos contenidos educativos con unos niveles de abstracción y descontextualización muy elevados.
+
+Es fundamental el desarrollo del pilar de la participación de la ciudadanía en el proceso de toma de decisiones.
+
+Los objetivos de descarbonización de la economía y de lucha y adaptación al cambio climático requieren además mejoras técnico-económicas y nuevas soluciones para las cuales la investigación y la innovación son pilares fundamentales.
+
+:fig-0203B1:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Plan Andaluz de Formación Ambiental: datos de participación
+[[./graficos/0203B1.pdf]]
+:END:
+
+:fig-0203B2:
+:F: Ecobarómetro de Andalucía. 2018. Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N:     Elaboración propia, a partir de la pregunta n.º 24 del cuestionario EBA 2018: /Del siguiente listado de problemas ambientales de carácter general, es decir, que afectan a todo el planeta. Por favor dígame los dos que, en su opinión, tienen más importancia/.:N:
+:E::E:
+#+CAPTION: Evolución en la percepción de los andaluces sobre los principales problemas ambientales a escala planetaria
+[[./graficos/0203B2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Coordinar las políticas de I+D+i en cambio climático y transición energética de las Administraciones Públicas con el resto de las políticas sectoriales andaluzas y con los objetivos perseguidos internacionalmente y por la Unión Europea.
+
+2. Fomento de la Compra Pública Innovadora (CPI) para incentivar la investigación e innovación empresarial, con movilización de la inversión privada.
+
+3. Facilitar el acceso del público a los datos y la información, suministrando la información sobre las iniciativas y políticas relativas al cambio climático, y sobre los resultados de las medidas adoptadas.
+
+4. Mantener la Red de Información Ambiental de Andalucía (REDIAM), que tiene como objeto la integración, normalización y difusión de toda la información sobre el medioambiente andaluz generada por todo tipo de centros productores de información ambiental en Andalucía, y del Portal Andaluz del Cambio Climático.
+
+5. Impulsar programas de divulgación, concienciación y sensibilización de la ciudadanía sobre el cambio climático y sus efectos, especialmente en colegios y centros educativos.
+
+6. Fortalecer y ampliar el concocimiento y la capacitación sobre el cambio climático en todos los programas educativos financiados por la Administración de la Junta de Andalucía.
+
+7. Promover, facilitar, desarrollar y aplicar programas de formación sobre el cambio climático para los grupos que tengan una función clave, como el personal científico, técnico y directivo, los periodistas, los docentes y los dirigentes a nivel local, o regional, según proceda.
+
+8. Realizar acciones de formación profesional para personas empleadas y desempleadas, por la Consejería de Empleo, Formación y Trabajo Autónomo, entre las que existen especialidades sobre temas relacionados con el cambio climático y la transición energética.
+
+9. Elaborar y actualizar periodicamente el Plan Andaluz de Formación Ambiental, con acciones formativas dirigidas a personas que desarrollan sus actividades en los sectores agrario, forestal y ambiental, así como a otros actores sociales que se relacionan con la conservación y restauración del medio natural y los espacios protegidos y la promoción de la sostenibilidad, en los aspectos de gestión, información y sensibilización.
+
+10. Impulsar las actuaciones de educación ambiental frente al cambio climático en el marco del Programa ALDEA, que pretende tomar conciencia de la problemática socio-ambiental del cambio climático en el ámbito escolar y trasladarla al entorno más próximo de la comunidad educativa, y con el Programa para la promoción de Hábitos de Vida Saludable (capacita al alumnado en la toma de decisiones para que la elección más sencilla sea la más saludable, favorecer y fortalecer el vínculo con la Comunidad fomentando entornos más sostenibles y saludables).
+
+11. Promover la creación de una Plataforma Educativa contra el cambio climático, dirigido a todos los sectores de la comunidad educativa.
+
+12. Desarrollar, en el marco competencial andaluz, las líneas del Plan de Acción de Educación para la Sostenibilidad (PAEAS) 2021-2025, de ámbito nacional, cuyos ejes temáticos incluyen el cambio climático y transición energética.
+
+13. Promover la participación de la ciudadanía en el examen del problema del cambio climático y sus efectos sobre los ecosistemas, por ejemplo, mediante voluntariado orientado a la ejecución de campañas de concienciación ciudadana, y en la adopción de medidas de respuesta adecuadas, facilitando la retroinformación, el debate y el establecimiento de alianzas.
+
+14. Poner a disposición de la ciudadanía, a través de página web, los anuncios de apertura de información pública de diferentes procedimientos publicados en BOJA y boletines provinciales, los de los planes y programas, las evaluaciones ambientales estratégicas de planes y programas, así como la relación de otros documentos que puedan encontrase en fase de información pública, para facilitar a todas las personas interesadas tanto su consulta como la formulación de alegaciones.
+
+15. Poner en marcha de forma efectiva el Consejo Andaluz del Clima, en tramitación, como órgano de participación con representación de diferentes administraciones públicas y de los agentes sociales y económicos.
+
+16. Fomentar la cooperación extrarregional con la Unión Europea con proyectos e Iniciativas como Interreg, Horizonte Europa Cluster Salud, LIFE o Climate KIC, así como otros proyectos de interés.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Andaluz Acción por el Clima.
+- Directrices energéticas de Andalucía. Horizonte 2030.
+- Estrategia Andaluza de Desarrollo Sostenible 2030.
+*** Optimizar la gestión de los recursos hídricos
+**** Intro 0204                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0204
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Escasez de agua
+2. Mejorar la eficiencia
+3. Aguas residuales
+{{{finlineas}}}
+{{{ods(3 6 12 13 14 15)}}}
+El agua es un elemento imprescindible para la vida en general y para las actividades económicas en particular. El consumo doméstico, la agricultura de regadío, la producción de energía eléctrica, las industrias, el turismo, las actividades de ocio, requieren todas ellas aportaciones de agua con garantía y con la calidad adecuada.
+
+Actualmente las reservas de agua están siendo utilizadas con gran intensidad, de forma que el consumo es mayor que su capacidad de recuperación o regeneración, por lo que este recurso, considerado en principio como renovable, empieza a perder esta consideración.
+
+El aumento de la demanda de agua por el crecimiento de la población urbana y el desarrollo económico, la mayor preocupación medioambiental, la contaminación de las aguas, las incertidumbres impuestas por el cambio climático sobre la disponibilidad futura de los recursos y la consideración de aspectos como la equidad o el desarrollo sostenible complican sustancialmente la política del agua y abocan necesariamente a una gestión integral de los recursos hídricos.
+
+La mejora de esta gestión requiere de una política específica por parte de la Administración de la Junta de Andalucía que aborde los desafíos actuales y futuros en materia de gestión del agua, incluida la contaminación hídrica, las inundaciones, la escasez y las sequías. En este ámbito, se requiere completar y modernizar los sistemas de abastecimiento urbano de agua para garantizar el suministro, mejorar la eficiencia, disminuyendo las fugas y completar los sistemas de depuración de aguas residuales urbanas, tanto para culminar los requisitos de la Directiva Marco del Agua, como para mejorar la calidad de las aguas continentales y litorales.
+
+Es necesaria también una nueva ética del agua que tenga en cuenta la fragilidad del recurso y sepa hacer compatible la garantía de las demandas de todos los usos con el cuidado del medioambiente.
+
+Por tanto, la gestión sostenible de los recursos hídricos será cada vez más relevante en Andalucía, dada la necesidad de adaptación y cumplimiento de la normativa europea y los nuevos escenarios de mayor demanda de agua.
+
+**** Objetivos                                                    :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Metas)}}}
+Garantizar el suministro de agua en buen estado, tanto para el consumo humano como para la actividad productiva, y fomentar un uso eficiente de la misma.
+
+\bigskip
+
+Prevenir el deterioro del estado de todas las masas de agua (superficiales, subterráneas y de las zonas protegidas) y, en su caso, restaurarlas para alcanzar el buen estado ecológico de las mismas.
+{{{fintcb}}}
+
+**** Escasez de agua
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0203-01
+:END:
+***** Texto                                                      :ignore:
+El análisis sobre la disponibilidad de recursos hídricos se lleva a cabo, principalmente, considerando las cuencas hidrográficas que integran Andalucía.
+
+Debido al clima mediterráneo de la región y a su especial vulnerabilidad ante el cambio climático, los recursos hídricos de sus cuencas se ven afectados tanto por una marcada estacionalidad, variabilidad e irregularidad de las precipitaciones y temperaturas como por el riesgo de sufrir eventos climáticos extremos (inundaciones, largos periodos con altas temperaturas y procesos erosivos de gran magnitud, entre otros).
+
+Desde mediados de los noventa, se observa que la intensificación de los periodos de sequía ha provocado una bajada de los niveles de agua embalsada de nuestras cuencas. Los registros más bajos se han medido en los años 1994-1995, 1999-2000, 2006-2009 y 2015-2017.
+
+Así, en 2019, la leve recuperación del año 2018 se ha visto diluida por los *bajos niveles embalsados* debido a las escasas cantidades pluviométricas registradas, casi un 30% por debajo del valor medio de referencia para el conjunto de la región.
+
+Además, se estima que solo un 24% del agua precipitada en Andalucía puede ser aprovechada.
+
+Por otra parte, existe un *aumento importante en el porcentaje de pérdidas reales de agua en la red* sobre el volumen de agua suministrada (fugas, roturas y averías en la red de abastecimiento). En el periodo 2007-2016 este porcentaje alcanzó el 43,44 %.
+
+Las actuaciones a realizar para la mejora de la disponibilidad de agua engloban tanto las relacionadas con las infraestructuras de presas y su explotación, como la reutilización, los trasvases y la desalinización.
+
+Además de los embalses, también existen otras formas de acumulación de agua: las aguas subterráneas y los humedales.
+
+Las *aguas subterráneas* contribuyen a la regulación de los desequilibrios de disponibilidad del agua entre las distintas cuencas. En periodos de sequía, son una de las principales fuentes de suministro para el uso doméstico (mediante pozos o manantiales), y para su aprovechamiento en actividades económicas como la agricultura, la ganadería y la industria.
+
+
+:fig-0204A1:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Informe de Medio Ambiente.:F:
+:U::U:
+:N:  Hm^{3}. :N:
+:E::E:
+#+CAPTION: Agua embalsada en las principales demarcaciones hidrográficas en Andalucía 1994-2019
+[[./graficos/0204A1.pdf]]
+:END:
+
+:fig-0204A2:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Informe de Medio Ambiente.:F:
+:U::U:
+:N: Hm^{3}. Los datos mostrados corresponden a diciembre de 2019.:N:
+:E::E:
+#+CAPTION: Agua embalsada y capacidad de embalse en las principales demarcaciones hidrográficas. 2019
+[[./graficos/0204A2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Impulsar la I+D+i en materia de aguas coordinando esfuerzos de iniciativa pública y privada.
+
+2. Impulsar la investigación hidrogeológica con el fin de conocer la calidad de las masas de agua subterránea.
+
+3. Realizar actuaciones para proteger el dominio público hidráulico, que incluye el agua, el patrimonio hídrico sobre el que discurre y sus zonas de protección.
+
+4. Poner en marcha planes hidrológicos para un conocimiento detallado de la realidad y programas para que las ciudadanas y ciudadanos, cualesquiera que sean su capacidad económica y su localidad de residencia, dispongan de un suministro mínimo de agua, con especial atención a los grupos vulnerables.
+
+5. Aprobar los Planes Especiales de actuación en situaciones de alerta y eventual sequía de las cuencas internas andaluzas.
+
+6. Ordenar, cuantificar y racionalizar los recursos de agua potable existentes en la Comunidad Autónoma.
+
+7. Mejorar el aprovechamiento del agua precipitada que además de poder ser reutilizada, reduciría daños e inundaciones en episodios de fuertes precipitaciones.
+
+8. Potenciar el incremento de los recursos hídricos procedentes de la desalación, cuando no exista una alternativa más sostenible.
+
+9. Realizar inversiones para fomentar el uso de aguas regeneradas basadas en el empleo de energías renovables.
+
+10. Proteger los acuíferos, reduciendo su explotación y mejorando su gestión, integrándola con la de las aguas superficiales, residuales y desaladas.
+
+11. Mejorar los sistemas de captación y distribución de agua y sustitución de tramos en alta para reducir las fugas.
+
+12. Establecer umbrales y horizontes temporales para la reducción de las pérdidas de agua en todas las fases del ciclo y para todos los usos.
+
+13. Favorecer la implementación de sistemas tarifarios que generen los incentivos necesarios para un uso eficiente de los recursos hídricos.
+
+14. Efectuar el desarrollo reglamentario previsto en la Ley 9/2010, de 30 de julio, de Aguas de Andalucía.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Mejorar la eficiencia
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0203-02
+:END:
+***** Texto                                                      :ignore:
+El agua es un recurso escaso y a la vez muy valioso por lo que debe estudiarse su gestión y su asignación eficiente, siendo el uso más eficiente la alternativa a la gestión tradicional basada solo en el aumento de la oferta. *Los instrumentos económicos deben desempeñar un papel cada vez más relevante tanto en la recuperación de costes* (instrumento financiero) *como en la gestión de la demanda* (instrumento económico).
+
+Se debe mejorar tanto la eficiencia física (ahorro de agua) como la *eficiencia económica (mejor uso económico del agua)*. Esta última utiliza el análisis del impacto de las políticas del agua, la asignación óptima del agua entre los distintos usos alternativos y el análisis de los proyectos de inversión (análisis coste-eficacia de las infraestructuras, capacidad óptima de los embalses, planificación en el tiempo, financiación, entre otras).
+
+Según datos de 2016, el sector más demandante de agua es el agrícola (79,5 %) seguido del uso urbano (14,4 %), el industrial (4,42 %) y otros usos (1,64 %).
+
+El sector agrícola muestra un gran potencial de ahorro con cambios dirigidos a producciones agrícolas basadas en especies con un bajo requerimiento hídrico y de gran valor añadido, la reutilización de aguas y el uso de herramientas de gestión (agua virtual).
+
+Por su parte, y aunque su porcentaje de uso es mucho menor, la demanda de agua de uso urbano es la más exigente en términos de calidad y con un coste de uso más elevado. Es, pues, necesario compatibilizar el derecho humano al agua con una recuperación completa de costes que garantice la sostenibilidad económica del servicio, algo perfectamente posible con una tarifación progresiva y social.
+
+El *precio del agua*, según la Directiva Marco del Agua (CE, 2000), cumple un doble objetivo: incentivar un uso eficiente del agua (instrumento económico) y a la vez servir para recuperar costes (instrumento financiero). Por tanto, dada su importancia resulta necesario un papel tutelar y supervisor por parte de las administraciones públicas.
+
+
+:fig-0204B1:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Distribución de los recursos hídricos en Andalucía según usos, 2016
+[[./graficos/0204B1.pdf]]
+:END:
+
+:fig-0204B2:
+:F: Informe de Medio Ambiente, 2019.:F:
+:U::U:
+:N: (*) Total acumulado a 31/12/2019.:N:
+:E::E:
+#+CAPTION: Ingresos procedentes del canon de mejora de infraestructuras hidráulicas según la Ley 9/2010, de 30 de julio, de Aguas de Andalucía
+[[./graficos/0204B2.pdf]]
+:END:
+
+***** Actuaciones
+
+1. Establecer políticas de estimulación del ahorro y disuasorias del consumo excesivo en todos los usos, en particular en los regadíos, corrigiendo hábitos y prácticas que generen despilfarro.
+
+2. Apoyar la implantación de nuevas técnicas y tecnologías más eficientes en la agricultura y la industria, incluyendo la modernización de los regadíos.
+
+3. Poner en marcha un modelo de gestión integral de recursos hídricos.
+
+4. Elaborar un sistema tarifario adecuado para recuperar, en la medida de las capacidades económicas, los costes de la gestión del agua, incluidos los costes ambientales, y que al tiempo incentive el ahorro, bonificando el uso responsable del recurso, y actuando en consecuencia sobre el derroche.
+
+5. Crear el Registro público de la huella hídrica de productos, servicios y organizaciones como herramienta para calcular y comunicar el consumo de recursos hídricos asociados al ciclo de vida de un producto, servicio u organización. Esto permitirá  analizar el retorno social de los distintos usos del agua, señalando aquellas actividades que maximicen el mismo o hagan un uso contenido de los recursos hídricos.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Aguas residuales
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0203-03
+:END:
+***** Texto                                                      :ignore:
+Bajo la perspectiva de que el agua es un bien patrimonial al que proteger y defender, que requiere de herramientas que contribuyan a evitar su deterioro cualitativo y cuantitativo, un aspecto que tiene indudable interés es el de la *calidad de las aguas superficiales y subterráneas*. En Andalucía, el seguimiento de la calidad del agua está monitorizado mediante redes de control que miden los parámetros biológicos, hidromorfológicos y físico-químicos.
+
+No obstante, se debe *aumentar la frecuencia de los controles* por parte de las redes de control operativas, que permitirán continuar con el análisis histórico de la evolución de la calidad de las aguas, pudiendo incidir en las decisiones sobre la adaptación (canalizaciones fluviales, por ejemplo) u otras obras de emergencias para desarrollar la resiliencia del agua en las zonas urbanas y en las áreas de actividad más demandantes (actividades agrícolas).
+
+El *principal factor que afecta a la calidad de las aguas continentales es el de los vertidos de aguas residuales sin depurar*. Los vertidos de ciertas industrias, los producidos por la agricultura y los vertidos incontrolados de residuos, provocan los efectos más nocivos en las masas de agua.
+
+Según refleja el Informe de Medio Ambiente de 2019, en Andalucía se ha producido una mejoría generalizada de la calidad de las aguas superficiales, considerando la evolución que han tenido los niveles de nitratos. Solo 10 estaciones de 677 presentaban una mala calidad de las aguas, en relación con los valores promedios de nitrato medidos en el año 2019, concentradas en su mayoría en la cuenca del Guadalquivir.
+
+La carga contaminante que procede de los vertidos desde la tierra al mar tiene efectos negativos que pueden ser irreversibles en los *ecosistemas marinos del litoral* y afectar a la calidad de sus aguas para determinados usos (baño, pesca, entre otros). Los vertidos urbanos han descendido alrededor de un 45% desde el año 2001, presentando una evolución bastante estable desde el año 2013 hasta la actualidad.
+
+La *contaminación de las aguas subterráneas* es otro factor ambiental de importancia. La concentración de nitratos es más elevada en la cuenca del Guadiana, como lo viene siendo desde el año 2011, aunque con tendencia descendente. La garantía del buen estado de las mismas requiere de medidas tempranas y de una planificación a largo plazo de las medidas de protección, debido al lapso natural de tiempo necesario para su formación y renovación.
+
+También resulta importante la necesidad de conocer el estado en el que se encuentra *el servicio prestado por las estaciones de depuración de aguas residuales*. En este punto, conviene tener presente que los vertidos de aguas residuales urbanas (que incluyen tanto las propiamente urbanas, como las de industrias conectadas a las redes de saneamiento) son una de las principales causas de degradación ambiental de los ecosistemas acuáticos.
+
+El incremento de la población y la reducción de los caudales, por el aumento de los usos consuntivos, hacen que la capacidad de autodepuración de los cursos de agua sea insuficiente, haciendo necesario un tratamiento previo del vertido en las Estaciones Depuradoras de Aguas Residuales (EDAR), para así mantener unos adecuados niveles de calidad. Andalucía disponía en 2019 de 677 estaciones depuradoras de aguas residuales construidas.
+
+En el año 2014, el 81% de la población andaluza devolvía depuradas sus aguas residuales al medio hídrico, frente al 28% que lo hacía en 1992. La capacidad de depuración en los municipios andaluces mantiene su tendencia positiva, si bien todavía quedaba un 18% de la población en 2014 sin conectar a un sistema de tratamiento de depuración de agua.
+
+La necesidad de puesta en marcha, ampliación y mejora de un número importante de estaciones depuradoras de aguas residuales (EDARs) en Andalucía sigue siendo prioritario dada la existencia de núcleos de población que requieren servicios adicionales de depuración de aguas residuales.
+
+:fig-0204C1:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Informe de Medio Ambiente.:F:
+:U: Unidades de contaminación.:U:
+:N: BTEX: Benceno, tolueno, etilbenceno y xileno.:N:
+:E::E:
+#+CAPTION: Carga contaminante de efluentes industriales. Años 2017-2018
+[[./graficos/0204C1.pdf]]
+:END:
+
+:fig-0204C2:
+:F: IECA y Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N:     En el cómputo de población beneficiada por depuradoras, se cuentan tanto las depuradoras construidas como las en construcción. En el cálculo de población beneficiada se ha considerado las cifras de población no diseminada proporcionadas por el Padrón de 2018.:N:
+:E::E:
+#+CAPTION: Población beneficiada por depuradoras, 2019
+[[./graficos/0204C2.pdf]]
+:END:
+
+***** Actuaciones
+
+1. Elaborar Planes de Inspección e Informes y establecer Redes de Control (control de calidad, control de vertidos, aforos, piezómetros, entre otros) para el seguimiento y control del estado ecológico y químico de las masas de agua continentales y litorales.
+
+2. Realizar inversiones para encauzamientos, defensa de avenidas y limpieza de cauces de los ríos en los núcleos urbanos.
+
+3. Continuar con una política estricta de prevención y reducción del número e impacto de los incidentes de contaminación accidental del agua por vertido, emisión o pérdida de sustancias peligrosas prioritarias.
+
+4. Utilizar algas para el tratamiento de aguas residuales y la producción de biogás.
+
+5. Incrementar la vigilancia e inspección sobre los vertidos directos de contaminantes en las aguas superficiales y subterráneas, y revisar su régimen sancionador.
+
+6. Atender las necesidades que se detecten en las estaciones depuradoras de aguas residuales (EDARs), al objeto de que puedan cumplir adecuadamente sus funciones.
+
+7. Ejecutar las obras necesarias para adecuar los sistemas de depuración obsoletos y/o poco eficientes a las nuevas tecnologías.
+
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+*** Mejorar la gestión de residuos e impulsar la economía circular
+**** Intro 0205                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0205
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Generación de residuos e instrumentos para su prevención
+2. Reutilización, reciclado y eliminación de residuos
+3. Transición a una economía circular
+{{{finlineas}}}
+{{{ods(1 2 6 7 12 13 14 15)}}}
+En los últimos años, distintos organismos internacionales han alertado acerca del aumento en la generación de residuos, con un consiguiente incremento del número de vertederos. A su vez, las emisiones producidas en los procesos de tratamiento de estos residuos, incluyendo las emisiones gaseosas derivadas de la combustión de estos residuos, así como los lixiviados de vertedero resultantes de la percolación de aguas pluviales a través de la masa de los residuos depositados en celdas de vertido provocan un impacto ambiental negativo.
+
+De este modo, resulta incuestionable la negativa influencia que tiene la creciente cantidad de residuos sobre el cambio climático. Asimismo, existe un consenso en admitir que esta evolución es consecuencia del todavía vigente e insostenible  modelo de economía lineal.
+
+Por otro lado, Andalucía cuenta con un importante potencial para el desarrollo de la bioeconomía circular. Este desarrollo podría aportar riqueza a la región consiguiendo no solo una reducción de residuos y su contribución al paisaje, sino generando nuevos productos y valor añadido o incluso generando nuevas empresas, siendo una fuente creadora de empleo.
+
+Bajo este enfoque, Andalucía permanece atenta a los criterios de la política de la UE, que a través de sus últimas directrices orienta a los Estados miembros y regiones hacia una nueva jerarquía en la producción y gestión de residuos, indicando el orden de prioridad en las diferentes modalidades de actuaciones de la política de gestión de residuos: prevención en la generación de residuos, preparación para la reutilización, reciclado, otros tipos de valorización, incluida la valorización energética y, por último, la eliminación.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+
+{{{initcb(Meta)}}}
+Lograr una gestión inteligente de residuos en Andalucía en el marco de la transición hacia una economía circular.
+{{{fintcb}}}
+
+**** Generación de residuos e instrumentos para su prevención
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: texto-0205-1
+:END:
+***** Texto                                                      :ignore:
+En la última década, gracias a la Directiva marco de residuos (UE), se han puesto en marcha políticas de gestión de residuos basadas en planteamientos más ecológicos, impulsando una política de uso eficiente de los recursos naturales y de revalorización de los recursos materiales.
+
+Atendiendo a los principales indicadores relacionados con los residuos y su gestión, en Andalucía puede concluirse que *existe un amplio margen de mejora para reducir la producción de residuos municipales*, la gestión de los mismos (especialmente los peligrosos) *y para mejorar su tasa de reciclaje*, generando actividad económica sostenible.
+
+No obstante, frente a planteamientos más tradicionales en la gestión de residuos, en Europa cobran cada vez más importancia nuevas iniciativas como la de “Cero residuos” o “Basura cero”. Este enfoque, basado en principios y propuestas de gestión que plantean que los residuos son la consecuencia de una gestión inadecuada de materiales (basura), se basa en una premisa básica: la separación en origen, para poder desechar los residuos de manera diferenciada.
+
+En cualquier caso, los últimos datos disponibles estiman que en Andalucía se generaron 18,7 millones de toneladas en 2018, de las que un 1,8% serían residuos peligrosos. Sin duda, este volumen total abarca un universo complejo de diferentes tipos de residuos que plantea problemas y retos específicos.
+
+La trayectoria en los últimos años revela el elevado incremento de los residuos generados. Así, en tan solo seis años, el volumen total de residuos se ha incrementado en un 53,3%, cuando en 2012 se situaba todavía en 12,2 millones de toneladas. En conclusión, *resulta evidente que la evolución en la producción de residuos no augura un escenario halagüeño para Andalucía*, que se alejaría de las propuestas europeas y españolas en esta materia.
+
+La clasificación del conjunto de los residuos generados por la actividad económica y doméstica pone de manifiesto la relevancia de la identificación diferenciada de los residuos para su reciclado y, en su caso, el diferente proceso de eliminación necesario. Así, cabe recordar que la diferenciación más habitual clasifica los residuos en distintas categorías, que van desde los residuos municipales (residuos domésticos y comerciales) hasta los residuos industriales o agrícolas, pasando por los residuos de construcción y demolición o los sanitarios, entre otros.
+
+Una mención específica cabe hacer sobre la producción de los residuos peligrosos. En este sentido, la normativa europea marca una serie de pautas para la gestión adecuada de los residuos peligrosos: minimizar su cuantía y peligrosidad, recuperar materias para su recirculación al proceso, regenerar productos para su reutilización, reciclar residuos para obtener materias primas de otros procesos, adecuarlos para su valorización energética y, por último, su confinamiento en depósito de seguridad o la incineración sin recuperación de energía.
+
+A lo largo de los últimos años Andalucía ha experimentado cambios significativos en su modelo de gestión de residuos peligrosos, gracias a la introducción de estrategias centradas en la prevención y reducción de la generación, sobre todo, dirigidas a los grupos de actividad con mayor peso en la producción global andaluza: la industria pesada, así como las actividades sometidas a la legislación específica en materia de prevención y control integrados de la contaminación.
+
+De acuerdo con la información de la Red de Información Ambiental de Andalucía, la *producción declarada de residuos peligrosos* ascendió a 327,6 mil toneladas en 2018, lo que *evidencia una trayectoria poco favorable* en nuestra Comunidad Autónoma.
+
+De hecho, en 1997 (primer año de la serie de datos disponibles), la relación entre la producción de residuos peligrosos por unidad de PIB es de 1,94 (expresado en kilogramos por cada 1.000 euros de PIB). Esta relación ha variado a lo largo de los años, siendo su valor mínimo 1,53 (en 2011) y su valor máximo 2,61 (en 2003). La media de esas cantidades para el periodo 1997-2018 es de 1,92. Pero, en 2018 se observó un repunte hasta los 2 kg/1.000 euros de PIB.
+
+:fig-0205A1:
+:F: Plan Integral de Residuos de Andalucía. Hacia una Economía Circular en el Horizonte 2030 (PIRec 2030).:F:
+:U:  Millones de toneladas.:U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de la generación de residuos en Andalucía, periodo 2012-2018
+[[./graficos/0205A1.pdf]]
+:END:
+
+:fig-0205A2:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Red de Información Ambiental de Andalucía, REDIAM.:F:
+:U: kg/1.000 euros.:U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de la producción declarada de residuos peligrosos en Andalucía, 1997-2018
+[[./graficos/0205A2.pdf]]
+:END:
+
+:fig-0205A3:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Red de Información Ambiental de Andalucía, REDIAM.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de la producción declarada de residuos peligrosos en Andalucía, 1997-2018
+[[./graficos/0205A3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Favorecer la I+D+i en el ámbito de aquellas iniciativas que favorezcan las mejoras en los procesos de producción encaminadas a un uso más eficaz de los recursos y a una menor generación de residuos, a que el valor de los productos y materiales se mantenga durante el mayor tiempo posible, así como a un aumento de la reutilización, la reciclabilidad y la valorización material.
+
+2. Establecer medidas que recompensen la disminución de la peligrosidad en los residuos generados, especialmente en los procesos de soporte sanitario.
+
+3. Impulsar una fiscalidad que fomente la valorización de residuos y la producción sostenible.
+
+4. Atender las conclusiones del Grupo de Trabajo de Envases y Residuos de la Comisión Nacional de Residuos, sobre la posible viabilidad de volver a implantar el pago obligatorio a cargo de los consumidores por el uso de determinados envases, cuyo importe será abonado tras su retorno.
+
+5. Incentivar la donación y venta de segunda mano de productos, que aún puedan tener una utilidad, evitando su desecho o destrucción.
+
+6. Promover la utilización de productos y materiales preparados para su reutilización o reciclado.
+
+7. Incentivar las compras «limpias», es decir, aquéllas que no generan residuos en su producción y consumo.
+
+8. Mejorar la vigilancia y el control para el cumplimiento de la separación en origen y la correcta gestión de los materiales que integran los residuos, especialmente en sectores como el de la construcción.
+
+9. Fomentar la utilización de recursos biomásicos procedentes del sector primario para su revalorización.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+- Plan Integral de Residuos de Andalucía. Hacia una Economía Circular en el Horizonte 2030 (PIRec 2030).
+- Plan Director Territorial de Gestión de Residuos No Peligrosos de Andalucía, 2010-2019
+- Plan de Inspección de Traslados Transfronterizos de Residuos en Andalucía (2017-2019) (PITTRA)
+- Plan de Prevención y Gestión de Residuos Peligrosos de Andalucía, 2012-2020
+- Plan Estatal Marco de Gestión de Residuos (PEMAR) 2016-2022.
+- Estrategia Andaluza de Bioeconomía Circular (2018)
+- Estrategia Española de Bioeconomía Horizonte 2030 (2016)
+- Estrategia Andaluza de Desarrollo Sostenible 2030
+- Estrategia Minera de Andalucía 2020
+
+**** Reutilización, reciclado y eliminación de residuos
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: texto-0205-2
+:END:
+***** Texto                                                      :ignore:
+Andalucía ha venido implementando un modelo de gestión de residuos municipales, tratando de obtener un máximo aprovechamiento de los recursos contenidos en los residuos generados en el espacio urbano. Sin embargo, todavía *presenta un bajo nivel de reciclaje*, ya que, en 2018 de los 4.590,6 miles de toneladas recogidas, solo un 10,8% se destinaron al reciclaje, mientras un 69,5% se gestionaron en plantas de recuperación y compostaje y un 19,7% de los residuos se trataron en vertederos, según el Informe de Medio Ambiente en Andalucía, 2019.
+
+Los avances registrados en los últimos años han sido modestos, constituyendo un reto disminuir el porcentaje de residuos gestionados en vertederos, así como aumentar el reciclaje de residuos municipales. De este modo, la *cuota de residuos municipales reciclados en Andalucía estaría por debajo del promedio nacional (en torno al 35%) e inferior a los países europeos de referencia* (el 47,7% en la UE-27 y el 66,7% en Alemania), situándose lejos del objetivo europeo para 2030 de conseguir un 60%.
+
+El volumen (kg/habitante) de la recogida selectiva y reciclaje de papel-cartón, envases ligeros y vidrio en Andalucía registra en los últimos años un cierto estancamiento, con valores en 2018 significativamente por debajo de los alcanzados entre 2007 y 2008, cuando se registraron máximos en la serie observada. Si bien se ha avanzado mucho en cuanto al reciclado de envases ligeros, en el caso de los envases de vidrio, la cuota de reciclaje sobre el total de recogidos se situaba en el 39,7% en 2018, quedando todavía muy lejos del objetivo fijado del 75% para 2030, por la Directiva de envases (Directiva (UE) 2018/852 del Parlamento Europeo y del Consejo, de 30 de mayo de 2018).
+
+Asimismo, en Andalucía, al igual que en la mayoría de las CC.AA. españolas, apenas se aplican instrumentos económicos en la política de residuos, cuyo uso recomienda en su Anexo IV la  Directiva de residuos (Directiva (UE) 2018/851).
+
+Por otra parte, el éxito de la implementación de las nuevas directrices en materia de residuos en Andalucía dependerá, en gran medida, del *grado de participación y compromiso de los agentes económicos y de la ciudadanía*, tanto en materia de prevención como en la de reutilización de los residuos. En este sentido, el Plan Integral de Residuos de Andalucía dedica un apartado a la concienciación, sensibilización y comunicación.
+
+A modo de ejemplo, cabe destacar la producción de residuos de la industria extractiva, generados en las proximidades de la ubicación original de los recursos minerales y con una importante cualidad de convertirse ellos mismos en recursos en función de factores económicos o tecnológicos. Tanto los residuos mineros generados en la minería histórica de Andalucía, como los que generan las grandes explotaciones mineras en la actualidad tienen un potencial importante de aprovechamiento como recurso y, en muchos casos, como fuente de minerales críticos y fundamentales. Esto supone, además, una mejora importante de la eficiencia en el aprovechamiento de los recursos.
+
+:fig-0205B1:
+:F: Eurostat.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Tasa de reciclaje de residuos municipales: España vs. paises de referencia UE (%)
+[[./graficos/0205B1.pdf]]
+:END:
+
+:fig-0205B2:
+:F: Ecovidrio, Ecoembes y Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U: kg/hab/año.:U:
+:N::N:
+:E::E:
+#+CAPTION: Evolución de la recogida selectiva en Andalucía
+[[./graficos/0205B2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Analizar la eficiencia de los sistemas de recogida y eliminación de residuos, incluyendo en dicho análisis toda la cadena de gestión de los residuos, desde la producción hasta su tratamiento final.
+
+2. Atender las exigencias reguladas que se incorporen a la normativa sectorial en la materia, en particular, en lo relativo a fiscalidad  relativa a la gestión de residuos, así como la obligación de recogida separada de biorresiduos y de residuos peligrosos domésticos y de limitación u prohibición de eliminación de determinados residuos.
+
+3. Realizar inversiones para garantizar y optimizar la gestión eficiente de los recursos y de los residuos, procurando el cumplimiento del orden jerárquico establecido en la directiva comunitaria en materia de residuos, de acuerdo con el Plan Integral de Residuos de Andalucía. Hacia una Economía Circular (PIRec 2030).
+
+4. Apoyar la I+D+i y potenciar el ecodiseño para conseguir que los plásticos, procedentes principalmente de la agricultura y de los materiales sanitarios (guantes, mascarillas, EPIs, entre otros) se reciclen con mayor facilidad.
+
+5. Incluir el plástico reciclado en los criterios de contratación pública, siguiendo la línea marcada por la “Compra Pública Verde” (/Green Public Procurement/), que hace referencia al proceso por el que la Administración Pública trata de hacerse con mercancías, servicios y obras cuyo impacto medioambiental haya sido reducido durante su ciclo de vida.
+
+6. Promover el uso de polvo de neumáticos en mezclas bituminosas para la construcción de carreteras, carriles bici y en suelos especiales para parques o instalaciones deportivas, entre otros usos.
+
+7. Impulsar, en colaboración con el sector privado, la construcción de instalaciones de valorización y eliminación necesarias, de forma que Andalucía sea autosuficiente en lo que a la gestión de todos sus residuos se refiere.
+
+8. Desarrollar planes de colaboración público-privada para el reciclaje masivo de los residuos andaluces de mayor valor económico. De este modo, se podría garantizar un suministro estable a plantas industriales especializadas en, por ejemplo, la generación de biocombustibles o la recuperación de metales y minerales a partir de los residuos de aparatos eléctricos y electrónicos, con el que atraer inversiones industriales.
+
+9. Inspeccionar, controlar y exigir el cumplimiento de la reserva de suelo necesario para la construcción de puntos limpios municipales en los planeamientos urbanísticos de los municipios andaluces de más de 2.000 habitantes.
+
+10. Avanzar en el sellado y/o limpieza y regeneración ambiental de áreas de vertido incontrolado.
+
+11. Reforzar las actuaciones de identificación, y en su caso restauración, de emplazamientos históricos potencialmente contaminados, así como las de suelos afectados por contaminación con sustancias químicas liberadas por actividades antrópicas.
+
+12. Realizar campañas de concienciación y divulgación sobre los sistemas de recogida selectiva de residuos existentes.
+
+13. Incluir en la programación académica y en los cursos de formación materias relativas al reciclaje de residuos.
+
+14. Realizar una evaluación del potencial de aprovechamiento de los residuos mineros de la minería histórica y de los recursos de minerales críticos y fundamentales, para su valorización energética o como minerales para la industria o la construcción.
+
+{{{finactuaciones}}}
+
+***** Planes                                                   :noexport:
+
+- Plan Integral de Residuos de Andalucía. Hacia una Economía Circular en el Horizonte 2030 (PIRec 2030).
+- Plan Director Territorial de Gestión de Residuos No Peligrosos de Andalucía, 2010-2019
+- Plan de Inspección de Traslados Transfronterizos de Residuos en Andalucía (2017-2019) (PITTRA)
+- Plan de Prevención y Gestión de Residuos Peligrosos de Andalucía, 2012-2020
+- Plan Estatal Marco de Gestión de Residuos (PEMAR) 2016-2022.
+- Estrategia Andaluza de Bioeconomía Circular (2018)
+- Estrategia Española de Bioeconomía Horizonte 2030 (2016)
+- Estrategia Andaluza de Desarrollo Sostenible 2030
+- Estrategia Minera de Andalucía 2020
+
+**** Transición a una economía circular
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: texto-0205-3
+:END:
+***** Texto                                                      :ignore:
+En línea con la preocupación de los responsables económicos en materia de generación de residuos y de gestión de los mismos, se enmarca el impulso a la economía circular. De acuerdo con la  Comunicación de la Comisión Europea “Cerrar el círculo: un plan de acción de la UE para la economía circular” (COM 2015, 614 final), una economía circular es aquélla en la que el valor de los productos, los materiales y los recursos se mantienen en el ciclo productivo durante el mayor tiempo posible, y en la que se reduce al mínimo la generación de residuos.
+
+Diversas razones ponen en entredicho el modelo de economía lineal, dado que los recursos energéticos basados en energías fósiles, los alimentos y el agua son cada vez más escasos. Además, el incremento del número de consumidores en los próximos 20 años supondrá una presión insostenible sobre los recursos disponibles en el modelo lineal actual. De este modo, el sistema tradicional de consumo y producción conducirá al agotamiento de recursos, al tiempo que resultará global y medioamentalmente ineficiente, provocando daños irreparables al clima y la biodiversidad.
+
+En definitiva, dado que, en el modelo de economía circular, al contrario del de la economía lineal, se hace un uso limitado de las materias primas y la producción de residuos es mínima, la reutilización y la recuperación de productos y materias desempeñan un papel fundamental.
+
+De acuerdo con el Plan de acción de la UE para la economía circular (Comisión Europea, 2015) y con la Estrategia Española de Economía Circular, para los responsables públicos de Andalucía constituye un reto político hacer que los agentes económicos (especialmente las empresas y las industrias) asuman el cambio desde el modelo de producción y consumo lineal actual basado en “tomar, hacer, desechar” hacia el desafío de lo circular, y en este contexto se ha aprobado el Plan Integral de Residuos de Andalucía. Hacia una economía circular en el horizonte 2030 (PIRec 2030).
+
+Para la Fundación COTEC, dedicada a la promoción de la Innovación, /“El cambio a lo circular se debe dar hacia sistemas que sean regenerativos a partir de su diseño, para mantener el valor de los recursos (materiales, agua, suelo y energía), de los productos y limitando, exponencialmente, los insumos de materias primas y energía. Eso evitará la creación de residuos e impactos negativos derivados, mitigando las externalidades negativas para el medioambiente, el clima y la salud humana”/.
+
+En marzo de 2020 se publicó el nuevo Plan de Acción para la economía circular para una Europa más limpia y competitiva, con el que Andalucía está obligada a alinearse. Basándose en éste, el PIRec 2030 sostiene que la mejora de la *eficiencia en la utilización de los recursos y la reducción del impacto medioambiental de los residuos resultan fundamentales en esta etapa de transición hacia una economía circular.*
+
+De este modo, los programas de prevención de residuos adquieren especial protagonismo, teniendo en cuenta que la medición sobre el grado de transición hacia la economía circular está todavía en una fase poco avanzada. No obstante, Eurostat ha propuesto dos productos estadísticos relacionados con la economía circular. El primero, un diagrama de Sankey de los flujos de materiales en la Unión Europea (UE-27). El segundo es la tasa de uso de material circular o tasa de circularidad, es decir, la proporción de material recuperado y retroalimentado a la economía.
+
+Para Andalucía, el propósito de una economía circular también es mantener el valor de los productos, materiales y recursos durante el mayor tiempo posible, devolviéndolos al ciclo del producto después de que hayan llegado al final de su ciclo de vida, al tiempo que se minimiza la generación de residuos.
+
+En resumen, la economía circular debe dar respuesta a los siete ámbitos de actuación prioritarios para este eje estratégico: 1) la prevención de la generación de residuos, 2) la reutilización, 3) el reciclado, 4) otros tipos de valorización en el marco de la economía circular (incluida la valorización energética), 5) la eliminación, 6) la aplicación de instrumentos económicos y 7) la concienciación, sensibilización y comunicación.
+
+:fig-0205C1:
+:F: Estrategia española de economía circular (jornada de debate).:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Esquema de una economía circular
+[[./graficos/0205C1.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Fomentar los trabajos previos a la reutilización de los materiales utilizados en la actividad productiva de distintos sectores económicos (en particular, en el sector del desguace de vehículos en los procesos de descontaminación y desmontaje, y en el sector de la construcción, para el ecodiseño de los edificios).
+
+2. Favorecer la simbiosis entre los distintos sectores de forma que los recursos generados y no aprovechados en unas actividades se conviertan en materias primas de otras.
+
+3. Fomentar en las empresas la utilización como inputs de materias primas secundarias de otras empresas, así como la valorización energética de residuos en fábricas, aprovechando al máximo los recursos materiales y energéticos contenidos en los residuos.
+
+4. Realizar campañas de divulgación y sensibilización para fomentar una mayor participación de las empresas andaluzas en la economía circular.
+
+5. Apoyar e incentivar la I+D+i en el aprovechamiento energético de los residuos mineros.
+
+6. Aprovechar como materia prima para bioproductos y bioenergía los residuos de otros sectores. Por ejemplo, los biorresiduos de depuradoras municipales o supramunicipales (EDAR) y/o el CO_2 que emiten los focos industriales para generar biomasa a partir del cultivo de microalgas.
+
+7. Desarrollar campañas de comunicación, información y sensibilización, así como publicar guías de buenas prácticas para estimular tanto la prevención como la reutilización de los residuos.
+
+{{{finactuaciones}}}
+
+****** Planes                                                 :noexport:
+
+- Plan Integral de Residuos de Andalucía. Hacia una Economía Circular en el Horizonte 2030 (PIRec 2030).
+- Plan Director Territorial de Gestión de Residuos No Peligrosos de Andalucía, 2010-2019
+- Plan de Inspección de Traslados Transfronterizos de Residuos en Andalucía (2017-2019) (PITTRA)
+- Plan de Prevención y Gestión de Residuos Peligrosos de Andalucía, 2012-2020
+- Plan Estatal Marco de Gestión de Residuos (PEMAR) 2016-2022.
+- Estrategia Andaluza de Bioeconomía Circular (2018)
+- Estrategia Española de Bioeconomía Horizonte 2030 (2016)
+- Estrategia Andaluza de Desarrollo Sostenible 2030
+- Estrategia Minera de Andalucía 2020
+*** Fomentar la protección medioambiental y la biodiversidad
+**** Intro 0206                                                   :ignore:
+:PROPERTIES:
+:CUSTOM_ID: intro-0206
+:END:
+
+{{{inilineas}}}
+#+ATTR_LATEX: :options [leftmargin=15pt,nosep,label=\Alph*.]
+1. Conocimiento y puesta en valor del Medio Natural
+2. Adaptación y conservación
+{{{finlineas}}}
+{{{ods(3 11 12 13 14 15)}}}
+La diversidad biológica sostiene el funcionamiento de los ecosistemas y proporciona los servicios esenciales para el bienestar humano, asegurando la seguridad alimentaria, la salud humana, el suministro de aire y agua potable y contribuye a los medios locales de subsistencia y al desarrollo económico.
+
+Andalucía alberga una diversidad biológica excepcionalmente alta, por lo que está considerada como una reseñable localización de la biodiversidad a escala planetaria, tanto terrestre como marina.
+
+El valor intrínseco de este extraordinario patrimonio natural y cultural hace indiscutible el compromiso hacia su conservación, además de la implicación de toda la sociedad por su preservación para las generaciones venideras.
+
+Además de por este valor intrínseco, la biodiversidad es fundamental porque incluye el uso de recursos biológicos renovables procedentes de la tierra y el mar (cultivos, bosques, peces, animales y microorganismos) para la producción de comida, materiales y energía. También porque regula procesos determinantes como el ciclo de nutrientes del suelo, la regulación del clima local, la polinización o el control de la erosión, entre otros, imprescindibles en la protección frente a incendios forestales, inundaciones, el cambio climático y otros riesgos y catástrofes naturales.
+
+Para hablar de una buena gestión del medio natural son necesarios dos factores fundamentales. Primero, que se fundamente en el conocimiento del medio natural y se pongan en valor los bienes y servicios que aporta a la sociedad y que los promueva como fuente de riqueza y empleo en el medio rural, para lo que debe contar con una planificación adecuada y con un tejido empresarial competitivo y avanzado en I+D+i. Y segundo, que sea adaptativa a la evolución del mismo, con una normativa de calidad que incluya para su desarrollo la participación social y de los agentes económicos.
+
+**** Objetivo                                                     :ignore:
+:PROPERTIES:
+:UNNUMBERED: nil
+:HTML_CONTAINER_CLASS: objetivo
+:END:
+{{{initcb(Meta)}}}
+Frenar la pérdida de la diversidad biológica de Andalucía y recuperar el adecuado funcionamiento de sus ecosistemas.
+{{{fintcb}}}
+
+**** Conocimiento y puesta en valor del Medio Natural
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0206-01
+:END:
+***** Texto                                                      :ignore:
+La elevada riqueza biológica de Andalucía se manifiesta a nivel genético, taxonómico (riqueza de especies y abundancia de endemismos) y ecosistémico (variedad de ecosistemas y diversidad de hábitats).
+
+La Red de Información Ambiental de Andalucía (REDIAM) identifica los hábitats terrestres andaluces catalogados como de Interés Comunitario (HIC), facilitando así su conocimiento y delimitando su localización real para agilizar su adecuada gestión y correcto mantenimiento.
+
+Andalucía cuenta con una extensa Red de Espacios Naturales Protegidos (33,3 % de la superficie administrativa de la comunidad): áreas protegidas, Red Natura 2000, Zonas de Especial Protección para las Aves (ZEPA), Lugares de Importancia Comunitaria (LIC) o Zonas Especiales de Conservación (ZEC). Todos ellos de un elevado valor ecológico.
+
+También destaca por poseer uno de los patrimonios de humedales más ricos y mejor conservados del Estado español y la Unión Europea.
+
+Por otra parte, Andalucía cuenta con más de 4.000 taxones vegetales, lo que supone el 60% de la flora nacional concentrada en tan solo el 15% de su territorio y alberga el 25% de las zonas de especial protección para las aves declaradas por la Unión Europea y 400 de las 636 especies de vertebrados identificadas en España.
+
+En la conservación de los hábitats y la biodiversidad juega un papel muy importante los cambiantes espacios litorales. Así, los 2.167 km de deslinde del dominio público marítimo terrestre en Andalucía dan una idea de la magnitud y repercusiones de la correcta gestión del ámbito litoral.
+
+Por último, los montes andaluces dan cabida a un variopinto abanico de formaciones forestales de una enorme heterogeneidad, que suponen el 53% del territorio regional. Éstas producen bienes de mercado (frutos, madera, pastos, corcho, entre otros) y cumplen funciones ambientales básicas (protección del suelo, conservación de la diversidad biológica, mejora o mantenimiento de la calidad de las aguas o sumidero natural de CO_{2}), además de tener un importante valor social y cultural.
+
+Por todo ello, es necesario que todas las personas tengan *conciencia de la existencia y del valor de la diversidad biológica* de nuestra región y de los pasos que pueden seguir para su conservación y utilización sostenible, en base al conocimiento de las causas subyacentes de la pérdida de la misma. Sin olvidar que se debe promover toda actividad económica que sea simbiótica con nuestra biodiversidad y que permita el desarrollo económico de las poblaciones colindantes.
+
+Para ello, es fundamental que en todas las etapas formativas se incorpore la “Educación ambiental” con una perspectiva integral. En este sentido el programa ALDEA constituye una iniciativa de referencia, promoviendo a las escuelas como entornos de aprendizaje sostenible.
+
+Asimismo, se debe impulsar un enfoque de gestión proactiva que permita anticiparse a la aparición de los problemas, facilitando una mayor flexibilidad en base a las modificaciones de su contexto o al avance en el conocimiento. Esto implica *reforzar la planificación de la gestión de la diversidad biológica* a través de herramientas y mecanismos operativos que permitan intervenir sobre sus componentes a todos los niveles: investigación, intervención sobre elementos y procesos y seguimiento de los resultados.
+
+:fig-0206A1:
+:F: Mapa RENPA 2019.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Mapa red espacios protegidos de Andalucía
+[[./graficos/0206A1.pdf]]
+:END:
+
+:fig-0206A2:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N:     *La superficie en estas figuras Incluye las Zonas de Protección en los casos que así corresponda.\par **Incluye la superficie total de la RBIM (907.185 ha. Marruecos + Andalucía). En las zonas de solape se contabiliza una única vez.:N:
+:E::E:
+#+CAPTION: Red de Espacios Naturales Protegidos de Andalucía, 2018
+[[./graficos/0206A2.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+1. Analizar la situación actual de los recursos naturales de Andalucía, efectuando un enfoque integrado en diversas áreas de acción y centrado en los recursos sometidos a una mayor presión: el agua, el aire, los servicios de los ecosistemas y el suelo.
+
+2. Incrementar, mediante campañas divulgativas y a través de la inclusión en la programación académica de materias y contenidos específicos, la concienciación, apreciación y entendimiento de la biodiversidad de toda la ciudadanía.
+
+3. Realizar actuaciones tendentes a cuantificar el valor de todos los recursos que componen el medio natural en las diversas áreas y territorios de Andalucía, haciendo más visible su función como recurso generador de bienes y servicios y promoviendo aquellas actividades económicas sostenibles con los mismos.
+
+4. Impulsar la I+D+i y la transferencia de conocimiento en materias que tengan repercusión directa en la protección del medioambiente y la biodiversidad.
+
+5. Reforzar la planificación de los recursos naturales (estratégica y sectorial) y el desarrollo de actuaciones ambientales y forestales.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+**** Adaptación y conservación
+:PROPERTIES:
+:UNNUMBERED: nil
+:CUSTOM_ID: intro-0206-02
+:END:
+***** Texto                                                      :ignore:
+La Directiva 92/43/CEE de 1992 establece la necesidad de proteger, conservar y mejorar la calidad del medio ambiente, lo que incluye los hábitats naturales y la flora y la fauna silvestres de todo el territorio de los estados miembros de la Unión Europea.
+
+Pese a todos los esfuerzos realizados, hoy en día la *pérdida de biodiversidad, consecuencia directa de la acción humana*, se ha convertido, junto con el cambio climático, en el mayor problema medioambiental a nivel mundial, un problema que provoca además grandes pérdidas económicas y en términos de bienestar.
+
+Las implicaciones medioambientales de esta pérdida de biodiversidad van desde los cambios a escala local a las grandes trasformaciones globales, las cuales pueden producir la destrucción y desmantelamiento de ecosistemas enteros, con importantes repercusiones sobre la prosperidad de las sociedades en el futuro.
+
+Por ello, *hay que atajar las principales amenazas que se ciernen hoy sobre la biodiversidad andaluza*, comprender su complejidad y prever su evolución en el futuro, adaptando su gestión a una sociedad dinámica y cambiante que ha transformado, en muy pocos años, su forma de relación tradicional e histórica con el medio natural.
+
+Se necesita aplicar un modelo de gestión integrada capaz de favorecer en paralelo: la corresponsabilidad, la participación social y la implicación de la ciudadanía en la toma de decisiones; aspectos imprescindibles a la hora de garantizar la conservación de la biodiversidad en el marco del desarrollo sostenible de Andalucía.
+
+La evolución de las temperaturas en las ciudades andaluzas en el último siglo, según la información de la Red de Información Ambiental de Andalucía (REDIAM) evidencia que en las últimas tres décadas se ha producido un *repunte en el índice de calentamiento global*. Este indicador se elabora con los registros de tres estaciones climáticas: Córdoba, Granada y Jerez de la Frontera, que sirven de referencia al disponer de las series de datos más antiguas y prolongadas en el tiempo.
+
+Otro indicador resumen de la situación medioambiental y del grado de afectación sobre la población sería *la calidad del aire*. Desde hace décadas, la protección de la atmósfera ha sido una prioridad de la política ambiental y se ha diseñado un amplio repertorio de instrumentos legales tendentes a hacer compatibles el desarrollo económico y social y la preservación de este recurso natural. Mediante estos instrumentos se han conseguido grandes mejoras en la calidad del aire, sobre todo respecto a algunos contaminantes, si bien aún existen niveles de contaminación con efectos adversos muy significativos. Un amplio diagnóstico sobre la situación de Andalucía en esta cuestión se realiza en la Estrategia Andaluza de Calidad del Aire.[fn:36]
+
+Adicionalmente, cabría mencionar otras fuentes de contaminación, que tienen una incidencia en el contexto económico y social, como la contaminación lumínica y la acústica. Respecto a la primera, Andalucía pretende regular la lucha contra la contaminación lumínica propiamente dicha, para favorecer la eficiencia energética, combatir el cambio climático, al tiempo que contribuir al fomento del turismo astronómico como un elemento de desarrollo en determinados territorios de la Comunidad Autónoma. Por su parte, para evaluar el grado de contaminación acústica en las principales aglomeraciones urbanas de Andalucía se están realizando “mapas estratégicos de ruido”, lo que facilitará la elaboración de planes de acción con objeto de mejorar las situaciones de conflicto que se detecten.
+
+:fig-0206B1:
+:F: Red de Información Ambiental de Andalucía. REDIAM. Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N:   *Calculado a partir de la serie de diferencias con respecto a las temperaturas medias consideradas como valor normal. Este valor “normal” corresponde a la media del periodo 1961 a 1990, tomado como referencia para calcular las anomalías térmicas.:N:
+:E::E:
+#+CAPTION: Índice* de calentamiento global en estaciones de referencia andaluzas
+[[./graficos/0206B1.pdf]]
+:END:
+
+:fig-0206B2:
+:F: Red de Información Ambiental de Andalucía. REDIAM. Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Calidad del aire en Andalucía. Días con situación no admisible
+[[./graficos/0206B2.pdf]]
+:END:
+
+:fig-0206B3:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
+:U::U:
+:N:     (1) Zonas rurales (resto del territorio). En esta zona solo se evalúa SO_{2}, NO_{2} y O_{3} \par (2) Zonas rurales 2 (resto del territorio menos Villanueva del Arzobispo). En esta zona solo se evalúa PM10 y CO \par (3) Villanueva del Arzobispo. En esta zona solo se evalúa PM10 y CO.:N:
+:E::E:
+#+CAPTION: Índice de calidad del aire por zonas en Andalucía, 2019
+[[./graficos/0206B3.pdf]]
+:END:
+
+***** Actuaciones
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+ 1. Fomentar la coordinación interadministrativa y el desarrollo de las políticas sectoriales estratégicas para la protección del medio ambiente, así como impulsar la cooperación internacional e interterritorial en estas materias.
+
+ 2. Fijar unos niveles de protección mínimos en cada uno de los tipos de hábitats que permitan frenar la pérdida de la biodiversidad.
+
+ 3. Fomentar la corresponsabilidad, la movilización de los actores sociales implicados, la gestión participativa y la permeabilidad en la toma de decisiones que tengan una repercusión directa en la biodiversidad.
+
+ 4. Analizar y estudiar todas las vías posibles para favorecer la dotación de infraestructuras medioambientales, medios técnicos y humanos, que contribuyan a la preservación y conservación del medio ambiente.
+
+ 5. Realizar actuaciones preventivas en materia de lucha contra los incendios forestales, contra las plagas y especies invasoras.
+
+ 6. Rehabilitar el entorno paisajístico, recuperando áreas degradadas (en particular, las mineras) y preservar el patrimonio ambiental, conservando la flora y la fauna locales.
+
+ 7. Regenerar Humedales y desarrollar el Plan Andaluz de Humedales.
+
+ 8. Elaborar el Plan de Caza y la Estrategia para el impulso del sector cinegético en Andalucía.
+
+ 9. Seguir invirtiendo en corredores ecológicos y conectividad de espacios naturales que  garanticen un uso sostenible y apoyen las actuaciones de protección y conservación de especies y hábitats sin privar a la persona usuaria de su disfrute.
+
+ 10. Centrar la I+D+i en los sectores agrarios y forestales sostenibles, con el objetivo de enriquecer y conservar el contenido de carbono de los suelos, lo que puede jugar un papel como fuente potencial de emisiones negativas.
+
+ 11. Mejorar las redes de medición de calidad del aire y el grado de transparencia sobre los datos recogidos para conocimiento de la sociedad.
+
+ 12. Adaptar la normativa en materia de emisiones y calidad del aire a los nuevos criterios y objetivos que demande la legislación europea.
+
+ 13. Revisar el sistema impositivo y de incentivos económicos para desincentivar el consumo de energías contaminantes que dañen la calidad del aire.
+
+ 14. Reformular la legislación autonómica en materia de contaminación acústica y lumínica posibilitando el desarrollo sostenible.
+
+ 15. Investigar y fomentar el aprovechamiento de los recursos naturales mineros de forma sostenible y compatible con la conservación del medio ambiente y de la biodiversidad, estableciendo criterios y límites concretos en cada proyecto, de acuerdo a la legislación vigente y a la cooperación entre las administraciones públicas competentes.
+
+{{{finactuaciones}}}
+***** Planes                                                   :noexport:
+:PROPERTIES:
+:UNNUMBERED: nil
+:END:
+
+
+
+* Footnotes
+
+[fn:36] Dicha Estrategia, que fue aprobada por Acuerdo del Consejo de Gobierno de 22 de septiembre de 2020 y publicada en el BOJA n.º 188 del 28/9/2020, fija las líneas generales que se van a seguir en Andalucía en materia de mejora de la calidad del aire.
+
+[fn:11] ESPON (/European Observation Network for Territorial Development and Cohesion/).
+
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:

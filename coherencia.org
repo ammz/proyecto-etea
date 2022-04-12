@@ -1,0 +1,239 @@
+#+INCLUDE: "lisp"
+#+SETUPFILE: etea.setup
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+
+Este capítulo está dedicado a dar visibilidad a la coherencia existente en los planteamientos de la Estrategia para la Transformación Económica de Andalucía (ETEA) con los principales ámbitos
+prioritarios que dan contenido a la política de cohesión europea y, al mismo tiempo, con las orientaciones básicas del Plan de Recuperación, Transformación y Resiliencia nacional y los fundamentos de la Agenda para España a largo plazo.
+
+No obstante, esta estrecha vinculación es compatible con una puesta en valor de las singularidades que caracterizan, estructuralmente, a la sociedad y economía andaluzas y que implican una especial atención a determinados aspectos que son más relevantes para Andalucía. De hecho, conviene recordar que uno de los principios que sustentan la política de cohesión europea es garantizar que la acción se adapte a las necesidades y prioridades regionales y locales, mediante un ejercicio de cooperación en el que participan autoridades a nivel europeo, regional y local, interlocutores sociales y organizaciones de la sociedad civil.
+
+Sin duda, la estrecha relación existente entre los planteamientos de la ETEA y los planes de actuación europeos y nacionales en materia de política económica se evidencia en un diagnóstico compartido acerca de los principales desafíos a los que se enfrentan Andalucía, España y la UE. Este diagnóstico tiene en cuenta las dificultades para reparar los daños causados en la sociedad y en los pilares de la actividad productiva por la Gran Recesión hace más de una década y, más recientemente, la crisis de la Covid-19.
+
+Al mismo tiempo, estos grandes retos y las propuestas para solventarlos presentan una alta coincidencia o, al menos, una elevada congruencia con los objetivos y las metas para alcanzarlos contenidos en la Agenda 2030 para el Desarrollo Sostenible de Naciones Unidas. De hecho, para mostrar esta vinculación, en la estructura del documento se ha representado la correspondencia entre las prioridades establecidas en la ETEA con los respectivos logotipos de los 17 Objetivos de Desarrollo Sostenible (ODS).
+
+En cualquier caso, conviene tener presente que, en la ETEA, como en los documentos de planificación de referencia de la UE y en la Agenda 2030, los objetivos y prioridades tienen un carácter integrado y difícilmente individual, ya que las distintas esferas económica, social y ambiental están claramente interrelacionadas, de modo que las áreas estratégicas y muchas prioridades presentan una evidente conexión o coherencia interna.
+
+* La visión europea de la política económica
+
+Sin lugar a duda, la política de cohesión constituye la política de inversión más importante de la Unión Europea, con una significativa incidencia en el crecimiento económico y la creación de empleo en los distintos territorios (regiones y ciudades), al tiempo que pretende tener efectos positivos sobre la competitividad empresarial, el desarrollo sostenible y la protección del medio ambiente.
+
+Esta relevancia viene explicada por ser, precisamente, el fortalecimiento de la cohesión económica, social y territorial, uno de los objetivos fundamentales de la creación de la UE, lo que explica también que se haya venido destinando una proporción muy destacada de sus actividades y de su presupuesto (en torno a un tercio) a reducir las disparidades entre las regiones, con especial atención a las zonas rurales, a las zonas afectadas por una transición industrial y a las regiones que padecen desventajas naturales o demográficas graves y permanentes.
+
+Así, desde la génesis de la Comunidad Europea (en la actualidad, Unión Europea), se consideró que las grandes disparidades territoriales y demográficas constituían obstáculos a la integración y el desarrollo en Europa, por lo que resultaba necesario establecer mecanismos de solidaridad, diseñándose un primer fondo social y otro de orientación y garantía agrícola (Tratado de Roma). Con el paso del tiempo y la persistencia en las disparidades regionales, la cohesión social y económica ha ganado significación (presupuestaria y política), respaldada por el Tratado de Lisboa, en 2008, cuando se incorporó un tercer ámbito a esta política: la cohesión territorial.
+
+En la actualidad, para la consecución de este objetivo (triple dimensión: social, económica y territorial)[fn:38], en el conjunto de la UE se dispone de los Fondos Estructurales y de Inversión Europeos, donde se incluyen el FSE+, el FEDER, el Fondo de Cohesión, el Fondo Europeo Agrícola de Desarrollo Rural (Feader) y el Fondo Europeo Marítimo, de Pesca y de Acuicultura (FEMPA). A éstos, ha venido a sumarse en 2021 el Fondo de Transición Justa (FTJ)[fn:39].
+
+De este modo, la distribución de los recursos económicos de la Unión, dedicados a la política de cohesión, y que debe atender unos principios[fn:40], se centra en dos objetivos básicos:
+
+- la inversión en crecimiento y empleo, que está orientada a fortalecer el mercado laboral y las economías regionales;
+- la cooperación territorial europea, que respalda la cohesión de la Unión a través de la cooperación a escala transfronteriza, transnacional e interregional.
+
+El diseño de la política de cohesión de la UE en el período 2021-2027, comenzó a fraguarse en mayo de 2018, cuando la Comisión Europea propuso unos nuevos reglamentos para el marco financiero plurianual del 2021-2027, antes de que irrumpiera la crisis generada por la Covid-19. El principal elemento novedoso de esta reforma es el de la simplificación de los procedimientos y la intensificación en la búsqueda de la eficacia de las inversiones de la Unión. Al mismo tiempo, con objeto de dotar de una visión más concreta o resumida, los once objetivos temáticos utilizados en la política de cohesión 2014-2020 se han sustituido por cinco objetivos políticos para el FEDER, el FSE+, el Fondo de Cohesión y el FEMPA:
+
+1. una Europa más competitiva e inteligente, promoviendo una transformación económica innovadora e inteligente y una conectividad regional a las tecnologías de la información y de las comunicaciones;
+2. una Europa más verde, baja en carbono, en transición hacia una economía con cero emisiones netas de carbono y resiliente, promoviendo una transición energética limpia y equitativa, la inversión verde y azul, la economía circular, la mitigación y adaptación al cambio climático, la prevención y gestión de riesgos y la movilidad urbana sostenible;
+3. una Europa más conectada, mejorando la movilidad;
+4. una Europa más social e inclusiva, por medio de la aplicación del pilar europeo de derechos sociales;
+5. una Europa más próxima a sus ciudadanos, fomentando el desarrollo integrado y sostenible de todo tipo de territorios e iniciativas locales.
+
+Para conseguir estos objetivos, la política de cohesión, a lo largo del período 2021-2027, cuenta con la financiación del marco financiero plurianual (MFP) habitual u ordinario, que se ve completado por el instrumento extraordinario y adicional /“Next Generation EU”/, que apoya la recuperación de la economía y la sociedad, dadas las circunstancias excepcionales generadas por la pandemia[fn:41], si bien bajo el criterio de concentración de esfuerzos y recursos a objetivos políticos para una Europa más competitiva e inteligente y para una Europa más verde. Ello explica que la rúbrica “2. Cohesión, resiliencia y valores” (ver figura siguiente) concentre la mayor parte de los recursos del NGEU.
+
+:fig-MFP:
+:F: https://ec.europa.eu/info/strategy/eu-budget/long-term-eu-budget/2021-2027/negotiations_en :F:
+:U::U:
+:N: Asignaciones por rúbrica (importes en miles de millones de euros).:N:
+:E::E:
+#+CAPTION: Marco Financiero Plurianual (MFP) 2021-2027 completado con Next Generation EU (NGEU)
+[[./graficos/MFP.pdf]]
+:END:
+
+Desde un punto de vista cualitativo, los aspectos más novedosos de la política de cohesión para el periodo 2021-2027 se pueden presentar de forma resumida:
+
+- El refuerzo a las *prioridades* de la UE: los 5 objetivos políticos centrados en objetivos clave y concentración temática en los más relevantes para una Europa competitiva y preparada para el futuro.
+- Unas *metas climáticas*: contribución climática y ambiental ponderada de las inversiones, metas mínimas para los fondos y mecanismo de ajuste climático.
+- Un mayor *empoderamiento de las autoridades territoriales*, urbanas y locales en la gestión de los fondos: objetivo político específico implementado solo a través de estrategias de desarrollo territorial y local.
+- Un esfuerzo por la *simplificación*: la nueva política de cohesión introduce un conjunto único de normas para los ocho Fondos[fn:1] que se regulan por el reglamento de disposiciones comunes, con una reducción significativa en la cantidad de legislación secundaria. Ello supone:
+
+  - unos informes más ligeros y frecuentes;
+  - unos controles más livianos para los programas: reducción drástica de las verificaciones de gestión, "principio de auditoría única", entre otras;
+  - una entrega más rápida: posibilidad ampliada de utilizar opciones de costes simplificados (OCS) y financiación no vinculada a esquemas de costes;
+  - en la que no es necesaria la aprobación de la Comisión para grandes proyectos;
+  - y sin designación adicional de órganos de gestión y control.
+
+- Un modo más fácil de crear las condiciones para el éxito: *condiciones facilitadoras simplificadas y claras* que deben respetarse durante todo el período de programación para el reembolso con cargo al presupuesto de la Unión.
+- Una *Programación flexible*, más ajustada a los nuevos desafíos y necesidades emergentes: asignación de la cantidad de flexibilidad solo después de una revisión intermedia de la situación socioeconómica y de los posibles nuevos desafíos.
+- Una *visibilidad y comunicación* reforzadas: requisitos para los beneficiarios y operaciones de importancia estratégica.
+
+A modo de esquema, los principales aspectos diferenciales respecto al periodo 2014-2020 se exponen en el cuadro siguiente.
+
+:fig-Politica-cohesion:
+:F: Comisión Europea. Política de cohesión 2021-2027 y 2014-2020.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Política de Cohesión de la UE: principales elementos de comparación entre los marcos 2021-2027 y 2014-2020
+[[./graficos/politica-cohesion.pdf]]
+:END:
+
+Una consideración especial cabe hacer al papel e impulso que ha ejercido la ejecución de los Fondos Europeos en la difusión de la práctica y la cultura de la evaluación en toda la UE. La importancia de la evaluación ha adquirido una mayor notoriedad, si cabe, a partir del período de programación 2014-2020, desde una perspectiva amplia y amparándose bajo el lema “Gestión orientada a resultados”.
+
+Las evaluaciones previstas en el marco de los Fondos Estructurales y de inversión se recogen en el Plan Específico de Evaluación de cada Programa, que se configura como un documento de carácter estratégico en el que se define el sistema de evaluación para valorar de una manera sistemática el alcance real de las actuaciones financiadas en cada ámbito temático y ofrecer información relevante que oriente la toma de decisiones de cara a potenciar los logros y mejoras en la implementación del Programa en cuestión.
+
+Esta apuesta por la *cultura evaluadora en los Fondos de Cohesión* se confirma para el período de programación 2021-2027, donde el reglamento comunitario recoge que se llevarán a cabo evaluaciones de los programas en relación con uno o varios de los siguientes criterios: eficacia, eficiencia, pertinencia, coherencia y valor añadido de la Unión, con el fin de mejorar la calidad del diseño y la ejecución de los programas. Las evaluaciones podrán también llevarse a cabo en relación con otros criterios pertinentes, como la inclusividad, la no discriminación y la visibilidad.
+
+En igual sentido, se ha de aprobar un plan específico de evaluación al inicio del período y que se configure como una herramienta cuyo objetivo principal es definir las condiciones particulares de realización en las actuaciones de evaluación, garantizando la coherencia con la estrategia definida en el ámbito del programa y la homogeneidad en los procesos de trabajo que se identifican en los ejercicios de evaluación.
+
+Por otra parte, la *significación del Next Generation EU* no solo reside en el carácter extraordinario de sus recursos para la recuperación de la crisis por la pandemia de coronavirus, sino en el hecho de que su principal instrumento, el denominado Mecanismo de Recuperación y Resiliencia (MRR[fn:42]), a través de los préstamos y subvenciones, apoya las reformas e inversiones emprendidas en los países de la UE.
+
+De este modo, además del objetivo de mitigar el impacto económico y social, acelerando la recuperación, pretende incidir en la transformación digital y verde y hacer que las economías y sociedades europeas sean más sostenibles y resilientes y estén mejor preparadas para los retos y las oportunidades de este proceso de /transición gemela/. Para ello, los Estados miembros han elaborado unos planes de recuperación y resiliencia nacionales, como requisito para acceder a los fondos en el marco del Mecanismo de Recuperación y Resiliencia.
+
+En definitiva, los Planes nacionales financiables con el MRR deben:
+
+- Implementar reformas e inversiones que estén en línea con las prioridades de la UE o pilares de actuación de importancia europea: /Transición ecológica; Transformación digital; Crecimiento inteligente, sostenible e integrador; Cohesión social y territorial; Salud y resiliencia económica, social y territorial; y Políticas para la nueva generación, la infancia y la juventud, tales como la educación/.
+
+- Abordar reformas para hacer frente a los retos señalados para cada país en el marco del Semestre Europeo (/Country Specific Recommendations/), de coordinación de políticas económicas y sociales.
+
+- Contribuir a las 7 iniciativas emblemáticas (/Flagships/) de la Estrategia Anual de Crecimiento Sostenible: Activación; Renovación; Recarga y Repostaje; Conexión; Modernización; Expansión; y Reciclaje y perfeccionamiento profesional.
+
+- Al menos, el 37% de los recursos debe destinarse a medidas dirigidas a la Transición ecológica y el 20%, a la Transformación digital, ya que la UE quiere alcanzar el objetivo de neutralidad climática para 2050 y favorecer la transición digital, creando puestos de trabajo e impulsando el crecimiento económico en el proceso.
+
+Aproximadamente, los 22 planes de recuperación y resiliencia aprobados hasta 2021, incluido el de España, asignan casi el 40% del gasto de su presupuesto a medidas climáticas y más del 26% a la transición digital, superándose los objetivos acordados del 37% para el clima y el 20% para el gasto digital.
+
+Se estima[fn:43] que la acción conjunta y coordinada a nivel europeo (con la suma de los Planes de Recuperación de todos los Estados Miembros, no solo de España) beneficia a los Estados miembros más que a los gastos nacionales estimados individualmente, por los efectos secundarios (/spillovers/) significativos entre países.
+
+Cada plan nacional establece las reformas e inversiones que se llevarán a cabo hasta finales de 2026 y los Estados miembros pueden recibir financiación hasta una asignación previamente acordada. Asimismo, el Mecanismo de Recuperación y Resiliencia se basa en el rendimiento, es decir, en el cumplimiento de los hitos y objetivos acordados para lograr las reformas y las inversiones en los distintos planes, que son requisitos para desbloquear el pago regular en plazos del MRR.
+
+Recientemente, se ha establecido un cuadro de indicadores[fn:44] de recuperación y resiliencia que facilita el seguimiento y el avance de los países de la UE en la implementación de sus respectivos planes nacionales, a través de indicadores comunes para informar sobre el progreso y evaluar el MRR en los Estados miembros y en el conjunto de la UE.
+
+* Las prioridades de la política económica nacional y el Plan de Recuperación, Transformación y Resiliencia de España
+
+Las prioridades de la política económica en España se exponían, con anterioridad al Plan de Recuperación nacional, en la Agenda del Cambio[fn:45], presentada en febrero de 2019, un año antes de la pandemia. Los ejes del documento son impulsar la formación, promover la transición ecológica y avanzar hacia un mercado laboral y una administración eficientes.
+
+De este modo, las actuaciones más relevantes de la política a medio y largo plazo se entendían que se alineaba con los grandes retos de futuro en la esfera internacional (recopilados por la Agenda 2030 y los ODS), al tiempo que daban respuesta a las recomendaciones de la Comisión Europea (Informe País), que ha venido instando a España a aprovechar la situación económica actual para “abordar las reformas pendientes con vistas a hacer la economía española más resiliente y afianzar el crecimiento de la productividad”. En particular, la UE recomienda actuaciones para mejorar los servicios sociales, el empleo y la educación, aumentar la inversión en investigación y desarrollo, y promover el buen funcionamiento de los mercados y las instituciones.
+
+Con posterioridad, las principales propuestas del Plan de Recuperación, Transformación y Resiliencia de España se alinean con la hoja de ruta de reformas recogida en la Agenda del Cambio. Siguiendo un orden cronológico, el Plan español, enviado a la Comisión a finales de abril de 2021, fue examinado y aprobado por la Comisión Europea y el Consejo en junio de este año. También, se han establecido unas Disposiciones Operativas del Plan acordadas por el Ejecutivo español y la Comisión Europea (11 nov. 2021). Más recientemente, el 3 de diciembre, tras la valoración positiva de los 52 primeros hitos del Plan (acorde al calendario de hitos y objetivos previstos en el Plan) se ha iniciado el proceso para el desembolso de 10.000 millones con cargo al MRR.
+
+Este primer pago efectivo implica que el Plan español atiende y cumple, en principio, la normativa que regula el Mecanismo de Recuperación y Resiliencia (Reglamento de la (UE) 2021/241 de 12 de febrero de 2021), donde se establecen los seis pilares destinados a favorecer la recuperación económica, crear empleo y sentar las bases de una Unión Europea más fuerte y resistente:
+
+#+ATTR_LATEX: :options [nosep,topsep=8pt,leftmargin=\parindent]
+1. Transición ecológica
+2. Transformación digital
+3. Crecimiento inteligente, sostenible e integrador
+4. Cohesión social y territorial
+5. Salud y resiliencia económica, social e institucional
+6. Políticas para la próxima generación, infancia y juventud.
+
+Por tanto, los proyectos de inversión y las reformas contempladas en el Plan de Recuperación del Gobierno de España, dado que van a ser financiados con cargo al MRR, responden a estos seis grandes bloques temáticos y, al mismo tiempo, las reformas y proyectos del Plan contribuyen a abordar una parte importante de los retos económicos y sociales esbozados en las recomendaciones específicas por país dirigidas a España por el Consejo, en el contexto del Semestre Europeo, en 2019 y en 2020. En particular, en los ámbitos relacionados con:
+
+#+ATTR_LATEX: :options [nosep,topsep=8pt,leftmargin=\parindent]
+- el empleo, como la segmentación del mercado laboral, las políticas activas del mercado de trabajo y la capacidad de los servicios públicos de empleo;
+- la educación y las capacidades, como el abandono escolar prematuro y las capacidades pertinentes para el mercado laboral, incluidas las digitales;
+- las políticas sociales, como los regímenes de renta mínima, la ayuda al desempleo y el apoyo a las familias;
+- la inversión, como la transición ecológica y digital, los sectores estratégicos y la investigación e innovación;
+- el clima empresarial, como la Ley sobre la unidad de mercado, la morosidad y el marco de insolvencia;
+- la Administración Pública y la contratación pública.
+
+Asimismo, en el documento de trabajo de los servicios de la Comisión, que analiza el Plan de Recuperación de España, se incide en la positiva valoración, a priori, de las propuestas contenidas en el Plan. En concreto, se pone el énfasis en la esperada reforma del mercado laboral (que logre un equilibrio entre flexibilidad y seguridad) y del sistema de pensiones (con el fin de preservar su adecuación y su sostenibilidad a largo plazo).
+
+Adicionalmente, el Ejecutivo Europeo confía en que el Plan contribuya a la transición verde, a la protección del medio ambiente —en particular, mediante una mejor gestión del agua y los residuos— y al enriquecimiento de la biodiversidad, contribuyendo a la transición ecológica con medidas dirigidas a promover la movilidad urbana y sostenible de larga distancia y a aumentar la eficiencia energética de los edificios, descarbonizar la industria y reducir la dependencia energética, así como a desplegar nuevas tecnologías de hidrógeno renovable y energías renovables.
+
+Por su parte, la transición digital está respaldada por inversiones en capacidades digitales y en la digitalización de la Administración pública, la industria y las empresas, así como en la adquisición de equipamiento digital para el sector educativo. Se prevén inversiones en la digitalización de la Administración y de los servicios públicos de salud, simplificando las interacciones entre los servicios públicos, las empresas y los ciudadanos. Al mismo tiempo, se invierte en la provisión de competencias digitales básicas a la población en general, a las personas desempleadas y a las trabajadoras menos cualificadas, que apoyan a las inversiones en conectividad digital (incluida la 5G).
+
+Por todo ello, cabe esperar que una plena aplicación del Plan de España (es decir, si se alcanzan los hitos y objetivos previstos) pueda tener repercusiones duraderas, o dicho de otro modo promover cambios estructurales en las Administraciones públicas, las instituciones y las políticas. En este sentido, cabe recordar que las medidas incluyen cambios destinados a mejorar la eficacia de la Administración pública -a través, entre otras reformas, de su digitalización y del refuerzo del marco de contratación pública-, la eficiencia del sistema de justicia y la evaluación de las políticas y del gasto público.
+
+Otros cambios estructurales y duraderos podrán derivarse de otras medidas dirigidas a mejorar el clima de negocios, en particular mediante la reducción de la fragmentación del mercado y la mejora de la regulación. Las medidas del Plan también pueden potenciar de forma duradera la productividad y la competitividad de España mediante una adaptación más rápida de su industria, su energía y su sistema de transporte a la transición ecológica y digital.
+
+Estos efectos pueden verse reforzados por las medidas adoptadas para mejorar las competencias y cualificaciones a distintos niveles, reducir la segmentación del mercado de trabajo, modernizar la protección social y acortar la brecha de género, medidas que, a su vez, pueden contribuir a mejorar la cohesión social. De este modo, cabe esperar que el Plan contribuya a medio y largo plazo a incrementar el potencial de crecimiento de la economía española, mediante un crecimiento más sostenible y resiliente.
+
+A modo de resumen, el plan español se estructura en torno a cuatro ejes transversales que vertebrarán la transformación del conjunto de la economía y que están plenamente alineados con las agendas estratégicas de la UE, la Agenda 2030 y los Objetivos de Desarrollo Sostenible de Naciones Unidas: 1) la transición ecológica, 2) la transformación digital, 3) la igualdad de género y 4) la cohesión social y territorial. Estos ejes guían todo el proceso de recuperación, inspirando las reformas estructurales y las inversiones, con el objetivo último de recuperar el crecimiento, fomentar la creación de empresas y acelerar la generación de empleo.
+
+Estos 4 ejes se concretan en 10 políticas palanca y 30 componentes que articulan el importante programa de reformas e inversiones (ver cuadro en la página siguiente).
+
+:fig-politicas-palanca:
+:F: Plan de Recuperación, Transformación y Resiliencia.:F:
+:U::U:
+:N::N:
+:E::E:
+#+CAPTION: Políticas palanca y componentes del Plan de Recuperación, Transformación y Resilencia de España
+[[./graficos/politicas-palanca.pdf]]
+:END:
+
+Por último, antes de finalizar con la visión de la política económica en España, bajo una perspectiva más amplia, conviene mencionar el Plan España 2050. Un estudio que comprende un conjunto de Fundamentos y Propuestas para una Estrategia Nacional de Largo Plazo, y que ha sido elaborado por la Oficina Nacional de Prospectiva y Estrategia de la Presidencia del Gobierno, con la colaboración de un centenar de expertos y expertas de reconocido prestigio de generaciones, sensibilidad política y disciplinas diversas (economía, ciencias ambientales, demografía, sociología, historia, ciencia política y derecho, entre otras). Además, se ha contado con el apoyo de varios Ministerios, la AIReF, el Banco de España, y el Joint Research Centre de la Comisión Europea.
+
+Una vez más, en el documento se expone una serie de desafíos de futuro, que en este horizonte temporal de casi tres décadas presenta muchos lugares comunes o coincidentes con los expuestos a lo largo de este capítulo y también *coherentes con los planteamientos de la ETEA*. En concreto: el reto de la productividad y el patrón de crecimiento económico; la educación de los jóvenes; el desafío de la formación y recualificación de la fuerza trabajadora; el tránsito hacia una sociedad neutra en carbono, sostenible y resiliente al cambio climático; la adaptación del estado de bienestar a una población más longeva; el reto de articular un desarrollo territorial equilibrado, justo y sostenible; la corrección de las deficiencias de nuestro mercado de trabajo y su potencial evolución futura; la reducción de los niveles de pobreza y de desigualdad y ampliar las bases de nuestro bienestar futuro.
+
+Sin duda, abordar estas responsabilidades es competencia de todos, no solo del Ejecutivo actual, dado que el horizonte temporal (hasta 2050) abarcará varias legislaturas. El estudio, por ello, tiene “vocación de país[fn:46]”, es decir no avala o refuta el programa de ningún partido político, aunque aspira a ser de utilidad a las instituciones públicas, empresas, ONGs, sindicatos, universidades, fundaciones, asociaciones y demás entes de nuestra sociedad civil.
+
+* Footnotes
+
+[fn:1] Los 8 fondos cubiertos por esta regulación común son:
+#+ATTR_LATEX: :options [nosep]
+- Fondo Europeo de Desarrollo Regional (FEDER)
+- Fondo Social Europeo Plus (FSE+)
+- Fondo de Cohesión
+- Fondo de Transición Justa (JTF)
+- Fondo Europeo Marítimo, de Pesca y Acuicultura (EMFAF)
+- Fondo de Asilo y Migración (FAMI)
+- Fondo de Seguridad Interior (FSI)
+- Instrumento de Gestión de Fronteras y Visas (BMVI)
+https://ec.europa.eu/info/funding-tenders/find-funding/funding-management-mode/common-provisions-regulation_en
+[fn:46] El informe se sustenta en una amplia base empírica, medible y contrastable, integrada por más de 500 series de datos y unas 1.650 publicaciones científicas, en su mayoría artículos académicos revisados por pares e informes elaborados por instituciones europeas, organismos internacionales, think tanks y entidades del tercer sector de innegable solvencia técnica.
+
+[fn:45] Ver el documento de la Agenda del Cambio de febrero de 2019. https://www.lamoncloa.gob.es/consejodeministros/referencias/documents/2019/refc20190208e_3.pdf
+
+[fn:44] https://eur-lex.europa.eu/legal-content/ES/TXT/PDF/?uri=CELEX:32021R2106&from=EN
+
+[fn:43] En el informe “Quantifying Spillovers of Next Generation EU Investment”. Ver enlace: https://ec.europa.eu/info/sites/default/files/economy-finance/dp144_en.pdf
+
+[fn:42] El MRR dispone de 723 800 millones de euros (a precios corrientes) en préstamos (385 800 millones de euros) y subvenciones (338 000 millones de euros).
+
+[fn:41] En diciembre de 2020, se adoptó otro nuevo instrumento, REACT-UE, que complementará los programas de cohesión 2014-2020 y se sumará a las asignaciones para la cohesión para el período 2021-2027. El REACT-UE apoyará a los sectores más importantes para lograr una recuperación sólida tras la crisis de la COVID-19 y tiene prevista una asignación (hasta 2023) de 47.500 millones euros.
+
+[fn:40] Con la finalidad de garantizar un uso eficiente de los Fondos Estructurales, deben respetarse los principios siguientes: la organización de los fondos por objetivos y por regiones; la colaboración entre la Comisión, los Estados miembros y las autoridades regionales para la planificación, la ejecución y el seguimiento de su utilización; la programación de las intervenciones; y la adicionalidad de la contribución nacional y de la UE.
+
+[fn:39] El Fondo de Transición Justa es una herramienta clave para apoyar los territorios más afectados por la transición a la neutralidad climática y evitar el aumento de las disparidades regionales. Para alcanzar su objetivo, el FTJ apoya inversiones en ámbitos como la conectividad digital, las tecnologías energéticas limpias, la reducción de emisiones, la rehabilitación de zonas industriales, el reciclaje profesional de las personas trabajadoras y la asistencia técnica.
+
+[fn:38] El objetivo de la UE de cohesión económica, social y territorial se define en los artículos 174 a 178 del [[https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:12012E/TXT][Tratado de Funcionamiento de la Unión Europea]].
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:
