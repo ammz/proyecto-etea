@@ -144,16 +144,14 @@ Comenzamos cargando =fontspec=
 la fuente principal con EB Garamond
 
 #+begin_SRC latex
-  \setmainfont{EB Garamond}
-  \setsansfont{PT Sans}
-  % \setmainfont{Noto Sans}[Scale=0.79]
-  % \setsansfont{NotoSansHK-Regular}[Scale=0.79]
+  \setmainfont{Noto Sans}[Scale=0.79]
+  \setsansfont{Noto Sans}[Scale=0.79]
 #+end_SRC
 
 Fira code para la fuente monoespaciada y escalada a la altura de la fuente principal
 
 #+begin_SRC latex
-  \setmonofont{fira code}[Scale=MatchLowercase]
+  \setmonofont{FiraCode-Regular.ttf}[Scale=MatchLowercase]
 #+end_SRC
 
 ** Babel e idiomas
