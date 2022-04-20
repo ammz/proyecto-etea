@@ -112,11 +112,11 @@ Converger hacia los niveles medios de inversión en I+D+i de la Zona Euro.
 :CUSTOM_ID: intro-0101-01
 :END:
 ***** Texto                                                      :ignore:
-{{{nota(Bajo peso de la I+D en Andalucía)}}} *El peso de la investigación y la tecnología en Andalucía resulta inferior a la media nacional*. Prueba de esta menor dimensión es que la inversión en I+D regional representa solo el 9,9 % del total nacional, mientras en términos de PIB y población, Andalucía supone el 13,3 % y el 17,9 % del total de España, en 2019, último año con información disponible del INE e IECA.
+En Andalucía, la inversión que realiza el conjunto de la economía en investigación y nuevas tecnologías resulta inferior a la media nacional, situándose por debajo del potencial económico de la Comunidad Autónoma. Prueba de esta menor significación es que el gasto en I+D regional representa tan solo el 10,3% del total nacional, mientras en términos de PIB y población, Andalucía supone el 13,4% y el 17,8% del total de España, con la información correspondiente a 2020.
 
-Así, el gasto en I+D supone el 0,93 % del PIB regional, muy por debajo del 1,25 % nacional y del 2,2 % de la UE-27 en 2019, resultando aún inalcanzable el 2 % fijado como objetivo para España en la Estrategia Europa 2020. De hecho, se ha producido un retroceso respecto a 2010 (1,2 % entonces) en Andalucía, ya que la inversión dedicada a adquirir conocimiento por el conjunto de los sectores económicos en la región aún no ha recuperado el nivel alcanzado en 2010 (entonces era de 1.726,7 millones de euros, frente a los 1.538,4 millones de euros en 2019), a diferencia de lo observado en el agregado nacional, que lo recuperó en 2018.
+Así, el gasto en I+D supone el 1,08% del PIB regional, aún por debajo del 1,41% nacional y del 2,32% de la UE-27 en 2020, por lo que no se ha logrado alcanzar el 2% fijado como objetivo para España en la Estrategia Europa 2020 y para Andalucía en la Agenda por el Empleo. De hecho, en la Comunidad Autónoma se ha producido un retroceso respecto a 2010 (1,2% entonces), ya que la inversión dedicada a adquirir conocimiento por el conjunto de los sectores económicos en la región no ha recuperado el máximo nivel alcanzado en 2010 (entonces era de 1.726,7 millones de euros, frente a los 1.627,25 millones de euros en 2020).
 
-{{{nota(Evolución negativa de la inversión en I+D en los últimos)}}}En consecuencia, *la brecha negativa para Andalucía se ha acrecentado en la última década*, evidenciando que la reactivación de la actividad productiva no ha ido en paralelo a la recuperación de la I+D en el espacio regional. De este comportamiento puede inferirse una posible debilidad endógena, o *menor capacidad de resiliencia de las actividades de I+D* en Andalucía, ya que han mostrado una alta sensibilidad en el contexto de contracción económica de la pasada crisis, pero también un diferencial retraso a la hora de reanimarse, lo que provoca un incremento en la brecha regional.
+En consecuencia, *la brecha negativa para Andalucía se ha acrecentado en el balance de la última década*, si bien en el año 2020 se ha observado un positivo incremento del gasto destinado a la I+D, en términos corrientes, un 5,8%, pese a la fuerte caída de la producción derivada por la crisis de la Covid-19, con un descenso del PIB nominal cercano al 10%.
 
 :fig-0101A1:
 :F: Eurostat e INE.:F:
@@ -127,11 +127,7 @@ Así, el gasto en I+D supone el 0,93 % del PIB regional, muy por debajo del 1,25
 [[./graficos/0101A1.pdf]]
 :END:
 
-La falta de continuidad en la inversión en I+D, así como una rígida política de incentivos, tiene consecuencias negativas, afectando tanto al desarrollo de los proyectos como a las *condiciones laborales del personal investigador*, provocando una inestabilidad en el empleo, así como un menor éxito en los resultados de los proyectos científicos y tecnológicos. Esto puede conducir a la búsqueda de opciones profesionales más atractivas en otras regiones o países, así como una menor atracción de talento hacia la carrera investigadora.
-
-A este contexto poco favorable para realizar actividades científicas e inversión hay que sumar las rigideces y retrasos que se derivan del exceso de burocracia que suele conllevar el acceso a la financiación en I+D y la justificación del gasto.
-
-Esta situación es preocupante, ya que la evidencia empírica muestra que existe una relación directa y estadísticamente significativa entre el esfuerzo tecnológico-investigador de una economía y su nivel de riqueza por habitante, siendo los países y regiones que en mayor medida apuestan por ello, los que presentan mayores niveles de PIB por habitante.
+Esta variación favorable ha sido menos destacada en el ámbito del gasto en I+D para el agregado nacional (1,3% respecto al año anterior), donde gracias a que el comportamiento en España de esta inversión intangible ha sido mejor al de la UE-27 (-0,4% en comparación con 2019) y que el retroceso del PIB nominal ha sido más destacable en el espacio nacional que en el europeo, se ha reducido la distancia entre España y Europa en el gasto en I+D sobre el PIB (1,41% en el espacio nacional frente a 2,32% de la UE-27). En 2020 esta distancia es de 0,91 puntos porcentuales, frente a los 0,98 puntos porcentuales en 2019.
 
 :fig-0101A2:
 :F: Instituto de Estadística y Cartografía de Andalucía (IECA).:F:
@@ -142,14 +138,22 @@ Esta situación es preocupante, ya que la evidencia empírica muestra que existe
 [[./graficos/0101A2.pdf]]
 :END:
 
+Otra forma de aproximar las diferencias entre territorios en esta materia es a través de la comparativa del gasto en I+D interno por habitante. De este modo, *Andalucía se encuentra entre las regiones españolas con menor gasto anual por persona* (181 euros), lejos de regiones como País Vasco (674,5 euros), Comunidad de Madrid (607,2) y Comunidad Foral de Navarra (540,9), aunque por encima de regiones con el menor gasto por habitante fueron Canarias (98,0 euros), Islas Baleares (110,1) y Castilla-La Mancha (123,4). Mientras, el promedio de la UE-27 sería de 695,6 euros, con una amplia divergencia entre países, ya que el de Dinamarca se estima en 1.625 euros, el de Alemania 1.273 euros y el de Grecia y España en los 231 y 329 euros, respectivamente.
+
 :fig-0101A3:
 :F: Instituto Nacional de Estadística (INE).:F:
 :U: En %.:U:
-:N::N:
+:N: Datos de 2020.:N:
 :E::E:
-#+CAPTION: Peso en gasto en I+D público sobre PIB por regiones (2019)
+#+CAPTION: Significación del gasto en I+D por habitante y Comunidades Autónomas
 [[./graficos/0101A3.pdf]]
 :END:
+
+La falta de continuidad en la inversión en I+D, así como una rígida política de incentivos, tiene consecuencias negativas, afectando tanto al desarrollo de los proyectos como a las *condiciones laborales del personal investigador*, provocando una inestabilidad en el empleo, así como un menor éxito en los resultados de los proyectos científicos y tecnológicos. Esto puede conducir a la búsqueda de opciones profesionales más atractivas en otras regiones o países, así como una menor atracción de talento hacia la carrera investigadora.
+
+A este contexto poco favorable para realizar actividades científicas e inversión hay que sumar las rigideces y retrasos que se derivan del exceso de burocracia que suele conllevar el acceso a la financiación en I+D y la justificación del gasto.
+
+Esta situación es preocupante, ya que la evidencia empírica muestra que existe una relación directa y estadísticamente significativa entre el esfuerzo tecnológico-investigador de una economía y su nivel de riqueza por habitante, siendo los países y regiones que en mayor medida apuestan por ello, los que presentan mayores niveles de PIB por habitante.
 
 ***** Actuaciones
 :PROPERTIES:
@@ -187,18 +191,18 @@ Esta situación es preocupante, ya que la evidencia empírica muestra que existe
 :CUSTOM_ID: intro-0101-02
 :END:
 ***** Texto                                                      :ignore:
-{{{nota(Desigual distribución del gasto público y privado en I+D)}}} Otro rasgo destacable se refiere a la desequilibrada distribución del gasto en I+D entre los sectores institucionales, por la *menor implicación o participación del sector empresarial* en su grado de ejecución sobre el gasto total en I+D y en su financiación.
+Otro rasgo destacable se refiere a la desequilibrada distribución del gasto en I+D entre los sectores institucionales, debido a la *menor implicación o participación del sector empresarial* en su grado de ejecución sobre el gasto total en I+D y en su financiación.
 
-Este es un elemento diferencial respecto al entorno europeo. Así, en Andalucía, el sector público realizó en 2019 casi las dos terceras partes (63,5 %) del gasto en I+D, correspondiendo el 36,5 % al sector empresarial. Mientras, en la UE, al contrario, algo más de dos terceras partes del gasto en I+D lo realiza el sector privado (66,9 %) y tan solo la tercera parte restante el sector público.
+Este es un elemento diferencial respecto al entorno europeo. Así, en Andalucía, el sector público realizó en 2020 casi las dos terceras partes (65%) del gasto en I+D, correspondiendo el 35% al sector empresarial. Mientras, en la UE, se observa lo contrario, es decir, la mayor proporción del gasto en I+D lo realiza el sector privado (65,8% del total) y tan solo la tercera parte restante el sector público.
 
-Dentro de la inversión en I+D en el sector público destacan las universidades con un 44,1 % frente al 19,4 % de la Administración Pública, mientras que en Europa los porcentajes son del 21,6 % y 11,5 %, respectivamente, según datos del INE y Eurostat.
+En Andalucía, dentro de la inversión en I+D que efectúa el conjunto del sector público, destaca la aportación de las universidades (727,9 millones de euros en 2020), lo que representa un 44,7% del gasto total en I+D realizado por todos los sectores institucionales en Andalucía (1.627,2 millones de euros), correspondiendo el 18,8% de la Administración Pública (305,8 millones de euros en 2020), poniendo de manifiesto el *papel que desempeñan los centros de educación superior en materia de investigación*.
 
 :fig-0101B1:
-:F: Instituto Nacional de Estadística (INE).:F:
+:F: Instituto Nacional de Estadística (INE)y Eurostat.:F:
 :U: En %.:U:
-:N::N:
+:N: Datos de 2020:N:
 :E::E:
-#+CAPTION: Distribución del gasto en I+D sobre PIB: sector público vs. sector privado (2019)
+#+CAPTION: Distribución del gasto en I+D sobre PIB: sector público vs. sector privado
 [[./graficos/0101B1.pdf]]
 :END:
 
@@ -217,7 +221,7 @@ A la baja inversión en I+D del sector privado hay que unir la falta de sinergia
 
 :fig-0101B3:
 :F: Dirección General de Investigación y Transferencia del Conocimiento - Sistema de Información Científica de Andalucía.:F:
-:U: En %.:U:
+:U: En % sobre el total.:U:
 :N: Datos de 2019.:N:
 :E::E:
 #+CAPTION: Grupos de I+D por áreas científico-técnicas del Plan Andaluz de Investigación, Desarrollo e Innovación (PAIDI)
@@ -647,9 +651,11 @@ Fortalecer la demografía empresarial de Andalucía, generando un ecosistema que
 :CUSTOM_ID: intro-0103-01
 :END:
 ***** Texto                                                      :ignore:
-El tejido empresarial de Andalucía es menos compacto o tupido que el del conjunto de España. Dicho de otro modo, *el número de empresas en relación a la población resulta más reducida en Andalucía* que en los promedios nacional y europeo. Esta ratio de densidad empresarial descendió como consecuencia de la desaparición de empresas de la anterior crisis y de hecho aún no ha alcanzado el nivel existente en 2008, ni en Andalucía (62,7 empresas por cada 1.000 habitantes en 2020, frente a 63,7 en 2008), ni en España (71,7 empresas por cada 1.000 hab., frente a 74,1 en 2008). En Comunidades como Madrid, Cataluña o Baleares este cociente supera las 80 empresas por cada 1.000 habitantes.
+El tejido empresarial de Andalucía es menos compacto o tupido que el del conjunto de España. Dicho de otro modo, *el número de empresas en relación a la población resulta más reducida en Andalucía* que en los promedios nacional y europeo. Esta ratio de densidad empresarial descendió como consecuencia de la desaparición de empresas durante la anterior crisis y de hecho aún no ha alcanzado los niveles máximos existentes en 2008, ni en Andalucía (75 empresas por cada 1.000 personas en edad de trabajar, en 2021, frente a las 78 que se tenían en 2008), ni en España (86 empresas por cada millar de población económicamente activa, frente a 89 en 2008).
 
 Igualmente, la limitada presencia de grandes empresas da como resultado que el efecto arrastre beneficioso de las mismas quede restringido, con una menor creación de nuevas pymes y autónomos en su hinterland.
+
+La incidencia de la pandemia sobre el tejido empresarial ha sido contundente, mostrando la información procedente del Directorio Central de Empresas un freno en la demografía empresarial en Andalucía. No obstante, el daño producido por la crisis de la Covid-19 ha sido más grave en el conjunto de España, donde se ha producido una desaparición de 37.858 empresas, mientras en Andalucía se ha observado un modesto, pero positivo aumento en 115 empresas respecto a 2020.
 
 :fig-0103A1:
 :F: Directorio Central de Empresas, INE.:F:
@@ -666,16 +672,15 @@ Además del menor número de empresas en términos relativos, otro problema estr
 
 Asimismo, en Andalucía casi una de cada tres empresas nacientes no tiene expectativas de escalabilidad y de generar ningún empleo a cinco años vista, según el Global Entrepreneurship Monitor, Andalucía 2020.
 
-Por otra parte, conviene tener presente que la proporción de empresas que no tienen ningún asalariado (sin empleo, salvo el empresario autónomo) resulta muy elevada, si bien ligeramente por debajo del promedio español. Así, en Andalucía el número de empresas sin asalariados ascendía a 290.099, en 2020, un 54,6% del total, registrándose un crecimiento acumulado desde 2014 del 18,2%. En España esta proporción es del 56,2%.
+Por otra parte, conviene tener presente que la proporción de empresas que no tienen ningún asalariado (sin empleo, salvo el empresario autónomo) resulta muy elevada, si bien ligeramente por debajo del promedio español. Así, en Andalucía el número de empresas sin asalariados ascendía a 289.289, en 2021, un 54,5% del total (531.160 empresas), registrándose un crecimiento acumulado desde 2014 del 17,9%. En España esta proporción es del 56,2%.
 
 La relevancia del autoempleo en Andalucía también se constata en las cifras de afiliación a la Seguridad Social, ya que el número de personas trabajadoras en alta laboral en este régimen de autónomos ha registrado un crecimiento más positivo y diferencial respecto al resto de regímenes de cotización y además más significativa en Andalucía que en el promedio de España. El colectivo de autónomos es un indicador de referencia porque además de contribuir a la creación de empleo (disminución del paro), esta vía de emprendimiento constituye, en general, una oportunidad para la creación de valor y, en muchos casos, para el autoaprendizaje profesional.
 
-Por último, cabe incluir el papel de las distintas fórmulas de empresas de economía social, principalmente cooperativas y sociedades laborales. Al cierre de 2019, según datos del Ministerio de Trabajo y Economía Social, en España se contabilizaban un total de 26.795 empresas de este tipo, de las que 5.633 empresas estaban radicadas en Andalucía, es decir, algo más del 20%.
+Por último, cabe incluir el papel de las distintas fórmulas de empresas de economía social, principalmente cooperativas y sociedades laborales, estimándose que en Andalucía se concentran aproximadamente el 20% del total nacional de empresas de esta tipología societaria.
 
 No obstante, atendiendo a la importancia relativa de este tipo de empresas de Economía Social en otras regiones españolas (País Vasco, Navarra, por ejemplo) resulta evidente la necesidad de dimensionar el papel de éstas, reconociendo su contribución al desarrollo equilibrado y a la vertebración territorial.
 
 Tanto el empleo autónomo como estas fórmulas de economía social pueden favorecer la creación de empleo en colectivos como mujeres y jóvenes o en áreas desfavorecidas del interior, mitigando el fenómeno de la despoblación de las zonas rurales y contribuyendo al entorno socioeconómico en el que desarrollan su actividad.
-
 
 :fig-0103A2:
 :F: Directorio Central de Empresas y EPA, INE.:F:
@@ -733,14 +738,14 @@ Dentro del emprendimiento, en general, presenta una significación especial el c
 
 El punto de partida para focalizar la situación de Andalucía en este tipo de emprendimiento especializado es el análisis de la *dinámica emprendedora*, según la metodología del /Global Entrepreneurship Monitor/ (GEM). Este concepto, que permite hacer un seguimiento en el tiempo y comparaciones entre países y regiones, se basa en tres pasos: el primero, la intención o el potencial de emprender y la concepción de un proyecto empresarial; el segundo, el nacimiento de la empresa; y por último su posterior consolidación o, en caso de no prosperar, su cierre.
 
-Los resultados de los informes GEM para Andalucía revelan que, en los últimos años, el potencial emprendedor, así como la actividad emprendedora, medida por la /Total Entrepreneurial Activity/ (TEA) no presenta diferencias significativas con respecto al promedio nacional, ya que la tendencia ha sido positiva desde la salida de la anterior crisis, aunque con altibajos. No obstante, en 2019, dicha TEA se sitúa en Andalucía (5,8%) algo por debajo de España (6,1%) y de otras regiones como Cataluña (8,3%), Castilla y León o la Comunidad de Madrid (con TAE cercanas al 8%), y países de nuestro entorno, como Portugal (entorno al 10% en el promedio de los últimos siete años).
+Los resultados de los informes GEM para Andalucía revelan que, en los últimos años, el potencial emprendedor, así como la actividad emprendedora, medida por la Total Entrepreneurial Activity (TEA) no presenta diferencias significativas con respecto al promedio nacional, ya que la tendencia ha sido positiva desde la salida de la anterior crisis, aunque con altibajos. No obstante, de acuerdo a los datos correspondientes al informe 2020/2021, dicha TEA se sitúa en Andalucía (4,9%) algo por debajo de España (5,8%) y de otras regiones como Cataluña (6,6 %) o la Comunidad de Madrid (con una TAE cercana al 6%), y países de nuestro entorno, como Reino Unido, donde ronda el 8%.
 
 :fig-0103B1:
-:F: Global Entrepreneurship Monitor, informe 2019-2020.:F:
-:U: En % de las empresas que permanecen tras 42 meses (3,5 años). Tasas en promedio para los tres últimos años.:U:
+:F: Global Entrepreneurship Monitor, informe 2020-2021.:F:
+:U: En % de las empresas que permanecen en activo tras 42 meses (3,5 años). Tasas en promedio para los tres últimos años.:U:
 :N::N:
 :E::E:
-#+CAPTION: Dinámica emprendedora en Andalucía vs. España: iniciativas consolidadas y TEA 2019 para Andalucía y su entorno.
+#+CAPTION: Dinámica emprendedora en Andalucía vs. España: iniciativas consolidadas.
 [[./graficos/0103B1.pdf]]
 :END:
 
@@ -777,16 +782,16 @@ Observatorio GEM.
 [[./graficos/0103B3.pdf]]
 :END:
 
-Por su parte, el *grado de innovación tecnológica utilizado por las iniciativas emprendedoras es bastante reducido en Andalucía*, ya que solo el 1,7% de los que emprenden consideran que utilizan tecnologías altamente novedosas frente al dato de España que se eleva al 4%. En sentido contrario, resulta desalentador que más del 90% reconozcan utilizar tecnologías muy tradicionales, con bajo nivel de innovación.
+Por su parte, *el grado de innovación tecnológica utilizado por las iniciativas emprendedoras es bastante reducido en Andalucía*, ya que solo el 3,8% de los que emprenden consideran que utilizan tecnologías altamente novedosas, mientras este dato en España que se eleva al 5%. En sentido contrario, resulta desalentador que casi el 92% reconozcan utilizar tecnologías muy tradicionales, con bajo nivel de innovación.
 
-Por último, considerando la orientación exportadora que se presupone a las startups, los resultados para Andalucía muestran una posición bastante rezagada dentro del contexto europeo. Así, en el *porcentaje de emprendedores que exporta más del 25% de sus ventas se sitúa en Andalucía en el 5,4%*, (7,1% en España) alejado de países como Luxemburgo (32,6%), Irlanda (24,2%), Portugal (20,5%) o Alemania (18,5%).
+Por último, considerando la orientación exportadora que se presupone a las startups, los resultados para Andalucía muestran una posición bastante rezagada dentro del contexto europeo.
 
-En definitiva, la proporción de startups en Andalucía resulta reducida y las iniciativas emprendedoras con rasgos potenciales para ser calificadas de startups muestran signos algo más débiles que los promedios nacional y europeo.
+Así, en *el porcentaje de emprendedores que exporta más del 25 % de sus ventas se sitúa en Andalucía en el 5,1 %*, (5,6% en España) alejado de la media de la UE (17,5 %), Alemania (14,3%%) y Reino Unido (8,9%).
 
-Para dar respuesta a esta situación, el Plan General de Emprendimiento, 2021-2027 contempla el desarrollo del “Programa de Fomento del emprendimiento tecnológico y a la generación de nuevas Empresas de Base Tecnológicas (EBT)”.
+En definitiva, la proporción de startups en Andalucía resulta reducida y las iniciativas emprendedoras con rasgos potenciales para ser calificadas de startups muestran signos algo más débiles que los promedios nacional y europeo, a pesar del avance observado en la Comunidad Autónoma en los tres últimos años.
 
 :fig-0103B4:
-:F: Informe GEM Andalucía, 2019-2020.:F:
+:F: Informe GEM Andalucía, 2020-2021.:F:
 :U::U:
 :N: % sobre total.:N:
 :E::E:
@@ -795,7 +800,7 @@ Para dar respuesta a esta situación, el Plan General de Emprendimiento, 2021-20
 :END:
 
 :fig-0103B5:
-:F: Informe GEM Andalucía, 2019-2020.:F:
+:F: Informe GEM Andalucía, 2020-2021.:F:
 :U::U:
 :N::N:
 :E::E:
@@ -853,9 +858,9 @@ En particular, se señala que existe una baja especialización en los servicios 
 Además, se apunta que el amplio y disperso número de agentes que participan en el sistema de emprendimiento en Andalucía (administraciones públicas, universidades y centros tecnológicos, cámaras de comercio, escuelas de negocio, entidades financieras y otras entidades del tercer sector) a menudo se solapan y/o están mal coordinadas, ofreciendo un extenso catálogo de servicios de apoyo al emprendimiento, en general, desde la perspectiva de sus objetivos específicos como institución y de su tipo de público destinatario, mientras existen áreas desatendidas. A veces, con sobreoferta de servicios generalistas, pero pocos específicos o muy enfocados en determinados sectores, lo que dificulta a la persona emprendedora el acceso a un asesoramiento y ayudas más especializados.
 
 :fig-0103C1:
-:F: Informe GEM Andalucía, 2019-2020.:F:
+:F: Informe GEM Andalucía, 2020-2021.:F:
 :U::U:
-:N: Puntuación promedio para cada aspecto. De 1 a 5.:N:
+:N: Puntuación promedio para cada aspecto.:N:
 :E::E:
 #+CAPTION: Valoración media de las condiciones del entorno para emprender en Andalucía
 [[./graficos/0103C1.pdf]]
@@ -938,15 +943,15 @@ Mejorar el posicionamiento internacional de Andalucía, incrementando las export
 :CUSTOM_ID: intro-0104-01
 :END:
 ***** Texto                                                      :ignore:
-El comercio exterior de Andalucía ha mostrado una notable expansión en los últimos años, de modo que se ha convertido en un motor para la recuperación de la economía regional después de la Gran Recesión. En este sentido, y sin considerar la contracción sufrida por parte de las transacciones comerciales globales en 2020, a causa de la pandemia, y el ligero descenso observado en 2019, las exportaciones andaluzas han crecido por encima del conjunto nacional y del agregado de las economías de nuestro entorno.
+El comercio exterior de Andalucía ha mostrado una notable expansión en los últimos años, de modo que se ha convertido en un motor para la recuperación de la economía regional después de la Gran Recesión. En este sentido, y sin considerar la contracción sufrida por parte de las transacciones comerciales globales en 2020, a causa de la pandemia, y el ligero descenso observado en 2019, las exportaciones andaluzas han crecido por encima del conjunto nacional y del agregado de las economías de nuestro entorno. De hecho, los datos provisionales para 2021 muestran una recuperación más destacada del valor de las exportaciones de bienes en Andalucía (34.551,9 millones de euros, un 23,9% más que en 2020) que en el conjunto de España (316.609,2 millones de euros, un 20,1% superior a las del año precedente).
 
-No obstante, *las exportaciones de bienes de Andalucía al extranjero mantienen un peso relativo sobre el PIB (17,7 % en 2020) inferior a la media española (23,3 % en 2020) y notablemente más bajo que el correspondiente al promedio europeo (35,9 %)*. En el mismo sentido, el grado de apertura de la economía regional (33,5 % en 2020) se sitúa por debajo de los ámbitos geográficos de referencia.
+No obstante, *las exportaciones de bienes desde Andalucía al extranjero mantienen un peso relativo sobre el PIB (22,9% en 2021) inferior a la media española (26,3% en 2020) y al de otras grandes economías de nuestro entorno*, a pesar de que el valor de las exportaciones viene mostrando un crecimiento más notable que el de la producción agregada (a excepción de lo observado durante 2020).
 
-Por otra parte, la base de empresas andaluzas que exportan con regularidad ha experimentado una positiva evolución en el balance de los últimos años, en 2020 ascendieron hasta las 5.776 empresas, lo que supone un aumento en 1.427 respecto a 2014. Este perfil ascendente es más significativo que el observado en España, si bien atendiendo al número total de empresas andaluzas que realizaron alguna venta al exterior (22.294, en 2020), el incremento observado en los últimos años resultó ser más notable en España que en Andalucía.
+Por otra parte, la base de empresas andaluzas que exportan con regularidad ha experimentado una positiva evolución en el balance de los últimos años, situándose en 2021 (con datos provisionales) en 5.570 empresas, lo que supone un aumento en 1.221 respecto a 2014. Esta variación resulta muy similar a la observada en España (en términos relativos), si bien atendiendo al número total de empresas andaluzas que realizaron alguna venta al exterior (28.641, en 2021), el incremento observado en dicho periodo fue aún más notable en el agregado nacional que en Andalucía.
 
-En cualquier caso, conviene recordar que muchas empresas se inician en la actividad exportadora y no continúan, por lo que el valor de lo exportado por un buen número de ellas es poco significativo. De hecho, solo 551 empresas exportan más de 5 millones de euros anuales en Andalucía y el 10 % de las empresas exportadoras concentran el 90,6 % del valor de las exportaciones regionales (datos de 2020). En España también existe una gran concentración, pero ésta resulta un poco mayor en la región.
+En cualquier caso, conviene recordar que muchas empresas se inician en la actividad exportadora y no continúan, por lo que el valor de lo exportado por un buen número de ellas es poco significativo. De hecho, solo 690 empresas exportan más de 5 millones de euros anuales en Andalucía, lo que representa un 2,4% del total. Adicionalmente, el 10% de las empresas exportadoras concentran el 98,6% del valor de las exportaciones regionales (con los datos provisionales para 2021), una proporción muy similar al promedio nacional.
 
-De este modo, existe una *excesiva concentración de las exportaciones en un reducido subconjunto de empresas regionales*, y en número de empresas que exportan con regularidad Andalucía ocupa la cuarta posición (por detrás de Madrid, Cataluña y C. Valenciana). De hecho, las 100 primeras empresas exportadoras regulares acaparaban el 63 % del valor de las exportaciones (en 2015 ese porcentaje era del 62 %), con un marcado peso en determinados sectores entre los que destacan los siguientes: agroalimentario, productos minerales, energéticos y del sector aeronáutico, así como en el destino a pocos mercados (europeos y americanos).
+De este modo, existe una *excesiva concentración de las exportaciones en un reducido subconjunto de empresas regionales*, y en número de empresas que exportan con regularidad Andalucía ocupa la cuarta posición (por detrás de Madrid, Cataluña y, por muy poca diferencia, con C. Valenciana). De hecho, las 100 primeras empresas exportadoras regulares acaparaban el 66% del valor de las exportaciones con un marcado peso en determinados sectores entre los que destacan los siguientes: agroalimentario, productos minerales, energéticos y del sector aeronáutico, así como en el destino a pocos mercados (europeos y americanos).
 
 En definitiva, el tejido empresarial exportador debe fortalecerse, mejorando su integración en las cadenas de valor globales, ya que actualmente está formado por un buen número de empresas locales y pequeñas (pymes) con baja colaboración entre ellas y otras empresas de un mayor tamaño, pero sin una visibilidad o proyección adecuadas, entre las que escasean las tractoras con capacidad de liderazgo a nivel internacional.
 
@@ -959,27 +964,27 @@ Otro tipo de deficiencias están relacionadas con las características estructur
 :fig-0104A1:
 :F: Datacomex, Ministerio de Industria, Comercio y Turismo.:F:
 :U::U:
-:N: \includegraphics[width=12pt]{graficos/circulo.pdf}% que representa el valor de las exportaciones sobre el total del PIB (Datos para 2020).:N:
+:N: Base 2005 = 100 :N:
 :E::E:
-#+CAPTION: Trayectoria de las exportaciones de bienes de Andalucía en el contexto nacional y de la Zona Euro (Base 2005 = 100)
+#+CAPTION: Trayectoria de las exportaciones de bienes de Andalucía en el contexto nacional y de la Zona Euro
 [[./graficos/0104A1.pdf]]
 :END:
 
 :fig-0104A2:
 :F: “Perfil de los exportadores españoles”, ICEX.:F:
 :U::U:
-:N::N:
+:N: Datos provisionales para 2021. :N:
 :E::E:
-#+CAPTION: Perfil de las empresas exportadoras en 2020
+#+CAPTION: Perfil de las empresas exportadoras
 [[./graficos/0104A2.pdf]]
 :END:
 
 :fig-0104A3:
-:F: “Perfil de los exportadores españoles”, ICEX.:F:
+:F: ICEX, Perfil de los Exportadores Españoles. :F:
 :U::U:
-:N: Se trata de exportadoras regulares, es decir, empresas que han exportado en los 4 últimos años consecutivos.:N:
+:N: Datos provisionales para 2021.:N:
 :E::E:
-#+CAPTION: Evolución del número de empresas exportadoras regulares en Andalucía y España (Base 100 en 2010)
+#+CAPTION: Evolución del número de empresas exportadoras en Andalucía
 [[./graficos/0104A3.pdf]]
 :END:
 
@@ -1027,24 +1032,24 @@ Otra forma de medir el grado de internacionalización de una economía se basa e
 
 La eliminación de barreras a la inversión directa extranjera, las escasas restricciones impuestas al capital extranjero, la posibilidad de contratación de talento foráneo en puestos clave y diversas facilidades para las operativas hacen, a priori, a Andalucía un destino preferente dentro de las economías de la OCDE, sin olvidar otros elementos en los que existe un amplio margen de mejora (por ejemplo, en el ámbito de la regulación económica).
 
-Atendiendo al Registro de Inversiones Extranjeras del Ministerio de Industria, Comercio y Turismo, en 2020, la inversión extranjera bruta total recibida en Andalucía ascendió hasta los 720,4 millones de euros, cerca del doble que en 2018 (460 millones de euros). Este incremento se produjo en un contexto de caída a nivel nacional (-55,3 %), y en menor medida a nivel mundial, en el que los flujos de inversión extranjera se redujeron un - 35 %, según las estimaciones de la UNCTAD.
+Atendiendo al Registro de Inversiones Extranjeras del Ministerio de Industria, Comercio y Turismo, con la información provisional para 2021, la inversión extranjera bruta total recibida en Andalucía ascendió hasta los 965,3 millones de euros, más del doble de la que fue receptora en 2018 (460,3 millones de euros). Este incremento se produjo en un contexto de una fuerte caída a nivel nacional durante este periodo (-48%), y en un escenario de cierta inestabilidad en los flujos mundiales de inversión extranjera directa (IED), que en el balance de este periodo (2018-2021) habrían mostrado un crecimiento cercano al 27%, según las estimaciones de la UNCTAD.
 
-Sin tener en cuenta las realizadas por las Entidades de Tenencia de Valores Extranjeros (ETVE), la inversión productiva en Andalucía se situó en 2020 en los 720,3 millones de euros, casi el doble de la media anual en la serie histórica (422,9 millones de euros de inversión productiva en el periodo 1993-2020), y un 56,5 % superior a la realizada en el 2018. Descontando el “efecto sede social” de la Comunidad de Madrid, Andalucía ocuparía una posición relevante dentro del conjunto nacional (junto a Cataluña y País Vasco), *aunque todavía debe consolidarse como destino preferente*.
+De este modo, el ascenso observado en la inversión productiva foránea en Andalucía, sin tener en cuenta las realizadas por las Entidades de Tenencia de Valores Extranjeros (ETVE), ha sido del 23% en el último año (2021), y en el promedio de los tres últimos años (ya que en 2020 los flujos de inversión se han visto afectado por las circunstancias de la crisis sanitaria) la inversión extranjera en la Comunidad Autónoma ha superado los 868 millones de euros, un montante muy superior al observado en el trienio 2016-2018. Descontando el “efecto sede social” de la Comunidad de Madrid, Andalucía ocuparía una posición relevante dentro del conjunto nacional (junto a Cataluña y País Vasco), *aunque todavía debe consolidarse como destino preferente*.
 
-El sector servicios de Andalucía concentra cerca del 80 % de la inversión directa del extranjero, en especial las ramas “Comercio al por menor, excepto vehículos de motor”, “Almacenaje y actividades anexas al transporte”, “Programación y consultoría”, “Actividades inmobiliarias” y “Servicios financieros”. Considerando la procedencia de la inversión total foránea, Andalucía es receptora de inversiones que tiene su origen en países europeos (Francia, Suiza, Italia, Reino Unido o Alemania) seguidos de América (Ecuador).
+En general, el sector servicios de Andalucía concentra cerca del 80 % de la inversión directa del extranjero, en especial las ramas “Comercio al por menor, excepto vehículos de motor”, “Almacenaje y actividades anexas al transporte”, “Programación y consultoría”, “Actividades inmobiliarias” y “Servicios financieros”. Considerando la procedencia de la inversión total foránea, Andalucía es receptora de países europeos (Francia, Suiza, Italia, Reino Unido o Alemania) seguidos de los de América.
 
-Un interés especial tiene el seguimiento realizado a través del Barómetro del Clima de Negocios[fn:31] durante los dos últimos años, que sondea el interés del inversor extranjero en Andalucía, de acuerdo con la valoración de 120 empresas españolas de capital extranjero que operan en la Comunidad Autónoma. De este análisis se concluye que las áreas mejor valoradas por las empresas son las Infraestructuras, seguida de la Calidad de Vida, el Capital Humano y el Tamaño del Mercado. Dichas áreas presentan una elevada coincidencia con los aspectos considerados más importantes para los inversores: el Capital Humano y el Tamaño de Mercado, seguido por el Mercado Laboral y las Infraestructuras. Por el contrario, lo que menor importancia tiene, en opinión de los inversores, es la Financiación.
+Un interés especial tiene el seguimiento realizado a través del Barómetro del Clima de Negocios[fn:31], que sondea el interés del inversor extranjero en Andalucía, de acuerdo con la valoración de 150 empresas españolas de capital extranjero que operan en la Comunidad Autónoma. De los resultados de este análisis para los dos últimos años (2020 y 2021) se concluye que *las áreas mejor valoradas por las empresas son las Infraestructuras, seguida de la Calidad de Vida, el Capital Humano y el Tamaño del Mercado*.
 
-En el lado negativo, cabe destacar que entre los *aspectos menos valorados y en los que habría que incidir, se señala el Entorno Regulatorio, la Innovación y los Costes*. De este modo, los ámbitos que presentan mayores desequilibrios entre la valoración que reciben y la importancia que tienen para los inversores extranjeros son los de Mercado Laboral, Entorno Regulatorio, los Costes y el Capital Humano. Por otro lado, las áreas de Infraestructuras y Calidad de Vida obtienen una puntuación en valoración igual o similar a la importancia, cumpliéndose en términos generales las expectativas de los inversores.
+Dichas áreas presentan una elevada coincidencia con los aspectos considerados más importantes para los inversores: el Capital Humano y el Tamaño de Mercado, seguido por el Mercado Laboral y las Infraestructuras. Por el contrario, lo que menor importancia tiene, en opinión de los inversores, es la Financiación.
 
-En cuanto a los principales aspectos que *limitan la inversión de las empresas se señalan el marco fiscal de los negocios, el exceso de cargas administrativas y la escasa flexibilidad del mercado laboral, así como un contexto inapropiado de I+D+i.*
+Los resultados del último sondeo muestran que el 32% de las empresas extranjeras instaladas en Andalucía asegura haber recuperado ya la situación previa a la COVID y un 33% confía hacerlo a finales de 2022, si bien estas expectativas empresariales se emitieron antes de la invasión de Ucrania por parte de Rusia.
 
 :fig-0104B1:
-:F: Barómetro del Clima de Negocio (2020).:F:
-:U::U:
-:N::N:
+:F: DataInvest. Secretaría de Estado de Comercio. Ministerio de Industria, Comercio y Turismo.:F:
+:U: Millones de euros. :U:
+:N: Inversión bruta total, descontada la realizada por Entidades de Tenencia de Valores Extranjeros (ETVE).:N:
 :E::E:
-#+CAPTION: Importancia y valoración del entorno de negocio para la inversión en Andalucía por áreas
+#+CAPTION: Inversión extranjera en Andalucía
 [[./graficos/0104B1.pdf]]
 :END:
 
@@ -1153,9 +1158,9 @@ Mejorar la productividad y competitividad de los sectores productivos, a través
 :CUSTOM_ID: intro-0105-01
 :END:
 ***** Texto                                                      :ignore:
-En general, el sector industrial en Andalucía mantiene unos rasgos estructurales más débiles que los del conjunto de España y que los correspondientes a los principales países de referencia europeos. Así, atendiendo a la significación del PIB industrial dentro del conjunto de la producción agregada (poco más del 10% frente al 14% de España y el 20% de Europa), al peso relativo del VAB de la industria andaluza dentro del total español o la demografía empresarial en este sector de actividad, en comparación con el nacional y de la UE, se evidencia esta situación de *menor relevancia del sector secundario* en el cuadro macroeconómico regional.
+En general, el sector industrial en Andalucía mantiene unos rasgos estructurales más débiles que los del conjunto de España y que los correspondientes a los principales países de referencia europeos. Así, atendiendo a la significación del PIB industrial dentro del conjunto de la producción agregada (aproximadamente, en 2021 el 10,6% frente al 15,3% de España y el 20% de Europa), al peso relativo del VAB de la industria andaluza dentro del total español o la demografía empresarial en este sector de actividad, en comparación con el nacional y de la UE, se evidencia esta situación de *menor relevancia del sector secundario* en el cuadro macroeconómico regional.
 
-Por otro lado, el sector industrial en Andalucía se caracteriza por un *menor peso de la actividad manufacturera*, mientras que las actividades no manufactureras (energía, agua, saneamiento, gestión de residuos, descontaminación, entre otras) presentan un mayor peso relativo dentro de la industria, superior al del promedio de España (34,9% frente al 23,8%, respectivamente, en 2019).
+Por otro lado, el sector industrial en Andalucía se caracteriza por un *menor peso de la actividad manufacturera*, mientras que las actividades no manufactureras (energía, agua, saneamiento, gestión de residuos, descontaminación, entre otras) presentan un mayor peso relativo dentro de la industria, superior al del promedio de España (34,6% frente al 26%, respectivamente, en 2021).
 
 :fig-0105A1:
 :F: Contabilidad Nacional de España (INE) y Contabilidad Regional Anual de Andalucía (IECA).:F:
@@ -1166,11 +1171,23 @@ Por otro lado, el sector industrial en Andalucía se caracteriza por un *menor p
 [[./graficos/0105A1.pdf]]
 :END:
 
-Especialmente revelador resultan las *menores cotas de productividad* del sector en comparación con la media española y europea, ya que Eurostat estima la productividad laboral en el sector en 46,4 euros por hora trabajada en España, frente a los 54,9 euros de la Zona Euro, mientras la de Andalucía se situaría en torno al 93% de la española.
+No obstante, la salida de la crisis generada por la pandemia ha supuesto una reactivación de algunas ramas productivas de la industria, haciendo que el agregado del sector haya mostrado un mejor comportamiento en 2021 que el VAB total de la economía andaluza, por lo que el peso de la industria regional asciende hasta el 10,6%. Una dinámica similar se ha observado en España, donde las ramas industriales ganan algo de significación dentro del PIB nacional hasta el 15,3%.
 
-Adicionalmente, los *productos industriales exportados por Andalucía no incorporan un elevado componente tecnológico*, representando las exportaciones manufactureras de alta y media-alta tecnología sobre el total una proporción significativamente inferior a la del conjunto de España (23,2% frente al 47,8%) y esta brecha apenas ha cambiado en los últimos años. Los escasos avances observados en este campo no son ajenos al bajo nivel de ejecución de las políticas de I+D.
+Pese a esta buena trayectoria, aparente, el número de empresas industriales (según el Directorio de Empresas, DIRCE del INE) habría sufrido una ligera disminución en 2021 (28.366, frente a las 28.395 empresas de un año antes) debido al descenso en el número de empresas activas de las ramas manufactureras, ya que la industria más ligada al sector de la energía, agua, saneamientos, residuos, etc. creció ligeramente respecto a 2020( -0,2%).
+
+En cualquier caso, una característica muy significativa de la industria andaluza es su menor grado de productividad (por persona ocupada y por hora trabajada) en comparación con los promedios nacional y europeo. Este rasgo no es ajeno al reducido componente tecnológico que incorporan los productos industriales exportados por Andalucía. En concreto, las exportaciones manufactureras de alta y media-alta tecnología sobre el total una proporción significativamente inferior a la del conjunto de España (23,3% frente al 44,1%), si bien esta brecha se ha acortado ligeramente en los últimos años. Sin duda, los escasos avances observados en este campo no son ajenos al bajo nivel de inversión en I+D que efectúan las empresas en Andalucía.
+
 
 Este indicador, que podríamos considerar un referente de la competitividad del sector, aproxima una *posición poco aventajada de la industria regional en el mercado global*. No obstante, desde 2013, la evolución de algunos de estos indicadores ha sido positiva, como el número de empresas industriales que son exportadoras regulares, la intensidad innovadora o la generación de empleo en el sector, que ha mostrado un favorable comportamiento desde la salida de la crisis, si bien no parece haber conllevado una reducción de la tasa de temporalidad. Tampoco ha mostrado una trayectoria favorable la proporción de empresas industriales que desarrollan soluciones de digitalización.
+
+:fig-0105A2:
+:F:  Instituto de Estadística y Cartografía de Andalucía con datos de Datacomex (Ministerio de Industria, Comercio y Turismo).:F:
+:U: % sobre el total exportaciones.:U:
+:N::N:
+:E::E:
+#+CAPTION: Exportaciones manufactureras de alta y media-alta tecnología
+[[./graficos/0105A2.pdf]]
+:END:
 
 Además, no cabe olvidar las nuevas orientaciones de la política industrial europea, ligadas a revertir la deslocalización de las cadenas de valor, la pérdida de soberanía tecnológica, el éxodo de talento o los riesgos de desabastecimiento de materias primas y componentes industriales, dado que constituyen otros problemas estructurales que sufre tanto la industria regional como la española, y que en el contexto generado por la pandemia y la guerra en Ucrania se han puesto de manifiesto con mayor claridad.
 
@@ -1179,25 +1196,6 @@ Igualmente, el sector primario también viene incorporando el uso de tecnología
 Sin embargo, el ritmo de adopción aún es bajo, por lo que se necesitan herramientas que puedan dar soporte y asesoramiento sobre las distintas soluciones que hay en el mercado, así como desarrollar las tecnologías necesarias para las necesidades que aún no están cubiertas por las soluciones existentes.
 
 La cooperación entre empresas y el liderazgo de algunas de ellas es también crucial para generar un movimiento demostrativo para las empresas más pequeñas o rezagadas. Este fortalecimiento empresarial junto con la adopción de los cambios tecnológicos contribuirá a alcanzar mayores cotas de productividad y que la producción andaluza sea más competitiva en los mercados exteriores.
-
-
-:fig-0105A2:
-:F: Instituto de Estadística y Cartografía de Andalucía e Instituto Nacional de Estadística.:F:
-:U: En %, salvo indicación en contrario.:U:
-:N:  * Dato para 2018.:N:
-:E::E:
-#+CAPTION: Indicadores Básicos del sector industrial en Andalucía
-[[./graficos/0105A2.pdf]]
-:END:
-
-:fig-0105A3:
-:F:  Instituto de Estadística y Cartografía de Andalucía con datos de Datacomex (Ministerio de Industria, Comercio y Turismo).:F:
-:U::U:
-:N::N:
-:E::E:
-#+CAPTION: Exportaciones manufactureras de alta y media-alta tecnología (% total exportaciones)
-[[./graficos/0105A3.pdf]]
-:END:
 
 ***** Actuaciones
 
@@ -1247,7 +1245,7 @@ Todas estas transformaciones requieren de nuevos perfiles de profesionales, con 
 [[./graficos/0105B1.pdf]]
 :END:
 
-Por otra parte, la industria se enfrenta al reto de la transición ecológica, que no solo responde a los compromisos internacionales asumidos (Acuerdo de París de 2015) sino que representa un cambio en los fundamentos económicos y sociales, ya que la obligación de limitar las emisiones y la sensibilización de los consumidores condiciona las políticas sectoriales e implica cambios en los patrones de consumo. Para la producción industrial, estas exigencias supondrán un periodo de esfuerzo y adaptación, ya que el sector sigue siendo un responsable importante del volumen de *emisiones de gases de efecto invernadero* (de acuerdo con el volumen de emisiones de CO_{2}), *generador de residuos* y, además hace un *uso bastante intensivo de la energía* (31,3% del consumo final de energía en Andalucía en 2019), aunque se hayan dado pasos positivos, pero modestos en los últimos años.
+Por otra parte, la industria se enfrenta al reto de la transición ecológica, que no solo responde a los compromisos internacionales asumidos (Acuerdo de París de 2015) sino que representa un cambio en los fundamentos económicos y sociales, ya que la obligación de limitar las emisiones y la sensibilización de los consumidores condiciona las políticas sectoriales e implica cambios en los patrones de consumo. Para la producción industrial, estas exigencias supondrán un periodo de esfuerzo y adaptación, ya que el sector sigue siendo un responsable importante del volumen de *emisiones de gases de efecto invernadero* (de acuerdo con el volumen de emisiones de CO_{2}), *generador de residuos* y, además hace un *uso bastante intensivo de la energía* (32,4% del consumo final de energía en Andalucía en 2020).
 
 Asimismo, las actividades agrarias también son una importante fuente de emisiones de GEI, debido tanto a su extensión territorial como a la relevancia de su producción. Y, aunque el sector cuenta con una importante producción ecológica a nivel nacional, debe aumentar los esfuerzos para atender a los objetivos establecidos en la nueva Política Agraria Común (PAC) y el Pacto Verde Europeo.
 
@@ -1256,7 +1254,7 @@ Asimismo, las actividades agrarias también son una importante fuente de emision
 :U::U:
 :N::N:
 :E::E:
-#+CAPTION: Evolución de las emisiones de CO_{2} equivalentes por sector de actividad, 1990-2018
+#+CAPTION: Evolución de las emisiones de CO_{2} equivalentes por sector de actividad
 [[./graficos/0105B2.pdf]]
 :END:
 
@@ -1434,11 +1432,11 @@ En resumen, *la proporción de personas con estudios de formación profesional (
 Aunque en los últimos años esta tendencia se ha suavizado, lo cierto es que la proporción de matriculados en estudio de FP de grado superior sigue siendo bastante inferior al promedio europeo (36% en España frente al 47% de la UE-23[fn:32]), llegando a superar el 70% en países como Finlandia. Además, atendiendo a las tasas de acceso a formación profesional por comunidad autónoma se constata la menor relevancia de este tipo de enseñanzas en Andalucía que en el promedio de España, especialmente en el grado superior, donde la región que lidera este tipo de enseñanza es el País Vasco (54,3% frente al 34,6% de Andalucía para el curso 2018/2019).
 
 :fig-0106B1:
-:F: OCDE.:F:
+:F: Education at a Glance 2020, OCDE.:F:
 :U: En %.:U:
-:N::N:
+:N: :N:
 :E::E:
-#+CAPTION: Población de 25 a 34 años con Formación Profesional sobre la población con estudios postsecundarios no universitarios, 2019
+#+CAPTION: Población de 25 a 34 años con Formación Profesional sobre la población con estudios postsecundarios no universitarios
 [[./graficos/0106B1.pdf]]
 :END:
 
@@ -1461,19 +1459,19 @@ En España, entre las familias profesionales con un peso más significativo en e
 
 :fig-0106B3:
 :F:  Ministerio de Educación y Formación Profesional.:F:
-:U::U:
-:N:  Matrícula presencial.:N:
+:U: En %. :U:
+:N: Matrícula presencial para el Curso 2018-2019.:N:
 :E::E:
-#+CAPTION: Tasa bruta de escolarización en FP Curso 2018-2019 (%)
+#+CAPTION: Tasa bruta de escolarización en FP
 [[./graficos/0106B3.pdf]]
 :END:
 
 Otro de los déficits del sistema de adquisición de capacidades y competencias en Andalucía está asociado a las *carencias en la oferta de formación permanente*, lo que dificulta la correcta transición entre la vida educativa y la laboral y viceversa, impidiendo el reciclaje y la actualización de conocimientos y habilidades y su aplicación a las distintas circunstancias laborales a lo largo de la vida.
 
-La relevancia que la /formación permanente/[fn:2] tiene para la dotación del capital humano explica que se incluyera como uno de los indicadores de seguimiento de la Estrategia Europa 2020. Sin embargo, la evolución no ha sido la esperada, especialmente en Andalucía. Con datos hasta 2019, la tasa de formación permanente se sitúa por debajo de la media de la UE (9,6% en la región andaluza, frente al 10,6% y al 13% del promedio de la UE), con notables diferencias entre países, siendo muy elevado este tipo de oferta formativa a lo largo de la vida en los países escandinavos, donde llega a superar el 30% y también en Suiza, Países Bajos y Francia.
+La relevancia que la /formación permanente/[fn:2] tiene para la dotación del capital humano explica que se incluyera como uno de los indicadores de seguimiento de la Estrategia Europa 2020. Sin embargo, la evolución no ha sido muy positiva hasta 2019. Desde entonces, la tasa de formación permanente ha aumentado notablemente, desde el 9% de 2018 hasta el 12,7% que alcanza en 2021. Pero, a pesar de este avance, aún existe un diferencial con respecto a otros países, donde este tipo de oferta formativa a lo largo de la vida es más importante. Así, en Suecia es del 28,6%, en Finlandia del 27,3% y en Dinamarca o Países Bajos se sitúa en torno al 20%, con datos para 2020.
 
 :fig-0106B4:
-:F: Education at a Glance, OCDE.:F:
+:F: Education at a Glance 2020, OCDE.:F:
 :U: En %.:U:
 :N:  Las cifras entre paréntesis se refieren a la duración promedio del componente basado en el trabajo como porcentaje de duración total del programa para los programas combinados de la escuela y el trabajo.:N:
 :E::E:
@@ -1486,9 +1484,9 @@ Por último, cabe incluir en este apartado las *carencias en términos de Formac
 :fig-0106B5:
 :F: Ministerio de Educación y Formación Profesional.:F:
 :U: En %.:U:
-:N::N:
+:N: Curso 2018-2019 :N:
 :E::E:
-#+CAPTION: Alumnos matriculados en FP dual respecto al total matriculado en FP de grado superior (Curso 2018-2019)
+#+CAPTION: Alumnos matriculados en FP dual respecto al total matriculado en FP de grado superior
 [[./graficos/0106B5.pdf]]
 :END:
 
@@ -1498,13 +1496,12 @@ En el ámbito de los sistemas de formación profesional y de las enseñanzas uni
 
 Los resultados del informe GEM España señalan la baja inversión en programas y agentes formadores de calidad en estos ámbitos, que serían complementarios a la educación tradicional, por su importancia de fomentar la cultura emprendedora en Andalucía para atraer a los más jóvenes y que adquieran competencias empresariales y en materia de negocios. En opinión de los expertos encuestados, el apoyo de la educación primaria y secundaria a la cultura emprendedora en Andalucía no llega al “aprobado” (2,2 sobre 5 puntos). En el caso de la educación superior o universitaria, la puntuación resulta menos negativa, si bien la percepción sobre el grado de contribución a la cultura emprendedora en Andalucía resulta inferior a la media española (2,9 puntos frente a 3,3 de España, sobre 5 puntos).
 
-
 :fig-0106B6:
-:F: Education at a Glance, OCDE.:F:
+:F: Education at a Glance 2020, OCDE.:F:
 :U: En %.:U:
 :N::N:
 :E::E:
-#+CAPTION: Proporción de graduados y graduadas profesionales de secundaria superior, por campo de estudio seleccionado, 2018
+#+CAPTION: Proporción de graduados y graduadas profesionales de secundaria superior, por campo de estudio seleccionado
 [[./graficos/0106B6.pdf]]
 :END:
 
@@ -1548,36 +1545,6 @@ El papel de la universidad en la aportación al capital humano resulta incuestio
 
 No obstante, el porcentaje de población joven con formación universitaria en Andalucía no difiere de los niveles promedios en el conjunto de la OCDE y en países como Alemania (35,5%) o Portugal (36,2%). Atendiendo al alumnado matriculado, en los últimos años se ha observado una mayor preferencia de la población joven por la formación universitaria, posiblemente porque la misma proporciona una ventaja comparativa en la búsqueda de empleo y, a medio y largo plazo, en la obtención de rentas superiores a las de las personas empleadas con niveles formativos inferiores.
 
-Por otro lado, el análisis de la distribución territorial de las universidades, realizado por la Conferencia de Rectores de las Universidades Españolas, CRUE, en su informe “La Universidad Española en Cifras, 2017/2018” muestra un buen nivel de acceso por proximidad a la oferta universitaria tanto en Andalucía como en España, lo que garantiza a los jóvenes el acceso a la educación superior. A este respecto cabe señalar, que en los últimos 30 años, más de 845.000 titulados universitarios se han ido incorporando a la población activa andaluza permitiendo aumentar considerablemente la capacidad competitiva del tejido productivo andaluz. No obstante, se hace más necesario que nunca continuar por la senda de mejora de la contribución de la universidad a la competitividad de la economía, para lo cual se requiere un diseño eficaz de la oferta de las enseñanzas universitarias y un impulso decidido a la investigación y la transferencia del conocimiento.
-
-El sistema universitario andaluz ofrece múltiples opciones formativas que permiten a los estudiantes bien acceder al mundo laboral bien continuar su formación en niveles de máster o doctorado en condiciones similares a los estudiantes de los países de nuestro entorno más próximo. Al mismo tiempo, es importante que, al igual que en los países del Espacio Europeo de Educación Superior, la ordenación de las enseñanzas favorezca la adecuación de la oferta formativa de las universidades a las necesidades que demanda la sociedad a través del mercado de trabajo.
-
-La distribución de la oferta de grados en las universidades públicas andaluzas muestra un cierto desequilibrio, ya que existe una elevada concentración en titulaciones de ciencias sociales y jurídicas en detrimento de las científicas y técnicas. Así, de modo generalizado, la demanda de estudios por el alumnado de las universidades andaluzas y la oferta de titulaciones de grado han mantenido caminos parcialmente divergentes en el periodo 2008 a 2017. Más relevante aún, no siempre las demandas de los estudiantes coinciden con las necesidades del mercado laboral. Estos desajustes repercuten negativamente en todo el sistema universitario: 1) generan ansiedad en el alumnado y aumento de la tasa de abandono, ii) desincentivan al profesorado; iii) producen ineficacia en la gestion y, en consecuencia, un aumento de los costes y iv) merman la competitividad del mercado laboral.
-
-La incorporación de alumnas y alumnos a las enseñanzas que integran el ámbito académico STEM en los últimos años, salvo las enseñanzas de Ciencias y Matemáticas, no ofrece una respuesta positiva a la demanda creciente que tienen la sociedad y la economía, a priori, de personas profesionales con estas cualificaciones académicas.
-
-En general, el análisis conjunto de las cifras de egresados respecto a la de matriculados por tipo de enseñanza a lo largo del tiempo presenta un perfil descendente. Solo se observa una evolución positiva en la rama de Ciencias de la Salud, con una mejor trayectoria en el conjunto de las universidades andaluzas que en el promedio de las españolas. Este favorable comportamiento no es ajeno a la relevante contribución que viene realizando el Sistema Sanitario Público de Andalucía (SSPA) a la capacitación del capital humano, no solo en materia de formación, también en investigación e innovación. Por el contrario, las tendencias más preocupantes se observan en las enseñanzas de la rama de Ciencias y Arquitectura e Ingenierías, que año tras año anotan cifras más reducidas de graduados.
-
-Se estima que anualmente se incorporan a *la oferta de egresados 73 de cada 100 alumnas/os que acceden a las aulas universitarias andaluzas* (es decir, la tasa bruta de graduación es del 72,6%), algo *por debajo del promedio de las universidades* que forman el sistema universitario público presencial *de España* (SUPPE) *que es del 75%*, con una notable estabilidad en los últimos años. Sin embargo, considerando la tasa de graduación general, atendiendo a la cohorte de entrada a la que pertenecen los alumnas/os egresados, esta tasa desciende hasta el 43,9% en las universidades de Andalucía, frente al 49,3% de las universidades españolas. Estos datos aproximan un coste elevado ligado a la cifra global de abandonos, tanto brutos como netos, según el mencionado informe de la CRUE.
-
-Cabe destacar que Ciencias Sociales y Jurídicas es la rama que más egresados produce en el conjunto de las universidades andaluzas (55%), observándose alguna enseñanza con exceso de capacidad, como maestro de educación infantil y primaria. Mientras, Ciencias de la Salud (15%) y Arquitectura e Ingenierías (14%) superan a las Artes y Humanidades (10% del total de egresados) y a los egresados en Ciencias (6%). Esta información procede del trabajo de la AIRef (El Sistema Público Universitario Andaluz), en base a las Estadísticas Universitarias del Sistema Integrado de Información Universitaria (SIIU del Ministerio de Educación y Formación Profesional) para el curso académico 2017/18.
-
-Para comprobar la inserción laboral y la adecuación de la formación al trabajo desempeñado se tiene en cuenta la relación existente entre la oferta de plazas y la demanda de éstas, por parte de los estudiantes en cada una de las titulaciones de ciclo/grado del sistema universitario andaluz, relacionándolo con la situación más tarde de los egresados, en términos de afiliación a la seguridad social, base de cotización y tipo de contrato.
-
-De este modo, se puede concluir que las mayores tasas de inserción se dan en las Ciencias de la Salud y en Arquitectura e Ingenierías, entre los residentes en Andalucía, siendo los egresados en titulaciones del ámbito Salud y Servicios Sociales los que obtienen, transcurrido un año desde el egreso, la mejor tasa de adecuación (81,8% en el curso 2017/18, según el informe “Inserción laboral de los egresados en universidades públicas de Andalucía”, publicado por el IECA).
-
-También superan una adecuación del 50% los ámbitos de Agricultura, Ganadería, Pesca, Silvicultura y Veterinaria; Mecánica, Electrónica y otra formación técnica, Industria y Construcción; Tecnologías de la Información y las Comunicaciones (TIC); y Ciencias Naturales, Químicas, Físicas y Matemáticas. Por su parte, los egresados del ámbito Negocios, Administración y Derecho son los que tienen la tasa de adecuación más baja. En definitiva, se puede concluir que *existe margen de mejora en la adecuación al mercado laboral en la oferta de titulaciones académicas de las universidades andaluzas*.
-
-Por otra parte, el análisis de la *producción investigadora de las universidades y su contribución a la Transferencia de Conocimiento y a la mejora de la competitividad y la innovación refleja una situación dispar del sistema universitario público andaluz*. Un indicador para este análisis sería el conocido como Ranking de Shanghái (/Academic Ranking of World Universities/) que muestra que, a día de hoy, dos universidades públicas andaluzas, concretamente las de Granada y Sevilla, se sitúan entre las 500 mejores del mundo, y siete entre las 1.000 mejores.
-
-En cambio, si observamos la evolución de los rankings de Shanghái por materias científicas la tendencia es más desfavorable, el número de referencias netas ha bajado en el último trienio como también lo han hecho las posiciones de las universidades.
-
-En todo caso, este conjunto de rankings también nos indica que existen múltiples ejemplos que demuestran que el sistema universitario público andaluz es capaz de alcanzar el máximo nivel excelencia académica internacional, bien en conjunto, como es el caso de la Universidad de Granada (entre las 300 mejores del mundo), o al menos en una o varias materias científicas concretas.
-
-Por otra parte, y con datos para los años 2008-2017, se comprueba que el promedio de las tesis defendidas, los proyectos obtenidos en convocatorias nacionales o europeas de investigación y las publicaciones en colaboración con investigadores internacionales arrojan cocientes más bajos en las universidades andaluzas que en las del conjunto de España. Muy evidentes son también los ingresos por contratos de I+D y consultorías, la producción de patentes nacionales, el importe facturado medio por profesor por prestación de servicios y la cuantía de estos proyectos de investigación competitiva, con una brecha notable en contra del sistema universitario público andaluz. Tan solo en la supervivencia de las spin-off cinco años después de su creación por profesores universitarios, la ratio de Andalucía arroja un promedio superior al del conjunto del sistema universitario español.
-
-Adicionalmente, conviene destacar que la actividad de las universidades públicas andaluzas en materia de investigación y transferencia de conocimiento ha mostrado una evolución negativa, en la última década, atendiendo a la participación de este tipo de producción como fuente de ingresos o financiación. Así, en 2008, la significación de este tipo de ingresos era similar al de los ingresos por enseñanzas no regladas (títulos de máster, experto, entre otros), en torno al 8%. Mientras, en 2018, el *peso de los ingresos por investigación y transferencia de conocimiento ha descendido hasta representar el 5,6% de los ingresos de las universidades andaluzas* (8,06% en España, donde también se ha observado una trayectoria descendente aún más pronunciada).
-
 :fig-0106C1:
 :F:  Encuesta de Población Activa (INE) y Eurostat.:F:
 :U::U:
@@ -1587,23 +1554,45 @@ Adicionalmente, conviene destacar que la actividad de las universidades pública
 [[./graficos/0106C1.pdf]]
 :END:
 
+Por otro lado, el análisis de la distribución territorial de las universidades, realizado por la Conferencia de Rectores de las Universidades Españolas, CRUE, en su informe “La Universidad Española en Cifras, 2017/2018” muestra un buen nivel de acceso por proximidad a la oferta universitaria tanto en Andalucía como en España, lo que garantiza a los jóvenes el acceso a la educación superior. A este respecto cabe señalar, que en los últimos 30 años, más de 845.000 titulados universitarios se han ido incorporando a la población activa andaluza permitiendo aumentar considerablemente la capacidad competitiva del tejido productivo andaluz. No obstante, se hace más necesario que nunca continuar por la senda de mejora de la contribución de la universidad a la competitividad de la economía, para lo cual se requiere un diseño eficaz de la oferta de las enseñanzas universitarias y un impulso decidido a la investigación y la transferencia del conocimiento.
+
+El sistema universitario andaluz ofrece múltiples opciones formativas que permiten a los estudiantes bien acceder al mundo laboral bien continuar su formación en niveles de máster o doctorado en condiciones similares a los estudiantes de los países de nuestro entorno más próximo. Al mismo tiempo, es importante que, al igual que en los países del Espacio Europeo de Educación Superior, la ordenación de las enseñanzas favorezca la adecuación de la oferta formativa de las universidades a las necesidades que demanda la sociedad a través del mercado de trabajo.
+
+La distribución de la oferta de grados en las universidades públicas andaluzas muestra un cierto desequilibrio, ya que existe una elevada concentración en titulaciones de ciencias sociales y jurídicas en detrimento de las científicas y técnicas. Así, de modo generalizado, la demanda de estudios por el alumnado de las universidades andaluzas y la oferta de titulaciones de grado han mantenido caminos parcialmente divergentes en el periodo 2008 a 2017. Más relevante aún, no siempre las demandas de los estudiantes coinciden con las necesidades del mercado laboral. Estos desajustes repercuten negativamente en todo el sistema universitario: 1) generan ansiedad en el alumnado y aumento de la tasa de abandono, ii) desincentivan al profesorado; iii) producen ineficacia en la gestion y, en consecuencia, un aumento de los costes y iv) merman la competitividad del mercado laboral.
+
 :fig-0106C2:
 :F: La Universidad Española en Cifras. CRUE. Estadísticas Universitarias SIIU.:F:
 :U::U:
-:N::N:
+:N: Curso 2018-2019.:N:
 :E::E:
-#+CAPTION: Distribución de la oferta de ciclo/grado por ramas de enseñanza en el Sistema Universitario de Andalucía. Curso 2018/19
+#+CAPTION: Distribución de la oferta de ciclo/grado por ramas de enseñanza en el Sistema Universitario de Andalucía.
 [[./graficos/0106C2.pdf]]
 :END:
+
+La incorporación de alumnas y alumnos a las enseñanzas que integran el ámbito académico STEM en los últimos años, salvo las enseñanzas de Ciencias y Matemáticas, no ofrece una respuesta positiva a la demanda creciente que tienen la sociedad y la economía, a priori, de personas profesionales con estas cualificaciones académicas.
+
+En general, el análisis conjunto de las cifras de egresados respecto a la de matriculados por tipo de enseñanza a lo largo del tiempo presenta un perfil descendente. Solo se observa una evolución positiva en la rama de Ciencias de la Salud, con una mejor trayectoria en el conjunto de las universidades andaluzas que en el promedio de las españolas. Este favorable comportamiento no es ajeno a la relevante contribución que viene realizando el Sistema Sanitario Público de Andalucía (SSPA) a la capacitación del capital humano, no solo en materia de formación, también en investigación e innovación. Por el contrario, las tendencias más preocupantes se observan en las enseñanzas de la rama de Ciencias y Arquitectura e Ingenierías, que año tras año anotan cifras más reducidas de graduados.
+
+Se estima que anualmente se incorporan a *la oferta de egresados 73 de cada 100 alumnas/os que acceden a las aulas universitarias andaluzas* (es decir, la tasa bruta de graduación es del 72,6%), algo *por debajo del promedio de las universidades* que forman el sistema universitario público presencial *de España* (SUPPE) *que es del 75%*, con una notable estabilidad en los últimos años. Sin embargo, considerando la tasa de graduación general, atendiendo a la cohorte de entrada a la que pertenecen los alumnas/os egresados, esta tasa desciende hasta el 43,9% en las universidades de Andalucía, frente al 49,3% de las universidades españolas. Estos datos aproximan un coste elevado ligado a la cifra global de abandonos, tanto brutos como netos, según el mencionado informe de la CRUE.
+
+Cabe destacar que Ciencias Sociales y Jurídicas es la rama que más egresados produce en el conjunto de las universidades andaluzas (55%), observándose alguna enseñanza con exceso de capacidad, como maestro de educación infantil y primaria. Mientras, Ciencias de la Salud (15%) y Arquitectura e Ingenierías (14%) superan a las Artes y Humanidades (10% del total de egresados) y a los egresados en Ciencias (6%). Esta información procede del trabajo de la AIRef (El Sistema Público Universitario Andaluz), en base a las Estadísticas Universitarias del Sistema Integrado de Información Universitaria (SIIU del Ministerio de Educación y Formación Profesional) para el curso académico 2017/18.
 
 :fig-0106C3:
 :F: Ministerio de Educación. SIIU.:F:
 :U::U:
-:N::N:
+:N: Curso 2018/19.:N:
 :E::E:
-#+CAPTION: Titulaciones más ofertadas en los grados del Sistema Universitario Público Andaluz. Curso 2018/19
+#+CAPTION: Titulaciones más ofertadas en los grados del Sistema Universitario Público Andaluz.
 [[./graficos/0106C3.pdf]]
 :END:
+
+Para comprobar la inserción laboral y la adecuación de la formación al trabajo desempeñado se tiene en cuenta la relación existente entre la oferta de plazas y la demanda de éstas, por parte de los estudiantes en cada una de las titulaciones de ciclo/grado del sistema universitario andaluz, relacionándolo con la situación más tarde de los egresados, en términos de afiliación a la seguridad social, base de cotización y tipo de contrato.
+
+De este modo, se puede concluir que las mayores tasas de inserción se dan en las Ciencias de la Salud y en Arquitectura e Ingenierías, entre los residentes en Andalucía, siendo los egresados en titulaciones del ámbito Salud y Servicios Sociales los que obtienen, transcurrido un año desde el egreso, la mejor tasa de adecuación (81,8% en el curso 2017/18, según el informe “Inserción laboral de los egresados en universidades públicas de Andalucía”, publicado por el IECA).
+
+También superan una adecuación del 50% los ámbitos de Agricultura, Ganadería, Pesca, Silvicultura y Veterinaria; Mecánica, Electrónica y otra formación técnica, Industria y Construcción; Tecnologías de la Información y las Comunicaciones (TIC); y Ciencias Naturales, Químicas, Físicas y Matemáticas. Por su parte, los egresados del ámbito Negocios, Administración y Derecho son los que tienen la tasa de adecuación más baja. En definitiva, se puede concluir que *existe margen de mejora en la adecuación al mercado laboral en la oferta de titulaciones académicas de las universidades andaluzas*.
+
+Por otra parte, el análisis de la *producción investigadora de las universidades y su contribución a la Transferencia de Conocimiento y a la mejora de la competitividad y la innovación refleja una situación dispar del sistema universitario público andaluz*. Un indicador para este análisis sería el conocido como Ranking de Shanghái (/Academic Ranking of World Universities/) que muestra que, a día de hoy, dos universidades públicas andaluzas, concretamente las de Granada y Sevilla, se sitúan entre las 500 mejores del mundo, y siete entre las 1.000 mejores.
 
 :fig-0106C4:
 :F: La Universidad Española en Cifras. Cuentas Anuales de las Universidades Públicas de Andalucía y AIReF.:F:
@@ -1613,6 +1602,14 @@ Adicionalmente, conviene destacar que la actividad de las universidades pública
 #+CAPTION: Indicadores sobre la actividad y producción científica e investigadora del Sistema Público de Universidades de Andalucía en comparación con el de España
 [[./graficos/0106C4.pdf]]
 :END:
+
+En cambio, si observamos la evolución de los rankings de Shanghái por materias científicas la tendencia es más desfavorable, el número de referencias netas ha bajado en el último trienio como también lo han hecho las posiciones de las universidades.
+
+En todo caso, este conjunto de rankings también nos indica que existen múltiples ejemplos que demuestran que el sistema universitario público andaluz es capaz de alcanzar el máximo nivel excelencia académica internacional, bien en conjunto, como es el caso de la Universidad de Granada (entre las 300 mejores del mundo), o al menos en una o varias materias científicas concretas.
+
+Por otra parte, y con datos para los años 2008-2017, se comprueba que el promedio de las tesis defendidas, los proyectos obtenidos en convocatorias nacionales o europeas de investigación y las publicaciones en colaboración con investigadores internacionales arrojan cocientes más bajos en las universidades andaluzas que en las del conjunto de España. Muy evidentes son también los ingresos por contratos de I+D y consultorías, la producción de patentes nacionales, el importe facturado medio por profesor por prestación de servicios y la cuantía de estos proyectos de investigación competitiva, con una brecha notable en contra del sistema universitario público andaluz. Tan solo en la supervivencia de las spin-off cinco años después de su creación por profesores universitarios, la ratio de Andalucía arroja un promedio superior al del conjunto del sistema universitario español.
+
+Adicionalmente, conviene destacar que la actividad de las universidades públicas andaluzas en materia de investigación y transferencia de conocimiento ha mostrado una evolución negativa, en la última década, atendiendo a la participación de este tipo de producción como fuente de ingresos o financiación. Así, en 2008, la significación de este tipo de ingresos era similar al de los ingresos por enseñanzas no regladas (títulos de máster, experto, entre otros), en torno al 8%. Mientras, en 2018, el *peso de los ingresos por investigación y transferencia de conocimiento ha descendido hasta representar el 5,6% de los ingresos de las universidades andaluzas* (8,06% en España, donde también se ha observado una trayectoria descendente aún más pronunciada).
 
 :fig-0106C5:
 :F: La Universidad Española en Cifras. CRUE. Universidades Españolas. Cuentas Anuales de las Universidades Públicas de Andalucía y AIReF.:F:
