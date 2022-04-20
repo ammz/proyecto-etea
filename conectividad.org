@@ -61,7 +61,7 @@ De este modo, parece incuestionable que el sistema de transporte está, por tant
 
 Sin duda, en las últimas décadas, hasta la llegada de la pandemia de la COVID-19, hemos asistido a un creciente ritmo de aumento de la demanda de transporte y, en paralelo, tanto a la necesidad de comunicación, no solo física, como al deseo de accesibilidad a cualquier territorio, en un entorno marcado por la globalización. Esta demanda de accesibilidad y de comunicación virtual (conectividad), generada tanto por motivos relacionados con las transacciones económicas como por motivos personales y de ocio, ha provocado que la disponibilidad de una adecuada dotación de infraestructuras de transporte y de redes digitales, modernas y de alta capacidad, adquiera una importancia de primer orden para el conjunto de la sociedad.
 
-Adicionalmente, la movilidad en los espacios urbanos y metropolitanos --que en el caso de Andalucía atañe especialmente a Sevilla, Málaga y Granada-- tiene efectos muy importantes sobre el desarrollo de las ciudades y sobre la calidad de vida su ciudadanía, facilitando la creación de empleo, la cohesión social y la accesibilidad universal. Ello explica la relevancia que para la política económica de la Junta de Andalucía adquiere encontrar soluciones a la movilidad de las personas, con independencia de las circunstancias socioeconómicas, de edad, género o discapacidad, en particular, en las ciudades y en la órbita de éstas, dada la concentración de población andaluza en torno a las mismas.
+Adicionalmente, la movilidad en los espacios urbanos y metropolitanos --que en el caso de Andalucía atañe especialmente a Sevilla, Málaga y Granada-- tiene efectos muy importantes sobre el desarrollo de las ciudades y sobre la calidad de vida su ciudadanía, facilitando la creación de empleo, la cohesión social y la accesibilidad universal. Ello explica la relevancia que para la política económica de la Adminstración de la Junta de Andalucía adquiere encontrar soluciones a la movilidad de las personas, con independencia de las circunstancias socioeconómicas, de edad, género o discapacidad, en particular, en las ciudades y en la órbita de éstas, dada la concentración de población andaluza en torno a las mismas.
 
 Al mismo tiempo, cabe recordar que en las últimas décadas la creciente necesidad de desplazamientos en el interior de Andalucía ha conllevado un mayor uso del vehículo privado. Como es sabido, este modo de transporte genera una serie de impactos no deseados y externalidades negativas entre las que se pueden destacar las siguientes: emisiones de gases contaminantes y de efecto invernadero[fn:12] , ruido, accidentes o congestión, entre otros. Todos ellos repercuten fundamentalmente y de forma negativa en la salud y calidad de vida de las personas, y, a medio plazo, también en la economía. Esta tendencia, sin embargo, puede y debe quebrarse mediante otras opciones de transporte más eficientes y sostenibles.
 
@@ -132,13 +132,13 @@ De acuerdo con el informe del año 2021[fn:25] de la Secretaría de Estado de Te
 
 España (y Andalucía) se encuentran en una posición aventajada en el “Índice de la Economía y la Sociedad Digitales” (DESI), elaborado por la Comisión Europea, en el componente ligado a la conectividad, situándose en 5º lugar de la UE, donde Dinamarca, Suecia, Luxemburgo y Letonia encabezan este ranking. No obstante, este despliegue debe ser más ambicioso, apostando por la alta capacidad y capilaridad. Inicialmente, este desarrollo ha ido parejo a la liberalización del sector, apoyado en un marco regulatorio pionero que ha favorecido la movilización de una gran inversión, el desarrollo de infraestructuras de conectividad y de servicios en competencia que han permitido una caída del 22% del precio de servicios TIC en el periodo 1998-2018, acercándolos al promedio de la UE.
 
-En cualquier caso, según los datos del Ministerio de Asuntos Económicos y Transformación Digital (Informe 2020), los avances realizados por Andalucía en materia de conectividad han sido evidentes y más destacados que en el promedio nacional en lo que a la proporción de hogares/viviendas que disponen de cobertura en banda ancha fija igual o superior a los de 100 Mbps, que ha pasado de ser el 36,5% al 82,23%, entre 2012 y 2019, reduciéndose la brecha diferencial negativa respecto a España a poco más de un punto porcentual en el último año disponible, frente a los casi once puntos que había en 2012.
+En cualquier caso, según los datos del Ministerio de Asuntos Económicos y Transformación Digital (Informe 2020), los avances realizados por Andalucía en materia de conectividad han sido evidentes y más destacados que en el promedio nacional en lo que a la proporción de hogares/viviendas que disponen de cobertura en banda ancha fija igual o superior a los de 100 Mbps, que ha pasado de ser el 36,5% al 87,5%, entre 2012 y 2020, anulándose la brecha diferencial negativa respecto a España en el último año disponible, frente a los casi once puntos que había en 2012.
 
 Asimismo, los indicadores de cobertura en distintas tecnologías digitales muestran, en general, una posición favorable de Andalucía, si bien persisten divergencias entre ámbitos subregionales y provincias. Por otro lado, ya se empieza a acelerar el despliegue de las nuevas redes 5G, principalmente en los núcleos de población más extensos, mientras la capilaridad de las redes de acceso de alta velocidad continúa su avance en toda la región.
 
 La Administración de la Junta de Andalucía viene actuando como palanca para el desarrollo del sector TIC y la extensión de cobertura de las distintas tecnologías digitales, mediante el impulso de proyectos (Red Corporativa de Telecomunicaciones de la Junta de Andalucía, proyecto Escuelas Conectadas, Red Digital de Emergencias de Andalucía, entre otros) que suponen el despliegue de infraestructuras de conectividad por parte de los operadores de telecomunicaciones en todo el territorio.
 
-La Red Corporativa de Telecomunicaciones de la Junta de Andalucía (RCJA), creada en 1998, dispone de un total de 9.714 sedes, con datos a julio de 2021, que cuentan con unos servicios de telecomunicaciones de calidad, ofreciendo a la administración autonómica el soporte tecnológico que necesita para la adecuada prestación de los servicios públicos que tiene encomendados. La mayor parte de las sedes administrativas de la Junta de Andalucía acceden a la red a través de fibra, el 90,5%, mientras el 7% disponen de tecnología ADSL y solo el 1,7% tendrían 4G. Atendiendo a la velocidad de acceso, el 42,6% de las sedes disponen de un caudal de bajada >= 1 Gbps, mientras en el 46,7% de las sedes administrativas esta velocidad es de >= 100 Mbps.
+La Red Corporativa de Telecomunicaciones de la Adminstración de la Junta de Andalucía (RCJA), creada en 1998, dispone de un total de 9.714 sedes, con datos a julio de 2021, que cuentan con unos servicios de telecomunicaciones de calidad, ofreciendo a la administración autonómica el soporte tecnológico que necesita para la adecuada prestación de los servicios públicos que tiene encomendados. La mayor parte de las sedes administrativas de la Adminstración de la Junta de Andalucía acceden a la red a través de fibra, el 90,5%, mientras el 7% disponen de tecnología ADSL y solo el 1,7% tendrían 4G. Atendiendo a la velocidad de acceso, el 42,6% de las sedes disponen de un caudal de bajada >= 1 Gbps, mientras en el 46,7% de las sedes administrativas esta velocidad es de >= 100 Mbps.
 
 
 :fig-0301A1:
@@ -197,7 +197,7 @@ La Red Corporativa de Telecomunicaciones de la Junta de Andalucía (RCJA), cread
 
 3. Favorecer e impulsar la puesta a disposición de los operadores de telecomunicaciones de las infraestructuras físicas públicas de las distintas Administraciones Públicas.
 
-4. Continuar con el desarrollo de proyectos tractores y relevantes como la conectividad inalámbrica en todas las sedes de la Junta de Andalucía, las “Escuelas Conectadas”, innovación de las infraestructuras tecnológicas de la RCJA, entre otras.
+4. Continuar con el desarrollo de proyectos tractores y relevantes como la conectividad inalámbrica en todas las sedes de la Administración de la  Junta de Andalucía, las “Escuelas Conectadas”, innovación de las infraestructuras tecnológicas de la RCJA, entre otras.
 
 5. Favorecer y apoyar el acceso a la red de colectivos vulnerables en riesgo de exclusión por la dificultad de acceso a la conectividad por motivos económicos. La necesidad de este tipo de medidas se ha hecho más patente en un contexto de educación semipresencial debido al impacto de la COVID-19 o de consultas sanitarias telemáticas.
 
@@ -221,9 +221,9 @@ La Red Corporativa de Telecomunicaciones de la Junta de Andalucía (RCJA), cread
 
 Sin duda, *persisten deficiencias en el despliegue de redes en determinadas zonas no rentables*, por parte de los operadores de telecomunicaciones, especialmente en áreas rurales y zonas de baja densidad demográfica. Este déficit supone una rémora fundamental para el incremento de la productividad, el crecimiento económico y el empleo -indicadores macroeconómicos en los que Andalucía parte de posiciones desaventajadas-, dificultando así al progreso social y a la vertebración territorial.
 
-De este modo, el despliegue de la conectividad digital a todos los territorios, especialmente los ámbitos rurales y localidades pequeñas con población dispersa, contribuirá a aliviar otros retos y dificultades a los que se enfrenta la realidad social y económica de Andalucía, como el desafío demográfico, ya que una buena conexión telemática apoyará las medidas de fijación de la población, a través de una mejor atención social, sanitaria y educativa, así como desarrollar actividades profesionales y empresariales.
+De este modo, el despliegue de la conectividad digital a todos los territorios, especialmente los ámbitos rurales y localidades pequeñas con población dispersa, contribuirá a aliviar otros retos y dificultades a los que se enfrenta la realidad social y económica de Andalucía, como el desafío demográfico, ya que una buena conexión telemática apoyará las medidas de fijación de la población, a través de una mejor atención social, sanitaria y educativa, así como ayudará a desarrollar actividades profesionales y empresariales.
 
-La información más reciente (Ministerio de Asuntos Económicos y Transformación Digital, Informe de cobertura de banda ancha en España en el año 2020) sobre la dotación de infraestructuras de conectividad, más allá de los espacios urbanos permite un análisis comparativo de la cobertura de banda ancha en las zonas rurales por tecnología y por velocidad en Andalucía y la existente en el conjunto de España. Para ello, debemos aclarar que, de los 778 municipios, que conforman Andalucía, 530 corresponden a la calificación de rurales[fn:7], habitando en ellos el 17,4% de la población andaluza.
+La información más reciente (Ministerio de Asuntos Económicos y Transformación Digital, Informe de cobertura de banda ancha en España en el año 2020) sobre la dotación de infraestructuras de conectividad, más allá de los espacios urbanos permite un análisis comparativo de la cobertura de banda ancha en las zonas rurales por tecnología y por velocidad en Andalucía y la existente en el conjunto de España. Para ello, debemos aclarar que, del total de municipios que conforman Andalucía, el 68% se clasifican como rurales[fn:7], habitando en ellos el 17% de la población andaluza.
 
 Así, este informe reconoce que, en el conjunto de municipios rurales, la cobertura poblacional asociada a las principales plataformas tecnológicas se sitúa por debajo de la cobertura general. Más revelador de la brecha existente, es el diferencial en las velocidades, ya que si en 30 Mbps la proporción de población atendida por este servicio difiere en 7 puntos porcentuales, en velocidades a partir de 100 Mbps este gap se agranda hasta superar los 33 puntos porcentuales. De hecho, se estima que cerca del *40% de la población de los ámbitos rurales no tiene una conexión digital de esta calidad.*
 
@@ -296,7 +296,7 @@ Todas estas actuaciones para impulsar la disponibilidad de redes de conectividad
 
 1. Mejorar la capacidad y disponibilidad de la conectividad de datos de los edificios que albergan servicios públicos.
 
-2. Aprovechar las instalaciones y equipamientos ya preexistentes de la Junta de Andalucía para el despliegue de las redes de telecomunicaciones, especialmente en servicios públicos clave: justicia, educación, salud y servicios sociales y asistenciales.
+2. Aprovechar las instalaciones y equipamientos ya preexistentes de la Adminstración de la Junta de Andalucía para el despliegue de las redes de telecomunicaciones, especialmente en servicios públicos clave: justicia, educación, salud y servicios sociales y asistenciales.
 
 3. Incrementar el soporte/apoyo a las administraciones locales y operadores de telecomunicaciones.
 
@@ -406,7 +406,7 @@ Para que la conexión de Andalucía con Europa sea efectiva se hace necesario im
 
 Las infraestructuras viarias, siguen siendo hoy en día el principal soporte de la movilidad en Andalucía, tanto de personas como de mercancías, con una red de carreteras en la región, en 2019, de 23.212 km (10.561 km de competencia autonómica). Dicha red muestra indicadores de densidad y calidad semejantes a las del resto de España y de la Unión Europea, si bien persisten *algunas áreas que aún presentan deficiencias de accesibilidad*.  Concretamente 1.100 km con anchura reducida, inferior a 5 metros, y otros con necesidad de aumento de su capacidad por presentar niveles medios de tráfico superiores a 10.000 vehículos al día, concentrándose en las aglomeraciones urbanas y en los accesos al litoral.
 
-Además, la menor inversión ha afectado a la conservación y mantenimiento de la red en los últimos años, produciéndose un *deterioro progresivo del estado de su firme* por su antigüedad y por su elevado nivel de tráfico. Este estado afecta a la seguridad vial, a la comodidad y calidad de la circulación, a la integridad de la infraestructura y al medio ambiente. Este deterioro, unido a la existencia de puntos negros, ha provocado que el *número de accidentes mortales haya aumentado* en los últimos dos años disponibles (2018 y 2019), quebrándose la tendencia a la estabilización de los años anteriores. Debe, por tanto, continuarse con las labores de mantenimiento y mejora de las carreteras de la región.
+Además, la menor inversión ha afectado a la conservación y mantenimiento de la red en los últimos años, produciéndose un *deterioro progresivo del estado de su firme* por su antigüedad y por su elevado nivel de tráfico. Este estado afecta a la seguridad vial, a la comodidad y calidad de la circulación, a la integridad de la infraestructura y al medio ambiente. Este deterioro, unido a la existencia de puntos negros, ha provocado que el *número de accidentes mortales haya aumentado* en los dos años anteriores a la pandemia, quebrándose la tendencia a la estabilización de los años previos. El descenso observado en 2020 en el número de accidentes se explica en gran medida por las restricciones a la movilidad durante la pandemia. Debe, por tanto, continuarse con las labores de mantenimiento y mejora de las carreteras de la región.
 
 Además, sobre esta amplia red viaria se deben desarrollar actuaciones para *disminuir ciertas externalidades negativas* (tanto de ruido, como de uso del espacio o paisajísticas) y dar respuestas  a ciertas necesidades de mejoras concretas en términos de *eficiencia energética* (reducción de emisiones de CO_{2}) y de *seguridad vial* para las usuarias y usuarios.
 
@@ -415,7 +415,6 @@ Respecto a las *infraestructuras ferroviarias*, de competencia estatal, la red c
 Destaca la fortaleza y el potencial del sistema portuario andaluz, debido a la especial situación geoestratégica de Andalucía en relación con los tráficos marítimos internacionales, fundamentalmente de contenedores, que pasan por el Estrecho de Gibraltar y su papel de conexión del Sur de Europa con Asia, América y África. Por ello, resulta necesario manterner sus infraestructuras y superestructuras actualizadas para garantizar su competitividad.
 
 Siguiendo las recomendaciones europeas, se debe priorizar el *traspaso de parte del transporte de mercancías* (de distancias superiores a 300 Km) *a los modos ferroviario y marítimo*, por las evidentes consecuencias que el transporte por carretera tiene en accidentalidad, sobrecarga de las infraestructuras, costes elevados de abastecimiento y distribución (costes logísticos) o costes ambientales derivados.
-
 
 :fig-0302B1:
 :F: Consejería de Fomento, Infraestructuras y Ordenación del Territorio.:F:
@@ -452,7 +451,7 @@ Siguiendo las recomendaciones europeas, se debe priorizar el *traspaso de parte 
 
 6. Realizar actuaciones para disminuir el ruido que afecta a los receptores próximos a vías de comunicación terrestres, así como incrementar las inversiones destinadas a la calidad paisajística de las infraestructuras.
 
-7. Efectuar un seguimiento del grado cumplimiento por el Estado de las actuaciones ferroviarias previstas en la planificación, con especial atención a los corredores mediterráneo y central de la Red de Transporte Europea en el ámbito andaluz.
+7. Efectuar un seguimiento del grado de cumplimiento por el Estado de las actuaciones ferroviarias previstas en la planificación, con especial atención a los corredores mediterráneo y central de la Red de Transporte Europea en el ámbito andaluz.
 
 8. Realizar tareas de conservación y mantenimiento de las infraestructuras, las instalaciones y los equipamientos portuarios.
 
@@ -502,7 +501,7 @@ Además, la existencia de solo cinco aparcamientos para vehículos pesados certi
 :UNNUMBERED: nil
 :END:
 
-1. Favorecer la actualización de las instalaciones portuarias para adaptarlas a los nuevos modelos y tamaños de buques y buscando una mejora de los ratios de eficiencia de sus superestructuras que aumente la capacidad competitiva de nuestras Autoridades Portuarias. Además, incentivar inversiones públicas y privadas, que favorezcan la multimodalidad y la conexión de los puertos a las redes de transporte locales, marítimo y terrestre, especialmente por ferrocarril.
+1. Favorecer la actualización de las instalaciones portuarias para adaptarlas a los nuevos modelos y tamaños de buques, buscando una mejora de los ratios de eficiencia de sus superestructuras que aumente la capacidad competitiva de nuestras Autoridades Portuarias. Además, incentivar inversiones públicas y privadas, que favorezcan la multimodalidad y la conexión de los puertos a las redes de transporte locales, marítimo y terrestre, especialmente por ferrocarril.
 
 2. Invertir para que las tradicionales infraestructuras lineales del transporte (carretera, marítimo y ferrocarril) se complementen con otras infraestructuras de carácter nodal donde puedan ubicarse las actividades y procesos logísticos que articulen el conjunto del sistema y permitan su funcionamiento eficiente.
 
@@ -541,7 +540,7 @@ Además, la existencia de solo cinco aparcamientos para vehículos pesados certi
 2. Servicios públicos de transporte
 {{{finlineas}}}
 {{{ods(3 7 9 11 13)}}}
-En el contexto de transformación que subyace en esta Estrategia, disponer de un sistema de transporte sostenible y proporcionar una movilidad inteligente y respetuosa con el medioambiente en las áreas urbanas y metropolitanas supone un auténtico desafío. Así, en el marco de Agenda 2030 sobre el Desarrollo Sostenible aprobada por las Naciones Unidas, se incluye el transporte como parte de los objetivos esenciales de desarrollo, y concretamente se establece como objetivo, de aquí a 2030, “proporcionar acceso a sistemas de transporte seguros, asequibles, accesibles y sostenibles para todos y mejorar la seguridad vial, en particular mediante la ampliación del transporte público, prestando especial atención a las necesidades de las personas en situación de vulnerabilidad, las mujeres, los niños, las personas con discapacidad y las personas de edad”.
+En el contexto de transformación que subyace en esta Estrategia, disponer de un sistema de transporte sostenible y proporcionar una movilidad inteligente y respetuosa con el medioambiente en las áreas urbanas y metropolitanas supone un auténtico desafío. Así, en el marco de la Agenda 2030 sobre el Desarrollo Sostenible aprobada por las Naciones Unidas, se incluye el transporte como parte de los objetivos esenciales de desarrollo, y concretamente se establece como objetivo, de aquí a 2030, “proporcionar acceso a sistemas de transporte seguros, asequibles, accesibles y sostenibles para todos y mejorar la seguridad vial, en particular mediante la ampliación del transporte público, prestando especial atención a las necesidades de las personas en situación de vulnerabilidad, las mujeres, los niños, las personas con discapacidad y las personas de edad”.
 
 En particular, la movilidad urbana y metropolitana está observando profundos cambios y transformaciones, que proseguirán en los próximos años. En este nuevo escenario, para poder satisfacer las necesidades de movilidad en las ciudades, están surgiendo nuevos planteamientos que tratan de adaptar los enfoques del pasado a este nuevo paradigma.
 
@@ -565,7 +564,7 @@ Alcanzar una movilidad urbana inteligente, accesible y respetuosa con el medio a
 :CUSTOM_ID: intro-0303-01
 :END:
 
-El sector de transporte es el más *consumidor de energía final* (39,2% del consumo total de energía final en Andalucía en 2019, según datos de la Agencia Andaluza de la Energía) que, además, proviene prácticamente de *fuentes no renovables* (el 94,2% del consumo energético del sector se corresponde con derivados del petróleo) y cuyo suministro implica una fuerte dependencia externa. El consumo final de las energías renovables por el sector transporte solo alcanza el 5,2% del total en 2019 (7,4% a nivel nacional), que si bien ha aumentado desde 2005 (0,3%) debe seguir creciendo, a tasas superiores, para poder alcanzar el objetivo establecido por Europa (10%).
+El sector de transporte es el más *consumidor de energía final* (34,4% del consumo total de energía final en Andalucía en 2020, según datos de la Agencia Andaluza de la Energía. En 2019 había sido del 39,2%) que, además, proviene prácticamente de *fuentes no renovables* (el 94,2% del consumo energético del sector se corresponde con derivados del petróleo) y cuyo suministro implica una fuerte dependencia externa. Se debe considerar que los datos de 2020 están sesgados por las restricciones a la movilidad impuestas durante la pandemia, que han afectado a la emisión de contaminantes por parte del transporte. El consumo final de las energías renovables por el sector transporte solo alcanza el 5,2% del total en 2019 (7,4% a nivel nacional), que si bien ha aumentado desde 2005 (0,3%) debe seguir creciendo, a tasas superiores, para poder alcanzar el objetivo establecido por Europa (10%).
 
 Asimismo, *el transporte es uno de los focos principales de emisión de contaminantes* (25% del total de emisiones de gases de efecto invernadero durante el período 2005-2018 en Andalucía y el 29% en 2019 en España). Además, genera efectos nocivos para el medioambiente y el bienestar de la sociedad, a causa de los ruidos, y su impacto sobre el espacio urbano.
 
@@ -577,22 +576,21 @@ Es fundamental, por tanto, establecer actuaciones de transporte limpio y de efic
 
 En línea con las políticas de transporte europeas, las inversiones deben centrarse en la movilidad sostenible (plataformas multimodales, movilidad no motorizada o tranvías, entre otras).
 
-
 :fig-0303A1:
 :F: Agencia Andaluza de la Energía.:F:
-:U::U:
+:U: % sobre el total.:U:
 :N::N:
 :E::E:
-#+CAPTION: Consumo de energía final por sectores. Andalucía (% sobre el total)
+#+CAPTION: Consumo de energía final por sectores en Andalucía
 [[./graficos/0303A1.pdf]]
 :END:
 
 :fig-0303A2:
 :F: Consejería de Fomento, Infraestructuras y Ordenación del Territorio.:F:
-:U::U:
-:N: \par \bfseries Red Metropolitana: \mdseries Municipios incluidos en los ámbitos de los Consorcios Metropolitanos de Transportes, excluyendo los datos de la Red Urbana.\par \bfseries Red Urbana: \mdseries Vías ciclistas del casco urbano de los centros regionales del Plan de Ordenación del Territorio de Andalucía (Capitales de provincia, más Algeciras y Jerez de la Frontera).\par \bfseries Resto: \mdseries Municipios no incluidos en los ámbitos de los Consorcios Metropolitanos de Transportes.:N:
+:U: Km.:U:
+:N: \par \bfseries Red Metropolitana: \mdseries Municipios incluidos en los ámbitos de los Consorcios Metropolitanos de Transportes, excluyendo los datos de la Red Urbana.\par \bfseries Red Urbana: \mdseries Vías ciclistas del casco urbano de los centros regionales del Plan de Ordenación del Territorio de Andalucía (Capitales de provincia, más Algeciras y Jerez de la Frontera).\par \bfseries Resto: \mdseries Municipios no incluidos en los ámbitos de los Consorcios Metropolitanos de Transportes.\par Período 2012-2015:N:
 :E::E:
-#+CAPTION: Inventario de Vías Ciclistas de Andalucía según ámbitos territoriales del Plan Andaluz de la Bicicleta, 2012-2015 (Km)
+#+CAPTION: Inventario de Vías Ciclistas de Andalucía según ámbitos territoriales del Plan Andaluz de la Bicicleta
 [[./graficos/0303A2.pdf]]
 :END:
 
@@ -605,7 +603,7 @@ En línea con las políticas de transporte europeas, las inversiones deben centr
 
 2. Desarrollar experiencias pilotos de corredores viarios verdes en Andalucía tanto en la red de Alta Capacidad como en carreteras convencionales de la Red Básica, para promover la movilidad limpia.
 
-3. Planificar y desarrollar una red de puntos de recarga de vehículos alternativos (gas renovable, eléctrico, hidrógeno) en las infraestructuras competencia de la Junta de Andalucía (estaciones de Metro, Puertos, Áreas Logísticas, carreteras, entre otras), de forma coordinada con el resto de Administraciones competentes y en colaboración con la iniciativa privada.
+3. Planificar y desarrollar una red de puntos de recarga de vehículos alternativos (gas renovable, eléctrico, hidrógeno) en las infraestructuras competencia de la Adminstración de la Junta de Andalucía (estaciones de Metro, Puertos, Áreas Logísticas, carreteras, entre otras), de forma coordinada con el resto de Administraciones competentes y en colaboración con la iniciativa privada.
 
 4. Reducir las externalidades negativas del transporte (congestión, ruido, emisiones, calidad del aire, entre otras).
 
@@ -703,7 +701,7 @@ También deberán ser objeto de consideración y análisis otras iniciativas y p
 :UNNUMBERED: nil
 :END:
 
-1. Seguir avanzando en las líneas de metros propuestas, siempre que estén avaladas por un análisis de su demanda y rentabilidad económico-social, ya que tienen una elevada capacidad para incentivar el transporte público de pasajeros. Igualmente, colaborar con los municipios en las líneas de tranvías de interés metropolitano, priorizando aquellos trazados y formulaciones que sean más respetuosos con el dinero público.
+1. Seguir avanzando en las líneas de metros propuestas, siempre que estén avaladas por un análisis de su demanda y rentabilidad económico-social, ya que tienen una elevada capacidad para incentivar el transporte público de pasajeros. Igualmente, colaborar con los municipios en las líneas de tranvías de interés metropolitano, priorizando aquellos trazados y formulaciones que optimicen la eficacia de los recursos públicos.
 
 2. Implantar Plataformas reservadas (BUS/VAO) en la red viaria y mejoras de accesibilidad al transporte público en las áreas metropolitanas de Andalucía, con el objetivo último de aumentar la velocidad comercial como principal estrategia competitiva.
 
@@ -775,13 +773,13 @@ Andalucía cuenta con un *amplio conjunto de grandes áreas metropolitanas, ciud
 
 De este modo, la mejora de la movilidad y el transporte de estas poblaciones rurales son fundamentales para luchar contra la despoblación y los efectos perjudiciales que ello supone. Esto se traduce en la necesidad de realizar inversiones en infraestructuras y servicios de movilidad en estas áreas, de forma que se ofrezca una cobertura territorial suficiente para mantener unas condiciones de vida adecuadas de todas las ciudadanas y ciudadanos, ayudando con ello, por un lado, a intentar fijar la población en las zonas rurales y, por otro, a mejorar la accesibilidad de la población a servicios sociales básicos, como la educación, sanidad, empleo o justicia.
 
-Para dicho fin, la administración debe analizar las necesidades de movilidad y desarrollar distintos modos de transporte, además del transporte por carretera, que sea el más eficiente y sostenible en cada caso y que ofrezca una buena cobertura a las necesidades de toda la ciudadanía.
+Para dicho fin, la administración debe analizar las necesidades de movilidad y desarrollar distintos modos de transporte para que sean más eficientes y sostenibles y que ofrezcan una buena cobertura a las necesidades de toda la ciudadanía.
 
 *La Red de Carreteras de Andalucía*, de titularidad estatal, autonómica y provincial, es actualmente el principal soporte de la movilidad en Andalucía, dando accesibilidad a buena parte del territorio y sustentando gran parte de las relaciones con el exterior, tanto en la movilidad de las personas como de mercancías.
 
 Estas carreteras dan soporte al transporte público de personas, registrándose 62,1 millones de viajeros en transporte público interurbano en 2019, con una ocupación media de 17,20 viajeros/vehículo. Este elevado volumen de utilización, aunque es inferior al del año 2000 (82,3 millones de viajeros), hace necesario una dotación adecuada de sus instalaciones para poder dar un servicio que cubra a toda la región. En Andalucía aún existen zonas donde el transporte interurbano por autobús carece de infraestructuras básicas, como son las estaciones o los apeaderos. Actualmente, nuestra región está compuesta por una red de 52 apeaderos y 45 estaciones, lo que supone una cobertura en Andalucía de más de 4,6 millones de habitantes (54,9% del total de la población andaluza). Hay que seguir impulsando la mejora y ampliación de la dotación de estaciones y apeaderos en la región, estudiando el déficit que pueda existir en determinados ámbitos y ligado a las necesidades de nuevas líneas de transporte de autobuses interurbanos.
 
-Para aquellas zonas de baja densidad y poca demanda de transporte, donde es muy costoso mantener líneas regulares de transporte en autobús, se han puesto en funcionamiento algunos programas específicos como el de transporte a la demanda con taxis en áreas de débil tráfico.
+Para aquellas zonas de baja densidad y poca demanda de transporte, donde es muy costoso mantener líneas regulares de transporte en autobús, se han puesto en funcionamiento algunos programas específicos como el de /transporte a demanda con taxis/ en áreas de débil tráfico.
 
 Además de completar las carencias existentes en el transporte por carretera, la nueva política de transporte exige fomentar otras modalidades basadas en sistemas más eficientes, sostenibles y seguros, *ampliando el reparto modal existente y con preferencia del ferrocarril* frente al transporte por carretera.
 
@@ -854,7 +852,7 @@ Por otra parte, en zonas de alto valor natural y con una calidad paisajística n
 
 El desarrollo urbanístico y territorial de las ciudades y áreas metropolitanas tienen una especial repercusión sobre la movilidad de las ciudadanas y ciudadanos. Los nuevos desarrollos urbanísticos deben contemplar las necesidades de movilidad que generan, estableciendo como criterio reducir la movilidad obligada. Las infraestructuras y servicios de movilidad no planificadas no deben ser la solución a los *problemas generados por desarrollos urbanísticos que no han contado con el análisis prospectivo de las necesidades de movilidad y transporte de la ciudadanía*.
 
-La política de transportes de Andalucía debe contribuir a facilitar la movilidad interurbana basándose en una necesaria planificación regional que integre la movilidad con otros planes sectoriales, como el de la vivienda, la planificación urbanística y territorial o con planes de competencia local (planes estratégicos de las ciudades, si los hubiera), ofreciendo soluciones desde el origen.
+La política de transportes en Andalucía debe contribuir a facilitar la movilidad interurbana basándose en una necesaria planificación regional que integre la movilidad con otros planes sectoriales, como el de la vivienda, la planificación urbanística y territorial o con planes de competencia local (planes estratégicos de las ciudades, si los hubiera), ofreciendo soluciones desde el origen.
 
 Dichos planes deben incorporar los objetivos marcados por la Unión Europea en su Estrategia de Movilidad Sostenible e Inteligente y abordar aspectos operacionales, infraestructurales y de organización, además de afrontar las actuaciones con criterios de rentabilidad social, ambiental y económica.
 
