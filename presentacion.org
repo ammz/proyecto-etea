@@ -1,0 +1,95 @@
+#+SETUPFILE: etea.setup
+#+INCLUDE: "lisp"
+#+ODT_STYLES_FILE: "../odt/plantillas/etea2.ott"
+
+* Emacs export to odt                                                :ignore:
+#+begin_src emacs-lisp :exports code :exports results :results none
+  (defun cambiamos-pdf-por-png (backend)
+      (when  (eq backend 'odt)
+       (org-occur ".*pdf\]\]")
+       (save-excursion
+      (goto-char (point-min))
+      (replace-regexp "graficos/diagnostico/\\(.*\\).pdf" "graficos/png/diagnostico/\\1.png" nil)
+      (replace-regexp "graficos/\\(.*\\).pdf" "graficos/png/\\1.png" nil))))
+
+  (add-hook 'org-export-before-processing-hook #'cambiamos-pdf-por-png)
+ #+end_src
+
+#+BIND: org-export-filter-drawer-functions (filtro-quita-fuentes)
+
+#+begin_SRC emacs-lisp :exports results :results none
+  (defun filtro-quita-fuentes (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       "\\(:F:.*:F:\\)
+  \\(:U:.*:U:\\)
+  \\(:N:.*:N:\\)
+  \\(:E:.*:E:\\)"
+       ""
+       etea)
+      )
+    )
+
+  (defun filtro-png (etea backend info)
+    (when (org-export-derived-backend-p backend 'odt)
+      (replace-regexp-in-string
+       ;; "\\(\\[\\[\\./graficos/\\)\\(.*\\)\\(\\.pdf\\)\\(\\]\\]\\)"
+       ;; "\\(\\1png/\\2.png\\4\\)"
+	 ".pdf" ".png"
+     etea)))
+#+end_SRC
+
+El futuro de Andalucía, en términos de bienestar social y de prosperidad económica, a medio y largo plazo se encuentra condicionado, en gran medida, por la superación de una serie de retos estructurales de elevada relevancia. Así, las perspectivas para nuestra Comunidad Autónoma, bajo un enfoque temporal amplio, no solo van a depender de cerrar finalmente la crisis generada por la pandemia, ni tampoco de sobreponerse al fuerte shock adverso que está provocando la guerra de Ucrania, o de otras circunstancias coyunturales, sino que requiere afrontar unos importantes desafíos que ya eran preexistentes a la emergencia sanitaria y al estallido bélico.
+
+La identificación de estas prioridades y la propuesta de un conjunto amplio de actuaciones necesarias para nuestra región es una responsabilidad, principalmente, de los poderes públicos, y la Administración de la Junta de Andalucía asume el compromiso de liderar una transformación de la economía, que sirva de referencia e implique al sector privado, a otras administraciones y a la sociedad, en general, en la necesidad de esta reorientación de la política económica.
+
+Esta es la misión de la *Estrategia para la Transformación Económica de Andalucía (ETEA)*, con el horizonte puesto en 2027 y, prácticamente, en el final de la década. Para ello, el Gobierno de la Junta de Andalucía acordó, a finales de 2019, la conveniencia de elaborar una hoja de ruta, a modo de un esquema de planificación que coordinase las actuaciones de todas las Consejerías y los órganos directivos y que, además, guardase una coherencia con la programación de los Fondos Europeos para el nuevo marco financiero plurianual.
+
+Sin duda, las orientaciones de política económica del Gobierno andaluz presentan una elevada concordancia con los documentos de planificación de la UE y con los Objetivos de Desarrollo Sostenible de la Agenda 2030, que instan a los países y regiones a realizar cambios y reformas dirigidas a afrontar grandes desafíos, como los relativos al calentamiento global y la transición energética, la revolución tecnológica, el aumento de la desigualdad o el envejecimiento demográfico, entre otros, con repercusiones en los modos de producción, en el mercado laboral y en el desarrollo social.
+
+Pero, junto con estos desafíos globales, Andalucía requiere aminorar las brechas existentes con los promedios europeos en indicadores relevantes de la situación económica, social y medioambiental. Entre los más destacados de estos diferenciales negativos se encuentran el nivel de renta per cápita, el desequilibrio entre la demanda y la oferta de trabajo, con una elevada tasa de paro, y el fracaso educativo, medido por la tasa de abandono escolar temprano.
+
+El Ejecutivo andaluz en los últimos tres años ha tratado de revertir estas tendencias, con actuaciones para conseguir mejorar la calidad de los factores productivos regionales, con la vista puesta en posibilitar un nuevo modelo de desarrollo endógeno para nuestra Comunidad Autónoma.
+Con este propósito ha venido impulsando la incorporación de la innovación, la I+D y la asimilación de las nuevas tecnologías digitales, apostando por el emprendimiento, por la internacionalización de las empresas y la atracción de inversiones, así como mediante la diversificación del tejido productivo, reforzando al sector industrial, eliminando barreras burocráticas que dificultan la actividad y la inversión, así como reforzando la mejora de la calidad del sistema educativo y la formación para el empleo, lo que incidirá positivamente en el capital humano.
+
+Al mismo tiempo, este Gobierno durante la presente legislatura ha entendido que los desafíos medioambientales constituyen una oportunidad para la transición hacia una economía circular y baja en carbono, con el desarrollo de las energías renovables y la mejor gestión de los recursos hídricos, dado que esta transición implicará un cambio en los procesos productivos y yacimientos de empleo asociados a nuevas actividades.
+Entre las preocupaciones de esta Administración regional también siguen vigentes las vías para la reducción de los desequilibrios territoriales existentes dentro de Andalucía, las fórmulas para mejorar el marco regulatorio, la evaluación de las políticas públicas y, en definitiva, la revisión de la calidad institucional. Otro problema persistente tiene que ver con la infrafinanciación que viene sufriendo nuestra Comunidad Autónoma, en comparación con otros territorios de España, lo que dificulta la disposición de recursos públicos para acometer muchas de las actuaciones que requieren corregir estas rémoras.
+
+De acuerdo con estos planteamientos, había comenzado la elaboración de la Estrategia (ETEA) y el diagnóstico de la situación social y económica de Andalucía cuando, antes de finalizar el primer trimestre de 2020, la irrupción de la pandemia de la COVID-19 provocó, además de la luctuosa pérdida de vidas humanas, una súbita crisis, de carácter global y de enorme dimensión en términos sociales y económicos.
+El retroceso del PIB, el mayor constatado en tiempos de paz, ha obligado a la Administración de la Junta de Andalucía a priorizar las actuaciones de política económica, al objeto de sostener la economía, apoyando a las familias y respaldando la viabilidad de las empresas, destinando una gran cantidad de recursos a reforzar la capacidad y resiliencia del sistema sanitario, a través del incremento de los profesionales de la salud y de un aumento en la dotación de productos médicos y de las infraestructuras esenciales.
+
+Adicionalmente, la crisis generada por la pandemia ha agudizado algunos de los problemas preexistentes en Andalucía, planteando también algunos otros nuevos que atañen igualmente a la esfera nacional e internacional. En este sentido, la transitoriedad de los recursos adicionales destinados a paliar los efectos de la pandemia sobre la sanidad, el empleo, la educación y la inclusión social de las personas en situación de vulnerabilidad (gracias a las modificaciones de los Programas Operativos del Fondo Social Europeo que posibilita el REACT-UE) han vuelto a poner de manifiesto la escasez, en condiciones normales, de los presupuestos públicos. También se han evidenciado las deficiencias del mercado de trabajo y el grave impacto que circunstancias adversas, como la pandemia, vuelven a tener sobre los niveles de desigualdad.
+
+Precisamente, la fuerte recesión sufrida por la economía europea a causa de la pandemia hizo a la UE reaccionar con un plan de recuperación sin precedentes, los fondos NextGenerationEU, cuyo principal instrumento financiero es el Mecanismo Europeo de Recuperación y Resiliencia (MRR), y al que el Gobierno de España respondió con el Plan de Recuperación, Transformación y Resiliencia (PRTR) para poder acogerse a dichos fondos. Las inversiones que se desplegarán hasta 2023, por importe de 70.000 millones de euros, se concentrarán fundamentalmente en los ámbitos de la transformación verde y digital, la educación y formación, la I+D+i y el refuerzo de la inclusión social y la cohesión en todo el territorio nacional.
+
+El reparto de estos recursos extraordinarios no está contando con una adecuada participación de las CCAA, ya que Andalucía entiende que la distribución debe tener en cuenta aquellas regiones que presentan mayores déficits económicos y sociales estructurales, a fin de favorecer la convergencia y la corrección de los diferenciales de riqueza por habitante entre las regiones españolas.
+No obstante, el Gobierno de la Junta de Andalucía comparte que la envergadura de las transformaciones y reformas estructurales contempladas en el Plan requieren de una mayor colaboración público-privada, y de otras reformas para agilizar procedimientos y reducir cargas administrativas. En este contexto, cabe esperar que el tejido empresarial regional pueda tomar parte en los Proyectos Estratégicos para la Recuperación y Transformación Económica (PERTEs), participando en aquellas propuestas que contribuyan más claramente a la transformación económica y social de Andalucía.
+
+Al mismo tiempo, la crisis sanitaria ha propiciado cambios en los patrones de comportamiento de las empresas y de los hogares, relacionados con la mayor digitalización, que están induciendo una modificación en la prestación de servicios comerciales (compras on-line), en las relaciones laborales (teletrabajo), que requieren de un proceso de adaptación de los agentes económicos de forma rápida y eficiente para no provocar disfunciones.
+
+Por otra parte, durante el periodo de la pandemia y la recuperación posterior de la demanda global se registraron ciertas tensiones en los flujos comerciales, provocándose los denominados “cuellos de botella” en las cadenas de suministros. Aunque estos desajustes tenían en parte un componente coyuntural, las estimaciones, a finales del 2021, aproximaban que estas disrupciones en los flujos comerciales podrían provocar una reducción apreciable en la tasa de crecimiento del PIB español (entre dos y tres décimas en 2021). Mientras, para 2022 se estimaba que podrían restar entre cinco y nueve décimas, acompañado de un cierto repunte de la inflación, resultando esta afectación similar en Andalucía.
+
+En este contexto de recuperación, no exenta de dificultades tras la crisis de la COVID-19, había avanzado la elaboración de la ETEA, que ya encaraba su fase final con el trámite de información pública después de la participación y el debate de los agentes económicos y sociales, cuando irrumpió un gravísimo acontecimiento internacional: la guerra en Ucrania. Esta circunstancia inesperada explica que no esté contemplada en la parte propositiva del documento.
+
+Sin duda, la invasión rusa representa un fuerte shock global, especialmente adverso para la economía europea y con una indudable repercusión en Andalucía. En este sentido, la guerra ha supuesto un incremento significativo de la incertidumbre, un cambio en la percepción del riesgo ante un conflicto armado a mayor escala y una reformulación de prioridades para los países europeos ante un nuevo escenario geopolítico.
+Todos estos elementos están suponiendo un deterioro de la situación económica y social en nuestra región a través de varios canales. El más evidente se ha percibido ya en el encarecimiento de la energía y de otras materias primas básicas de las que Rusia y Ucrania son principales proveedores y que ya se está constatando en un incremento drástico de las tasas de inflación, hasta cotas cercanas al 10% (en el caso de Andalucía era del 9,9% en marzo de 2022).
+
+La generalización de las tensiones inflacionistas en los últimos meses, antes incluso de la guerra, a causa de la transmisión de estos mayores costes de producción -derivados del mencionado encarecimiento de las materias primas y del transporte marítimo- a los precios finales de consumo se está traduciendo en un ascenso preocupante de la inflación subyacente (3,4% en marzo de 2022). Este nivel de inflación tiene un severo impacto sobre la capacidad adquisitiva de los consumidores, sobre los costes de producción y el estrechamiento de los márgenes empresariales, y, en consecuencia, sobre el nivel de actividad económica.
+
+Desde el punto de vista de la demanda, el menor poder adquisitivo puede dañar el gasto en consumo de los hogares, a medio plazo, que disponen aún del ahorro acumulado durante la pandemia, y también supone una presión indudable a la hora de revisar los salarios pactados y las pensiones. Al mismo tiempo, el aumento de la incertidumbre y las peores expectativas empresariales frenarán la inversión.
+
+Por el lado de la oferta, la mayor parte de los sectores productivos afrontan nuevas dificultades, con unos costes más elevados, que ya habían comenzado a repuntar antes del conflicto en Ucrania. Especialmente significativo es la problemática por parte de los sectores del transporte, la construcción y el agrario. Por la significación del sector agrícola en Andalucía, conviene recordar que el incremento en los costes de producción, en materia de gasóleo agrícola, de fertilizantes, fitosanitarios o energía eléctrica, ha venido a sumarse a los efectos de la sequía.
+
+Por último, no cabe duda de que las consecuencias del conflicto bélico también condicionarán los flujos de comercio, turismo y los destinos de la inversión internacionales, ya que las necesidades de gasto militar podrían suponer menos recursos para otras actividades. Además, un eventual agravamiento de la división entre bloques podría afectar a las relaciones económicas entre China y Occidente dañando aún más las cadenas de suministro. Por todo ello, el impacto sobre la economía andaluza resulta imposible de cuantificar, pero es inevitable que la crisis generada por la guerra en Ucrania depara más inflación y menos crecimiento.
+
+En este entorno complejo y desfavorable, los márgenes de actuación de la política económica en el ámbito presupuestario son escasos para la Administración de la Junta de Andalucía. No obstante, se trata de maximizar los recursos disponibles. Un buen ejemplo de ello es la ampliación (de vigencia y recursos) del Decreto de sequía y otras medidas urgentes en apoyo a los sectores agrario y pesquero, con el objetivo de que este sector económico principal de Andalucía no vea reducida su competitividad.
+
+Asimismo, conviene subrayar que Andalucía se encuentra en una mejor posición relativa de cara a afrontar los actuales retos que se derivan del económico internacional, acorde a la mejor trayectoria mostrada por la economía regional en 2021 y en 2019 (año anterior a la pandemia), en términos de PIB, empleo, tejido empresarial y captación de inversiones del extranjero, tal y como se muestra en el capítulo 2 del Diagnóstico.
+
+En cualquier caso, en el actual contexto adverso se hace más imprescindible la consecución de las metas fijadas en la Estrategia para la Transformación Económica de Andalucía (ETEA), la implementación de las actuaciones propuestas para atender las grandes prioridades identificadas y acordadas con los agentes económicos y sociales, que logren mayores cotas de competitividad, sostenibilidad, conectividad y bienestar para los andaluces y andaluzas, optimizando las peculiaridades territoriales y mejorando la gobernanza, entendida ésta como la calidad institucional y el compromiso con un mayor protagonismo de los activos de Andalucía en las futuras dinámicas tecnológicas, energéticas y en las políticas europeas más innovadoras durante los próximos años.
+
+
+# Local Variables:
+# org-export-allow-bind-keywords: t
+# org-num-skip-footnotes: t
+# End:
