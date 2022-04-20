@@ -145,23 +145,23 @@ Por tanto, para luchar contra el cambio climático se deberán realizar actuacio
 :U::U:
 :N:     Emisiones totales y difusas: tCO_{2}eq. Emisiones RCDE: tCO_{2}.:N:
 :E::E:
-#+CAPTION: Evolución de emisiones GEI en Andalucía: totales, RCDE y difusas. 2005-2018
+#+CAPTION: Evolución de emisiones GEI en Andalucía: totales, RCDE y difusas
 [[./graficos/0201A1.pdf]]
 :END:
 
 :fig-0201A2:
 :F: Inventario Nacional de Emisiones GEI, Serie 1990-2018. Ministerio para la Transición Ecológica y el reto Demográfico y Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
-:U::U:
-:N::N:
+:U: En %.:U:
+:N: Datos a 2018:N:
 :E::E:
-#+CAPTION: Distribución emisiones GEI difusas por sector, 2018 (%). Andalucía-España
+#+CAPTION: Distribución emisiones GEI difusas por sector. Andalucía-España
 [[./graficos/0201A2.pdf]]
 :END:
 
 :fig-0201A3:
 :F: Inventario Nacional de Emisiones de GEI, Inventario Andaluz de Emisiones de GEI, Proyecciones de emisiones de GEI, Ministerio para la Transición Ecológica y el Reto Demográfico (edición 2019) y Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
 :U::U:
-:N:     (*) Se ha de tener presente que las emisiones difusas de este área son debidas fundamentalmente a las emisiones fugitivas de los combustibles líquidos y gaseosos. Las emisiones de la generación de energía eléctrica, el  refino de petróleo y otros sectores industriales intensivos en el consumo de energía no están incluidas por estar afectadas por el RCDE.:N:
+:N:  (*) Se ha de tener presente que las emisiones difusas de este área son debidas fundamentalmente a las emisiones fugitivas de los combustibles líquidos y gaseosos. Las emisiones de la generación de energía eléctrica, el  refino de petróleo y otros sectores industriales intensivos en el consumo de energía no están incluidas por estar afectadas por el RCDE.:N:
 :E::E:
 #+CAPTION: Objetivos de reducción de emisiones por área estratégica
 [[./graficos/0201A3.pdf]]
@@ -271,13 +271,13 @@ En las “Directrices Energéticas de Andalucía, Horizonte 2030” se establece
 
 Además, el programa de Mitigación de Emisiones para la Transición Energética de Andalucía, incluido en el Plan Andaluz de Acción por el Clima, se basará, entre otros, en el ahorro del consumo de energía y en el incremento de la eficiencia energética, especialmente en el transporte y la movilidad.
 
-*El consumo total de energía primaria en Andalucía ha crecido un 57,9% desde el año 1995* hasta situarse en 2019 en 19.121 ktep, el 15,2% del consumo de energía a nivel nacional. En términos de energía final, el incremento en este periodo ha sido del 51,3%, alcanzando los 13.566 ktep en 2019.
+El *consumo total de energía primaria en Andalucía había venido mostrando una cierta estabilidad en los últimos años*, si bien en 2020 registró un significativo descenso hasta los 16.238,6 ktep, representando el 14,9% del consumo de energía a nivel nacional. En términos de energía final, el comportamiento ha sido bastante similar, reduciéndose hasta los 11.774,6 ktep en 2020, si bien estas disminuciones se han visto afectadas por las restricciones a la actividad productiva durante la pandemia.
 
-Según la Agencia Andaluza de la Energía, el transporte es el principal responsable del consumo final de energía en Andalucía (39,2% del total en 2019), siendo el sector industrial el segundo máximo consumidor de energía final (31,3% del total) y el sector residencial el tercero (el 13,4%).
+De acuerdo con la información de la Agencia Andaluza de la Energía, el transporte es el principal responsable del consumo final de energía en Andalucía, con un 34,4% del total en 2020, a pesar del notable descenso observado en dicho año, siendo el sector industrial el segundo máximo consumidor de energía final (32%, aproximadamente).
 
-Por otra parte, la economía andaluza, al igual que la nacional, ha tendido a un *consumo de energía con una mayor eficiencia energética*. La intensidad energética, que mide la relación entre el consumo energético y el producto interior bruto de un país, debe tender a ser cada vez menor, es decir, se debe buscar minimizar el consumo energético a la vez que se incrementa el PIB. Desde 2005 la intensidad energética andaluza se ha reducido un 16,1% en el caso de energía primaria y un 18,1% en términos de energía final, mientras que en España ha disminuido un 25,5% y 26,0%, respectivamente.
+Por otra parte, la economía andaluza, al igual que la nacional, ha tendido a *un consumo de energía con una mayor eficiencia energética*. La intensidad energética, que mide la relación entre el consumo energético y el producto interior bruto de un país, debe tender a ser cada vez menor, es decir, se debe buscar minimizar el consumo energético a la vez que se incrementa el PIB. Desde 2005 la intensidad energética andaluza se ha reducido un 20%, tanto en el caso de energía primaria, como en términos de la energía final, mientras que en España ha disminuido un 27,6% y 28,0%, respectivamente.
 
-Si en 2000 el consumo de energía primaria por habitante en Andalucía era un 33,0% inferior al consumo de energía per cápita nacional, en 2019 esta diferencia ha pasado a ser del 14,8%.
+Sin tener en cuenta el impacto de la COVID sobre el consumo de energía, se estima que en 2019 el consumo de energía per cápita en Andalucía se situaba un 14,8% por debajo del promedio nacional, mientras esta diferencia era en 2000 del 33%.
 
 Andalucía tiene como objetivo reducir el consumo tendencial de energía primaria en el año 2030, como mínimo al 39,5%, excluyendo los usos no energéticos. Resulta, por tanto, prioritario fomentar el ahorro energético e impulsar la eficiencia energética en los siguientes ámbitos:
 
@@ -289,7 +289,7 @@ Andalucía tiene como objetivo reducir el consumo tendencial de energía primari
 
 Además de ahorrar en el consumo de energía, la mejora de la eficiencia energética puede alcanzarse mediante el progreso tecnológico y a través de la reducción de las pérdidas de energía en las redes. El consumo de energía final es igual a la diferencia entre el consumo de energía primaria y los consumos y las pérdidas sufridas en su proceso de extracción, transformación, como la generación de electricidad y refino, transporte y distribución. Por ello, para maximizar la eficiencia se necesita minimizar estas pérdidas.
 
-Si se mide *el rendimiento o la eficiencia en el consumo de energía*, a través del cociente entre el consumo de energía final y el consumo de energía primaria, se observa que en Andalucía dicho rendimiento *es inferior al alcanzado a nivel nacional* (70,9% y 72,3%, respectivamente), con valores además por debajo de los registrados en 2005 en nuestra región (72,6%).
+Si se mide *el rendimiento o la eficiencia en el consumo de energía*, a través del cociente entre el consumo de energía final y el consumo de energía primaria, se observa que en Andalucía dicho rendimiento *ha venido siendo en los últimos años inferior al alcanzado a nivel nacional* (68,4% y 70,7%, respectivamente, en el promedio del periodo 2014-2020), si bien en el último año este rendimiento en el consumo energético en Andalucía se ha igualado con la media de España, en torno al 72,5%.
 
 Para conseguir una mayor eficiencia energética es primordial la captación de inversiones industriales y empresariales que potencien el desarrollo de proyectos energéticos en Andalucía que eviten esas pérdidas. Proyectos que no solo dependan de la iniciativa pública, sino que procedan también del ámbito privado.
 
@@ -298,17 +298,17 @@ Además, se debe invertir en sistemas y aparatos para el consumidor final que co
 
 :fig-0202A1:
 :F: Agencia Andaluza de la Energía.:F:
-:U::U:
+:U: ktep:U:
 :N::N:
 :E::E:
-#+CAPTION: Evolución del Consumo Energía Primaria y Final (ktep). Andalucía
+#+CAPTION: Evolución del Consumo Energía Primaria y Final. Andalucía
 [[./graficos/0202A1.pdf]]
 :END:
 
 :fig-0202A2:
 :F: Agencia Andaluza de la Energía.:F:
 :U::U:
-:N:   Consumo de energía primaria/PIB (tep/M€ 2015).:N:
+:N: Consumo de energía primaria/PIB (tep/M€ 2015).:N:
 :E::E:
 #+CAPTION: Evolución de la intensidad energética primaria. Andalucía-España
 [[./graficos/0202A2.pdf]]
@@ -317,7 +317,7 @@ Además, se debe invertir en sistemas y aparatos para el consumidor final que co
 :fig-0202A3:
 :F: Agencia Andaluza de la Energía.:F:
 :U::U:
-:N:   Consumo de energía final/PIB (tep/M€ 2015).:N:
+:N: Consumo de energía final/PIB (tep/M€ 2015).:N:
 :E::E:
 #+CAPTION: Evolución de la intensidad energética final. Andalucía-España
 [[./graficos/0202A3.pdf]]
@@ -326,9 +326,9 @@ Además, se debe invertir en sistemas y aparatos para el consumidor final que co
 :fig-0202A4:
 :F: Agencia Andaluza de la Energía.:F:
 :U: En %.:U:
-:N::N:
+:N: Cociente del consumo de energía final frente a consumo de energía primaria.:N:
 :E::E:
-#+CAPTION: Rendimiento o eficiencia: cociente del consumo de energía final frente a consumo de energía primaria
+#+CAPTION: Rendimiento o eficiencia global del sistema
 [[./graficos/0202A4.pdf]]
 :END:
 
@@ -379,7 +379,7 @@ Además, se debe invertir en sistemas y aparatos para el consumidor final que co
 :CUSTOM_ID: intro-0202-03
 :END:
 ***** Texto                                                      :ignore:
-Una forma de evaluar a lo largo del tiempo la solidez del sistema energético en un espacio económico resulta de analizar la trayectoria de la tasa de dependencia energética, tasa que en Andalucía ha venido mostrando un progresivo y favorable perfil descendente desde hace una década. Sin embargo, aunque se han acortado las distancias con respecto a los promedios nacional y europeo, lo cierto es que la brecha persiste y que el *grado de dependencia energética exterior es mayor en Andalucía* (83% en 2018) que en España y en el conjunto de la Zona Euro (73,3% y 63,3%, respectivamente), lo que hace más vulnerable a la economía regional.
+Una forma de evaluar a lo largo del tiempo la solidez del sistema energético en un espacio económico resulta de analizar la trayectoria de la tasa de dependencia energética, tasa que en Andalucía ha venido mostrando un progresivo y favorable perfil descendente desde hace una década. Sin embargo, aunque se han acortado las distancias con respecto a los promedios nacional y europeo, lo cierto es que la brecha persiste y que *el grado de dependencia energética exterior es mayor en Andalucía* (78,2 % en 2020) que en España y en el conjunto de la UE-27 (67,9% y 57,5%, respectivamente), lo que hace más vulnerable a la economía regional.
 
 Esta situación se traduce en unas necesidades muy elevadas de importación de productos energéticos que repercuten negativamente en nuestra balanza comercial. De este modo, resulta evidente la necesidad de apostar por fuentes de energía renovables (eólica, solar, biomasa o biocarburantes, entre otras), tanto en la producción como en el consumo en Andalucía.
 
@@ -407,7 +407,7 @@ La transición verde y digital pasa tanto por una mayor utilización de las fuen
 
 Otro factor que incide en la independencia energética es el acceso o fabricación de los sistemas de almacenamiento de energía (baterías) utilizando los recursos minerales del territorio, fundamentales para compensar la falta de disponibilidad de la energía renovable debida a factores climáticos.
 
-Por otro lado, los graves efectos de las fluctuaciones en los precios de la energía, como la observada en la segunda mitad de 2021, podrían aminorarse, en parte, mediante el aprovechamiento de las posibilidades de almacenamiento estratégico subterráneo de hidrocarburos o hidrógeno en el territorio de Andalucía, que haga al sistema más robusto.
+Por otro lado, los graves efectos de las fluctuaciones en los precios de la energía, como las observadas desde la segunda mitad de 2021, podrían aminorarse, en parte, mediante el aprovechamiento de las posibilidades de almacenamiento estratégico subterráneo de hidrocarburos o hidrógeno en el territorio de Andalucía, que haga al sistema más robusto.
 
 En definitiva, resulta necesario fomentar el incremento del uso de fuentes de energía renovables, la disminución de la dependencia de los derivados de petróleo y la mejora al acceso a unos servicios energéticos asequibles y de calidad, que incrementen la calidad de vida de la población y la competitividad de las empresas.
 
@@ -799,9 +799,9 @@ El análisis sobre la disponibilidad de recursos hídricos se lleva a cabo, prin
 
 Debido al clima mediterráneo de la región y a su especial vulnerabilidad ante el cambio climático, los recursos hídricos de sus cuencas se ven afectados tanto por una marcada estacionalidad, variabilidad e irregularidad de las precipitaciones y temperaturas como por el riesgo de sufrir eventos climáticos extremos (inundaciones, largos periodos con altas temperaturas y procesos erosivos de gran magnitud, entre otros).
 
-Desde mediados de los noventa, se observa que la intensificación de los periodos de sequía ha provocado una bajada de los niveles de agua embalsada de nuestras cuencas. Los registros más bajos se han medido en los años 1994-1995, 1999-2000, 2006-2009 y 2015-2017.
+Desde mediados de los noventa, se observa que la intensificación de los periodos de sequía ha provocado una bajada de los niveles de agua embalsada de nuestras cuencas. Los registros más bajos se han medido en los años 1994-1995, 1999-2000, 2006-2009 y 2015-2017. También en 2020, muy similar y cercano en el tiempo a la baja cota de 2017.
 
-Así, en 2019, la leve recuperación del año 2018 se ha visto diluida por los *bajos niveles embalsados* debido a las escasas cantidades pluviométricas registradas, casi un 30% por debajo del valor medio de referencia para el conjunto de la región.
+Así, en 2019 y 2020, la leve recuperación del año 2018 se ha visto diluida por los bajos niveles embalsados debido a las escasas cantidades pluviométricas registradas en estos dos años, que se sitúan bastante por debajo del valor medio de referencia para el conjunto de la región.
 
 Además, se estima que solo un 24% del agua precipitada en Andalucía puede ser aprovechada.
 
@@ -819,16 +819,16 @@ Las *aguas subterráneas* contribuyen a la regulación de los desequilibrios de 
 :U::U:
 :N:  Hm^{3}. :N:
 :E::E:
-#+CAPTION: Agua embalsada en las principales demarcaciones hidrográficas en Andalucía 1994-2019
+#+CAPTION: Agua embalsada en las principales demarcaciones hidrográficas en Andalucía
 [[./graficos/0204A1.pdf]]
 :END:
 
 :fig-0204A2:
 :F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Informe de Medio Ambiente.:F:
 :U::U:
-:N: Hm^{3}. Los datos mostrados corresponden a diciembre de 2019.:N:
+:N: Hm^{3}. Los datos mostrados corresponden a diciembre de 2020.:N:
 :E::E:
-#+CAPTION: Agua embalsada y capacidad de embalse en las principales demarcaciones hidrográficas. 2019
+#+CAPTION: Agua embalsada y capacidad de embalse en las principales demarcaciones hidrográficas
 [[./graficos/0204A2.pdf]]
 :END:
 
@@ -880,23 +880,22 @@ El agua es un recurso escaso y a la vez muy valioso por lo que debe estudiarse s
 
 Se debe mejorar tanto la eficiencia física (ahorro de agua) como la *eficiencia económica (mejor uso económico del agua)*. Esta última utiliza el análisis del impacto de las políticas del agua, la asignación óptima del agua entre los distintos usos alternativos y el análisis de los proyectos de inversión (análisis coste-eficacia de las infraestructuras, capacidad óptima de los embalses, planificación en el tiempo, financiación, entre otras).
 
-Según datos de 2016, el sector más demandante de agua es el agrícola (79,5 %) seguido del uso urbano (14,4 %), el industrial (4,42 %) y otros usos (1,64 %).
+El análisis de la demanda de agua según demarcación por uso, durante el periodo 2016-2021 muestra que el sector agrícola es el más demandante de recursos hídricos, seguido del uso urbano y en menor proporción de la actividad industrial. En la demarcación del Guadalquivir el uso de la agricultura es especialmente destacado (86,7% del total), mientras en la del Tinto-Odiel-Piedras destaca la demanda del sector industrial (15,8%) y la menor significación relativa que en otras demarcaciones del consumo agrícola (64,7%).
 
 El sector agrícola muestra un gran potencial de ahorro con cambios dirigidos a producciones agrícolas basadas en especies con un bajo requerimiento hídrico y de gran valor añadido, la reutilización de aguas y el uso de herramientas de gestión (agua virtual).
 
-Por su parte, y aunque su porcentaje de uso es mucho menor, la demanda de agua de uso urbano es la más exigente en términos de calidad y con un coste de uso más elevado. Es, pues, necesario compatibilizar el derecho humano al agua con una recuperación completa de costes que garantice la sostenibilidad económica del servicio, algo perfectamente posible con una tarifación progresiva y social.
-
-El *precio del agua*, según la Directiva Marco del Agua (CE, 2000), cumple un doble objetivo: incentivar un uso eficiente del agua (instrumento económico) y a la vez servir para recuperar costes (instrumento financiero). Por tanto, dada su importancia resulta necesario un papel tutelar y supervisor por parte de las administraciones públicas.
-
-
 :fig-0204B1:
-:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible.:F:
-:U::U:
-:N::N:
+:F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Red de Información Ambiental de Andalucía.:F:
+:U: % de la demanda de agua para cada uso sobre el total.:U:
+:N: Promedio 2016-2021:N:
 :E::E:
-#+CAPTION: Distribución de los recursos hídricos en Andalucía según usos, 2016
+#+CAPTION: Demanda de agua según demarcación hidrográfica por uso
 [[./graficos/0204B1.pdf]]
 :END:
+
+Por su parte, y aunque su porcentaje de uso es mucho menor, la demanda de agua de uso urbano es la más exigente en términos de calidad y con un coste de uso más elevado. Es, pues, necesario compatibilizar el derecho humano al agua con una recuperación completa de costes que garantice la sostenibilidad económica del servicio, algo perfectamente posible con una tarifación progresiva y social.
+
+El *precio del agua*, según la Directiva Marco del Agua (CE, 2000), cumple un doble objetivo: incentivar un uso eficiente del agua (instrumento económico) y servir para recuperar costes (instrumento financiero). Por tanto, dada su importancia resulta necesario un papel tutelar y supervisor por parte de las administraciones públicas.
 
 :fig-0204B2:
 :F: Informe de Medio Ambiente, 2019.:F:
@@ -953,9 +952,9 @@ La necesidad de puesta en marcha, ampliación y mejora de un número importante 
 :fig-0204C1:
 :F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Informe de Medio Ambiente.:F:
 :U: Unidades de contaminación.:U:
-:N: BTEX: Benceno, tolueno, etilbenceno y xileno.:N:
+:N: BTEX: Benceno, tolueno, etilbenceno y xileno. Datos de 2017-2018.:N:
 :E::E:
-#+CAPTION: Carga contaminante de efluentes industriales. Años 2017-2018
+#+CAPTION: Carga contaminante de efluentes industriales
 [[./graficos/0204C1.pdf]]
 :END:
 
@@ -1043,9 +1042,10 @@ Una mención específica cabe hacer sobre la producción de los residuos peligro
 
 A lo largo de los últimos años Andalucía ha experimentado cambios significativos en su modelo de gestión de residuos peligrosos, gracias a la introducción de estrategias centradas en la prevención y reducción de la generación, sobre todo, dirigidas a los grupos de actividad con mayor peso en la producción global andaluza: la industria pesada, así como las actividades sometidas a la legislación específica en materia de prevención y control integrados de la contaminación.
 
-De acuerdo con la información de la Red de Información Ambiental de Andalucía, la *producción declarada de residuos peligrosos* ascendió a 327,6 mil toneladas en 2018, lo que *evidencia una trayectoria poco favorable* en nuestra Comunidad Autónoma.
+De acuerdo con la información de la Red de Información Ambiental de Andalucía, *la producción declarada de residuos peligrosos* ascendió a 305,9 mil toneladas en 2019 (último año disponible), lo que *evidencia una trayectoria poco favorable en nuestra Comunidad Autónoma*, si bien se redujo en comparación con el año anterior, cuando alcanzó un máximo de 327,6 mil toneladas.
 
-De hecho, en 1997 (primer año de la serie de datos disponibles), la relación entre la producción de residuos peligrosos por unidad de PIB es de 1,94 (expresado en kilogramos por cada 1.000 euros de PIB). Esta relación ha variado a lo largo de los años, siendo su valor mínimo 1,53 (en 2011) y su valor máximo 2,61 (en 2003). La media de esas cantidades para el periodo 1997-2018 es de 1,92. Pero, en 2018 se observó un repunte hasta los 2 kg/1.000 euros de PIB.
+De hecho, en 1997 (primer año de la serie de datos disponibles), la relación entre la producción de residuos peligrosos por unidad de PIB es de 1,94 (expresado en kilogramos por cada 1.000 euros de PIB). Esta relación ha variado a lo largo de los años, siendo su valor mínimo 1,53 (en 2011) y su valor máximo 2,61 (en 2003). La media de esas cantidades para el periodo 1997-2018 es de 1,92. Pero, cabe destacar que en 2019 se observó un positivo descenso hasta los 1,84/1.000 euros de PIB.
+
 
 :fig-0205A1:
 :F: Plan Integral de Residuos de Andalucía. Hacia una Economía Circular en el Horizonte 2030 (PIRec 2030).:F:
@@ -1058,10 +1058,10 @@ De hecho, en 1997 (primer año de la serie de datos disponibles), la relación e
 
 :fig-0205A2:
 :F: Consejería de Agricultura, Ganadería, Pesca y Desarrollo Sostenible. Red de Información Ambiental de Andalucía, REDIAM.:F:
-:U: kg/1.000 euros.:U:
+:U: toneladas/año. :U:
 :N::N:
 :E::E:
-#+CAPTION: Evolución de la producción declarada de residuos peligrosos en Andalucía, 1997-2018
+#+CAPTION: Evolución de la producción declarada de residuos peligrosos en Andalucía
 [[./graficos/0205A2.pdf]]
 :END:
 
@@ -1120,11 +1120,11 @@ De hecho, en 1997 (primer año de la serie de datos disponibles), la relación e
 :CUSTOM_ID: texto-0205-2
 :END:
 ***** Texto                                                      :ignore:
-Andalucía ha venido implementando un modelo de gestión de residuos municipales, tratando de obtener un máximo aprovechamiento de los recursos contenidos en los residuos generados en el espacio urbano. Sin embargo, todavía *presenta un bajo nivel de reciclaje*, ya que, en 2018 de los 4.590,6 miles de toneladas recogidas, solo un 10,8% se destinaron al reciclaje, mientras un 69,5% se gestionaron en plantas de recuperación y compostaje y un 19,7% de los residuos se trataron en vertederos, según el Informe de Medio Ambiente en Andalucía, 2019.
+Andalucía ha venido implementando un modelo de gestión de residuos municipales, tratando de obtener un máximo aprovechamiento de los recursos contenidos en los residuos generados en el espacio urbano. Sin embargo, todavía presenta un *bajo nivel de reciclaje*, ya que, en 2019 de los 4.690,5 miles de toneladas recogidas, solo un 10,8% se destinaron al reciclaje, mientras un 74,1% se gestionaron en plantas de recuperación y compostaje y un 15,1% de los residuos se trataron en vertederos controlados, según el Informe de Medio Ambiente en Andalucía, 2020.
 
 Los avances registrados en los últimos años han sido modestos, constituyendo un reto disminuir el porcentaje de residuos gestionados en vertederos, así como aumentar el reciclaje de residuos municipales. De este modo, la *cuota de residuos municipales reciclados en Andalucía estaría por debajo del promedio nacional (en torno al 35%) e inferior a los países europeos de referencia* (el 47,7% en la UE-27 y el 66,7% en Alemania), situándose lejos del objetivo europeo para 2030 de conseguir un 60%.
 
-El volumen (kg/habitante) de la recogida selectiva y reciclaje de papel-cartón, envases ligeros y vidrio en Andalucía registra en los últimos años un cierto estancamiento, con valores en 2018 significativamente por debajo de los alcanzados entre 2007 y 2008, cuando se registraron máximos en la serie observada. Si bien se ha avanzado mucho en cuanto al reciclado de envases ligeros, en el caso de los envases de vidrio, la cuota de reciclaje sobre el total de recogidos se situaba en el 39,7% en 2018, quedando todavía muy lejos del objetivo fijado del 75% para 2030, por la Directiva de envases (Directiva (UE) 2018/852 del Parlamento Europeo y del Consejo, de 30 de mayo de 2018).
+El volumen (kg/habitante) de la recogida selectiva y reciclaje de papel-cartón, envases ligeros y vidrio en Andalucía ha venido registrando en los últimos años un crecimiento modesto, si bien en 2019 (último año del que se dispone información) ha experimentado un positivo ascenso. Si bien se ha avanzado mucho en cuanto al reciclado de envases ligeros, en el caso de los envases de vidrio, la cuota de reciclaje sobre el total de recogidos queda todavía muy lejos del objetivo fijado del 75% para 2030, por la Directiva de envases (Directiva (UE) 2018/852 del Parlamento Europeo y del Consejo, de 30 de mayo de 2018).
 
 Asimismo, en Andalucía, al igual que en la mayoría de las CC.AA. españolas, apenas se aplican instrumentos económicos en la política de residuos, cuyo uso recomienda en su Anexo IV la  Directiva de residuos (Directiva (UE) 2018/851).
 
@@ -1373,7 +1373,7 @@ Por ello, *hay que atajar las principales amenazas que se ciernen hoy sobre la b
 
 Se necesita aplicar un modelo de gestión integrada capaz de favorecer en paralelo: la corresponsabilidad, la participación social y la implicación de la ciudadanía en la toma de decisiones; aspectos imprescindibles a la hora de garantizar la conservación de la biodiversidad en el marco del desarrollo sostenible de Andalucía.
 
-La evolución de las temperaturas en las ciudades andaluzas en el último siglo, según la información de la Red de Información Ambiental de Andalucía (REDIAM) evidencia que en las últimas tres décadas se ha producido un *repunte en el índice de calentamiento global*. Este indicador se elabora con los registros de tres estaciones climáticas: Córdoba, Granada y Jerez de la Frontera, que sirven de referencia al disponer de las series de datos más antiguas y prolongadas en el tiempo.
+La evolución de las temperaturas en las ciudades andaluzas en el último siglo, según la información de la Red de Información Ambiental de Andalucía (REDIAM), evidencia que en las últimas tres décadas se ha producido un *repunte en el índice de calentamiento global*. Este indicador se elabora con los registros de tres estaciones climáticas: Córdoba, Granada y Jerez de la Frontera, que sirven de referencia al disponer de las series de datos más antiguas y prolongadas en el tiempo.
 
 Otro indicador resumen de la situación medioambiental y del grado de afectación sobre la población sería *la calidad del aire*. Desde hace décadas, la protección de la atmósfera ha sido una prioridad de la política ambiental y se ha diseñado un amplio repertorio de instrumentos legales tendentes a hacer compatibles el desarrollo económico y social y la preservación de este recurso natural. Mediante estos instrumentos se han conseguido grandes mejoras en la calidad del aire, sobre todo respecto a algunos contaminantes, si bien aún existen niveles de contaminación con efectos adversos muy significativos. Un amplio diagnóstico sobre la situación de Andalucía en esta cuestión se realiza en la Estrategia Andaluza de Calidad del Aire.[fn:36]
 
@@ -1439,7 +1439,7 @@ Adicionalmente, cabría mencionar otras fuentes de contaminación, que tienen un
 
  14. Reformular la legislación autonómica en materia de contaminación acústica y lumínica posibilitando el desarrollo sostenible.
 
- 15. Investigar y fomentar el aprovechamiento de los recursos naturales mineros de forma sostenible y compatible con la conservación del medio ambiente y de la biodiversidad, estableciendo criterios y límites concretos en cada proyecto, de acuerdo a la legislación vigente y a la cooperación entre las administraciones públicas competentes.
+ 15. Investigar y fomentar el aprovechamiento de los recursos naturales mineros de forma sostenible y compatible con la conservación del medio ambiente y de la biodiversidad, estableciendo criterios y límites concretos en cada proyecto, de acuerdo con la legislación vigente y gracias a la cooperación entre las administraciones públicas competentes.
 
 {{{finactuaciones}}}
 ***** Planes                                                   :noexport:
