@@ -141,32 +141,30 @@ La *duración del desempleo* es también un problema en Andalucía ya que, en 20
 
 En relación a los *bajos de niveles de formación*, que se tratan en otros apartados con más detalle, señalar que, con carácter general, para su reducción será necesaria una formación profesional educativa y una formación profesional para el empleo en permanente evolución y adaptándose a las verdaderas necesidades formativas de los diversos sectores emergentes.
 
-
 :fig-0401A1:
 :F:  INE. Encuesta de Población Activa (EPA) y Eurostat.:F:
 :U: En %.:U:
 :N::N:
 :E::E:
-#+CAPTION: Evolución de la tasa de desempleo sobre la población activa. And-Esp-UE.
+#+CAPTION: Evolución de la tasa de desempleo sobre la población activa. Andalucía-España-UE.
 [[./graficos/0401A1.pdf]]
 :END:
 
 :fig-0401A2:
-:F:  INE. Encuesta de Población Activa (EPA).:F:
+:F: INE. Encuesta de Población Activa (EPA).:F:
 :U: En %.:U:
-:N::N:
+:N: Año 2021.:N:
 :E::E:
-#+CAPTION: Tasa de desempleo de personas menores de 25 años. Año 2020
+#+CAPTION: Tasa de desempleo de personas menores de 25 años
 [[./graficos/0401A2.pdf]]
 :END:
 
-
 :fig-0401A3:
-:F:  INE. Encuesta de Población Activa (EPA).:F:
+:F: INE. Encuesta de Población Activa (EPA).:F:
 :U: Porcentaje de asalariados con contrato temporal sobre el total de asalariados.:U:
-:N::N:
+:N: Datos par 2021.:N:
 :E::E:
-#+CAPTION: Tasa de temporalidad en el empleo. Año 2020
+#+CAPTION: Tasa de temporalidad en el empleo por CCAA
 [[./graficos/0401A3.pdf]]
 :END:
 
@@ -218,22 +216,21 @@ Se observa una baja capitalización de la *experiencia laboral* en Andalucía, a
 
 Asimismo, resulta también un problema la existencia de un sistema de cualificaciones profesionales excesivamente rígido, que no se ajusta a las actuales características de los procesos de producción.
 
-
 :fig-0401B1:
-:F:  Explotación de las variables educativas de la Encuesta de Población Activa (INE) y Eurostat.:F:
-:U::U:
-:N::N:
+:F: Explotación de las variables educativas de la Encuesta de Población Activa (INE) y Eurostat.:F:
+:U: En %.:U:
+:N: Para la población de 25-64 años. \par Datos correspondientes a 2020.:N:
 :E::E:
-#+CAPTION: Tasa de paro por nivel de formación. 2019 (% población 25-64 años)
+#+CAPTION: Tasa de paro por nivel de formación
 [[./graficos/0401B1.pdf]]
 :END:
 
 :fig-0401B2:
-:F:  Sistema Estatal de Indicadores de la Educación 2020. Ministerio de Educación y Formación Profesional.:F:
-:U::U:
-:N::N:
+:F: Sistema Estatal de Indicadores de la Educación 2021. Ministerio de Educación y Formación Profesional.:F:
+:U: En %.:U:
+:N: Datos para 2021:N:
 :E::E:
-#+CAPTION: Porcentaje de población 25 a 64 años que participa en una acción de educación o formación permanente por CCAA. 2019
+#+CAPTION: Población 25 a 64 años que participa en una acción de educación o formación permanente por CCAA
 [[./graficos/0401B2.pdf]]
 :END:
 
@@ -279,22 +276,21 @@ En este terreno, el *Servicio Andaluz de Empleo (SAE), con una limitada capacida
 
 Por ello, es necesario cambiar el modelo de gestión del SAE a partir de una visión integral y analítica del proceso de encuadramiento, orientación e intermediación, con una colaboración más estrecha y efectiva entre los servicios de empleo y los servicios sociales, utilizando la formación como una de sus principales bazas.
 
-
 :fig-0401C1:
 :F: Servicio Estatal Público de Empleo.:F:
 :U: En % sobre el total.:U:
-:N: Ceuta no se ha incluido porque es una excepción (45,9%).:N:
+:N: Datos para diciembre 2021.:N:
 :E::E:
-#+CAPTION: Colocaciones con oferta sobre el total de colocaciones por CC.AA. Diciembre 2020
+#+CAPTION: Colocaciones con oferta sobre el total de colocaciones por CCAA
 [[./graficos/0401C1.pdf]]
 :END:
 
 :fig-0401C2:
 :F: IECA. Explotación de la Encuesta de Población Activa del INE.:F:
 :U::U:
-:N: Los porcentajes no tienen que sumar cien al ser preguntas independientes.:N:
+:N: Los porcentajes no tienen que sumar cien al ser preguntas independientes. \par Datos de 2020.:N:
 :E::E:
-#+CAPTION: Método de búsqueda de empleo según demandantes de empleo en Andalucía. Año 2020
+#+CAPTION: Método de búsqueda de empleo según demandantes de empleo en Andalucía
 [[./graficos/0401C2.pdf]]
 :END:
 
@@ -341,10 +337,9 @@ Para ello resulta indispensable potenciar la *prevención de riesgos laborales*,
 
 El *diálogo social y la negociación colectiva* son los instrumentos fundamentales para mejorar las condiciones laborales, ya que reportan beneficios sobre la calidad del empleo, la mejora de las condiciones de trabajo, la mediación y el arbitraje, la igualdad de las personas trabajadoras y la conciliación de la vida personal, familiar y laboral.
 
-
 :fig-0401D1:
 :F: Ministerio de Trabajo y Economía Social.:F:
-:U:   Nº de accidentes durante la jornada (no incluye los desplazamientos “in itinere”).:U:
+:U: Nº de accidentes durante la jornada (no incluye los desplazamientos “in itinere”).:U:
 :N::N:
 :E::E:
 #+CAPTION: Accidentes de trabajo con resultado de baja laboral en Andalucía
@@ -354,9 +349,9 @@ El *diálogo social y la negociación colectiva* son los instrumentos fundamenta
 :fig-0401D2:
 :F: Ministerio de Trabajo y Economía Social.:F:
 :U::U:
-:N::N:
+:N: Año 2021 (datos provisionales).:N:
 :E::E:
-#+CAPTION: Accidentes de trabajo con baja, en jornada e in itinere, según gravedad, por Comunidad Autónoma, 2019
+#+CAPTION: Accidentes de trabajo con baja, en jornada e in itinere, según gravedad, por Comunidad Autónoma
 [[./graficos/0401D2.pdf]]
 :END:
 
@@ -446,22 +441,21 @@ De hecho, según datos de la Consejería de Educación y Deporte, del total de m
 
 Además, del total de titulaciones en ESO obtenidas en nuestra comunidad el 13,1% en 2019/20 y el 11,8% en 2020/21 son obtenidas gracias a la segunda oportunidad que ofrecen las enseñanzas para personas adultas.
 
-
 :fig-0402A1:
-:F:  Instituto de Estadística y Cartografía de Andalucía (Encuesta de Población Activa en Andalucía) y Eurostat.:F:
+:F:  Mº de Educación y Formación Profesional (Datos de la explotación de las variables educativas de la EPA) y Eurostat.:F:
 :U::U:
-:N::N:
+:N: No se han publicado los resultados de la UE para 2021.:N:
 :E::E:
-#+CAPTION: Evolución de las tasas de abandono escolar temprano. Ratio de Andalucía-España-UE.
+#+CAPTION: Evolución de las tasas de abandono escolar temprano sobre la población total de 18 a 24 años
 [[./graficos/0402A1.pdf]]
 :END:
 
 :fig-0402A2:
-:F:  Instituto de Estadística y Cartografía de Andalucía (Encuesta de Población Activa en Andalucía).:F:
-:U::U:
-:N::N:
+:F:  Mº de Educación y Formación Profesional (Datos de la explotación de las variables educativas de la EPA).:F:
+:U: En %.:U:
+:N: Definición de Abandono temprano de la educación y la formación: Porcentaje de la población de 18 a 24 años que no ha completado el nivel de Educación Secundadria 2ª etapa y no sigue ningún tipo de educación-formación. \par Datos correspondientes a 2021.:N:
 :E::E:
-#+CAPTION: Tasa de abandono escolar temprano por CCAA y sexo. Año 2019.
+#+CAPTION: Tasa de abandono escolar temprano por CCAA y género
 [[./graficos/0402A2.pdf]]
 :END:
 
@@ -516,7 +510,6 @@ Preocupa también la *elevada proporción de jóvenes entre 18 y 24 años que es
 
 La demanda de una educación de calidad puede implicar unos costes elevados por alumno. En 2018 el gasto medio por alumno en España en centros públicos era de 5.968 euros, lo que supone un 23,2% del PIB por habitante, siendo el gasto en Andalucía de 5.210 euros, lo que representa un 27,3% del PIB por habitante regional.
 
-
 :fig-0402B1:
 :F:  Informe PISA, 2018. Ministerio de Educación y Formación Profesional.:F:
 :U::U:
@@ -527,11 +520,11 @@ La demanda de una educación de calidad puede implicar unos costes elevados por 
 :END:
 
 :fig-0402B2:
-:F:  INE (Encuesta de Población Activa) y Eurostat.:F:
-:U::U:
-:N::N:
+:F: Mº de Educación y Formación Profesional (Datos de la explotación de las variables educativas de la EPA y de Eurostat).:F:
+:U: % de población de 15 a 34 años.:U:
+:N: No se han publicado los resultados de la UE-27 para 2021.:N:
 :E::E:
-#+CAPTION: Población joven que ni estudia ni trabaja. And-Esp-UE (% de población de 18 a 24 años)
+#+CAPTION: Población joven que ni estudia ni trabaja. And-Esp-UE
 [[./graficos/0402B2.pdf]]
 :END:
 
@@ -578,11 +571,11 @@ Las innovaciones tecnológicas, la progresiva automatización de los procesos pr
 En la mayoría de los países europeos, entre ellos Alemania, Francia, Austria o Reino Unido, la mayor parte de la población tiene un nivel intermedio de cualificación. Sin embargo, como se ha comentado, España y Andalucía constituyen excepciones a este modelo, teniendo un esquema de formación de la población polarizado, con una combinación de cualificaciones bajas y superiores. En concreto, en 2019, en España el 38,7% de la población entre 25 y 64 años ha completado como máximo hasta la enseñanza secundaria obligatoria (ESO), porcentaje que se eleva hasta el 47,8% en el caso de Andalucía. La población de dicha edad con estudios superiores supone el 38,6% del total en España, peso superior a la media europea (31,6%), que es similar al nivel en Andalucía (31,2%). Mientras, en el estrato de población con formación intermedia, es decir, bachillerato y formación profesional de grado medio, se concentra por debajo de la cuarta parte. Concretamente, un 22,7% en España y un 21,0% en Andalucía, es decir, ratios muy inferiores a la media de la UE (46,8 %).
 
 :fig-0402C1:
-:F:  Eurostat y Ministerio de Educación y Formación Profesional.:F:
-:U::U:
-:N::N:
+:F: Ministerio de Educación y Formación Profesional (Datos de la explotación de las variables educativas de la EPA y de Eurostat).:F:
+:U: En %.:U:
+:N: Para la población de 25 a 64 años. Datos par 2021.:N:
 :E::E:
-#+CAPTION: Distribución de la población (25-64 años) según nivel de formación. 2019
+#+CAPTION: Distribución de la población según nivel de formación
 [[./graficos/0402C1.pdf]]
 :END:
 
@@ -597,11 +590,11 @@ La administración andaluza debe tratar de mejorar la correspondencia entre la f
 Además, en coordinación con el Gobierno central, y con el resto de Comunidades Autónomas, así como con los interlocutores sociales y otras partes interesadas, se debe ir avanzando en el desarrollo y actualización del sistema de formación profesional dual (así como de los títulos de enseñanzas profesionales de artes plásticas y diseño) en Andalucía, cumpliendo con los estándares clave de la formación profesional dual señalados por la OCDE.
 
 :fig-0402C2:
-:F:  Sistema Estatal de Indicadores de la Educación 2020. Ministerio de Educación y Formación Profesional.:F:
-:U::U:
-:N: La tasa bruta de titulación en una enseñanza se define como la relación entre el alumnado que termina, independientemente de su edad, y el total de la población de la “edad teórica” de comienzo del último curso de esa enseñanza.:N:
+:F: Estadística de las Enseñanzas no universitarias. Ministerio de Educación y Formación Profesional.:F:
+:U: En %.:U:
+:N: La tasa bruta de titulación en una enseñanza se define como la relación entre el alumnado que termina, independientemente de su edad, y el total de la población de la “edad teórica” de comienzo del último curso de esa enseñanza.\par Datos para el curso 2019-2020:N:
 :E::E:
-#+CAPTION: Tasa bruta de titulación en Ciclos Formativos, por comunidad autónoma. Curso 2017-18
+#+CAPTION: Tasa bruta de titulación en Ciclos Formativos de Grado Superior por CCAA
 [[./graficos/0402C2.pdf]]
 :END:
 
@@ -651,20 +644,20 @@ Entre los recursos humanos del sistema educativo, el personal dedicado al alumna
 La demanda de una educación de calidad requiere de unos recursos económicos elevados por alumno. Así, en 2017 el gasto medio por alumno en España en centros públicos fue de 5.779 euros, siendo el gasto en Andalucía de 5.077 euros.
 
 :fig-0402D1:
-:F:  Sistema Estatal de Indicadores de la Educación 2020. Ministerio de Educación y Formación Profesional.:F:
+:F: Estadística del Gasto Público en Educación. Ministerio de Educación y Formación Profesional.:F:
 :U: Euros.:U:
-:N::N:
+:N: Datos correspondientes a 2018. Sistema estatal de indicadores de la educación, 2021.:N:
 :E::E:
-#+CAPTION: Gasto público por alumno en centros públicos. Enseñanza no universitaria. Año 2017
+#+CAPTION: Gasto público por alumno en centros públicos. Enseñanza no universitaria
 [[./graficos/0402D1.pdf]]
 :END:
 
 :fig-0402D2:
-:F:  Sistema Estatal de Indicadores de la Educación 2020. Ministerio de Educación y Formación Profesional.:F:
+:F:  Sistema Estatal de Indicadores de la Educación 2021. Ministerio de Educación y Formación Profesional.:F:
 :U::U:
-:N::N:
+:N: Curso 2018-2019:N:
 :E::E:
-#+CAPTION: Número medio de alumnos por profesor en equivalente a tiempo completo en centros de enseñanza de Régimen General no universitarias por CCAA. Curso 2017-18.
+#+CAPTION: Número medio de alumnos por profesor en equivalente a tiempo completo en centros de enseñanza de Régimen General no universitarias por CCAA
 [[./graficos/0402D2.pdf]]
 :END:
 
@@ -756,11 +749,11 @@ Extender el Sistema de Protección Social a todas las personas vulnerables, actu
 La magnitud de la desigualdad y el riesgo de exclusión social en Andalucía se ven reflejados con claridad en los últimos datos de la Encuesta de Condiciones de Vida (ECV) del INE. *La tasa de riesgo de pobreza o exclusión social* (indicador AROPE /“At Risk Of Poverty and/or Exclusion”[fn:35]/) en Andalucía muestra en la comparativa con España y la UE que, a pesar de la reducción de la pobreza andaluza, el nivel de población bajo estos umbrales de pobreza y marginalidad *se mantiene por encima de los niveles anteriores a la crisis de 2008-2013*. En concreto, la proporción de personas en riesgo de pobreza, que constituye una medida de pobreza relativa, era en Andalucía del 27,8% en 2019. Esta proporción resulta preocupante, aunque se haya reducido respecto al nivel de 2014 (cuando alcanzó el máximo del 33,7%). Por su parte, en España este porcentaje es del 25,3%, por encima de la media de la UE (20,9%). Las mayores diferencias entre hombres y mujeres se encuentran en el grupo de personas con 65 años o más, que es además el grupo con más alta tasa de pobreza, la cual afecta al 31,8% de mujeres mayores, frente al 26,7% de los hombres.
 
 :fig-0403A1:
-:F:  Eurostat, INE  e IECA (Encuesta de Condiciones de Vida).:F:
-:U::U:
-:N: Andalucía: calculado según umbral de pobreza andaluz. Datos 2008 a 2012 con base 2004. Datos 2013 a 2019 con base 2013.\par España: Indicador AROPE \par UE-27: Desde 2014, con datos de 2020.:N:
+:F: Eurostat, INE  e IECA (Encuesta de Condiciones de Vida).:F:
+:U: En %.:U:
+:N::N:
 :E::E:
-#+CAPTION: Tasa de riesgo de pobreza o exclusión social. Andalucía-España-UE
+#+CAPTION: Proporción de personas en riesgo de pobreza relativa, considerando el umbral nacional de pobreza
 [[./graficos/0403A1.pdf]]
 :END:
 
@@ -772,10 +765,10 @@ Sin duda, el incremento de la proporción de hogares en situación de vulnerabil
 
 :fig-0403A2:
 :F: INE (Encuesta de Condiciones de Vida).:F:
-:U::U:
+:U:% de hogares.:U:
 :N::N:
 :E::E:
-#+CAPTION: Porcentaje de hogares con dificultades para llegar a fin de mes. Andalucía-España
+#+CAPTION: Proporción de hogares con dificultad para llegar a fin de mes
 [[./graficos/0403A2.pdf]]
 :END:
 
@@ -816,13 +809,13 @@ Según la Estrategia Regional Andaluza para la Cohesión e Inclusión Social (ER
 
 Las Zonas Desfavorecidas en Andalucía concentran casi el 25% de la vivienda en edificios en estado ruinoso, malo o deficiente de la región y en ellas residen casi el 17,4% de la población sin estudios o analfabeta y solo el 6,4% de la población universitaria. Otros indicadores que caracterizan a estas zonas son el porcentaje de población inmigrante y el de personas perceptoras del Ingreso Mínimo de Solidaridad. En ambos casos, en las Zonas Desfavorecidas se registra más del 20% del total regional.
 
-:fig-0403D1:
+:fig-0403B1:
 :F:  Estrategia Regional Andaluza para la Cohesión e Inclusión Social (ERACIS). Consejería de Igualdad, Políticas Sociales y Conciliación. Publicado en 2018.:F:
 :U::U:
 :N::N:
 :E::E:
 #+CAPTION: Participación de las Zonas Desfavorecidas en el total de Andalucía de cada indicador (%)
-[[./graficos/0403D1.pdf]]
+[[./graficos/0403B1.pdf]]
 :END:
 
 Por otro lado, distintas fuentes de información estadística (atendiendo a la Encuesta de Condiciones de Vida del INE, así como a las metodologías de Eurostat y Naciones Unidas) sobre las personas que viven en hogares con carencias materiales severas y están bajo el umbral de riesgo de pobreza, muestran que *las mujeres sufren esta situación en mayor proporción que los hombres* en Andalucía y que este diferencial también se observa en España y la UE, incluso después de que las personas reciban transferencias sociales.
@@ -831,13 +824,13 @@ En las primeras etapas de la vida se pueden acumular desigualdades sociales que 
 
 El porcentaje de *población que tiene alguna discapacidad* es superior en Andalucía que en España. Además, no todos ellos tienen el reconocimiento del grado de discapacidad, necesario para recibir las ayudas existentes. A 31 de diciembre de 2020 había en Andalucía 570.506 personas con discapacidad reconocida con grado igual o superior al 33%, el 6,7% de la población andaluza en 2020, existiendo una ligera mayoría de hombres (17.760 más).
 
-:fig-0403D2:
+:fig-0403B2:
 :F:  Sistema Integrado de Servicios Sociales. Consejería de Igualdad, Políticas Sociales y Conciliación.:F:
 :U::U:
 :N: 31 de diciembre de 2020.:N:
 :E::E:
 #+CAPTION: Número de personas reconocidas por los centros de Valoración y Orientación de Andalucía con un grado de discapacidad igual o superior al 33%
-[[./graficos/0403D2.pdf]]
+[[./graficos/0403B2.pdf]]
 :END:
 
 Se necesitan actuaciones para prevenir las causas y para promover la autonomía personal (al menos la mitad de las personas con discapacidad en Andalucía tienen dificultades de movilidad en las vías públicas), la participación social, la calidad de vida y la no discriminación de este colectivo.
@@ -854,24 +847,24 @@ A fecha 1 de julio de 2020, el total de *pensiones contributivas* del sistema de
 
 Respecto a las *pensiones no contributivas*, en Andalucía hay 100.462 personas beneficiarias. La mayoría corresponden a la modalidad de jubilación con 55.070 personas beneficiarias, de las cuales el 78,9% corresponden a mujeres, seguida de las pensiones de invalidez que ascienden a 45.392.
 
-:fig-0403C1:
+:fig-0403B3:
 :F:  Dirección General de Personas Mayores y Pensiones no contributivas. Consejería de Igualdad, Políticas Sociales y Conciliación.:F:
 :U::U:
 :N: (1) Prestaciones Sociales para Personas con Discapacidad (PSPD), antes denominado Ley de Integración Social de Minusválidos (LISMI) \par (2) Fondo de Asistencia Social.:N:
 :E::E:
 #+CAPTION: Personas que reciben Prestaciones sociales en Andalucía por sexo. 2019
-[[./graficos/0403C1.pdf]]
+[[./graficos/0403B3.pdf]]
 :END:
 
 Son importantes también las *prestaciones por desempleo*, siendo Andalucía la región con mayor número de beneficiarios (733.460 en 2020), lo que representa el 24,7% del total nacional. Por sexo, en nuestra región el 53,2% de los beneficiarios son mujeres. Distinguiendo por tipo, las prestaciones por desempleo más numerosas son las contributivas (329.620) y los subsidios por desempleo (207.534).
 
-:fig-0403C2:
+:fig-0403B4:
 :F: Servicio Público de Empleo Estatal (SEPE).:F:
-:U::U:
-:N::N:
+:U: Número de personas beneficiarias:U:
+:N: Datos del promedio enero-diciembre de 2021.:N:
 :E::E:
-#+CAPTION: Beneficiarios de Prestaciones por Desempleo por CCAA. Media 2020.
-[[./graficos/0403C2.pdf]]
+#+CAPTION: Beneficiarios de Prestaciones por Desempleo por CCAA
+[[./graficos/0403B4.pdf]]
 :END:
 
 Por su parte, el ingreso mínimo vital, que es una *prestación que garantiza un nivel mínimo de renta* a quienes se encuentren en situación de vulnerabilidad económica, se ha puesto en marcha en septiembre de 2020 y se espera que llegue a 850.000 hogares en riesgo de pobreza a nivel nacional. Esta prestación de ámbito estatal se complementa con la Renta Mínima de Inserción Social de Andalucía (RMISA) de las que se concidieron 35.711 en 2020.
@@ -944,13 +937,13 @@ A partir de datos de la Encuesta sobre Discapacidad, Autonomía personal y situa
 
 Estas discapacidades o limitaciones van acompañadas de dependencia para 424.921 personas (415.667 de 6 y más años y 9.254 menores de esa edad), de manera que puede estimarse la población andaluza en situación de dependencia en el 5,3%. Dicho de otra forma, seis de cada diez personas con discapacidad son dependientes (58,6%).
 
-:fig-0403B0:
+:fig-0403C1:
 :F:  Estudio “Discapacidad y dependencia en Andalucía” IECA. 2012.:F:
 :U::U:
 :N: Datos referidos a 2008.:N:
 :E::E:
 #+CAPTION: Significación de las personas en situación de dependencia respecto al total de población con discapacidad y su distribución por edad en Andalucía
-[[./graficos/0403B0.pdf]]
+[[./graficos/0403C1.pdf]]
 :END:
 
 Con la información estadística disponible, puede aproximarse que un 63% de las personas en situación de dependencia en Andalucía son mayores de 65 años. Cabe esperar que, acorde con la tendencia hacia el envejecimiento de la pirámide demográfica, esta proporción haya aumentado en los últimos años y continúe haciéndolo según los escenarios de proyecciones de población a medio plazo, lo que supone que al menos dos de cada tres personas dependientes sean mayores de 65 años. De este modo, aunque las circunstancias de dependencia y vejez son independientes, conviene tener presente que el colectivo de personas mayores puede verse especialmente afectado por condiciones de dependencia.
@@ -979,31 +972,31 @@ Hay una necesidad de profundizar en el análisis del maltrato (tanto en el ámbi
 
 El Servicio de Asistencia a las Víctimas de Andalucía (SAVA) abre anualmente alrededor de 6.500 expedientes de víctimas de delitos, de las cuales en el 85% aproximadamente de los casos, la víctima es una mujer. Del total de víctimas, cada año entre 200 y 220 tienen más de 64 años (253 personas mayores de 64 años atendidas en 2018). Otro dato importante son las 2.257 llamadas en el Teléfono de Atención a las Personas Mayores atendidas en 2018, de las cuales el 48,2% son para denunciar situaciones de riesgo de maltrato o abandono.
 
-:fig-0403B1:
+:fig-0403C2:
 :F:  Sistema de Información del Sistema para la Autonomía y Atención a la Dependencia. Consejería de Igualdad, Políticas Sociales y Conciliación.:F:
 :U::U:
 :N::N:
 :E::E:
 #+CAPTION: Personas reconocidas en situación de dependencia y prestación reconocida en Andalucía (julio 2020)
-[[./graficos/0403B1.pdf]]
+[[./graficos/0403C2.pdf]]
 :END:
 
-:fig-0403B2:
+:fig-0403C3:
 :F:   IMSERSO.:F:
 :U::U:
-:N: Porcentaje de personas pendientes de recibir prestación en relación al número total de personas beneficiarias con derecho a prestación.:N:
+:N: Porcentaje de personas pendientes de recibir prestación en relación al número total de personas beneficiarias con derecho a prestación, en cada Comunidad Autónoma, según el Sistema para la Autonomía y Atención a la Dependencia (SAAD).\par A 31 de diciembre de 2021.:N:
 :E::E:
-#+CAPTION: Porcentaje de personas pendientes de recibir prestación del Sistema de Autonomía y Atención a la Dependencia a 31 de diciembre de 2020
-[[./graficos/0403B2.pdf]]
+#+CAPTION: Proporción de personas pendientes de recibir prestación del Sistema de Autonomía y Atención a la Dependencia
+[[./graficos/0403C3.pdf]]
 :END:
 
-:fig-0403B3:
-:F:  Encuesta Continua de Hogares (INE).:F:
-:U::U:
-:N: Miles de hogares.:N:
+:fig-0403C4:
+:F:  INE (Encuesta Continua de Hogares).:F:
+:U: En %.:U:
+:N: Datos correspondientes a 2020:N:
 :E::E:
-#+CAPTION: Número de hogares unipersonales de 65 años o más. 2019
-[[./graficos/0403B3.pdf]]
+#+CAPTION: Proporción de hogares unipersonales con personas mayores de 65 años
+[[./graficos/0403C4.pdf]]
 :END:
 
 ***** Actuaciones
@@ -1104,9 +1097,9 @@ Este exceso de demanda de servicios sanitarios debido a la crisis del coronaviru
 :fig-0404A1:
 :F: Sistema de Información de Atención Especializada (SIAE). Consejería de Salud y Familias.:F:
 :U::U:
-:N::N:
+:N: Año 2020.:N:
 :E::E:
-#+CAPTION: Hospitales según dependencia funcional por provincia. 2019
+#+CAPTION: Hospitales según dependencia funcional por provincia
 [[./graficos/0404A1.pdf]]
 :END:
 
@@ -1193,17 +1186,8 @@ Para todo ello *es imprescindible la generación del conocimiento y la implantac
 :U::U:
 :N::N:
 :E::E:
-#+CAPTION: Esperanza de vida (EV) y Esperanza de Vida en Buena Salud (EVBS) al nacer, según CCAA. 2007 y 2017.
+#+CAPTION: Esperanza de vida (EV) y Esperanza de Vida en Buena Salud (EVBS) al nacer, según CCAA
 [[./graficos/0404B1.pdf]]
-:END:
-
-:fig-0404B2:
-:F: Encuesta de Discapacidad, Autonomía Personal y Situaciones de Dependencia 2008. INE.:F:
-:U: Tasa por 1.000 habitantes.:U:
-:N::N:
-:E::E:
-#+CAPTION: Tasa de población con discapacidad por sexo. Andalucía-España. 2008.
-[[./graficos/0404B2.pdf]]
 :END:
 
 ***** Actuaciones
@@ -1348,7 +1332,7 @@ Rehabilitar el parque residencial existente en Andalucía.
 
 Los niveles salariales, las condiciones laborales y los requisitos para acceder al crédito hipotecario han hecho que exista un considerable volumen de población que encuentra serias *dificultades para acceder a una vivienda*, especialmente en un contexto en el que se ha producido un ascenso de los precios de venta y, sobre todo, del alquiler.
 
-Los colectivos más afectados son las personas jóvenes, aquellas en riesgo de exclusión social, las personas mayores o con discapacidad, las mujeres embarazadas sin recursos, las víctimas de violencia de género, las familias numerosas, las que se encuentren en riesgo de desahucio y los jóvenes extutelados por la Junta de Andalucía.
+Los colectivos más afectados son las personas jóvenes, aquellas en riesgo de exclusión social, las personas mayores o con discapacidad, las mujeres embarazadas sin recursos, las víctimas de violencia de género, las familias numerosas, las que se encuentren en riesgo de desahucio y los jóvenes extutelados por la Adminstración de la Junta de Andalucía.
 
 *La vivienda protegida de nueva construcción se ha situado en mínimos históricos* en la segunda mitad de 2018, descendiendo aún más en 2019, no terminándose ninguna vivienda protegida en Andalucía en 2020. Sin embargo, se han construido 17.226 viviendas libres en 2020, la cifra más alta en la última década.
 
@@ -1358,32 +1342,41 @@ Según los datos de la Encuesta Continua de Hogares del Boletín Especial Alquil
 
 Especial dificultad para el acceso a una vivienda lo tienen las personas que han perdido aquella en la que residían debido a un procedimiento de ejecución hipotecaria o por falta de pago de las rentas de alquiler. Los procesos de ejecución hipotecaria reflejan una evolución decreciente, representando en el tercer trimestre de 2019 un 25% menos que en el mismo período de 2018 (26% menos a nivel nacional). No obstante, los afectados por *desahucio* por impago del alquiler aumentan en 2018 un 8,1% respecto al año anterior (1,16% en el tercer trimestre de 2019), situaciones que se verán agravadas por la crisis económica generada por la COVID-19.
 
-
 :fig-0405A1:
-:F: Instituto de Estadística y Cartografía. Anuario Estadístico de Andalucía.:F:
+:F: IECA y Ministerio de Transportes, Movilidad y Agenda Urbana.:F:
 :U::U:
-:N: Año 2020.:N:
+:N: Año 2021.:N:
 :E::E:
 #+CAPTION: Viviendas de nueva construcción iniciadas y terminadas según régimen por provincia. Andalucía
 [[./graficos/0405A1.pdf]]
 :END:
 
 :fig-0405A2:
-:F:  Consejería de Fomento, Infraestructuras y Ordenación del Territorio - Ministerio de Transportes, Movilidad y Agenda Urbana.:F:
+:F:  IECA y Ministerio de Transportes, Movilidad y Agenda Urbana.:F:
 :U::U:
-:N: En las viviendas protegidas terminadas se contabilizan las calificaciones definitivas.:N:
+:N::N:
 :E::E:
-#+CAPTION: Evolución de viviendas de nueva construcción terminadas según régimen en Andalucía
+#+CAPTION: Evolución del número de viviendas de nueva construcción terminadas según régimen en Andalucía
 [[./graficos/0405A2.pdf]]
 :END:
 
 :fig-0405A3:
-:F: INE. Encuesta de Condiciones de Vida.:F:
+:F: Ministerio de Transportes, Movilidad y Agenda Urbana.:F:
 :U::U:
+:N: La calificación de vivienda protegida es provisional, atendiendo a los planes estatales y planes autonómicos.:N:
+:E::E:
+#+CAPTION: Evolución del número de viviendas iniciadas en Andalucía
+[[./graficos/0405A3.pdf]]
+:END:
+
+
+:fig-0405A4:
+:F: INE (Encuesta de Condiciones de Vida).:F:
+:U: En % del total de hogares.:U:
 :N::N:
 :E::E:
-#+CAPTION: Evolución de los hogares en régimen de alquiler y cesión (% hogares).
-[[./graficos/0405A3.pdf]]
+#+CAPTION: Proporción de hogares en régimen de alquiler a precio inferior al de mercado y viviendas cedidas
+[[./graficos/0405A4.pdf]]
 :END:
 
 ***** Actuaciones
@@ -1437,7 +1430,7 @@ Especial dificultad para el acceso a una vivienda lo tienen las personas que han
 :CUSTOM_ID: intro-0405-02
 :END:
 
-Andalucía cuenta con un amplio Parque Público de Viviendas, titularidad de la Junta de Andalucía y gestionado por la Agencia de Vivienda y Rehabilitación de Andalucía (AVRA), muy heterogéneo, con una gran dispersión geográfica y destinado a cubrir las necesidades de habitabilidad a precio asequible de la población andaluza con menores recursos económicos.
+Andalucía cuenta con un amplio Parque Público de Viviendas, titularidad de la Adminstración de la Junta de Andalucía y gestionado por la Agencia de Vivienda y Rehabilitación de Andalucía (AVRA), muy heterogéneo, con una gran dispersión geográfica y destinado a cubrir las necesidades de habitabilidad a precio asequible de la población andaluza con menores recursos económicos.
 
 Actualmente está compuesto por 74.956 viviendas (49.211 en régimen de arrendamiento y 25.745 en compraventa) y aloja a más de 300.000 personas en más de 500 municipios del territorio andaluz, según datos de la Consejería de Fomento, Infraestructuras y Ordenación del Territorio.
 
@@ -1457,23 +1450,13 @@ Además, y teniendo en cuenta los objetivos planteados en la Agenda Urbana de An
 
 Se denomina *infravivienda* a aquella edificación existente en la que concurran graves deficiencias en sus condiciones de funcionalidad, seguridad y habitabilidad, respecto a los requisitos mínimos exigibles, o en las que las unidades familiares residentes tengan condiciones socio-económicas desfavorables. En este caso, el objetivo debe ser minimizar el número de infraviviendas.
 
-
 :fig-0405B1:
-:F: INE. Encuesta de Condiciones de Vida.:F:
-:U: % de hogares.:U:
+:F: INE (Encuesta de Condiciones de Vida).:F:
+:U: Datos en %.:U:
 :N::N:
 :E::E:
-#+CAPTION: Hogares que sufren determinados problemas en la vivienda y su entorno por comunidades autónomas. Año 2019
+#+CAPTION: Hogares que sufren determinados problemas en la vivienda y su entorno: Comparativa Andalucía-España
 [[./graficos/0405B1.pdf]]
-:END:
-
-:fig-0405B2:
-:F:  Instituto de Estadística y Cartografía de Andalucía.:F:
-:U::U:
-:N: Datos  de 2009 y 2010 calculados con el Censo de 2001. Datos a partir de 2011 calculados con el Censo de 2011.:N:
-:E::E:
-#+CAPTION: Actuaciones protegidas sobre la vivienda en ciudades mayores de 10.000 habitantes en Andalucía, 2002-2018
-[[./graficos/0405B2.pdf]]
 :END:
 
 ***** Actuaciones

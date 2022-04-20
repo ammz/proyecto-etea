@@ -439,7 +439,7 @@ La conectividad de los territorios rurales, preferentemente con cobertura de ban
 
 1. Elaborar Planes de Movilidad Urbana Sostenible (PMUS) en las ciudades y áreas conurbanas de Andalucía, al menos en las clasificadas como ciudades medias o centros regionales.
 
-2. Impulsar el monitoreo continuo del territorio a través de diagnósticos e informes sobre la situación del territorio y escenarios prospectivos. Para su financiación se emplearán las actuales convocatorias competitivas de la Junta de Andalucía, como las de la Agencia Andaluza del Conocimiento o las de la Fundación Centro de Estudios Andaluces.
+2. Impulsar el monitoreo continuo del territorio a través de diagnósticos e informes sobre la situación del territorio y escenarios prospectivos. Para su financiación se emplearán las actuales convocatorias competitivas de la Adminstración de la Junta de Andalucía, como las de la Agencia Andaluza del Conocimiento o las de la Fundación Centro de Estudios Andaluces.
 
 3. Impulsar el desarrollo local integral en el ámbito rural, en línea con las propuestas del nuevo marco de la política europea para el desarrollo rural, que contribuyan a la dotación de equipamientos y la calidad de los servicios.
 
@@ -491,7 +491,7 @@ Adoptar el enfoque de un desarrollo integrado, endógeno y sostenible de las zon
 :CUSTOM_ID: texto-0503-01
 :END:
 
-En las últimas décadas, todas las áreas subregionales, comarcas y municipios, en general, que componen Andalucía han observado una mejora en el desarrollo económico y social. No obstante, las distintas políticas públicas de la Junta de Andalucía, tanto sus actuaciones de carácter general, como sus instrumentos focalizados en determinados territorios (por ejemplo, el desarrollo rural a través de los Grupos de Desarrollo Rural/Iniciativa Leader, las Iniciativas Turísticas Sostenibles/ITS, o las Inversiones Territoriales Integradas, concretamente las ITIs de Cádiz y Jaén) *no han conseguido lograr una equidad territorial satisfactoria.*
+En las últimas décadas, todas las áreas subregionales, comarcas y municipios, en general, que componen Andalucía han observado una mejora en el desarrollo económico y social. No obstante, las distintas políticas públicas de la Adminstración de la Junta de Andalucía, tanto sus actuaciones de carácter general, como sus instrumentos focalizados en determinados territorios (por ejemplo, el desarrollo rural a través de los Grupos de Desarrollo Rural/Iniciativa Leader, las Iniciativas Turísticas Sostenibles/ITS, o las Inversiones Territoriales Integradas, concretamente las ITIs de Cádiz y Jaén) *no han conseguido lograr una equidad territorial satisfactoria.*
 
 Sin perjuicio de otras razones, esta situación es también consecuencia de que los instrumentos de atención focalizada en determinados territorios, promovidos desde la política económica regional y la política de ordenación del territorio, no han tenido, en ocasiones, una implementación suficiente. También han sido muy escasas *las estrategias de desarrollo territorial en la escala intermedia[fn:15]*, impulsadas desde abajo en el marco de la cooperación intermunicipal y orientadas al desarrollo económico, la innovación y la mejora de competitividad.
 
@@ -505,7 +505,7 @@ El POTA preveía el desarrollo de instrumentos para el seguimiento y evaluación
 
 Adicionalmente, conviene señalar *el limitado recorrido de la Estrategia del Paisaje de Andalucía*, a pesar de que la excelencia paisajística, en términos de diseño e integración en el territorio, constituye un valor económico indirecto, que contribuye positivamente a la imagen corporativa de los espacios que ocupan, no solo barrios en ciudades y en municipios rurales, también centros de investigación, logísticos, parques empresariales, entre otros enclaves.
 
-Asimismo, dentro de los diferentes instrumentos de la planificación ambiental de la Junta de Andalucía, han de reforzarse aquellos que tienen una relación directa con el desarrollo local integrado y endógeno. Entre ellos destacan los *Planes de Desarrollo Sostenibles* (PDS), cuya finalidad es impulsar el desarrollo de actividades productivas sostenibles en los espacios naturales protegidos.
+Asimismo, dentro de los diferentes instrumentos de la planificación ambiental de la Adminstración de la Junta de Andalucía, han de reforzarse aquellos que tienen una relación directa con el desarrollo local integrado y endógeno. Entre ellos destacan los *Planes de Desarrollo Sostenibles* (PDS), cuya finalidad es impulsar el desarrollo de actividades productivas sostenibles en los espacios naturales protegidos.
 
 Por último, en Andalucía al igual que la mayoría de las regiones europeas se ha producido en las últimas décadas un excesivo consumo de suelo para urbanización, que resulta poco sostenible, coincidiendo con instrumentos urbanísticos y de ordenación territorial escasamente operativos. Por ello, la Ley para la Sostenibilidad del Territorio unifica la actual legislación de ordenación del territorio y el bloque normativo de la legislación urbanística en un solo texto legislativo. Su propósito es resolver las dificultades que han ido afrontado ambas disciplinas en los últimos años, dotar de garantía jurídica al desarrollo de los instrumentos de planificación, gestión y disciplina territorial y urbanística, avanzar en la autonomía local y afianzar las medidas de simplificación y agilización administrativas en el marco de estas disciplinas.
 
@@ -627,7 +627,7 @@ Con este desarrollo a escala multinivel se reconoce la función rectora de los g
 
 Debido al alto impacto del desarrollo de diferentes tecnologías (5G, IoT, big data, entre otros ejemplos) en la gestión de los espacios urbanos, nos encontramos ante la introducción de un nuevo concepto, el de *Ciudades o Territorios Inteligentes*, que trae consigo un amplio abanico de oportunidades en cuanto a la mejora de la gestión de los recursos de la ciudad, en aras de un mayor equilibrio económico, mejora de la calidad de vida y del sistema del bienestar, así como de las condiciones medioambientales, con la prioridad de aportar valor a la ciudadanía y resolver sus necesidades.
 
-En los últimos años se ha venido impulsando el proceso de transformación de las ciudades y municipios de Andalucía a través de un modelo cohesionado, colaborativo y sostenible, liderado por la Junta de Andalucía y en colaboración con las diputaciones provinciales y la Federación andaluza de Municipios y Provincias.
+En los últimos años se ha venido impulsando el proceso de transformación de las ciudades y municipios de Andalucía a través de un modelo cohesionado, colaborativo y sostenible, liderado por la Adminstración de la Junta de Andalucía y en colaboración con las diputaciones provinciales y la Federación andaluza de Municipios y Provincias.
 
 Cabe esperar que las entidades locales de Andalucía, como principales destinatarias de estos planteamientos, sean también parte fundamental en la materialización de las diversas estrategias diseñadas en los niveles superiores de gobierno (nacional y regional). La función de las ciudades será llevar a cabo una adaptación a los principios y contenidos de estas agendas, de acuerdo a las necesidades de su territorio, conforme a los principios de ciudad justa, verde y productiva de la Nueva Carta de Leipzig, que abarca el concepto de “Ciudad Amable”.
 
@@ -656,7 +656,7 @@ Cabe esperar que las entidades locales de Andalucía, como principales destinata
 
 1. Implementar la Agenda Urbana de Andalucía 2030 en todas sus dimensiones (espacial, económica, social, ambiental y de gobernanza) y requerir que las ciudades andaluzas hagan una adaptación de la misma a sus correspondientes ámbitos locales.
 
-2. Apoyar desde la Junta de Andalucía a los municipios en la elaboración de Planes Estratégicos de Ciudades.
+2. Apoyar desde la Adminstración de la Junta de Andalucía a los municipios en la elaboración de Planes Estratégicos de Ciudades.
 
 3. Crear y fomentar la marca «Ciudad Industrial».
 

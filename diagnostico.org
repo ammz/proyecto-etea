@@ -43,37 +43,37 @@
 
 * La economía andaluza en el contexto de España y la UE: dimensión y posicionamiento relativo
 
-En la configuración actual de la Unión Europea de veintisiete países (UE-27), tras la salida efectiva del Reino Unido el 1 de enero de 2021, esta área cuenta actualmente con 240 regiones, entre las que se encuentra Andalucía. Situada al sur de España y Europa, y siendo la región más meridional de la Europa Continental, tiene una posición relevante dentro del conjunto de la UE, al ser una de las regiones con mayor superficie, población y aportación a la generación de Producto Interior Bruto (PIB). No obstante, en términos de convergencia, aproximada por el PIB por habitante, se sitúa en el grupo de regiones consideradas menos desarrolladas.
+En la configuración actual de la Unión Europea de veintisiete países (UE-27), tras la salida efectiva del Reino Unido el 1 de enero de 2021, esta área cuenta actualmente con 242 regiones, entre las que se encuentra Andalucía. Situada al sur de España y Europa, y siendo la región más meridional de la Europa Continental, tiene una posición relevante dentro del conjunto de la UE, al ser una de las regiones con mayor superficie, población y aportación a la generación de Producto Interior Bruto (PIB). No obstante, en términos de convergencia, aproximada por el PIB por habitante, se sitúa en el grupo de regiones consideradas menos desarrolladas.
 
 Más concretamente, en superficie, Andalucía ocupa 87.597 km^2, lo que representa el 17,3% del total nacional y el 2,1% del conjunto de la UE. Es la cuarta región más extensa de la UE, tras una de Finlandia (Pohjois-ja Itä-Suomi), una de Suecia (Övre Norrland) y otra española (Castilla y León). Su superficie es mayor que la de quince países de los 27 de la UE, entre los que se encuentran Austria, Irlanda, Dinamarca, Países Bajos o Bélgica.
 
-La población de Andalucía, a 1 de enero de 2021, se cifra en 8.465.236 personas, según datos del Padrón Continuo del Instituto Nacional de Estadística (INE), concentrando el 17,9% de la población española y el 1,9% de la UE. Andalucía es la región más poblada de España y la tercera de la UE, por detrás de la francesa Île de France (12.291.557 habitantes) y la italiana Lombardía (10.027.602 habitantes). Su población es superior a la de trece de los 27 países de la UE; más específicamente, supera en más del 60% a la población de Eslovaquia e Irlanda y en un 75% a la de Finlandia y Dinamarca, siendo similar a la de Austria.
+La población de Andalucía, a 1 de enero de 2021, se cifra en 8.472.407 personas, según datos del Padrón Continuo del Instituto Nacional de Estadística (INE), concentrando el 17,9% de la población española y el 1,9% de la UE. Andalucía es la región más poblada de España y la tercera de la UE, por detrás de la francesa Île de France (12.291.557 habitantes) y la italiana Lombardía (10.027.602 habitantes). Su población es superior a la de trece de los 27 países de la UE; más específicamente, supera en más del 60% a la población de Eslovaquia e Irlanda y en un 75% a la de Finlandia y Dinamarca, siendo similar a la de Austria.
 
 Con ello, la densidad de población se cifra en 96,6 hab/km^2, superior a la media española (93,6 hab/km^2), pero inferior a la del conjunto de la UE (105,9 hab/km^2). Hay quince países de los 27 que presentan una densidad de población más elevada que Andalucía, entre los que se encuentran Alemania, Italia, Portugal o Francia.
 
 :fig-d01:
 :F: INE, IECA, Eurostat.:F:
 :U::U:
-:N: Población, datos referidos a 1/1/2021 \par pps: paridad de poder adquisitivo \par PIB nominal pps, PIB pc nominal y PIB pps pc, año 2019.:N:
-:E::E:
+:N: Población, datos referidos a 1/1/2021. \par pps: paridad de poder adquisitivo \par PIB nominal, año 2021. \par PIB nominal pps, PIB pc nominal y PIB pps pc, año 2020.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
 #+CAPTION: Datos básicos de la economía andaluza
 [[./graficos/diagnostico/d01.pdf]]
 :END:
 
-Por lo que respecta a la generación de Producto Interior Bruto (PIB), en 2020, último ejercicio cerrado, el PIB nominal de Andalucía fue de 156.892 millones de euros, según el Instituto de Estadística y Cartografía de Andalucía (IECA), cifra que representa el 14% del PIB nominal en España y el 1,2% de la UE. Un resultado que se ha visto muy condicionado, al igual que a nivel mundial, por el impacto económico de la crisis sanitaria de la COVID-19, con caídas históricas del PIB en términos reales, del -10% en Andalucía según la Contabilidad Regional de España del INE, casi un punto por debajo de la media nacional (-10,8%), aunque superior a la de la UE (-5,9%); en cualquier caso, el peso relativo de Andalucía en España y la UE no varió sustancialmente. En concreto el peso de Andalucía en el PIB nominal de la UE apenas ha variado: 1,24% en 2019 y 1,18% en 2020.
+Por lo que respecta a la generación de Producto Interior Bruto (PIB), en 2021, último ejercicio cerrado, el PIB nominal de Andalucía fue de 169.937 millones de euros, según el Instituto de Estadística y Cartografía de Andalucía (IECA), cifra que representa el 14,1% del PIB nominal en España y el 1,2% de la UE.
 
-Para poder efectuar comparaciones homogéneas con otros territorios, los niveles nominales de PIB se deben corregir por las paridades de poder de compra (pps, por sus siglas en inglés), definido como la tasa de cambio de equilibrio que iguala el poder adquisitivo de una moneda en su país, con lo que dicha moneda podría adquirir fuera del mismo. En paridad de poder de compra, la última información publicada por la oficina de estadística europea, Eurostat, está referida al año 2019. En dicho año, el PIB de Andalucía valorado en pps fue de 177.947 millones de euros, siendo la duodécima región con mayor nivel de la UE, y superando a diez países de la UE, entre ellos Eslovaquia y Bulgaria.
+Para poder efectuar comparaciones homogéneas con otros territorios, los niveles nominales de PIB se deben corregir por las paridades de poder de compra (pps, por sus siglas en inglés), definido como la tasa de cambio de equilibrio que iguala el poder adquisitivo de una moneda en su país, con lo que dicha moneda podría adquirir fuera del mismo. En paridad de poder de compra, la última información publicada por la oficina de estadística europea, Eurostat, está referida al año 2020, un año especialmente afectado por la crisis sanitaria de la Covid-19, siendo España el país que más caída del PIB registró de la UE. En dicho año, el PIB de Andalucía valorado en pps fue de 150.557 millones de euros, siendo la vigésima región con mayor nivel de la UE, y superando a diez países de la UE, entre ellos Eslovaquia y Bulgaria.
 
 :fig-d02:
 :F: Eurostat.:F:
 :U::U:
 :N::N:
 :E: Secretaría General de Economía. Junta de Andalucía.:E:
-#+CAPTION: PIB per cápita en las regiones de la UE. Año 2019
+#+CAPTION: PIB per cápita en las regiones de la UE. Año 2020
 [[./graficos/diagnostico/d02.pdf]]
 :END:
 
-Relativizando por la población, un indicador que comúnmente se utiliza para medir el nivel de riqueza de un territorio, el resultado es que el PIB por habitante, valorado en pps, en Andalucía fue de 21.100 euros en 2019, según Eurostat, lo que representa el 74,3% de la media nacional y el 68% de la media europea. De este modo, Andalucía se clasificaría dentro del grupo de regiones menos desarrolladas de la UE, ya que su PIB por habitante es inferior al 75% de la media europea, situándose en la posición 185ª de las 240 regiones que componen actualmente la UE-27 en términos de este indicador.
+Relativizando por la población, un indicador que comúnmente se utiliza para medir el nivel de riqueza de un territorio, el resultado es que el PIB por habitante, valorado en pps, en Andalucía fue de 18.900 euros en 2020, según Eurostat, lo que representa el 74,9% de la media nacional y el 63% de la media europea. De este modo, Andalucía se clasificaría dentro del grupo de regiones menos desarrolladas de la UE, ya que su PIB por habitante es inferior al 75% de la media europea, situándose en la posición 196ª de las 242 regiones que componen actualmente la UE-27 en términos de este indicador.
 
 * El ciclo económico de Andalucía en perspectiva: impacto de la crisis de la COVID-19
 
@@ -91,15 +91,15 @@ Para tratar de contener la propagación de contagios y reducir la presión sobre
 
 El balance del año 2020 fue, por tanto, muy negativo, con caídas históricas del PIB, prácticamente generalizadas en todos los países.
 
-El Fondo Monetario Internacional (FMI), en el informe de Perspectivas de la economía mundial publicado en abril de 2021, cifra en un -3,3% el descenso real del PIB mundial en 2020, la peor recesión desde la Gran Depresión de 1930; no obstante, estima que la caída hubiera sido tres veces superior de no haberse implementado medidas extraordinarias de política económica.
+El Fondo Monetario Internacional (FMI), en el informe de Perspectivas de la economía mundial publicado en octubre de 2021, cifra en un -3,1% el descenso real del PIB mundial en 2020, la peor recesión desde la Gran Depresión de 1930; no obstante, estima que la caída hubiera sido tres veces superior de no haberse implementado medidas extraordinarias de política económica.
 
 Los países más afectados han sido los más dependientes del turismo y de la exportación de materias primas, así como aquellos con un limitado margen de maniobra para la aplicación de políticas expansivas.
 
-Más específicamente, por áreas, la contracción del PIB alcanzó el -4,7% de media en 2020 en las economías avanzadas, más del doble que en el conjunto de economías emergentes y en desarrollo (-2,2%).
+Más específicamente, por áreas, la contracción del PIB alcanzó el -4,5% de media en 2020 en las economías avanzadas, más del doble que en el conjunto de economías emergentes y en desarrollo (-2,1%).
 
-En las economías emergentes, la menor caída correspondió a los países en desarrollo de Asia (-1%), favorecido por el aumento en China (2,3%), donde la pandemia solo tuvo una negativa repercusión en el PIB en el primer trimestre del año, siendo una de las pocas economías que registró crecimiento del PIB en 2020.
+En las economías emergentes, la menor caída correspondió a los países en desarrollo de Asia (-0,8%), favorecido por el aumento en China (2,3%), donde la pandemia solo tuvo una negativa repercusión en el PIB en el primer trimestre del año, siendo una de las pocas economías que registró crecimiento del PIB en 2020.
 
-En las economías avanzadas, en un contexto recesivo generalizado, las caídas más elevadas se registraron en la Zona Euro y la UE (-6,4% y -5,9%, respectivamente), sobre todo en España (-10,8%), Italia (-9%) y Francia (-8%), y algo más moderada en Alemania (-4,9%).
+En las economías avanzadas, en un contexto recesivo generalizado, las caídas más elevadas se registraron en la Zona Euro y la UE (-6,4% y -5,9%, respectivamente), sobre todo en España (-10,8%), Italia (-9,1%) y Francia (-8%), y algo más moderada en Alemania (-4,9%).
 
 En este contexto, de acuerdo con la Contabilidad Regional Trimestral de Andalucía que elabora el Instituto de Estadística y Cartografía de Andalucía (IECA), en el conjunto de 2020, la economía andaluza registró un descenso histórico del PIB, el -10,3% en términos reales, no obstante, medio punto más moderado que en el conjunto de España (-10,8%), a diferencia de lo ocurrido en anteriores etapas recesivas en las que Andalucía había caído por encima del promedio nacional. Mayor aún es el diferencial favorable para Andalucía si se consideran las estimaciones de la Contabilidad Regional del España del INE, que señalan una caída real del PIB del -10% en 2020 en Andalucía, ocho décimas por debajo de la media nacional (-10,8%).
 
@@ -116,46 +116,46 @@ Sin lugar a dudas, y al igual que ha ocurrido a nivel mundial, es la mayor caíd
 
 En concreto, en la última crisis económica vivida, entre los años 2008 a 2013, la economía andaluza acumuló una caída que superó en 1,7 puntos a la media española (-10,3% en Andalucía acumulado en los cinco años, frente a un -8,6% en el conjunto nacional).
 
-Algo que también sucedió en 1993, cuando Andalucía registró una caída un punto superior a la media española (-2% y -1%, respectivamente), y en 1981, con una caída de la economía andaluza 1,3 puntos más intensa que la media (-1,5% y -0,1%, respectivamente).
+Algo que también sucedió en 1993, cuando Andalucía registró una caída un punto superior a la media española (-2% y -1%, respectivamente), y en 1981, con una caída de la economía andaluza 1,4 puntos más intensa que la media (-1,5% y -0,1%, respectivamente).
 
 En 2020, y a diferencia de lo ocurrido en las anteriores crisis económicas, Andalucía ha caído menos que la economía española; en concreto 0,8 puntos menos, según el INE.
 
 En cualquier caso, esta caída de la economía andaluza y española fue en torno a cuatro puntos superior a la registrada por la Unión Europea y la Zona Euro (-5,9% y -6,4% respectivamente), un comportamiento relativamente más negativo que el entorno europeo que vino explicado: por el confinamiento más severo en España; una estructura productiva más especializada en actividades de consumo social, como hostelería y turismo, las más afectadas por las medidas restrictivas a las que ha obligado la pandemia; un tejido empresarial caracterizado por la mayor abundancia de pymes que aguantan peor las crisis; y la elevada proporción de empleos temporales, cuyos contratos se rescinden con más facilidad en coyunturas adversas.
 
-La estructura productiva en Andalucía presenta unas características históricas diferenciales respecto a España y la UE. Destaca el mayor peso relativo del sector primario, que supone el 8% del VAB generado por la economía andaluza en 2020, más del doble que en el conjunto nacional (3,5%) y más de cuatro veces lo que representa en la UE (1,9%).
+La estructura productiva en Andalucía presenta unas características históricas diferenciales respecto a España y la UE. Destaca el mayor peso relativo del sector primario, que supone el 7,5% del VAB generado por la economía andaluza en 2020, más del doble que en el conjunto nacional (3,4%) y más de cuatro veces lo que representa en la UE (1,8%).
 
-Por el contrario, presenta una menor especialización productiva en las actividades industriales, que suponen, en conjunto, el 10,6% del VAB en Andalucía en 2020, casi seis puntos menos que en España (16,3%) y casi nueve puntos menos que en la UE (19,4%). En particular, esto se explica por la industria manufacturera, que representa el 7,4% del VAB en Andalucía (12,2% en España), menos de la mitad que en la UE (16,2%).
+Por el contrario, presenta una menor especialización productiva en las actividades industriales, que suponen, en conjunto, el 10,6% del VAB en Andalucía en 2020, casi seis puntos menos que en España (16,1%) y casi nueve puntos menos que en la UE (19,5%). En particular, esto se explica por la industria manufacturera, que representa el 7,2% del VAB en Andalucía (12,1% en España), menos de la mitad que en la UE (16,2%).
 
-Al igual que España y la UE, Andalucía es una economía fuertemente terciarizada, con un peso del sector servicios del 74,9% del VAB, casi un punto más que en España (74%) y casi dos puntos más que en la UE (73,1%).
+Al igual que España y la UE, Andalucía es una economía fuertemente terciarizada, con un peso del sector servicios del 75,3% del VAB, casi un punto más que en España (74,2%), y más de dos puntos más que en la UE (73,1%).
 
-Finalmente, el sector de la construcción presenta un similar peso relativo a la estructura productiva de Andalucía y sus economías de referencia, en el entorno del seis por ciento (6,5% en Andalucía, 6,2% en España y 5,7% en la UE).
+Finalmente, el sector de la construcción presenta un similar peso relativo a la estructura productiva de Andalucía y sus economías de referencia, en el entorno del seis por ciento (6,6% en Andalucía, 6,2% en España y 5,5% en la UE).
 
 La estructura productiva en Andalucía ha mostrado en las últimas dos décadas (2000-2020) algunos cambios, que afectan fundamentalmente a los sectores no agrarios, mientras se ha mantenido prácticamente estable el peso del primario.
 
-Destaca el notable ajuste de la construcción, como también ocurrió en la economía española, que ha perdido 4,5 puntos en la estructura productiva de Andalucía, pasando del 10,9% en 2000, al 6,5% en 2020, tras el fuerte retroceso experimentado por el sector durante la crisis financiera internacional (2007-2013), que le llevó a aproximarse a su participación relativa en España y la UE.
+Destaca el notable ajuste de la construcción, como también ocurrió en la economía española, que ha perdido 4,3 puntos en la estructura productiva de Andalucía, pasando del 10,9% en 2000, al 6,6% en 2020, tras el fuerte retroceso experimentado por el sector durante la crisis financiera internacional (2007-2013), que le llevó a aproximarse a su participación relativa en España y la UE.
 
-Asimismo, y en línea con lo observado en las economías de referencia, el sector industrial ha registrado en las dos últimas décadas una pérdida de peso de 3 puntos en la estructura productiva de Andalucía (-4,4 puntos en España, -3,2 puntos en la UE), en parte, debido a que actividades anteriormente consideradas industriales han pasado a externalizarse hacia los servicios. Como resultado, el sector servicios ha aumentado su peso en la estructura productiva de Andalucía (+7,6 puntos), algo menos que en España (+8,9 puntos), pero casi el doble que en la UE (+3,9 puntos). Este aumento del peso del sector servicios viene explicado por las actividades inmobiliarias, la administración pública, sanidad y educación, las actividades profesionales, científicas y técnicas, y las actividades financieras.
+Asimismo, y en línea con lo observado en las economías de referencia, el sector industrial ha registrado en las dos últimas décadas una pérdida de peso de 3 puntos en la estructura productiva de Andalucía (-4,6 puntos en España, -3,1 puntos en la UE), en parte, debido a que actividades anteriormente consideradas industriales han pasado a externalizarse hacia los servicios. Como resultado, el sector servicios ha aumentado su peso en la estructura productiva de Andalucía (+8 puntos), algo menos que en España (+9,1 puntos), pero el doble que en la UE (+3,9 puntos). Este aumento del peso del sector servicios viene explicado por las actividades inmobiliarias, la administración pública, sanidad y educación, las actividades profesionales, científicas y técnicas, y las actividades financieras.
 
-Con todo ello, las ramas del sector servicios, que reflejan una mayor especialización en Andalucía son: comercio, transporte y hostelería (20,1% del VAB en Andalucía frente a 17,8% en la UE); actividades inmobiliarias (14,2% del VAB en Andalucía; 11,4% en la UE); y Administración pública, educación y sanidad (24,4% del VAB en Andalucía; 19,8% en la UE). Por el contrario, Andalucía se encuentra menos especializada en ramas más vinculadas a la sociedad de la información y el conocimiento, como información y comunicaciones (2% del VAB; 5,4% en la UE) y actividades profesionales, científicas y técnicas (6,7% del VAB; 11,1% en la UE).
+Con todo ello, las ramas del sector servicios, que reflejan una mayor especialización en Andalucía son: comercio, transporte y hostelería (20,1% del VAB en Andalucía frente a 17,9% en la UE); actividades inmobiliarias (14,6% del VAB en Andalucía; 11,3% en la UE); y Administración pública, educación y sanidad (24,4% del VAB en Andalucía; 19,8% en la UE). Por el contrario, Andalucía se encuentra menos especializada en ramas más vinculadas a la sociedad de la información y el conocimiento, como información y comunicaciones (2% del VAB; 5,4% en la UE) y actividades profesionales, científicas y técnicas (6,5% del VAB; 11,1% en la UE).
 
-Volviendo al análisis del comportamiento observado en el último año, y como se analiza en detalle en el  Informe Económico de Andalucía 2020, elaborado por la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, desde el punto de vista de la oferta productiva, las mayores caídas en 2020 las registraron en Andalucía las ramas de actividades artísticas, recreativas y de ocio (-24,4%), y el comercio, transporte y hostelería (-23,2%), ambas no obstante ligeramente por debajo de los descensos en España (-24,9% y -24,4%), pero muy por encima de la media en la Eurozona (-17,7% las actividades artísticas, recreativas y de ocio, y -13,2% el comercio, transporte y hostelería).
+Volviendo al análisis del comportamiento observado en el último año, y como se analiza en detalle en el  Informe Económico de Andalucía 2020, elaborado por la Secretaría General de Economía de la Consejería de Transformación Económica, Industria, Conocimiento y Universidades, desde el punto de vista de la oferta productiva, las mayores caídas en 2020 las registraron en Andalucía las ramas de actividades artísticas, recreativas y de ocio (-23,5%), y el comercio, transporte y hostelería (-24,4%), ambas no obstante ligeramente por debajo de los descensos en España (-24,7% y -25,7%, respectivamente), pero muy por encima de la media en la Eurozona (-17,1% las actividades artísticas, recreativas y de ocio, y -13,7% el comercio, transporte y hostelería).
 
 :fig-d04:
 :F: IECA; INE; Eurostat.:F:
 :U::U:
-:N: %  sobre VAB total.:N:
+:N: % sobre VAB total.:N:
 :E: Secretaría General de Economía. Junta de Andalucía.:E:
 #+CAPTION: Estructura productiva. Andalucía-España-UE. Año 2020
 [[./graficos/diagnostico/d04.pdf]]
 :END:
 
-Desde el punto de vista de la demanda, el sector exterior experimentó un fuerte ajuste, con un descenso de las exportaciones de bienes y servicios en Andalucía del -23,2%, acusando la contracción del comercio mundial, que según el FMI se redujo un -8,5%, más del doble que el PIB (-3,3%), arrastrado por la parálisis de la producción y las cadenas de suministro globales.
+Desde el punto de vista de la demanda, el sector exterior experimentó un fuerte ajuste, con un descenso de las exportaciones de bienes y servicios en Andalucía del -23,4%, acusando la contracción del comercio mundial, que según el FMI se redujo un -8,2%, más del doble que el PIB (-3,1%), arrastrado por la parálisis de la producción y las cadenas de suministro globales.
 
-En los componentes internos, la mayor caída correspondió a la inversión, con un descenso de la Formación Bruta de Capital en términos reales del -15,5%, lastrando el potencial de crecimiento de la economía andaluza; junto a ello el gasto en consumo final regional descendió un -7,3% en términos reales, debido exclusivamente al descenso del gasto en consumo de los hogares (-11,8%), mientras el gasto en consumo de las Administraciones Públicas e ISFLSH creció un 4,6%, y alcanzó un máximo histórico de 44.475 millones de euros, vinculado al incremento notable de los gastos públicos para hacer frente a los efectos negativos de la pandemia.
+En los componentes internos, la mayor caída correspondió a la inversión, con un descenso de la Formación Bruta de Capital en términos reales del -11%, lastrando el potencial de crecimiento de la economía andaluza; junto a ello el gasto en consumo final regional descendió un -7,7% en términos reales, debido exclusivamente al descenso del gasto en consumo de los hogares (-12,4%), mientras el gasto en consumo de las Administraciones Públicas e ISFLSH creció un 4,5%, y alcanzó un máximo histórico de 44.508 millones de euros, vinculado al incremento notable de los gastos públicos para hacer frente a los efectos negativos de la pandemia.
 
 Como elemento positivo, el impacto de la crisis de la COVID-19 en el mercado laboral en 2020 fue más moderado que en crisis anteriores, debido al recurso, en el marco del diálogo social, de los expedientes de regulación temporal de empleo (ERTE). Hay que tener en cuenta que, según la metodología de la EPA, los afectados por un ERTE se consideran ocupados cuando existe una garantía de reincorporación al puesto de trabajo, una vez finalizado el periodo de suspensión.
 
-En Andalucía se llegaron a registrar casi medio millón de personas trabajadoras en situación de ERTE a principios de la pandemia (477.392 en abril de 2020), habiéndose reducido esta cantidad paulatinamente, aunque condicionado por las medidas de distanciamiento social implementadas en las diferentes olas de la pandemia, hasta los 35.353 en agosto de 2021. Estas personas trabajadoras en situación de ERTE en Andalucía representan el 1,1% de los afiliados, tres décimas por debajo de lo que suponen en España (1,4%).
+En Andalucía se llegaron a registrar casi medio millón de personas trabajadoras en situación de ERTE a principios de la pandemia (495.225 en abril de 2020), habiéndose reducido esta cantidad paulatinamente, aunque condicionado por las medidas de distanciamiento social implementadas en las diferentes olas de la pandemia, hasta los 93.800 en diciembre de 2020. Estas personas trabajadoras en situación de ERTE en Andalucía al finalizar 2020 representaban el 4,6% de los afiliados, al Régimen General (sin considerar el sistema especial agrario ni el de los empleados del hogar), tres décimas por debajo de España (4,9%).
 
 Tanto en Andalucía como en España se registró en 2020 destrucción de empleo y aumento del número de personas paradas, lo que no ocurría desde el final de la crisis financiera internacional, en 2013. No obstante, y comparado con crisis anteriores, el impacto fue más moderado, debido al mencionado recurso de los expedientes de regulación temporal de empleo.
 
@@ -174,7 +174,7 @@ En crisis económicas anteriores, como la vivida entre 2008-2013, o en 1993, el 
 
 En 2020, la EPA cifró de media en el año 866.180 personas paradas en Andalucía, 27.533 más que en 2019, con un incremento del 3,3%, casi tres veces inferior al del conjunto de España (8,7%). Un aumento significativamente inferior al registrado al inicio de la anterior crisis económica internacional, cuando el paro se elevó más del cuarenta por ciento (43,9% en 2008), debido, como se ha señalado anteriormente, a la aplicación de los expedientes de regulación temporal de empleo.
 
-Con ello, la tasa de paro de Andalucía aumentó 1,1 puntos en 2020, menos que en España (+1,4 puntos), situándose en el 22,3% de la población activa de media en 2020, nivel que, aunque sólo es superado por la Comunidad Autónoma de Canarias, es el segundo más bajo desde 2008.
+Con ello, la tasa de paro de Andalucía aumentó 1,1 puntos en 2020, menos que en España (+1,4 puntos), situándose en el 22,3% de la población activa de media en 2020, nivel que, aunque sólo superado por la Comunidad Autónoma de Canarias, es el segundo más bajo desde 2008.
 
 :fig-d06:
 :F: INE; Eurostat; AMECO (Comisión Europea).:F:
@@ -185,9 +185,9 @@ Con ello, la tasa de paro de Andalucía aumentó 1,1 puntos en 2020, menos que e
 [[./graficos/diagnostico/d06.pdf]]
 :END:
 
-Esta tasa de paro de Andalucía (22,3% en 2020), aunque se registra en una coyuntura económica muy adversa de destrucción de empleo y aumento del paro, presenta un diferencial con la media de España (15,5%) de 6,7 puntos porcentuales, el más bajo también desde 2008, y significativamente menor al observado en anteriores crisis económicas como la de 2008-2013 o 1993, cuando el diferencial de tasa de paro con España superó los 10 puntos.
+Esta tasa de paro de Andalucía (22,3% en 2020), aunque se registró en una coyuntura económica muy adversa de destrucción de empleo y aumento del paro, presentó un diferencial con la media de España (15,5%) de 6,7 puntos porcentuales, el más bajo también desde 2008, y significativamente menor al observado en anteriores crisis económicas como la de 2008-2013 o 1993, cuando el diferencial de tasa de paro con España superó los 10 puntos.
 
-Comparado con la media de la Unión Europea, la tasa de paro de Andalucía presenta un diferencial desfavorable muy elevado, de 15,3 puntos en 2020. Un diferencial desfavorable que Andalucía ha mostrado históricamente, que llegó casi a alcanzar los veinticinco puntos porcentuales (24,8 puntos) al final de la gran depresión, en 2013, y que mostró su menor valor en 2006, cuando la tasa de paro de Andalucía registró su valor más bajo (12,6% de la población activa), solo 4 puntos por encima de la media de la Unión Europea.
+Comparado con la media de la Unión Europea, la tasa de paro de Andalucía presentó un diferencial desfavorable muy elevado, de 15,3 puntos en 2020. Un diferencial desfavorable que Andalucía ha mostrado históricamente, que llegó casi a alcanzar los veinticinco puntos porcentuales (24,8 puntos) al final de la gran depresión, en 2013, y que mostró su menor valor en 2006, cuando la tasa de paro de Andalucía registró su valor más bajo (12,6% de la población activa), solo 4 puntos por encima de la media de la Unión Europea.
 
 En materia de precios, su comportamiento en 2020 estuvo muy condicionado por la trayectoria del precio del petróleo en los mercados internacionales, que experimentó una notable caída, derivada del fuerte ajuste de la demanda mundial de esta materia prima.
 
@@ -202,9 +202,157 @@ Por término medio en 2020, el barril de petróleo brent cotizó a 41,5 dólares
 [[./graficos/diagnostico/d07.pdf]]
 :END:
 
-Derivado fundamentalmente de esta caída, el Índice de Precios al Consumo (IPC) registró en Andalucía un descenso medio anual del -0,2%, en línea con España (-0,3%) y en un contexto de crecimiento muy moderado en la Zona Euro (0,3%). Tasa todas ellas muy por debajo del objetivo de estabilidad de precios establecido por el Banco Central Europeo (2%), y que reflejan la convergencia en materia de inflación que Andalucía y España han experimentado con la Unión Europea, desde la integración. Así, se ha pasado de un diferencial en tasa de inflación de Andalucía con la Zona Euro de algo más de seis puntos en 1986, a escasamente en el entorno del medio punto en los últimos años.
+Derivado fundamentalmente de esta caída, el Índice de Precios al Consumo (IPC) registró en Andalucía un descenso medio anual del -0,2% en 2020, en línea con España (-0,3%) y en un contexto de crecimiento muy moderado en la Zona Euro (0,3%). Tasas todas ellas muy por debajo del objetivo de estabilidad de precios establecido por el Banco Central Europeo (2%), y que reflejan la convergencia en materia de inflación que Andalucía y España han experimentado con la Unión Europea, desde la integración. Así, se ha pasado de un diferencial en tasa de inflación de Andalucía con la Zona Euro de algo más de seis puntos en 1986, a escasamente en el entorno del medio punto en la última década.
 
-Esta situación de tasas negativas de inflación contrasta con lo que está ocurriendo en 2021, donde las subidas de los precios energéticos, tanto del petróleo como de la electricidad están haciendo subir el IPC claramente por encima del objetivo de estabilidad precios del BCE, mermando la capacidad de compra de los consumidores.
+Tras la profunda caída de 2020, como consecuencia de la pandemia de la COVID-19, la economía andaluza inició en 2021 un proceso de recuperación, en un contexto en el que a nivel mundial la economía también ganó dinamismo, si bien de manera muy heterogénea por áreas y países.
+
+Según los datos de la Contabilidad Regional Trimestral de Andalucía publicados por el IECA, el PIB de Andalucía registró en el conjunto del año 2021 un crecimiento real del 5,1%, la tasa más elevada desde el año 2000, tras el descenso histórico del -10,3% de 2020; un crecimiento igual al registrado en España (5,1%), y dos décimas por debajo del resultado en la Zona Euro y la UE (5,3% ambas).
+
+:fig-ad01:
+:F: IECA; INE; Eurostat.:F:
+:U::U:
+:N: Índice de volumen encadenado 4T2019=100.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Evolución del PIB real. 2019-2021. Andalucía-España-UE
+[[./graficos/diagnostico/ad01.pdf]]
+:END:
+
+En su perfil evolutivo, tras un primer trimestre muy afectado aún por las restricciones a la actividad para el control de la tercera ola de la pandemia provocada por la expansión de la variante Delta del coronavirus en los primeros meses del año, a partir del segundo trimestre se recuperaron tasas positivas de crecimiento, finalizando el año con un ritmo de crecimiento interanual del PIB del 6,1% en el cuarto trimestre de 2021 en Andalucía. Este ritmo de crecimiento superó en más de medio punto la media nacional (5,5%) y se situó 1,5 puntos por encima de la media de la Zona Euro (4,6%).
+
+Con ello, al cierre de 2021, la economía andaluza se encontraba más cerca de recuperar el nivel de PIB real de antes de la pandemia que la economía española. En concreto, comparado con la situación a finales de 2019 (cuarto trimestre), el PIB real de la economía andaluza estaba un 3% por debajo de ese nivel, mientras el de la economía española se encontraba casi un cuatro por ciento (-3,8%) por debajo. En la Unión Europea, sin embargo, el PIB real del cuarto trimestre de 2021 ya había recuperado los niveles prepandemia, situándose incluso un 0,6% por encima.
+
+El crecimiento medio anual del PIB en 2021, del 5,1% en Andalucía, se sustentó, desde el punto de vista de la oferta productiva, en la recuperación parcial del sector servicios, que creció un 6,3%, por encima de la media nacional (6%). Especialmente destacaron las ramas de comercio, transporte y hostelería (14,3%), actividades financieras y de seguros (6,8%) e información y comunicaciones (5,3%); mientras, siguieron mostrando un balance negativo las actividades artísticas, recreativas y otros servicios (-2,9%), afectadas por nuevos brotes de la pandemia que conllevaron restricciones.
+
+También recuperó una tasa positiva la industria, con un crecimiento real del VAB del 3,3% en 2021, más concretamente la industria manufacturera (5,3%). Este proceso de recuperación, no obstante, estuvo condicionado desde la segunda mitad de 2021 por varios problemas surgidos en las cadenas de suministro a escala global, con cuellos de botella en el sector del transporte y elevados precios de los fletes de los contenedores, que provocaron una escasez de determinados materiales necesarios para la producción, especialmente los semiconductores, afectando a la dinámica de recuperación de la producción.
+
+Por su parte, registraron caídas del VAB el sector primario (-0,8%), que fue el único sector que creció en 2020, y la construcción (-1,6%).
+
+Por el lado de la demanda, el aumento real del PIB en 2021 se debió a la contribución positiva de la demanda regional, que aportó 5,1 puntos al crecimiento, cuatro décimas más que en España (4,7 p.p.); mientras, el sector exterior tuvo una aportación nula (0 puntos), ya que el elevado crecimiento de las exportaciones fue compensado por el dinamismo de las importaciones.
+
+A un mayor nivel de detalle, en la demanda interna, el gasto en consumo final regional creció un 5,4% en términos reales, 1,2 puntos más que a nivel nacional (4,2%) y 1,8 puntos más que en la Eurozona (3,6%). Ese incremento del consumo regional se debió tanto al aumento del gasto en consumo de los hogares, que subió un 5,3%, seis décimas más que en España (4,7%), como del gasto en consumo de las Administraciones Públicas e ISFLSH, que creció un 5,5%, un punto más que en el año anterior (4,5%) y 2,4 puntos superior al registrado a nivel nacional (3%), debido al reforzamiento de los servicios públicos ante los nuevos rebrotes de la pandemia.
+
+Con todo ello, el gasto en consumo final regional se cifró, en términos nominales en 151.870 millones de euros en 2021, un récord histórico, de los cuales el 68,1% correspondió a gasto en consumo de los hogares, y casi un tercio al gasto en consumo de las Administraciones Públicas e ISFLSH, que alcanzó también un máximo histórico de 48.397 millones de euros.
+
+De otro lado, en la inversión, la Formación Bruta de Capital creció en términos reales en Andalucía un 1,8%, recuperándose muy parcialmente tras la intensa caída en 2020 (-11%); un crecimiento que fue cinco puntos inferior al registrado a nivel nacional (6,8%), y 4,4 puntos menor que en la Eurozona (6,2%).
+
+En la demanda exterior, se registraron fuertes crecimientos tanto de las exportaciones como de las importaciones de bienes y servicios.
+
+De acuerdo con la Contabilidad Regional Trimestral de Andalucía del IECA, las exportaciones de bienes y servicios crecieron un 11,4% en términos reales en 2021, siendo el componente más dinámico del PIB; junto a ello, las importaciones de bienes y servicios registraron un aumento real del 9,7%.
+
+Más concretamente, en lo que a intercambios de mercancías con el extranjero se refiere, según datos de la Agencia Andaluza de Promoción Exterior (Extenda), las exportaciones de bienes al extranjero alcanzaron el máximo histórico de 34.551,9 millones de euros en el conjunto del año 2021, siendo Andalucía la tercera comunidad más exportadora, por detrás de Cataluña y Madrid. Comparado con 2020, las exportaciones de mercancías crecieron un 24,1%, casi tres puntos por encima de la media en España (21,2%), superando en casi 3.000 millones de euros las cifras de exportación de antes de la pandemia (31.738,2 millones de euros en 2019).
+
+Con ello, en porcentaje del PIB, las exportaciones de mercancías al extranjero alcanzaron el 20,3%, un máximo histórico también.
+
+:fig-ad02:
+:F: Mº Industria, Comercio y Turismo.:F:
+:U: Millones de euros:U:
+:N::N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Exportaciones internacionales de Andalucía
+[[./graficos/diagnostico/ad02.pdf]]
+:END:
+
+Por su parte, las importaciones andaluzas se incrementaron en 2021 un 34,5%, casi diez puntos por encima de la media nacional (24,8%), registrando las energéticas un crecimiento del 57,8%, en un entorno de aumento del precio del petróleo del 71,2% en el año, así como, en menor medida, de las no energéticas, que subieron un 23,3%.
+
+Como resultado, Andalucía contabilizó en el año 2021 un superávit de la balanza comercial con el extranjero de 1.358,3 millones de euros, el cuarto mejor dato de la serie histórica, y en contraste con el déficit de la balanza comercial en España (-26.177,9 millones de euros).
+
+También en el ámbito de las relaciones económicas internacionales, Andalucía mejoró notablemente su posición exterior en la captación de inversiones del extranjero.
+
+En 2021, Andalucía recibió 965,3 millones de euros de inversión extranjera productiva, el segundo mayor registro de la serie histórica disponible. Comparado con 2020, la inversión extranjera productiva recibida en Andalucía aumentó un 23%, más de cinco puntos por encima del incremento a nivel nacional (17,7%).
+
+Todos estos resultados se trasladaron al tejido empresarial y al mercado laboral.
+
+En el tejido empresarial, en diciembre de 2021 prácticamente se recuperó el nivel prepandemia, con 264.859 empresas inscritas en la Seguridad Social con trabajadores a su cargo en Andalucía (264.970 empresas al cierre de diciembre de 2019).
+
+En el mercado laboral, según los datos de la Encuesta de Población Activa (EPA) del INE, por término medio en el año la población ocupada en Andalucía creció un 4,3%, 1,3 puntos más que a nivel nacional (3%), y muy por encima de la media en la Unión Europea (1,2%).
+
+:fig-ad03:
+:F: INE; Eurostat.:F:
+:U: Tasa de variación anual. :U:
+:N::N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Evolución del empleo. 2019-2021. Andalucía-España-UE
+[[./graficos/diagnostico/ad03.pdf]]
+:END:
+
+En términos absolutos, se contabilizaron 129.972 ocupados más que en el año anterior, casi la cuarta parte (22,7%) del aumento en España, alcanzando de media en el año la cifra de 3.151.086 de personas ocupadas en Andalucía, habiendo no solo recuperado los niveles de antes de la pandemia (3.119.737 ocupados de media en 2019) sino mostrando su mayor nivel desde 2008.
+
+El aumento del empleo fue relativamente más intenso en las mujeres, con un incremento del 6,8%, casi el triple que en los hombres (2,5%), de tal forma que aumentaron un punto su participación en el empleo total, hasta representar el 43,4%, la ratio más elevada desde 2015.
+
+Cabe destacar también, que, diferenciando por grupos de edad, el mayor aumento relativo del empleo en 2021 correspondió a la población más joven, con un crecimiento del 18,8% en los menores de 25 años, y del 3,7% en los mayores de esa edad.
+
+Por sectores, se registraron subidas generalizadas salvo en la industria (-2,3%), mostrando el mayor incremento la construcción, un 9,6%, casi el triple que en España (3,8%). Le siguieron los servicios (4,8%) y la agricultura (3,7%), si bien con tasas más moderadas que en el conjunto nacional (3,3% y 4,9%, respectivamente).
+
+Según la situación profesional, el aumento de la ocupación se centró en el colectivo de asalariados (6,1%), sobre todo con contrato temporal (10,5%), incrementándose también el empleo indefinido, un 4%, más del doble que a nivel nacional (1,8%). Por el contrario, los trabajadores por cuenta propia se redujeron (-3,6%), a diferencia de lo observado en España (1,8%).
+
+Con todo ello, la tasa de paro en Andalucía se recortó 0,6 puntos respecto al año anterior, situándose en el 21,7% de la población activa por término medio en el año, aproximándose al nivel que tenía antes de la pandemia (21,2% de media en 2019), y siendo el segundo dato más bajo desde 2008; con todo, 6,8 puntos superior a la media nacional (14,8%).
+
+Unos resultados que se produjeron en un contexto en el que se siguió utilizando los expedientes de regulación temporal de empleo (ERTE), aunque el número de trabajadores acogidos a los mismos se redujo significativamente. Con datos del Ministerio de Inclusión, Seguridad Social y Migraciones, el número de trabajadores en ERTE en Andalucía a 31 de diciembre de 2021 se cifró en 15.993 personas, el 0,7% de los afiliados al régimen general (sin considerar el sistema especial agrario ni el de empleados de hogar) al cierre del mes, una décima menos de lo que suponían en el conjunto de España (0,8%).
+
+:fig-ad04:
+:F: Ministerio de Trabajo y Economía Social; Ministerio de Inclusión, Seguridad Social y Migraciones.:F:
+:U: Número. :U:
+:N: Datos referidos a final de mes.:N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Trabajadores afectados por ERTs
+[[./graficos/diagnostico/ad04.pdf]]
+:END:
+
+En materia de precios, en la primera mitad del año 2021 comenzó a evidenciarse un cierto repunte de la inflación, cuando la paulatina relajación de las medidas de contención de la COVID-19 por el avance del proceso de vacunación, impulsó una recuperación intensa de la demanda mundial, provocando desequilibrios con la oferta.
+
+De esta forma, en España, se pasó de una tasa de inflación del 0,5% interanual en el mes de enero de 2021, a un 2,7% en junio. Un repunte en gran medida vinculado a la trayectoria ascendente del precio del petróleo en los mercados internacionales, por el citado impulso de la demanda agregada, pasando la cotización del barril de petróleo Brent de 54,6 dólares en enero de 2021 a 73,3 dólares en junio. En Andalucía, la tasa de inflación registró un comportamiento similar, pasando del 0,6% en enero al 2,7% en junio.
+
+A esta evolución del primer semestre, se unió, en la segunda mitad del año, los problemas surgidos por importantes disrupciones en las cadenas de suministro global, que afectaron a la disponibilidad de determinados bienes intermedios, como los semiconductores, fundamentales en la producción de muchas manufacturas. Esta falta de disponibilidad de bienes intermedios, además de frenar la recuperación de la producción, tuvo como consecuencia una subida de los precios de los bienes industriales y de consumo.
+
+Además, cabe señalar la trayectoria explosiva del precio de la electricidad, que desde el mes de agosto, tras la eliminación en julio del tope de 180 euros el megavatio/hora, fue batiendo récords diarios, provocando un aumento de los costes de producción de las empresas.
+
+De esta forma, el precio del megavatio hora pasó de estar situado en una media de 58,6 euros en el primer semestre de 2021, a 164,4 euros en promedio en la segunda mitad de 2021.
+
+Con todo ello, lo que inicialmente surgió como una inflación de demanda, debido a la existencia de una demanda agregada de bienes y servicios superior a la oferta, se fue transformando en una inflación de oferta, acentuando la trayectoria ascendente de los precios, hasta cerrar la tasa de inflación en el mes de diciembre en el 6,7% interanual en Andalucía (6,5% en España), siendo en ambos casos las tasas más elevadas desde 1992, y más de un punto superiores a las registradas en la Zona Euro (5%) y la Unión Europea (5,3%). Tasas todas ellas, muy por encima del objetivo de estabilidad de precios marcado por el Banco Central Europeo (2%).
+
+En estas circunstancias, dos años después de que se desatara la mayor crisis económica atravesada por la economía mundial en la historia reciente, y cuando se estaba aún en un proceso de recuperación, surge un nuevo factor exógeno que cambia las expectativas económicas y geopolíticas en profundidad: la invasión de Rusia a Ucrania, el 24 de febrero de 2022. Un conflicto bélico de gran alcance que, además de ocasionar una gravísima crisis humanitaria de la que están siendo víctimas millones de personas, está teniendo severas consecuencias para la economía mundial.
+
+Ante esta invasión, EE.UU y la Unión Europea han respondido con duras sanciones económicas a Rusia, que se ha convertido en el país más sancionado del mundo. Unas sanciones que previsiblemente tendrán un impacto en la economía rusa, pronosticando la OCDE, en su informe: “Evaluación de los impactos económicos y sociales e implicaciones políticas de la guerra en Ucrania”, publicado el 17 de marzo de 2022, una profunda recesión en Rusia, con una caída de la producción de más del 10% y un aumento de la inflación de casi 15 puntos porcentuales.
+
+La invasión rusa de Ucrania es una gran crisis humanitaria, que afecta a millones de personas, y supone un grave impacto económico de duración y magnitud inciertas. Cuanta más larga sea la guerra, más daño se hará a la economía, no solo de ambos países, en particular Ucrania que está sufriendo una profunda devastación, sino al conjunto de la economía mundial, por los efectos arrastre que está generando en determinados mercados de productos básicos.
+
+Así, aunque Rusia y Ucrania son relativamente pequeños en cuanto a su participación en el PIB mundial, son grandes productores y exportadores de determinados productos básicos, entre los que destaca el gas, el petróleo, determinados minerales y cereales.
+
+Juntos, Rusia y Ucrania, representan solo alrededor del 2% del PIB mundial y una proporción similar del comercio mundial; más concretamente, el peso de Rusia en el PIB mundial es del 1,7%, y del 0,2% en el caso de Ucrania.
+
+Sin embargo, Rusia y Ucrania tienen una influencia importante en la economía global, debido a su papel como proveedores en una serie de mercados de productos básicos.
+
+Según la OCDE, Rusia y Ucrania en conjunto representan alrededor del 30% de las exportaciones mundiales de trigo, el 20% de maíz, fertilizantes minerales y gas natural, y el 11% de petróleo.
+
+La Unión Europea tiene una fuerte dependencia de Rusia en lo que a productos energéticos se refiere. De Rusia procede en torno al 40% de las importaciones europeas de gas natural, y alrededor de una cuarta parte de las importaciones de petróleo. Especialmente afectados se encuentran países como Alemania, cuyas importaciones de gas de Rusia representan el 65,2% del total; en este contexto, España presenta una menor dependencia energética de Rusia, importando de este país el 10,4% del gas natural, y el 5,6% del petróleo.
+
+Respecto a Ucrania, las principales compras de la UE a este país son de productos agroalimentarios, especialmente cereales como el maíz, procediendo de Ucrania el 30,7% de todo lo que se importa, y el aceite de girasol (36,7%). En el caso de la economía española, el 27,4% del maíz que se importa viene de Ucrania, y el 62% del aceite de girasol.
+
+La invasión de Ucrania por parte de Rusia ha provocado un shock considerable en estos mercados de productos básicos, provocando un agravamiento de los problemas de suministros, y tensionando los precios del petróleo, el gas y el trigo.
+
+Todo esto no ha hecho sino profundizar en los problemas de suministro de las cadenas globales de producción, que ya se manifestaron en la segunda mitad del año 2021, llevando a un agravamiento de la subida de los precios energéticos, y elevando la inflación y la pérdida de poder adquisitivo de los salarios a registros que no se conocían en más de treinta años.
+
+Según la última información publicada por el INE, la tasa de inflación del mes de marzo de 2022 ha alcanzado en Andalucía el 9,9%, una décima superior a la media en España (9,8%), un nivel que no se registraba desde 1986 y que es tres veces superior a los aumentos salariales pactados en convenio (2,36% en España y 2,72% en Andalucía en marzo). Esta situación está derivando en mermas del poder adquisitivo de los trabajadores de una magnitud que no se había registrado en la serie histórica disponible, y puede llevar a lastrar la recuperación del consumo de los hogares y de la economía en general.
+
+:fig-ad05:
+:F: INE; Eurostat.:F:
+:U: Tasa de variación interanual del IPC. :U:
+:N: :N:
+:E: Secretaría General de Economía. Junta de Andalucía.:E:
+#+CAPTION: Tasa de inflación. Andalucía-España-UE
+[[./graficos/diagnostico/ad05.pdf]]
+:END:
+
+Este alza sustancial de las tasas de inflación, que de igual forma se observa en otras economías desarrolladas, como es el caso de EEUU, donde ha alcanzado el 8,5% en marzo de 2022, ya está llevando a un endurecimiento de la política monetaria de los bancos centrales, con las consecuencias que ello puede tener para la política fiscal y la solvencia financiera de las empresas.
+
+Las consecuencias económicas que tendrá en Andalucía y España la invasión de Ucrania por parte de Rusia son todavía muy difíciles de cuantificar. En cualquier caso, los efectos vendrán más por la vía del impacto que el conflicto tenga en variables monetarias, como los precios y tipos de interés, y su traslación en un freno del proceso de recuperación económica, que por la vía del impacto en los ingresos por cuenta corriente (comercio y turismo), dado la limitada exposición que la economía andaluza y española tienen de la economía rusa y ucraniana.
+
+En concreto, en las relaciones comerciales, el 0,9% de las exportaciones de España van destinadas a Rusia y Ucrania conjuntamente, siendo en el caso de Andalucía menor incluso, el 0,7%; y por el lado de las importaciones, el 2,2% del total realizado por España proceden de ambos países, el 2,1% en el caso de Andalucía.
+
+Estos porcentajes sitúan a España como uno de los países de la UE menos expuesto, alejado de posiciones como las de Lituania o Letonia, que dirigen a Rusia y Ucrania más del 10% de todas sus exportaciones, o de países como Estonia, Finlandia o Bulgaria, con porcentajes de importaciones de Rusia y Ucrania que superan el 10%, al igual que Letonia y Lituania.
+
+De otro lado, en lo que respecta a los ingresos por turismo, el turismo ruso representa el 2,8% del gasto turístico internacional en España y Andalucía. Un turismo que, no obstante, es de elevado poder adquisitivo, como se constata si se tiene en cuenta que el número de turistas rusos en España representa el 1,6% del total, pero concentra el 2,8% del gasto.
+
 
 * Las fuentes del crecimiento económico en Andalucía: la restricción de la productividad total de los factores
 
