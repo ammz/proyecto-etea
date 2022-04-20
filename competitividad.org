@@ -294,7 +294,7 @@ En este sentido, la economía digital concentra la parte de los sectores económ
 :U::U:
 :N::N:
 :E::E:
-#+CAPTION: Nivel de innovación de Andalucía en comparación con otras CCAA (en relación a UE en 2011)
+#+CAPTION: Nivel de innovación de Andalucía en comparación con otras CCAA (en relación a la UE)
 [[./graficos/0101C2.pdf]]
 :END:
 
@@ -379,7 +379,7 @@ Incorporar las nuevas tecnologías digitales en las actividades productivas, en 
 ***** Texto                                                      :ignore:
 La transformación digital es conocida como el “proceso de adopción de tecnologías digitales y capacidades necesarias para la creación de un nuevo y robusto modelo de negocio digital”[fn:23]. Se trata, por tanto, de un proceso de evolución, cambios y tendencias (tecnológicas o no) con un impacto generalizado en todo el contexto que rodea al mundo empresarial.
 
-*Las características de las empresas en Andalucía (por su tamaño y distribución territorial) dificulta el grado de integración de las tecnologías digitales en el tejido empresarial.* Así, solo el 18% de las empresas andaluzas (de más de 10 personas empleadas) operan en el mercado digital, es decir, como mínimo disponen de servicio de realización de pedidos o reservas online en su página web, una proporción significativamente más baja a la del promedio de la UE (27%) y a países como Países Bajos (38%), Dinamarca (37%) o Irlanda (35%).
+*Las características de las empresas en Andalucía (por su tamaño y distribución territorial) dificulta el grado de integración de las tecnologías digitales en el tejido empresarial.* Así, solo el 19% de las empresas andaluzas (de más de 10 personas empleadas) operan en el mercado digital, es decir, como mínimo disponen de servicio de realización de pedidos o reservas online en su página web, una proporción significativamente más baja a la del promedio de la UE-27, donde esta proporción es del 28% y a otros países europeos como como Países Bajos (40%), Dinamarca (37%) o Grecia (35 %).
 
 :fig-0102A1:
 :F: Instituto Nacional de Estadística e Instituto de Estadística y Cartografía de Andalucía (Encuesta sobre el Uso de las Tecnologías de la Información y las Comunicaciones y del Comercio Electrónico en las Empresas) y Eurostat.:F:
@@ -390,7 +390,7 @@ La transformación digital es conocida como el “proceso de adopción de tecnol
 [[./graficos/0102A1.pdf]]
 :END:
 
-Asimismo, un destacable número de las empresas de ese tamaño, el 29%, ni siquiera tiene página web, una proporción que ha mostrado una evolución positiva en los últimos años, aunque aún muy alejada a la de países europeos como Dinamarca, donde este porcentaje es solo del 6%.
+Asimismo, una destacable proporción de empresas de menos de diez asalariados, el 30%, ni siquiera tiene página web, una proporción que ha mostrado muy poca variación en los últimos años, y que sigue alejada del promedio de los países europeos y del conjunto nacional (en la UE 27 es del 21% y en España del 22%), y bastante distinte de Finlandia o Países Bajos, donde este porcentaje es solo el 4% y 8% respectivamente.
 
 De acuerdo a estos indicadores y a otras dimensiones basadas en el Índice de la Sociedad y Economía Digital definido por la Comisión Europea (DESI, Digital Economy and Society Index), el grado de madurez digital de las empresas andaluzas es relativamente bajo, especialmente en el caso de las empresas más pequeñas (menos de 10 personas empleadas). Así se refleja en la dimensión de “integración de la tecnología digital” del DESI que mide el grado de digitalización de las empresas y su incorporación al comercio electrónico. Este índice muestra una posición ligeramente más atrasada de Andalucía respecto al conjunto de España, así como respecto a Europa.
 
@@ -696,7 +696,7 @@ Tanto el empleo autónomo como estas fórmulas de economía social pueden favore
 :U::U:
 :N::N:
 :E::E:
-#+CAPTION: Trayectoria de las personas trabajadoras autónomas en Andalucía, 2008-2020
+#+CAPTION: Trayectoria de las personas trabajadoras autónomas en Andalucía
 [[./graficos/0103A3.pdf]]
 :END:
 
@@ -773,40 +773,31 @@ Las cualidades de estas startups pueden aproximarse, a través de unos “indica
 Adicionalmente, el número medio de miembros en el equipo emprendedor para el caso de empresas nacientes o de nueva creación también resulta más bajo en Andalucía y en España (1,52 y 1,54, respectivamente) que en la mayoría de los países europeos (Luxemburgo con 2,64; Alemania con 2,14; Portugal con 1,86; Italia con 1,79; entre otros), de acuerdo con los resultados del
 Observatorio GEM.
 
-:fig-0103B3:
-:F: Informe GEM Andalucía, 2019-2020.:F:
-:U::U:
-:N::N:
-:E::E:
-#+CAPTION: Número medio de miembros en el equipo emprendedor en empresas nuevas y nacientes
-[[./graficos/0103B3.pdf]]
-:END:
-
 Por su parte, *el grado de innovación tecnológica utilizado por las iniciativas emprendedoras es bastante reducido en Andalucía*, ya que solo el 3,8% de los que emprenden consideran que utilizan tecnologías altamente novedosas, mientras este dato en España que se eleva al 5%. En sentido contrario, resulta desalentador que casi el 92% reconozcan utilizar tecnologías muy tradicionales, con bajo nivel de innovación.
 
-Por último, considerando la orientación exportadora que se presupone a las startups, los resultados para Andalucía muestran una posición bastante rezagada dentro del contexto europeo.
-
-Así, en *el porcentaje de emprendedores que exporta más del 25 % de sus ventas se sitúa en Andalucía en el 5,1 %*, (5,6% en España) alejado de la media de la UE (17,5 %), Alemania (14,3%%) y Reino Unido (8,9%).
-
-En definitiva, la proporción de startups en Andalucía resulta reducida y las iniciativas emprendedoras con rasgos potenciales para ser calificadas de startups muestran signos algo más débiles que los promedios nacional y europeo, a pesar del avance observado en la Comunidad Autónoma en los tres últimos años.
-
-:fig-0103B4:
+:fig-0103B3:
 :F: Informe GEM Andalucía, 2020-2021.:F:
 :U::U:
 :N: % sobre total.:N:
 :E::E:
 #+CAPTION: Nivel tecnológico utilizado en las iniciativas emprendedoras: comparativa Andalucía vs. España
-[[./graficos/0103B4.pdf]]
+[[./graficos/0103B3.pdf]]
 :END:
 
-:fig-0103B5:
+Por último, considerando la orientación exportadora que se presupone a las startups, los resultados para Andalucía muestran una posición bastante rezagada dentro del contexto europeo.
+
+Así, en *el porcentaje de emprendedores que exporta más del 25 % de sus ventas se sitúa en Andalucía en el 5,1 %*, (5,6% en España) alejado de la media de la UE (17,5 %), Alemania (14,3%%) y Reino Unido (8,9%).
+
+:fig-0103B4:
 :F: Informe GEM Andalucía, 2020-2021.:F:
 :U::U:
 :N::N:
 :E::E:
 #+CAPTION: Emprendedores que exportan más del 25% de sus ventas (% sobre el total de emprendedores)
-[[./graficos/0103B5.pdf]]
+[[./graficos/0103B4.pdf]]
 :END:
+
+En definitiva, la proporción de startups en Andalucía resulta reducida y las iniciativas emprendedoras con rasgos potenciales para ser calificadas de startups muestran signos algo más débiles que los promedios nacional y europeo, a pesar del avance observado en la Comunidad Autónoma en los tres últimos años.
 
 ***** Actuaciones
 :PROPERTIES:
@@ -1565,7 +1556,7 @@ La distribución de la oferta de grados en las universidades públicas andaluzas
 :U::U:
 :N: Curso 2018-2019.:N:
 :E::E:
-#+CAPTION: Distribución de la oferta de ciclo/grado por ramas de enseñanza en el Sistema Universitario de Andalucía.
+#+CAPTION: Distribución de la oferta de ciclo/grado por ramas de enseñanza en el Sistema Universitario de Andalucía
 [[./graficos/0106C2.pdf]]
 :END:
 
@@ -1582,7 +1573,7 @@ Cabe destacar que Ciencias Sociales y Jurídicas es la rama que más egresados p
 :U::U:
 :N: Curso 2018/19.:N:
 :E::E:
-#+CAPTION: Titulaciones más ofertadas en los grados del Sistema Universitario Público Andaluz.
+#+CAPTION: Titulaciones más ofertadas en los grados del Sistema Universitario Público Andaluz
 [[./graficos/0106C3.pdf]]
 :END:
 
