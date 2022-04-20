@@ -123,6 +123,7 @@ Esto puede ser de ayuda para ver rápidamente cuántas líneas tiene un párrafo
 ** Parámetros de espacio vertical y horizontal, viudas, parindent, etc.
 
 #+begin_SRC latex
+  \pdfvariable minorversion 7
   \setlength{\bigskipamount}{12pt plus 4pt minus 3pt}
   \parskip=0pt
   \setlength{\parindent}{2.2em}
@@ -692,72 +693,73 @@ Los títulos del gráfico van en la parte superior y las fuentes, notas,
 etc. se colocan en los laterales.
 
 #+begin_SRC latex
-  % \usepackage{showframe}
-  \usepackage{floatrow}
-  % Extiende las opciones de includegraphics (max width ...), permite
-  % que las imágemes mayores se ajusten al ancho y las otras se queden igual.
-  \usepackage[export]{adjustbox}
+    % \usepackage{showframe}
+    \usepackage{floatrow}
+    % Extiende las opciones de includegraphics (max width ...), permite
+    % que las imágemes mayores se ajusten al ancho y las otras se queden igual.
+    \usepackage[export]{adjustbox}
 
-  \DeclareFloatVCode{azulaoruleabove}%
-  {{\color{azulao}\par\rule\hsize{.8pt}\vskip4pt\par}}
+    \DeclareFloatVCode{azulaoruleabove}%
+    {{\color{azulao}\par\rule\hsize{.8pt}\vskip4pt\par}}
 
-  \DeclareFloatVCode{azulaorulemid}%
-  {{\color{azulao}\vskip-12pt\rule\hsize{.2pt}\vskip10pt}}
+    \DeclareFloatVCode{azulaorulemid}%
+    {{\color{azulao}\vskip-12pt\rule\hsize{.2pt}\vskip10pt}}
 
-  \DeclareFloatVCode{azulaorulebelow}%
-  {{\color{azulao}\par\vskip4pt\rule\hsize{.2pt}}}
+    \DeclareFloatVCode{azulaorulebelow}%
+    {{\color{azulao}\par\vskip4pt\rule\hsize{.2pt}}}
 
-  \DeclareFloatStyle{rayas}{%
-    capposition=top,
-    precode=azulaoruleabove,
-    midcode=azulaorulemid,
-    postcode=azulaorulebelow,
-    heightadjust=all}
+    \DeclareFloatStyle{rayas}{%
+      capposition=top,
+      precode=azulaoruleabove,
+      midcode=azulaorulemid,
+      postcode=azulaorulebelow,
+      heightadjust=all}
 
-  \floatsetup[figure]{style=rayas,
-    facing=yes,
-    margins=hangoutside,
-  }
+    \floatsetup[figure]{style=rayas,
+      facing=yes,
+      margins=hangoutside,
+    }
 
-  \usepackage{caption}
-  \captionsetup[figure]{%
-    singlelinecheck=off,
-    format=plain,
-    justification=raggedright,
-    labelfont={sf,scriptsize},
-    textfont={color={azulao},sf,bf,footnotesize},
-    labelsep=newline}
+    \usepackage{caption}
+    \captionsetup[figure]{%
+      singlelinecheck=off,
+      format=plain,
+      justification=raggedright,
+      labelfont={sf,scriptsize},
+      textfont={color={azulao},sf,bf,footnotesize},
+      labelsep=newline}
 
-  \usepackage[strict]{changepage}
+    \usepackage[strict]{changepage}
 
-  \newcommand{\mysidelegend}[3]{%
-    \checkoddpage%
-    \ifoddpage%
-    \begin{minipage}[t]{\textwidth}
-      \ffigbox[\textwidth]
-      {\caption{#1}}
-      {\includegraphics[max width=\textwidth]{#2}}
-    \end{minipage}
-    % \hfill
-    \hspace*{.2cm}
-    \begin{minipage}[b]{\marginparwidth}
-      \raggedright\fnota\scriptsize%
-      #3
-    \end{minipage}
-    \else%
-    \hspace*{-\marginparwidth-.4cm}%
-    \begin{minipage}[b]{\marginparwidth}
-      \raggedleft\fnota\scriptsize%
-      #3
-    \end{minipage}%
-    \hfill
-    \begin{minipage}[t]{\textwidth}
-      \ffigbox[\textwidth]
-      {\caption{#1}}
-      {\includegraphics[max width=\textwidth]{#2}}
-    \end{minipage}%
-    \fi%
-  }
+    \newcommand{\mysidelegend}[3]{%
+      \leavevmode%
+      \checkoddpage%
+      \ifoddpage%
+      \begin{minipage}[t]{\textwidth}
+        \ffigbox[\textwidth]
+        {\caption{#1}}
+        {\includegraphics[max width=\textwidth]{#2}}
+      \end{minipage}
+      % \hfill
+      \hspace*{.2cm}
+      \begin{minipage}[b]{\marginparwidth}
+        \raggedright\fnota\scriptsize%
+        #3
+      \end{minipage}
+      \else%
+      \hspace*{-\marginparwidth-.4cm}%
+      \begin{minipage}[b]{\marginparwidth}
+        \raggedleft\fnota\scriptsize%
+        #3
+      \end{minipage}%
+      \hfill
+      \begin{minipage}[t]{\textwidth}
+        \ffigbox[\textwidth]
+        {\caption{#1}}
+        {\includegraphics[max width=\textwidth]{#2}}
+      \end{minipage}%
+      \fi%
+    }
 #+end_SRC
 
 ** Para una figura dentro de una columna
